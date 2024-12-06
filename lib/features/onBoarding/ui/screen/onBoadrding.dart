@@ -1,12 +1,10 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
-import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
-import 'package:brain_pulse/features/auth/presentation/views/login_screen.dart';
-import 'package:brain_pulse/features/onBoarding/ui/widgets/logo_app.dart';
+import 'package:brain_pulse/features/auth/login/ui/screen/login.dart';
+import 'package:brain_pulse/features/onBoarding/ui/screen/widgets/logo_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class OnBoadrding extends StatelessWidget {
   const OnBoadrding({super.key});
@@ -101,7 +99,7 @@ class OnBoadrding extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return const LoginScreen();
+                          return const LogInScreen();
                         }));
                       },
                       text: 'Get Started',
