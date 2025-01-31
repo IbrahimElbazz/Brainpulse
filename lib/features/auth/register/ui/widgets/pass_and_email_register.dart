@@ -83,7 +83,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
               ),
               hintText: "Your number",
               hintStyle:
-                  TextStyleApp.styletext(15, Colors.grey, FontWeight.normal),
+                  TextStyleApp.styleText(15, Colors.grey, FontWeight.normal),
               fillColor: const Color(0xffFDFDFF),
             ),
           ),

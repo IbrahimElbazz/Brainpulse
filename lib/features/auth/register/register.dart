@@ -1,9 +1,11 @@
+import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/auth/register/ui/widgets/pass_and_email_register.dart';
 import 'package:brain_pulse/features/auth/register/ui/widgets/top_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -15,14 +17,14 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 40),
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 15.h),
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
             const TopPage(),
             const PassAndEmail(),
-            const SizedBox(
-              height: 20,
+            const GapH(
+              height: 15,
             ),
             MyButton(
               onPressed: () {
@@ -30,26 +32,26 @@ class RegisterPage extends StatelessWidget {
               },
               text: 'Create Account',
             ),
-            //    const registerBlocListener(),
-            const SizedBox(
-              height: 30,
+            //     registerBlocListener(),
+            const GapH(
+              height: 15,
             ),
-            const Row(
+            Row(
               children: [
-                Expanded(
+                const Expanded(
                   child: Divider(
                     color: Color(0xffe0e0e0),
                     thickness: 1,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  child: const Text(
                     'Or sign in with',
                     style: TextStyle(color: Colors.black54),
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: Divider(
                     color: Color(0xffe0e0e0),
                     thickness: 1,
@@ -57,83 +59,86 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 20,
+            const GapH(
+              height: 15,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CircleAvatar(
-                  backgroundColor: const Color(0xfff5f5f5),
-                  radius: 30,
-                  child: SvgPicture.asset("assets/svgs/googlelogo.svg"),
-                ),
-                CircleAvatar(
-                  backgroundColor: const Color(0xfff5f5f5),
-                  radius: 30,
-                  child: SvgPicture.asset("assets/svgs/facebook.svg"),
-                ),
-                CircleAvatar(
-                  backgroundColor: const Color(0xfff5f5f5),
-                  radius: 30,
-                  child: SvgPicture.asset("assets/svgs/apple.svg"),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     CircleAvatar(
+            //       backgroundColor:  Color(0xfff5f5f5),
+            //       radius: 30,
+            //       child: SvgPicture.asset("assets/svgs/googlelogo.svg"),
+            //     ),
+            //     CircleAvatar(
+            //       backgroundColor:  Color(0xfff5f5f5),
+            //       radius: 30,
+            //       child: SvgPicture.asset("assets/svgs/facebook.svg"),
+            //     ),
+            //     CircleAvatar(
+            //       backgroundColor:  Color(0xfff5f5f5),
+            //       radius: 30,
+            //       child: SvgPicture.asset("assets/svgs/apple.svg"),
+            //     ),
+            //   ],
+            // ),
+            //  SizedBox(
+            //   height: 30,
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "By logging. you agree to our ",
-                  style: TextStyle(color: Color(0xff9e9e9e), fontSize: 11),
+                Text(
+                  "By loggoing. you agree to our ",
+                  style: TextStyle(
+                      color: const Color(0xff9e9e9e), fontSize: 11.sp),
                 ),
                 GestureDetector(
                   onTap: () {},
-                  child: const Text(
+                  child: Text(
                     "Terms & Conditions",
                     style: TextStyle(
-                      color: Color(0xff242424),
-                      fontSize: 13,
+                      color: const Color(0xff242424),
+                      fontSize: 13.sp,
                     ),
                   ),
                 ),
-                const Text(
+                Text(
                   " and",
-                  style: TextStyle(color: Color(0xff9e9e9e), fontSize: 11),
+                  style: TextStyle(
+                      color: const Color(0xff9e9e9e), fontSize: 11.sp),
                 ),
               ],
             ),
             Center(
                 child: GestureDetector(
               onTap: () {},
-              child: const Text("PrivacyPolicy",
+              child: Text("PrivacyPolicy",
                   style: TextStyle(
-                    color: Color(0xff242424),
-                    fontSize: 14,
+                    color: const Color(0xff242424),
+                    fontSize: 14.sp,
                   )),
             )),
-            const SizedBox(
-              height: 40,
+            const GapH(
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   "Already have an Account. ",
-                  style: TextStyle(color: Color(0xff242424), fontSize: 13),
+                  style: TextStyle(
+                      color: const Color(0xff242424), fontSize: 13.sp),
                 ),
                 GestureDetector(
                   onTap: () {
                     context.pop();
                   },
-                  child: const Text(
+                  child: Text(
                     "SignIn",
                     style: TextStyle(
-                      color: Color(0xff247cFF),
-                      fontSize: 15,
+                      color: const Color(0xff247cFF),
+                      fontSize: 15.sp,
                     ),
                   ),
                 ),

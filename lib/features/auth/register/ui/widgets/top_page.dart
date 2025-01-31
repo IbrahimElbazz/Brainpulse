@@ -11,7 +11,7 @@ class TopPage extends StatelessWidget {
       children: [
         Text(
           "Create Account",
-          style: TextStyleApp.styletext(
+          style: TextStyleApp.styleText(
               30, const Color(0xff247CFF), FontWeight.bold),
         ),
         const SizedBox(
@@ -20,12 +20,12 @@ class TopPage extends StatelessWidget {
         Text(
           "Sign up now and start exploring all that our",
           style:
-              TextStyleApp.styletext(14, Colors.grey[700]!, FontWeight.normal),
+              TextStyleApp.styleText(14, Colors.grey[700]!, FontWeight.normal),
         ),
         Text(
           "app has to offer. We're excited to welcome\nyou to our community!",
           style:
-              TextStyleApp.styletext(14, Colors.grey[700]!, FontWeight.normal),
+              TextStyleApp.styleText(14, Colors.grey[700]!, FontWeight.normal),
         ),
         const SizedBox(
           height: 20,
