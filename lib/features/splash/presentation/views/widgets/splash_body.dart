@@ -20,7 +20,7 @@ class _SplashBodyState extends State<SplashBody> {
   splash() {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const OnBoadrding();
+        return const OnBoarding();
       }));
     });
   }

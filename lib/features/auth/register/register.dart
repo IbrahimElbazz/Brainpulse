@@ -87,7 +87,7 @@ class RegisterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "By loggoing. you agree to our ",
+                  "By logging. you agree to our ",
                   style: TextStyle(color: Color(0xff9e9e9e), fontSize: 11),
                 ),
                 GestureDetector(

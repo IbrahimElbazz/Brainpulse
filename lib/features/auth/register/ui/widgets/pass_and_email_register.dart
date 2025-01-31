@@ -1,26 +1,38 @@
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/mytextfield.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class PassAndEmail extends StatefulWidget {
   const PassAndEmail({super.key});
-
-  @override
+ @override
   State<PassAndEmail> createState() => _PassAndEmailState();
+
 }
 
 class _PassAndEmailState extends State<PassAndEmail> {
   bool isObscureText = true;
+  static TextEditingController name = TextEditingController();
+  static TextEditingController email = TextEditingController();
+  static TextEditingController password = TextEditingController();
+  static TextEditingController phone = TextEditingController();
+
+  @override
+  void dispose() {
+    name.dispose();
+    email.dispose();
+    password.dispose();
+    phone.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
           MyTextField(
-            //  controller: context.read<RegisterCubit>().nameController,
+              controller:name,
+              //context.read<RegisterCubit>().nameController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid name';
@@ -32,7 +44,8 @@ class _PassAndEmailState extends State<PassAndEmail> {
             height: 20,
           ),
           MyTextField(
-            // controller: context.read<RegisterCubit>().emailController,
+            controller:email,
+            //context.read<RegisterCubit>().emailController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid email';
@@ -47,7 +60,8 @@ class _PassAndEmailState extends State<PassAndEmail> {
           ),
           IntlPhoneField(
             initialCountryCode: 'EG',
-            //  controller: context.read<RegisterCubit>().phoneController,
+              controller:phone,
+              //context.read<RegisterCubit>().phoneController,
             validator: (value) {
               if (value == null) {
                 return 'Please enter a valid phone number';
@@ -77,7 +91,8 @@ class _PassAndEmailState extends State<PassAndEmail> {
             height: 20,
           ),
           MyTextField(
-            //   controller: context.read<RegisterCubit>().passwordController,
+               controller:password,
+               //context.read<RegisterCubit>().passwordController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid pass';

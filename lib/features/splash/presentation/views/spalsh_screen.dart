@@ -1,8 +1,9 @@
 import 'package:brain_pulse/features/splash/presentation/views/widgets/splash_body.dart';
 import 'package:flutter/material.dart';
 
-class SpalshScreen extends StatelessWidget {
-  const SpalshScreen({super.key});
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+  static const String routeName = 'SplashScreen';
 
   @override
   Widget build(BuildContext context) {
