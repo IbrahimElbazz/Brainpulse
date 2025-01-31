@@ -1,5 +1,6 @@
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
+import 'package:brain_pulse/core/routing/named_route.dart';
 import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_bottton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,8 +44,12 @@ class HomeBody extends StatelessWidget {
                   top: 90.h,
                 ),
                 child: CustomBottton(
+                  width: double.infinity,
+                  height: 80.h,
                   text: "By Hostpital",
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.pushNamed(context, Routes.getiamge);
+                  },
                 ),
               ),
               Padding(
@@ -54,6 +59,8 @@ class HomeBody extends StatelessWidget {
                 child: CustomBottton(
                   text: "By Helmat",
                   ontap: () {},
+                  width: double.infinity,
+                  height: 80.h,
                 ),
               )
             ],

@@ -1,3 +1,4 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/features/brain/presentation/screens/brain_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
 import 'package:brain_pulse/features/more/more.dart';
@@ -26,6 +27,7 @@ class _AppNavigationState extends State<AppNavigation> {
   Widget build(BuildContext context) {
     final List<BottomNavigationBarItem> items = [
       BottomNavigationBarItem(
+        backgroundColor: ColorsApp.white,
         icon: SvgPicture.asset('assets/svgs/home-2.svg'),
         label: 'home',
         activeIcon: SvgPicture.asset(
