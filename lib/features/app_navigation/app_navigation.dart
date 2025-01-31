@@ -60,14 +60,17 @@ class _AppNavigationState extends State<AppNavigation> {
           size: 28,
         ),
       ),
-      BottomNavigationBarItem(
-        icon: SvgPicture.asset(
-          'assets/svgs/home-2.svg',
+      const BottomNavigationBarItem(
+        icon: Icon(
+          color: Colors.black,
+          Icons.more_horiz,
+          size: 28,
         ),
         label: 'more',
-        activeIcon: SvgPicture.asset(
-          'assets/svgs/home-2.svg',
+        activeIcon: Icon(
           color: Colors.blue,
+          Icons.more_horiz,
+          size: 28,
         ),
       ),
     ];
