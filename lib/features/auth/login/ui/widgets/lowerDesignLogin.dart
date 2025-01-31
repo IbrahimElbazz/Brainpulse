@@ -15,36 +15,36 @@ class _lowerDesignLoginState extends State<lowerDesignLogin> {
     var screenSize = MediaQuery.of(context).size;
     return Column(
       children: [
-        const Row(
-          children: [
-            Expanded(
-              child: Divider(
-                color: Color(0xffe0e0e0),
-                thickness: 1,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                'Or sign in with',
-                style: TextStyle(color: Colors.black54),
-              ),
-            ),
-            Expanded(
-              child: Divider(
-                color: Color(0xffe0e0e0),
-                thickness: 1,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: screenSize.height * .04,
-        ),
-        const SignInWith(),
-        SizedBox(
-          height: screenSize.height * .04,
-        ),
+        // const Row(
+        //   children: [
+        //     Expanded(
+        //       child: Divider(
+        //         color: Color(0xffe0e0e0),
+        //         thickness: 1,
+        //       ),
+        //     ),
+        //     Padding(
+        //       padding: EdgeInsets.symmetric(horizontal: 8.0),
+        //       child: Text(
+        //         'Or sign in with',
+        //         style: TextStyle(color: Colors.black54),
+        //       ),
+        //     ),
+        //     Expanded(
+        //       child: Divider(
+        //         color: Color(0xffe0e0e0),
+        //         thickness: 1,
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        // SizedBox(
+        //   height: screenSize.height * .04,
+        // ),
+        // const SignInWith(),
+        // SizedBox(
+        //   height: screenSize.height * .04,
+        // ),
         const TermsAndConditions(),
         SizedBox(
           height: screenSize.height * .04,
