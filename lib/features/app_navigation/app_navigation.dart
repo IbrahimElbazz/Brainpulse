@@ -1,5 +1,5 @@
 import 'package:brain_pulse/features/brain/presentation/screens/brain_screen.dart';
-import 'package:brain_pulse/features/home/presentation/screens/home.dart';
+import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
 import 'package:brain_pulse/features/more/more.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +16,7 @@ class _AppNavigationState extends State<AppNavigation> {
   int _currentIndex = 0;
 
   final List<Widget> _children = [
-    const Home(),
+    const HomeScreen(),
     const BrainScreen(),
     const More(),
     const More(),

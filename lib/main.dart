@@ -1,5 +1,4 @@
 import 'package:brain_pulse/features/app_navigation/app_navigation.dart';
-import 'package:brain_pulse/features/splash/presentation/views/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
