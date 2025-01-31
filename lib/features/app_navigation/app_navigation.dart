@@ -1,5 +1,6 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/features/brain/presentation/screens/brain_screen.dart';
+import 'package:brain_pulse/features/history/presentation/screens/history.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
 import 'package:brain_pulse/features/more/more.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _AppNavigationState extends State<AppNavigation> {
   final List<Widget> _children = [
     const HomeScreen(),
     const BrainScreen(),
-    const More(),
+    const History(),
     const More(),
   ];
 
@@ -49,20 +50,29 @@ class _AppNavigationState extends State<AppNavigation> {
           width: 50.w,
         ),
       ),
-      BottomNavigationBarItem(
-        icon: SvgPicture.asset('assets/svgs/home-2.svg'),
-        label: 'Brain',
-        activeIcon: SvgPicture.asset(
-          'assets/svgs/home-2.svg',
-          color: Colors.blue,
+      const BottomNavigationBarItem(
+        icon: Icon(
+          color: Colors.black,
+          Icons.history_sharp,
+          size: 28,
+        ),
+        label: 'history',
+        activeIcon: Icon(
+          Icons.history_sharp,
+          size: 28,
         ),
       ),
-      BottomNavigationBarItem(
-        icon: SvgPicture.asset('assets/svgs/home-2.svg'),
+      const BottomNavigationBarItem(
+        icon: Icon(
+          color: Colors.black,
+          Icons.more_horiz,
+          size: 28,
+        ),
         label: 'more',
-        activeIcon: SvgPicture.asset(
-          'assets/svgs/home-2.svg',
+        activeIcon: Icon(
           color: Colors.blue,
+          Icons.more_horiz,
+          size: 28,
         ),
       ),
     ];

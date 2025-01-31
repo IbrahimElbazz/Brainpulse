@@ -17,7 +17,7 @@ class LogoApp extends StatelessWidget {
         SizedBox(
           width: 8.w,
         ),
-        Text("Brain Pulse", style: TextStyleApp.logotext)
+        Text("Brain Pulse", style: TextStyleApp.logoText)
       ],
     );
   }

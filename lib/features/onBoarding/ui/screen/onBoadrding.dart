@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OnBoadrding extends StatelessWidget {
-  const OnBoadrding({super.key});
+class OnBoarding extends StatelessWidget {
+  const OnBoarding({super.key});
+  static const String routeName = 'OnBoarding';
 
   @override
   Widget build(BuildContext context) {

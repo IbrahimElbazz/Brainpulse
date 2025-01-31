@@ -95,11 +95,12 @@ class BrainScreen extends StatelessWidget {
                 children: [
                   const GapH(height: 10),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
+                      const GapW(width: 50),
                       PointInBrainInfo(
                         colorIcon: Colors.blue.withOpacity(0.9),
                       ),
+                      const GapW(width: 50),
                       Text(
                         'active',
                         style: TextStyle(
@@ -111,11 +112,12 @@ class BrainScreen extends StatelessWidget {
                   ),
                   const GapH(height: 10),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
+                      const GapW(width: 50),
                       PointInBrainInfo(
                         colorIcon: Colors.red.withOpacity(0.9),
                       ),
+                      const GapW(width: 50),
                       Text(
                         'disactive',
                         style: TextStyle(
