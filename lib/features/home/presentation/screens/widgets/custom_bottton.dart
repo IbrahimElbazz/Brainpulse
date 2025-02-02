@@ -19,7 +19,6 @@ class CustomBottton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: ontap,
-      splashColor: ColorsApp.grey,
       child: Container(
         width: width,
         height: height,
