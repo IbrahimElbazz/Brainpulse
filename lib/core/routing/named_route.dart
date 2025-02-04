@@ -4,4 +4,5 @@ class Routes {
   static const String appnavigation = '/appnavigation';
   static const String homeScreen = '/homeScreen';
   static const String getiamge = '/getimage';
+  static const String eegdata = '/eegdata';
 }

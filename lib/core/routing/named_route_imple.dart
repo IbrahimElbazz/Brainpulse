@@ -1,5 +1,6 @@
 import 'package:brain_pulse/core/routing/named_route.dart';
 import 'package:brain_pulse/features/app_navigation/app_navigation.dart';
+import 'package:brain_pulse/features/home/presentation/screens/eeg_data_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/get_image_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.getiamge:
         return MaterialPageRoute(builder: (_) => const GetImageScreen());
+      case Routes.eegdata:
+        return MaterialPageRoute(builder: (_) => const EegDataScreen());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
