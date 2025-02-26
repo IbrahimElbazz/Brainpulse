@@ -5,6 +5,7 @@ import 'package:brain_pulse/core/routing/app_router..dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'core/Theming/theme.dart';
 
 void main() {
   setupGetIt();
@@ -18,14 +19,17 @@ class BrainPulse extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const ScreenUtilInit(
+
+    return  ScreenUtilInit(
       designSize: Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
           title: 'Brain Pulse',
           debugShowCheckedModeBanner: false,
           initialRoute: Routes.splashScreen,
-          onGenerateRoute: AppRouter.generateRoute
+          onGenerateRoute: AppRouter.generateRoute,
+          theme: MyThemeData.lightTheme,
+          darkTheme: MyThemeData.darkTheme,
           // home: AppNavigation(),
           ),
     );

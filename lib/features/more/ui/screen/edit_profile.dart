@@ -36,6 +36,16 @@ class EditMyProfile extends StatelessWidget {
                 imagePath: imagePath,
               ),
               EditMyProfileWidget(),
+              gapH(20.h),
+               TextField(
+                 // controller:PassAndEmail.password,
+                 decoration: InputDecoration(
+                  hintText: 'password',
+                   border: UnderlineInputBorder(
+                     borderSide: BorderSide(color: ColorsApp.grey500, width: 2.0),
+                   ),
+                 ),
+               ),
               gapH(190.h),
               MyButton(text: 'Save Changes', onPressed: () {})
             ],

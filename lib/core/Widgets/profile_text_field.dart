@@ -37,17 +37,17 @@ class ProfileTextField extends StatelessWidget {
             ),
           ),
         ),
-        gapH(20.h),
-        TextField(
-          readOnly: readOnly,
-          // controller:PassAndEmail.password,
-          decoration: InputDecoration(
-            hintText: 'password',
-            border: UnderlineInputBorder(
-              borderSide: BorderSide(color: ColorsApp.grey500, width: 2.0),
-            ),
-          ),
-        ),
+        //gapH(20.h),
+        // TextField(
+        //   readOnly: readOnly,
+        //   // controller:PassAndEmail.password,
+        //   decoration: InputDecoration(
+        //     hintText: 'password',
+        //     border: UnderlineInputBorder(
+        //       borderSide: BorderSide(color: ColorsApp.grey500, width: 2.0),
+        //     ),
+        //   ),
+        // ),
         gapH(20.h),
         TextField(
           readOnly: readOnly,

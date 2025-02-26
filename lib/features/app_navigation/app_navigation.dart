@@ -30,13 +30,14 @@ class _AppNavigationState extends State<AppNavigation> {
       BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
         icon: SvgPicture.asset('assets/svgs/home-2.svg'),
-        label: 'home',
+        label: 'Home',
         activeIcon: SvgPicture.asset(
           'assets/svgs/home-2.svg',
           color: Colors.blue,
         ),
       ),
       BottomNavigationBarItem(
+        backgroundColor: ColorsApp.white,
         icon: SvgPicture.asset(
           'assets/svgs/brain.svg',
           fit: BoxFit.scaleDown,
@@ -50,26 +51,28 @@ class _AppNavigationState extends State<AppNavigation> {
           width: 50.w,
         ),
       ),
-      const BottomNavigationBarItem(
-        icon: Icon(
+      BottomNavigationBarItem(
+        backgroundColor: ColorsApp.white,
+        icon: const Icon(
           color: Colors.black,
           Icons.history_sharp,
           size: 28,
         ),
-        label: 'history',
-        activeIcon: Icon(
+        label: 'History',
+        activeIcon: const Icon(
           Icons.history_sharp,
           size: 28,
         ),
       ),
-      const BottomNavigationBarItem(
-        icon: Icon(
+       BottomNavigationBarItem(
+        backgroundColor: ColorsApp.white,
+        icon: const Icon(
           color: Colors.black,
           Icons.more_horiz,
           size: 28,
         ),
-        label: 'more',
-        activeIcon: Icon(
+        label: 'More',
+        activeIcon: const Icon(
           color: Colors.blue,
           Icons.more_horiz,
           size: 28,
@@ -79,16 +82,45 @@ class _AppNavigationState extends State<AppNavigation> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: items,
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.blue,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
-    );
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left:10,right: 10,bottom: 10 ),
+        child: Container(
+        decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20.r),
+          topRight: Radius.circular(20.r),
+          bottomLeft: Radius.circular(20.r),
+          bottomRight: Radius.circular(20.r),
+        ),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 10,
+            spreadRadius: 1,
+          ),
+        ],
+            ),
+            child: ClipRRect(
+            borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.r),
+            topRight: Radius.circular(20.r),
+            bottomLeft: Radius.circular(20.r),
+            bottomRight: Radius.circular(20.r),
+            ),
+            child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: ColorsApp.white,
+            items: items,
+                currentIndex: _currentIndex,
+                selectedItemColor: Colors.blue,
+                onTap: (index) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+              ),
+            ),),
+      ));
   }
 }
