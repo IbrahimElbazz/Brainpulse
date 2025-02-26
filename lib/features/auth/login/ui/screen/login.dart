@@ -32,7 +32,7 @@ class LogInScreen extends StatelessWidget {
                   'Welcome Back',
                   style: TextStyleApp.font32wieght700ColorBlue,
                 ),
-                verticalSpace(20),
+                gapH(20),
                 Text(
                   '''We"re excited to have you back, can't wait to\nsee what you've been up to since you last\nlogged in.''',
                   style: TextStyleApp.font14weight400colorGrey,

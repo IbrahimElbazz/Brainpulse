@@ -1,8 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
-import 'package:brain_pulse/core/routing/named_route.dart';
-import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_bottton.dart';
+import 'package:brain_pulse/core/routing/routers.dart';
+import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -54,12 +54,12 @@ class HomeBody extends StatelessWidget {
                 padding: EdgeInsets.only(
                   top: 90.h,
                 ),
-                child: CustomBottton(
+                child: CustomButton(
                   width: double.infinity,
                   height: 80.h,
                   text: "By Hostpital",
-                  ontap: () {
-                    Navigator.pushNamed(context, Routes.getiamge);
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.getImage);
                   },
                 ),
               ),
@@ -67,9 +67,9 @@ class HomeBody extends StatelessWidget {
                 padding: EdgeInsets.only(
                   top: 30.h,
                 ),
-                child: CustomBottton(
+                child: CustomButton(
                   text: "By Helmat",
-                  ontap: () {},
+                  onTap: () {},
                   width: double.infinity,
                   height: 80.h,
                 ),

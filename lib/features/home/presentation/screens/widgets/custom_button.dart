@@ -3,14 +3,14 @@ import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomBottton extends StatelessWidget {
-  const CustomBottton(
+class CustomButton extends StatelessWidget {
+  const CustomButton(
       {super.key,
-      this.ontap,
+      this.onTap,
       required this.text,
       required this.width,
       required this.height});
-  final void Function()? ontap;
+  final void Function()? onTap;
   final String text;
   final double width;
   final double height;
@@ -18,7 +18,7 @@ class CustomBottton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ontap,
+      onTap: onTap,
       child: Container(
         width: width,
         height: height,

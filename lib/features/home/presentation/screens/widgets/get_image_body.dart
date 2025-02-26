@@ -26,14 +26,14 @@ class _GetImageBodyState extends State<GetImageBody> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CustomBottton(
-                  ontap: uploadcamera,
+                CustomButton(
+                  onTap: uploadcamera,
                   text: "Camera",
                   width: 140.w,
                   height: 50.h,
                 ),
-                CustomBottton(
-                  ontap: uploadgallery,
+                CustomButton(
+                  onTap: uploadgallery,
                   text: "Gallery",
                   width: 140.w,
                   height: 50.h,
@@ -61,7 +61,7 @@ class _GetImageBodyState extends State<GetImageBody> {
               )),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 40.w),
-            child: CustomBottton(
+            child: CustomButton(
                 text: "Send Report", width: double.infinity, height: 60.h),
           )
         ],
