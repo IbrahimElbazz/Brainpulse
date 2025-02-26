@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:brain_pulse/core/Theming/colors.dart';
-import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_bottton.dart';
+import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
