@@ -42,7 +42,7 @@ class RegisterPage extends StatelessWidget {
                 ),
                 MyTextField(
                   validator: (p0) {},
-                  showtext: false,
+                  showText: false,
                   hint: 'Email',
                   icon: const Icon(Icons.email_outlined),
                 ),
@@ -52,7 +52,7 @@ class RegisterPage extends StatelessWidget {
                 MyTextField(
                     validator: (p0) {},
                     icon: const Icon(Icons.visibility),
-                    showtext: true,
+                    showText: true,
                     hint: "Password"),
                 SizedBox(
                   height: screenSize.height * .02,

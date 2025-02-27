@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
+import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class HomeBody extends StatelessWidget {
                 child: CustomButton(
                   width: double.infinity,
                   height: 80.h,
-                  text: "By Hostpital",
+                  text: "By Hospital",
                   onTap: () {
                     Navigator.pushNamed(context, Routes.getImage);
                   },
@@ -68,8 +69,10 @@ class HomeBody extends StatelessWidget {
                   top: 30.h,
                 ),
                 child: CustomButton(
-                  text: "By Helmat",
-                  onTap: () {},
+                  text: "By doctor",
+                  onTap: () {
+                    context.pushNamed('/DataByDoctorScreen');
+                  },
                   width: double.infinity,
                   height: 80.h,
                 ),

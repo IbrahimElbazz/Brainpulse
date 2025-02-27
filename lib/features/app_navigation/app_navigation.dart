@@ -64,7 +64,7 @@ class _AppNavigationState extends State<AppNavigation> {
           size: 28,
         ),
       ),
-       BottomNavigationBarItem(
+      BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
         icon: const Icon(
           color: Colors.black,
@@ -80,38 +80,38 @@ class _AppNavigationState extends State<AppNavigation> {
       ),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: _children[_currentIndex],
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left:10,right: 10,bottom: 10 ),
-        child: Container(
-        decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20.r),
-          topRight: Radius.circular(20.r),
-          bottomLeft: Radius.circular(20.r),
-          bottomRight: Radius.circular(20.r),
-        ),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 10,
-            spreadRadius: 1,
-          ),
-        ],
+        backgroundColor: Colors.white,
+        body: _children[_currentIndex],
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.r),
+                topRight: Radius.circular(20.r),
+                bottomLeft: Radius.circular(20.r),
+                bottomRight: Radius.circular(20.r),
+              ),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 10,
+                  spreadRadius: 1,
+                ),
+              ],
             ),
             child: ClipRRect(
-            borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.r),
-            topRight: Radius.circular(20.r),
-            bottomLeft: Radius.circular(20.r),
-            bottomRight: Radius.circular(20.r),
-            ),
-            child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: ColorsApp.white,
-            items: items,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.r),
+                topRight: Radius.circular(20.r),
+                bottomLeft: Radius.circular(20.r),
+                bottomRight: Radius.circular(20.r),
+              ),
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                backgroundColor: ColorsApp.white,
+                items: items,
                 currentIndex: _currentIndex,
                 selectedItemColor: Colors.blue,
                 onTap: (index) {
@@ -120,7 +120,8 @@ class _AppNavigationState extends State<AppNavigation> {
                   });
                 },
               ),
-            ),),
-      ));
+            ),
+          ),
+        ));
   }
 }
