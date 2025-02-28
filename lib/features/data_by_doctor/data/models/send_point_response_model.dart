@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'sent_point_response_model.g.dart';
+part 'send_point_response_model.g.dart';
 
 @JsonSerializable()
 class SendPointResponseModel {
@@ -8,9 +8,7 @@ class SendPointResponseModel {
 
   SendPointResponseModel({this.predicition});
   factory SendPointResponseModel.fromJson(Map<String, dynamic> json) =>
-      _$SentPointResponseModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$SentPointResponseModelToJson(this);
+      _$SendPointResponseModelFromJson(json);
 }
 
 @JsonSerializable()
