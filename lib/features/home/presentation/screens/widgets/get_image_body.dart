@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
-import 'package:brain_pulse/core/routing/named_route.dart';
-import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_bottton.dart';
+import 'package:brain_pulse/core/routing/routers.dart';
+
 import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,21 +64,21 @@ class _GetImageBodyState extends State<GetImageBody> {
               )),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 40.w),
-            child: CustomBottton(
-              text: "Show Result",
-              width: double.infinity,
-              height: 60.h,
-              ontap: () {
-                if (_image != null) {
-                  Navigator.pushNamed(context, Routes.eegdata);
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text("Please select an image first")),
-                  );
-                }
-              },
-            ),
+            // child: CustomButton(
+            //   text: "Show Result",
+            //   width: double.infinity,
+            //   height: 60.h,
+            //   // ontap: () {
+            //   //   if (_image != null) {
+            //   //     Navigator.pushNamed(context, Routes.eegdata);
+            //   //   } else {
+            //   //     ScaffoldMessenger.of(context).showSnackBar(
+            //   //       const SnackBar(
+            //   //           content: Text("Please select an image first")),
+            //   //     );
+            //   //   }
+            //   // },
+            // ),
             child: CustomButton(
                 text: "Send Report", width: double.infinity, height: 60.h),
           )

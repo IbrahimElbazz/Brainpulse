@@ -75,12 +75,9 @@ class HomeBody extends StatelessWidget {
                 ),
                 child: CustomButton(
                   text: "By Helmat",
-                  onTap: () {
-                    Navigator.pushNamed(context, Routes.eegdata);
-                  text: "By doctor",
-                  onTap: () {
-                    context.pushNamed('/DataByDoctorScreen');
-                  },
+                  // onTap: () {
+                  //   context.pushNamed('/DataByDoctorScreen');
+                  // },
                   width: double.infinity,
                   height: 80.h,
                 ),
