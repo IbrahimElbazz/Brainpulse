@@ -74,10 +74,12 @@ class HomeBody extends StatelessWidget {
                   top: 30.h,
                 ),
                 child: CustomButton(
-                  text: "By Helmat",
-                  // onTap: () {
-                  //   context.pushNamed('/DataByDoctorScreen');
-                  // },
+                  text: "By doctor",
+                  onTap: () {
+                    context.pushNamed(
+                      '/DataByDoctorScreen',
+                    );
+                  },
                   width: double.infinity,
                   height: 80.h,
                 ),

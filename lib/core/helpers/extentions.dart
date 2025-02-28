@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 extension Navigation on BuildContext {
-  Future<dynamic> pushNamed(String routeName, String eegdata,
-      {Object? arguments}) {
+  Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arguments);
   }
 
