@@ -34,6 +34,12 @@ class TextStyleApp {
     fontFamily: 'Inter',
     fontWeight: FontWeight.w400,
   );
+  static TextStyle font16weight600colorGrey = TextStyle(
+    color: ColorsApp.grey,
+    fontSize: 16.sp,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+  );
   static TextStyle font12weight400colorGrey = TextStyle(
     color: ColorsApp.grey,
     fontSize: 12.sp,
@@ -56,5 +62,11 @@ class TextStyleApp {
     color: ColorsApp.black,
     fontSize: 18.sp,
     fontWeight: FontWeight.bold,
+  );
+  static TextStyle font16weight600colorBlack = TextStyle(
+    color: ColorsApp.black,
+    fontSize: 16.sp,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
   );
 }

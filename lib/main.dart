@@ -19,19 +19,18 @@ class BrainPulse extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-    return  ScreenUtilInit(
-      designSize: Size(375, 812),
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
-          title: 'Brain Pulse',
-          debugShowCheckedModeBanner: false,
-          initialRoute: Routes.splashScreen,
-          onGenerateRoute: AppRouter.generateRoute,
-          theme: MyThemeData.lightTheme,
-          darkTheme: MyThemeData.darkTheme,
-          // home: AppNavigation(),
-          ),
+        title: 'Brain Pulse',
+        debugShowCheckedModeBanner: false,
+        initialRoute: Routes.appNavigation,
+        onGenerateRoute: AppRouter.generateRoute,
+        theme: MyThemeData.lightTheme,
+        darkTheme: MyThemeData.darkTheme,
+        // home: AppNavigation(),
+      ),
     );
   }
 }

@@ -48,7 +48,7 @@ class _EmailAndPassState extends State<EmailAndPass> {
               }
             },
             //    controller: context.read<LoginCubit>().passwordController,
-            showtext: isObscureText ? true : false,
+            showText: isObscureText ? true : false,
             hint: "Password",
             icon: GestureDetector(
               onTap: () {

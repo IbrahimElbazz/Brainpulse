@@ -5,9 +5,8 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 
 class PassAndEmail extends StatefulWidget {
   const PassAndEmail({super.key});
- @override
+  @override
   State<PassAndEmail> createState() => _PassAndEmailState();
-
 }
 
 class _PassAndEmailState extends State<PassAndEmail> {
@@ -25,14 +24,15 @@ class _PassAndEmailState extends State<PassAndEmail> {
     phone.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
           MyTextField(
-              controller:name,
-              //context.read<RegisterCubit>().nameController,
+            controller: name,
+            //context.read<RegisterCubit>().nameController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid name';
@@ -44,7 +44,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
             height: 20,
           ),
           MyTextField(
-            controller:email,
+            controller: email,
             //context.read<RegisterCubit>().emailController,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -52,7 +52,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
               }
             },
             icon: const Icon(Icons.email_outlined),
-            showtext: false,
+            showText: false,
             hint: 'Email',
           ),
           const SizedBox(
@@ -60,8 +60,8 @@ class _PassAndEmailState extends State<PassAndEmail> {
           ),
           IntlPhoneField(
             initialCountryCode: 'EG',
-              controller:phone,
-              //context.read<RegisterCubit>().phoneController,
+            controller: phone,
+            //context.read<RegisterCubit>().phoneController,
             validator: (value) {
               if (value == null) {
                 return 'Please enter a valid phone number';
@@ -91,14 +91,14 @@ class _PassAndEmailState extends State<PassAndEmail> {
             height: 20,
           ),
           MyTextField(
-               controller:password,
-               //context.read<RegisterCubit>().passwordController,
+            controller: password,
+            //context.read<RegisterCubit>().passwordController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid pass';
               }
             },
-            showtext: isObscureText ? true : false,
+            showText: isObscureText ? true : false,
             hint: "Password",
             icon: GestureDetector(
               onTap: () {
@@ -124,7 +124,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
                 return 'Please enter a valid pass';
               }
             },
-            showtext: isObscureText ? true : false,
+            showText: isObscureText ? true : false,
             hint: "Password Confirm",
             icon: GestureDetector(
               onTap: () {
