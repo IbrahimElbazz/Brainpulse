@@ -7,6 +7,5 @@ class SendPointRequestModel {
   List<int> arr;
 
   SendPointRequestModel({required this.arr});
-
   Map<String, dynamic> toJson() => _$SendPointRequestModelToJson(this);
 }
