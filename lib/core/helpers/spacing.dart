@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-SizedBox verticalSpace(double height) {
+SizedBox gapH(double height) {
   return SizedBox(
     height: height.h,
   );
 }
 
-SizedBox horizontalSpace(double width) {
+SizedBox gapW(double width) {
   return SizedBox(
     width: width.h,
   );
 }
 
-SizedBox spaceXY(double x, double y) {
+SizedBox gapWH(double x, double y) {
   return SizedBox(
     height: y.h,
     width: x.w,

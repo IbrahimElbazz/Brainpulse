@@ -12,30 +12,46 @@ class EditMyProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String? imagePath = ModalRoute.of(context)?.settings.arguments as String?;
+    final String? imagePath =
+        ModalRoute.of(context)?.settings.arguments as String?;
 
-    return
-    Scaffold(
-        appBar: AppBar(title: Text('Edit Profile'),
+    return Scaffold(
+      appBar: AppBar(
+          title: Text('Edit Profile'),
           backgroundColor: ColorsApp.white,
-          leading: IconButton(color: ColorsApp.grey,
-          onPressed: () { Navigator.pop(context); },
-      icon:const Icon (Icons.arrow_back),)),
-        backgroundColor: ColorsApp.white,
-        body:
-        Padding(
-          padding: const EdgeInsets.only(top: 100 ,right: 15 , left: 15 ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                ProfilePhotoWidget(imagePath: imagePath,),
-                EditMyProfileWidget(),
-                verticalSpace(190.h),
-                MyButton(text: 'Save Changes', onPressed: (){})
-              ],
-            ),
+          leading: IconButton(
+            color: ColorsApp.grey,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+          )),
+      backgroundColor: ColorsApp.white,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 100, right: 15, left: 15),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ProfilePhotoWidget(
+                imagePath: imagePath,
+              ),
+              EditMyProfileWidget(),
+              gapH(20.h),
+               TextField(
+                 // controller:PassAndEmail.password,
+                 decoration: InputDecoration(
+                  hintText: 'password',
+                   border: UnderlineInputBorder(
+                     borderSide: BorderSide(color: ColorsApp.grey500, width: 2.0),
+                   ),
+                 ),
+               ),
+              gapH(190.h),
+              MyButton(text: 'Save Changes', onPressed: () {})
+            ],
           ),
         ),
+      ),
     );
   }
 }

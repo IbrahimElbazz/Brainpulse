@@ -52,4 +52,9 @@ class TextStyleApp {
     fontFamily: 'Inter',
     fontWeight: FontWeight.w400,
   );
+  static TextStyle font18boldBlack = TextStyle(
+    color: ColorsApp.black,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.bold,
+  );
 }

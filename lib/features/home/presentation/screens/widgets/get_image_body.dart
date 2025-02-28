@@ -4,6 +4,7 @@ import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/routing/named_route.dart';
 import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_bottton.dart';
+import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
@@ -28,14 +29,14 @@ class _GetImageBodyState extends State<GetImageBody> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CustomBottton(
-                  ontap: uploadcamera,
+                CustomButton(
+                  onTap: uploadcamera,
                   text: "Camera",
                   width: 140.w,
                   height: 50.h,
                 ),
-                CustomBottton(
-                  ontap: uploadgallery,
+                CustomButton(
+                  onTap: uploadgallery,
                   text: "Gallery",
                   width: 140.w,
                   height: 50.h,
@@ -78,6 +79,8 @@ class _GetImageBodyState extends State<GetImageBody> {
                 }
               },
             ),
+            child: CustomButton(
+                text: "Send Report", width: double.infinity, height: 60.h),
           )
         ],
       ),
