@@ -9,42 +9,29 @@ part of 'send_point_response_model.dart';
 SendPointResponseModel _$SendPointResponseModelFromJson(
         Map<String, dynamic> json) =>
     SendPointResponseModel(
-      predicition: json['predicition'] == null
+      prediction: json['prediction'] == null
           ? null
-          : Predicition.fromJson(json['predicition'] as Map<String, dynamic>),
+          : predictionData.fromJson(json['prediction'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SendPointResponseModelToJson(
         SendPointResponseModel instance) =>
     <String, dynamic>{
-      'predicition': instance.predicition,
+      'prediction': instance.prediction,
     };
 
-Predicition _$PredicitionFromJson(Map<String, dynamic> json) => Predicition(
-      predictedClass: json['predictedClass'] as String?,
-      probabilities: json['probabilities'] == null
-          ? null
-          : Probabilities.fromJson(
-              json['probabilities'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$PredicitionToJson(Predicition instance) =>
-    <String, dynamic>{
-      'predictedClass': instance.predictedClass,
-      'probabilities': instance.probabilities,
-    };
-
-Probabilities _$ProbabilitiesFromJson(Map<String, dynamic> json) =>
-    Probabilities(
+predictionData _$predictionDataFromJson(Map<String, dynamic> json) =>
+    predictionData(
       gpd: json['gpd'] as String?,
       grda: json['grda'] as String?,
       lpd: json['lpd'] as String?,
       lrda: json['lrda'] as String?,
       other: json['other'] as String?,
       seizure: json['seizure'] as String?,
+      predictedClass: json['predictedClass'] as String?,
     );
 
-Map<String, dynamic> _$ProbabilitiesToJson(Probabilities instance) =>
+Map<String, dynamic> _$predictionDataToJson(predictionData instance) =>
     <String, dynamic>{
       'gpd': instance.gpd,
       'grda': instance.grda,
@@ -52,4 +39,5 @@ Map<String, dynamic> _$ProbabilitiesToJson(Probabilities instance) =>
       'lrda': instance.lrda,
       'other': instance.other,
       'seizure': instance.seizure,
+      'predictedClass': instance.predictedClass,
     };

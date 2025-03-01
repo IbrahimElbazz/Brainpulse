@@ -9,9 +9,7 @@ part of 'send_point_request_model.dart';
 SendPointRequestModel _$SendPointRequestModelFromJson(
         Map<String, dynamic> json) =>
     SendPointRequestModel(
-      arr: (json['arr'] as List<dynamic>)
-          .map((e) => (e as num).toInt())
-          .toList(),
+      arr: json['arr'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$SendPointRequestModelToJson(

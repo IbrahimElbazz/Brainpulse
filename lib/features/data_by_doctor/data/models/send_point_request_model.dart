@@ -4,8 +4,8 @@ part 'send_point_request_model.g.dart';
 
 @JsonSerializable()
 class SendPointRequestModel {
-  List<int> arr;
+  List? arr;
 
-  SendPointRequestModel({required this.arr});
+  SendPointRequestModel({this.arr});
   Map<String, dynamic> toJson() => _$SendPointRequestModelToJson(this);
 }
