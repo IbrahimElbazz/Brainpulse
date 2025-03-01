@@ -42,11 +42,48 @@ class DataByDoctorScreen extends StatelessWidget {
                 },
               );
             },
+            failureSendDataByDoctor: (message) {
+              context.pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  backgroundColor: Colors.blue,
+                  content: Center(
+                    child: Text(
+                      'please try again',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
             successSendDataByDoctor: (data) {
               context.pop();
               List<dynamic> dataM = jsonDecode(data);
               Map<String, dynamic> prediction = dataM[0]['prediction'];
               log(prediction.toString());
+              context.read<SendDataByDoctorCubit>().p1.clear();
+              context.read<SendDataByDoctorCubit>().p2.clear();
+              context.read<SendDataByDoctorCubit>().p3.clear();
+              context.read<SendDataByDoctorCubit>().p4.clear();
+              context.read<SendDataByDoctorCubit>().p5.clear();
+              context.read<SendDataByDoctorCubit>().p6.clear();
+              context.read<SendDataByDoctorCubit>().p7.clear();
+              context.read<SendDataByDoctorCubit>().p8.clear();
+              context.read<SendDataByDoctorCubit>().p9.clear();
+              context.read<SendDataByDoctorCubit>().p10.clear();
+              context.read<SendDataByDoctorCubit>().p11.clear();
+              context.read<SendDataByDoctorCubit>().p12.clear();
+              context.read<SendDataByDoctorCubit>().p13.clear();
+              context.read<SendDataByDoctorCubit>().p14.clear();
+              context.read<SendDataByDoctorCubit>().p15.clear();
+              context.read<SendDataByDoctorCubit>().p16.clear();
+              context.read<SendDataByDoctorCubit>().p17.clear();
+              context.read<SendDataByDoctorCubit>().p18.clear();
+              context.read<SendDataByDoctorCubit>().p19.clear();
+              context.read<SendDataByDoctorCubit>().p20.clear();
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
                   return DisplayData(prediction: prediction);

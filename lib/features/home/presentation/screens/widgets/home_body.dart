@@ -82,10 +82,7 @@ class HomeBody extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return BlocProvider(
-                          create: (context) => getIt<SendDataByDoctorCubit>(),
-                          child: const DataByDoctorScreen(),
-                        );
+                        return const DataByDoctorScreen();
                       },
                     ));
                   },
