@@ -1,6 +1,6 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
-import 'package:brain_pulse/features/auth/login/ui/screen/login.dart';
+import 'package:brain_pulse/features/auth/login/presentation/views/login.dart';
 import 'package:brain_pulse/features/onBoarding/ui/screen/widgets/logo_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
