@@ -64,23 +64,23 @@ class _GetImageBodyState extends State<GetImageBody> {
               )),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 40.w),
-            // child: CustomButton(
-            //   text: "Show Result",
-            //   width: double.infinity,
-            //   height: 60.h,
-            //   // ontap: () {
-            //   //   if (_image != null) {
-            //   //     Navigator.pushNamed(context, Routes.eegdata);
-            //   //   } else {
-            //   //     ScaffoldMessenger.of(context).showSnackBar(
-            //   //       const SnackBar(
-            //   //           content: Text("Please select an image first")),
-            //   //     );
-            //   //   }
-            //   // },
-            // ),
             child: CustomButton(
-                text: "Send Report", width: double.infinity, height: 60.h),
+              text: "Show Result",
+              width: double.infinity,
+              height: 60.h,
+              onTap: () {
+                if (_image != null) {
+                  Navigator.pushNamed(context, Routes.eegdata);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                        content: Text("Please select an image first")),
+                  );
+                }
+              },
+            ),
+            // child: CustomButton(
+            //     text: "Send Report", width: double.infinity, height: 60.h),
           )
         ],
       ),
