@@ -1,4 +1,5 @@
 import 'package:brain_pulse/core/Widgets/mytextfield.dart';
+import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,21 +12,13 @@ class EmailAndPass extends StatefulWidget {
 }
 
 class _EmailAndPassState extends State<EmailAndPass> {
-  late TextEditingController passwordController;
-
-  @override
-  void initState() {
-    // context.read<LoginCubit>().emailController.text = '';
-    // context.read<LoginCubit>().passwordController.text = '';
-    super.initState();
-  }
-
   bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
+    var read = context.read<LoginCubit>();
     return Form(
-      //   key: context.read<LoginCubit>().formKey,
+      key: read.keyform,
       child: Column(
         children: [
           MyTextField(
@@ -34,7 +27,7 @@ class _EmailAndPassState extends State<EmailAndPass> {
                 return 'Please enter a valid email';
               }
             },
-            //  controller: context.read<LoginCubit>().emailController,
+            controller: read.email,
             hint: 'Email',
             icon: const Icon(Icons.email_outlined),
           ),
@@ -47,7 +40,7 @@ class _EmailAndPassState extends State<EmailAndPass> {
                 return 'Please enter a valid pass';
               }
             },
-            //    controller: context.read<LoginCubit>().passwordController,
+            controller: read.password,
             showText: isObscureText ? true : false,
             hint: "Password",
             icon: GestureDetector(
