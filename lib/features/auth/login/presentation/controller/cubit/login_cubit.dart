@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_helper.dart';
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_keys.dart';
+import 'package:brain_pulse/core/network/dio_factory.dart';
 import 'package:brain_pulse/features/auth/login/data/repo/login_repo_imple.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_state.dart';
 import 'package:flutter/widgets.dart';
@@ -27,10 +30,11 @@ class LoginCubit extends Cubit<LoginState> {
       try {
         await SharedPrefHelper.setData(
             key: SharedPrefKeys.token, value: response.token);
+        await saveUserToken(response.token);
         await SharedPrefHelper.setData(
             key: SharedPrefKeys.email, value: email.text);
 
-        decodedToken = JwtDecoder.decode(response.token!);
+        decodedToken = JwtDecoder.decode(response.token);
 
         isloading = false;
         emit(LoadedLoginSate());
@@ -50,7 +54,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> checkLoginStatus() async {
     final token = await SharedPrefHelper.getString(key: SharedPrefKeys.token);
 
-    if (token != null && token.isNotEmpty) {
+    if (token.isNotEmpty) {
       if (!JwtDecoder.isExpired(token)) {
         decodedToken = JwtDecoder.decode(token);
         emit(LoadedLoginSate());
@@ -69,5 +73,12 @@ class LoginCubit extends Cubit<LoginState> {
     email.clear();
     password.clear();
     emit(InitialLoginSate());
+  }
+
+  // set token in header service
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setData(key: SharedPrefKeys.token, value: token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
+    log("token : $token");
   }
 }

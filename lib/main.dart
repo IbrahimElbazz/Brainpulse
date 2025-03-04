@@ -5,6 +5,7 @@ import 'package:brain_pulse/core/routing/app_router.dart';
 import 'package:brain_pulse/features/auth/login/data/repo/login_repo_imple.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_cubit.dart';
 import 'package:brain_pulse/features/data_by_doctor/logic/cubit/send_data_by_doctor_cubit.dart';
+import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,6 +38,9 @@ class BrainPulse extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => getIt<SendDataByDoctorCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<GetAllPatientsCubit>(),
           ),
           BlocProvider(
               create: (context) =>

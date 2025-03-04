@@ -4,7 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class UserCardInfo extends StatelessWidget {
   const UserCardInfo({
     super.key,
+    required this.name,
+    required this.phone,
   });
+  final String name;
+  final String phone;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +20,8 @@ class UserCardInfo extends StatelessWidget {
           color: Colors.grey.withOpacity(0.05),
         ),
         child: ListTile(
-          title: const Text('name'),
-          subtitle: const Text('01000000000'),
+          title: Text(name),
+          subtitle: Text(phone),
           leading: Container(
             width: 35.w,
             height: 35.w,
