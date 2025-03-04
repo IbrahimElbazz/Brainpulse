@@ -10,21 +10,20 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  // 1️⃣ إنشاء Dio
   Dio dio = DioFactory.getDio();
 
-  // 2️⃣ تسجيل الـ API Services
+  // API Services
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   getIt.registerLazySingleton<AuthApiService>(() => AuthApiService(dio: dio));
 
-  // 3️⃣ تسجيل Repositories (المستودعات)
+  // login
   getIt.registerLazySingleton<LoginRepoImple>(
       () => LoginRepoImple(authApiService: getIt<AuthApiService>()));
-
-  getIt.registerLazySingleton<SendPointRepo>(
-      () => SendPointRepo(getIt<ApiService>()));
 
   // 4️⃣ تسجيل Cubits
   getIt.registerLazySingleton<SendDataByDoctorCubit>(
       () => SendDataByDoctorCubit(getIt<SendPointRepo>()));
+
+  getIt.registerLazySingleton<SendPointRepo>(
+      () => SendPointRepo(getIt<ApiService>()));
 }

@@ -52,6 +52,12 @@ class TextStyleApp {
     fontFamily: 'Inter',
     fontWeight: FontWeight.w400,
   );
+  static TextStyle font22weightBoldColorRed = TextStyle(
+    color: ColorsApp.darkRed,
+    fontSize: 22.sp,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle font18weight400colorRed = TextStyle(
     color: ColorsApp.darkRed,
     fontSize: 18.sp,

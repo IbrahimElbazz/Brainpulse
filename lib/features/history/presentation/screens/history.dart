@@ -12,6 +12,7 @@ class History extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const SizedBox.shrink(),
         surfaceTintColor: Colors.white,
         title: const Text(
           'History',
