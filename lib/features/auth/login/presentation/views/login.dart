@@ -28,7 +28,7 @@ class LogInScreen extends StatelessWidget {
       }
     }, builder: (context, state) {
       return Scaffold(
-          backgroundColor: ColorsApp.white,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(

@@ -19,7 +19,7 @@ class RowTextWithTextFieldGetDataByDoctor extends StatelessWidget {
       children: [
         Text(
           ' point $number :',
-          style: TextStyleApp.font16weight600colorBlack,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         gapW(20),
         SizedBox(

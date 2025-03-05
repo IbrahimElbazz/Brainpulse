@@ -11,19 +11,19 @@ class PassAndEmail extends StatefulWidget {
 
 class _PassAndEmailState extends State<PassAndEmail> {
   bool isObscureText = true;
-  static TextEditingController name = TextEditingController();
-  static TextEditingController email = TextEditingController();
-  static TextEditingController password = TextEditingController();
-  static TextEditingController phone = TextEditingController();
+  // static TextEditingController name = TextEditingController();
+  // static TextEditingController email = TextEditingController();
+  // static TextEditingController password = TextEditingController();
+  // static TextEditingController phone = TextEditingController();
 
-  @override
-  void dispose() {
-    name.dispose();
-    email.dispose();
-    password.dispose();
-    phone.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   name.dispose();
+  //   email.dispose();
+  //   password.dispose();
+  //   phone.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
       child: Column(
         children: [
           MyTextField(
-            controller: name,
+            //controller: name,
             //context.read<RegisterCubit>().nameController,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -44,7 +44,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
             height: 20,
           ),
           MyTextField(
-            controller: email,
+            //controller: email,
             //context.read<RegisterCubit>().emailController,
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -60,7 +60,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
           ),
           IntlPhoneField(
             initialCountryCode: 'EG',
-            controller: phone,
+            //controller: phone,
             //context.read<RegisterCubit>().phoneController,
             validator: (value) {
               if (value == null) {
@@ -91,7 +91,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
             height: 20,
           ),
           MyTextField(
-            controller: password,
+           // controller: password,
             //context.read<RegisterCubit>().passwordController,
             validator: (value) {
               if (value == null || value.isEmpty) {

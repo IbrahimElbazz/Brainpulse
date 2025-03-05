@@ -12,5 +12,6 @@ abstract class ColorsApp {
   static Color grey800 = Colors.grey[800]!;
   static Color black = Colors.black;
   static Color green = Colors.green;
+  static Color? grey900 = Colors.grey[900];
   static Color darkRed = const Color.fromARGB(255, 157, 0, 0);
 }

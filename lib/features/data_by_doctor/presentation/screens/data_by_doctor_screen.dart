@@ -20,7 +20,7 @@ class DataByDoctorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: BlocListener<SendDataByDoctorCubit, SendDataByDoctorState>(
         listenWhen: (previous, current) {
           return current is FailureSendDataByDoctor ||
@@ -50,10 +50,8 @@ class DataByDoctorScreen extends StatelessWidget {
                   content: Center(
                     child: Text(
                       'please try again',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14.sp,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
+
                     ),
                   ),
                 ),
@@ -104,7 +102,7 @@ class DataByDoctorScreen extends StatelessWidget {
                       gapW(80),
                       Text(
                         'Enter points',
-                        style: TextStyleApp.font18boldBlack,
+                        style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
                   ),

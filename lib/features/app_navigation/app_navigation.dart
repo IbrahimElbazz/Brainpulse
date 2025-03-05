@@ -29,32 +29,33 @@ class _AppNavigationState extends State<AppNavigation> {
     final List<BottomNavigationBarItem> items = [
       BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
-        icon: SvgPicture.asset('assets/svgs/home-2.svg'),
+        icon: SvgPicture.asset('assets/svgs/home-2.svg',
+            color: Theme.of(context).iconTheme.color          ),
         label: 'Home',
         activeIcon: SvgPicture.asset(
           'assets/svgs/home-2.svg',
-          color: Colors.blue,
+          color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
         ),
       ),
       BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
         icon: SvgPicture.asset(
-          'assets/svgs/brain.svg',
+          color: Theme.of(context).iconTheme.color,          'assets/svgs/brain.svg',
           fit: BoxFit.scaleDown,
           width: 50.w,
         ),
         label: 'Brain',
         activeIcon: SvgPicture.asset(
           'assets/svgs/brain.svg',
-          color: Colors.blue,
+          color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
           fit: BoxFit.scaleDown,
           width: 50.w,
         ),
       ),
       BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
-        icon: const Icon(
-          color: Colors.black,
+        icon:  Icon(
+          color: Theme.of(context).iconTheme.color,
           Icons.history_sharp,
           size: 28,
         ),
@@ -64,29 +65,28 @@ class _AppNavigationState extends State<AppNavigation> {
           size: 28,
         ),
       ),
-      BottomNavigationBarItem(
+       BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
-        icon: const Icon(
-          color: Colors.black,
+        icon:  Icon(
+          color: Theme.of(context).iconTheme.color,
           Icons.more_horiz,
           size: 28,
         ),
         label: 'More',
-        activeIcon: const Icon(
-          color: Colors.blue,
-          Icons.more_horiz,
+        activeIcon:  Icon(
+          color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,          Icons.more_horiz,
           size: 28,
         ),
       ),
     ];
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: _children[_currentIndex],
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).bottomNavigationBarTheme.backgroundColor, // تعديل هنا
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.r),
                 topRight: Radius.circular(20.r),
@@ -110,7 +110,9 @@ class _AppNavigationState extends State<AppNavigation> {
               ),
               child: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
-                backgroundColor: ColorsApp.white,
+                backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+                selectedIconTheme: Theme.of(context).bottomNavigationBarTheme.selectedIconTheme,
+                unselectedItemColor: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
                 items: items,
                 currentIndex: _currentIndex,
                 selectedItemColor: Colors.blue,

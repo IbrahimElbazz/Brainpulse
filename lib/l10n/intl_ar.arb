@@ -1,0 +1,16 @@
+{
+  "personal_info": "المعلومات الشخصية",
+  "my_profile": "ملفي الشخصي",
+  "settings": "الإعدادات",
+  "language": "اللغة",
+  "account_language_settings": "إعدادات لغة الحساب",
+  "mode": "الوضع",
+  "light_mode": "نهاري",
+  "dark_mode": "ليلي",
+  "choose_language": "اختر اللغة",
+  "choose_mode": "اختر الوضع",
+  "about_us": "معلومات عنا",
+  "logout": "تسجيل الخروج",
+  "logout_now": "تسجيل الخروج الآن!",
+  "cancel": "إلغاء"
+}

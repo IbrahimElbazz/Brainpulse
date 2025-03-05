@@ -24,19 +24,13 @@ class DisplayData extends StatelessWidget {
                 children: [
                   Text(
                     'predicted Class :     ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
-                      color: Colors.black,
-                    ),
-                  ),
+                     style: Theme.of(context).textTheme.bodyLarge,
+
+        ),
                   Text(
                     prediction['predictedClass'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
+
                   ),
                 ],
               ),
@@ -45,19 +39,12 @@ class DisplayData extends StatelessWidget {
                 children: [
                   Text(
                     'gpd : ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.sp,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge,
+
                   ),
                   Text(
                     prediction['gpd'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),
@@ -65,19 +52,11 @@ class DisplayData extends StatelessWidget {
                 children: [
                   Text(
                     'grda : ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.sp,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                   Text(
                     prediction['grda'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),
@@ -85,19 +64,13 @@ class DisplayData extends StatelessWidget {
                 children: [
                   Text(
                     'lpd : ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.sp,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge,
+
                   ),
                   Text(
                     prediction['lpd'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
+
                   ),
                 ],
               ),
@@ -105,19 +78,13 @@ class DisplayData extends StatelessWidget {
                 children: [
                   Text(
                     'lrda : ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.sp,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge,
+
                   ),
                   Text(
                     prediction['lrda'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
+
                   ),
                 ],
               ),
@@ -125,19 +92,13 @@ class DisplayData extends StatelessWidget {
                 children: [
                   Text(
                     'seizure : ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.sp,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge,
+
                   ),
                   Text(
                     prediction['seizure'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
+
                   ),
                 ],
               ),
@@ -145,19 +106,13 @@ class DisplayData extends StatelessWidget {
                 children: [
                   Text(
                     'other : ',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.sp,
-                      color: Colors.black,
-                    ),
+                    style: Theme.of(context).textTheme.titleLarge,
+
                   ),
                   Text(
                     prediction['other'],
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18.sp,
-                      color: Colors.blue,
-                    ),
+                    style: Theme.of(context).textTheme.bodyLarge,
+
                   ),
                 ],
               ),

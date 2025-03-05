@@ -29,17 +29,14 @@ class _HistoryState extends State<History> {
       appBar: AppBar(
         leading: const SizedBox.shrink(),
         surfaceTintColor: Colors.white,
-        title: const Text(
+        title:  Text(
           'History',
-          style: TextStyle(
-            color: Colors.blue,
-            fontWeight: FontWeight.bold,
-          ),
+          style: Theme.of(context).textTheme.titleLarge
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor:Theme.of(context).appBarTheme.backgroundColor,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
         child: SingleChildScrollView(
@@ -62,7 +59,7 @@ class _HistoryState extends State<History> {
                   ),
                   hintText: 'search in history',
                   hintStyle: TextStyleApp.styleText(
-                      15, Colors.grey, FontWeight.normal),
+                      15, ColorsApp.grey500, FontWeight.normal),
                   fillColor: const Color(0xffFDFDFF),
                 ),
               ),

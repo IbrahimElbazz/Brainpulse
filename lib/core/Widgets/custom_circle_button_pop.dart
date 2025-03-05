@@ -10,8 +10,8 @@ class CustomCircleButtonPop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 45.w,
-      height: 45.h,
+      width: 40.w,
+      height: 40.h,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
         shape: BoxShape.circle,
@@ -21,9 +21,10 @@ class CustomCircleButtonPop extends StatelessWidget {
           onPressed: () {
             context.pop();
           },
-          icon: const Icon(
+          icon:  Icon(
             size: 25,
             Icons.arrow_back,
+            color: Theme.of(context).appBarTheme.iconTheme?.color,
           ),
         ),
       ),

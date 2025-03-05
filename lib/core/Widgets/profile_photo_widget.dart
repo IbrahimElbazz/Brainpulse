@@ -41,12 +41,13 @@ class _ProfilePhotoWidgetState extends State<ProfilePhotoWidget> {
             children: [
               Text(
                 "تغيير صورة البروفايل",
-                style: TextStyleApp.font18boldBlack,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: 20),
               ListTile(
                 leading:  Icon(Icons.camera_alt, color: ColorsApp.blue),
-                title:  Text("الكاميرا", style:  TextStyleApp.font18boldBlack),
+                title:  Text("الكاميرا", style: Theme.of(context).textTheme.bodyLarge,
+                ),
                 onTap: () {
                   Navigator.pop(context);
                   pickImage(ImageSource.camera);
@@ -54,7 +55,7 @@ class _ProfilePhotoWidgetState extends State<ProfilePhotoWidget> {
               ),
               ListTile(
                 leading: Icon(Icons.photo_library, color: ColorsApp.green),
-                title:  Text("معرض الصور", style: TextStyleApp.font18boldBlack),
+                title:  Text("معرض الصور", style: Theme.of(context).textTheme.bodyLarge,),
                 onTap: () {
                   Navigator.pop(context);
                   pickImage(ImageSource.gallery);
@@ -63,7 +64,7 @@ class _ProfilePhotoWidgetState extends State<ProfilePhotoWidget> {
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child:  Text("إلغاء", style: TextStyleApp.font18boldBlack.copyWith(color: ColorsApp.darkRed)),
+                child:  Text("إلغاء", style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: ColorsApp.darkRed)),
               ),
             ],
           ),

@@ -3,6 +3,8 @@ import 'package:brain_pulse/features/brain/presentation/widgets/point_brain.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/Theming/colors.dart';
+
 class BrainScreen extends StatelessWidget {
   const BrainScreen({super.key});
 
@@ -88,7 +90,7 @@ class BrainScreen extends StatelessWidget {
               width: 300.w,
               height: 120.h,
               decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.2),
+                color: ColorsApp.grey500.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(16.r),
               ),
               child: Column(
@@ -103,10 +105,7 @@ class BrainScreen extends StatelessWidget {
                       const GapW(width: 50),
                       Text(
                         'active',
-                        style: TextStyle(
-                          fontSize: 22.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 24)
                       )
                     ],
                   ),
@@ -120,10 +119,8 @@ class BrainScreen extends StatelessWidget {
                       const GapW(width: 50),
                       Text(
                         'disactive',
-                        style: TextStyle(
-                          fontSize: 22.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+                          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 24)
+
                       )
                     ],
                   )

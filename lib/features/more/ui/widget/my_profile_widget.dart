@@ -3,8 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/Theming/colors.dart';
 import '../../../../core/Theming/text_style.dart';
 import '../../../../core/helpers/spacing.dart';
-import '../../../auth/register/ui/widgets/pass_and_email_register.dart';
-import '../screen/show_my_profile.dart';
+
 
 class MyProfileWidget extends StatelessWidget {
   String? text1;

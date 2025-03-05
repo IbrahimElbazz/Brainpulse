@@ -35,7 +35,7 @@ class RegisterPage extends StatelessWidget {
                 ),
                 Text(
                   "Sign up now and start exploring all that our\napp has to offer. We're excited to welcome\nyou to our community!",
-                  style: TextStyleApp.font14weight400colorGrey,
+                    style: Theme.of(context).textTheme.bodyMedium
                 ),
                 SizedBox(
                   height: screenSize.height * .04,
@@ -170,36 +170,28 @@ class TermsAndConditions extends StatelessWidget {
           children: [
             Text(
               "By logging. you agree to our ",
-              style: TextStyleApp.font12weight400colorGrey.copyWith(
-                fontSize: 11,
-              ),
+                style: Theme.of(context).textTheme.bodySmall
+
             ),
             GestureDetector(
               onTap: () {},
-              child: const Text(
+              child:  Text(
                 "Terms & Conditions",
-                style: TextStyle(
-                  color: Color(0xff242424),
-                  fontSize: 11,
-                ),
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(color:ColorsApp.grey500 )
               ),
             ),
             Text(
               " and",
-              style: TextStyleApp.font12weight400colorGrey.copyWith(
-                fontSize: 11,
-              ),
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
         ),
         Center(
             child: GestureDetector(
           onTap: () {},
-          child: const Text("PrivacyPolicy.",
-              style: TextStyle(
-                color: Color(0xff242424),
-                fontSize: 11,
-              )),
+          child:  Text("PrivacyPolicy.",
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(color:ColorsApp.grey500 )
+          ),
         )),
       ],
     );

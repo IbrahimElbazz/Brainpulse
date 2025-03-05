@@ -1,6 +1,8 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
+import 'package:brain_pulse/features/auth/register/ui/screen/register.dart';
 import 'package:brain_pulse/features/auth/register/ui/widgets/pass_and_email_register.dart';
 import 'package:brain_pulse/features/auth/register/ui/widgets/top_page.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +17,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 15.h),
         child: ListView(
@@ -85,40 +87,7 @@ class RegisterPage extends StatelessWidget {
             //  SizedBox(
             //   height: 30,
             // ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "By loggoing. you agree to our ",
-                  style: TextStyle(
-                      color: const Color(0xff9e9e9e), fontSize: 11.sp),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    "Terms & Conditions",
-                    style: TextStyle(
-                      color: const Color(0xff242424),
-                      fontSize: 13.sp,
-                    ),
-                  ),
-                ),
-                Text(
-                  " and",
-                  style: TextStyle(
-                      color: const Color(0xff9e9e9e), fontSize: 11.sp),
-                ),
-              ],
-            ),
-            Center(
-                child: GestureDetector(
-              onTap: () {},
-              child: Text("PrivacyPolicy",
-                  style: TextStyle(
-                    color: const Color(0xff242424),
-                    fontSize: 14.sp,
-                  )),
-            )),
+            TermsAndConditions(),
             const GapH(
               height: 10,
             ),
@@ -127,8 +96,7 @@ class RegisterPage extends StatelessWidget {
               children: [
                 Text(
                   "Already have an Account. ",
-                  style: TextStyle(
-                      color: const Color(0xff242424), fontSize: 13.sp),
+                    style: Theme.of(context).textTheme.bodySmall
                 ),
                 GestureDetector(
                   onTap: () {

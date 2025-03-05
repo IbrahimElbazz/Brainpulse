@@ -1,3 +1,4 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +18,7 @@ class UserCardInfo extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.r),
-          color: Colors.grey.withOpacity(0.05),
+          color: ColorsApp.grey500.withOpacity(0.05),
         ),
         child: ListTile(
           title: Text(name),
