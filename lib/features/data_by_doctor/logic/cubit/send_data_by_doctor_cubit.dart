@@ -1,15 +1,16 @@
+import 'package:brain_pulse/features/data_by_doctor/data/models/add_patient_request_model.dart';
 import 'package:brain_pulse/features/data_by_doctor/data/models/send_point_request_model.dart';
-import 'package:brain_pulse/features/data_by_doctor/data/models/send_point_response_model.dart';
-import 'package:brain_pulse/features/data_by_doctor/data/repo/send_point_repo.dart';
+import 'package:brain_pulse/features/data_by_doctor/data/repo/doctor_repo.dart';
 import 'package:brain_pulse/features/data_by_doctor/logic/cubit/send_data_by_doctor_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SendDataByDoctorCubit extends Cubit<SendDataByDoctorState> {
-  SendDataByDoctorCubit(this._sendPointRepo)
+  SendDataByDoctorCubit(this._sendPointRepo, this._addPatientRepo)
       : super(const SendDataByDoctorState.initial());
 
   final SendPointRepo _sendPointRepo;
+  final AddPatientRepo _addPatientRepo;
 
   TextEditingController p1 = TextEditingController();
   TextEditingController p2 = TextEditingController();
@@ -71,6 +72,19 @@ class SendDataByDoctorCubit extends Cubit<SendDataByDoctorState> {
           SendDataByDoctorState.failureSendDataByDoctor(
               message: error.toString()),
         );
+      },
+    );
+  }
+
+  addPatient(AddPatientRequestModel request) async {
+    emit(const SendDataByDoctorState.loadingAddPatient());
+    final response = await _addPatientRepo.addPatient(request);
+    response.when(
+      success: (data) {
+        emit(SendDataByDoctorState.successAddPatient(data));
+      },
+      failure: (message) {
+        emit(SendDataByDoctorState.failureAddPatient(message: message));
       },
     );
   }

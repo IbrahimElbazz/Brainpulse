@@ -33,7 +33,8 @@ class More extends StatelessWidget {
               buildSection(
                 title: "Settings",
                 items: [
-                  buildListItem(context, Icons.language, "Language", "Account language settings"),
+                  buildListItem(context, Icons.language, "Language",
+                      "Account language settings"),
                   buildListItem(
                     context,
                     Icons.mode_night_outlined,
@@ -45,7 +46,8 @@ class More extends StatelessWidget {
               buildSection(
                 title: "About Us",
                 items: [
-                  buildListItem(context, Icons.mood_rounded, "About Us", "....."),
+                  buildListItem(
+                      context, Icons.mood_rounded, "About Us", "....."),
                 ],
               ),
               buildSection(
@@ -67,7 +69,8 @@ class More extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
+          Text(title,
+              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
           gapH(10.h),
           ...items,
         ],
@@ -75,16 +78,19 @@ class More extends StatelessWidget {
     );
   }
 
-  Widget buildListItem(BuildContext context, IconData icon, String title, String subtitle) {
+  Widget buildListItem(
+      BuildContext context, IconData icon, String title, String subtitle) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.r),
       ),
       child: ListTile(
         leading: Icon(icon, color: ColorsApp.blue),
-        title: Text(title, style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
+        title: Text(title,
+            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
         subtitle: Text(subtitle),
-        trailing: Icon(Icons.arrow_forward_ios, color: Theme.of(context).appBarTheme.iconTheme?.color),
+        trailing: Icon(Icons.arrow_forward_ios,
+            color: Theme.of(context).appBarTheme.iconTheme?.color),
         onTap: () {
           if (title == "My profile") {
             Navigator.push(
@@ -92,9 +98,11 @@ class More extends StatelessWidget {
               MaterialPageRoute(builder: (context) => const ShowMyProfile()),
             );
           } else if (title == "Language") {
-            showBottomSheetOptions(context, "Choose Language", ["عربي", "English"]);
+            showBottomSheetOptions(
+                context, "Choose Language", ["عربي", "English"]);
           } else if (title == "Mode") {
-            showBottomSheetOptions(context, "Choose Mode", ["Dark Mode", "Light Mode"]);
+            showBottomSheetOptions(
+                context, "Choose Mode", ["Dark Mode", "Light Mode"]);
           } else if (title == "About Us") {
             showBottomSheetOptions(context, "About Us Description", []);
           }
@@ -104,7 +112,8 @@ class More extends StatelessWidget {
   }
 }
 
-void showBottomSheetOptions(BuildContext context, String title, List<String> options) {
+void showBottomSheetOptions(
+    BuildContext context, String title, List<String> options) {
   showModalBottomSheet(
     context: context,
     shape: RoundedRectangleBorder(
@@ -118,21 +127,22 @@ void showBottomSheetOptions(BuildContext context, String title, List<String> opt
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(title, style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
+            Text(title,
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
             SizedBox(height: 20.h),
             ...options.map((option) => ListTile(
-              title: Text(option),
-              onTap: () {
-                if (title == "Choose Mode") {
-                  if (option == "Dark Mode") {
-                    themeProvider.setDarkTheme();
-                  } else if (option == "Light Mode") {
-                    themeProvider.setLightTheme();
-                  }
-                }
-                Navigator.pop(context);
-              },
-            )),
+                  title: Text(option),
+                  onTap: () {
+                    if (title == "Choose Mode") {
+                      if (option == "Dark Mode") {
+                        themeProvider.setDarkTheme();
+                      } else if (option == "Light Mode") {
+                        themeProvider.setLightTheme();
+                      }
+                    }
+                    Navigator.pop(context);
+                  },
+                )),
           ],
         ),
       );

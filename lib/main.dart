@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 import 'core/provider/language.provider.dart';
 import 'core/provider/theme-provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 late SharedPreferences sharedPreferences;
 late bool isLoggedIn;
@@ -54,7 +53,8 @@ class BrainPulse extends StatelessWidget {
             create: (context) => getIt<GetAllPatientsCubit>(),
           ),
           BlocProvider(
-            create: (context) => LoginCubit(loginRepoImple: getIt.get<LoginRepoImple>()),
+            create: (context) =>
+                LoginCubit(loginRepoImple: getIt.get<LoginRepoImple>()),
           ),
         ],
         child: Consumer2<ThemeProvider, LocaleProvider>(
@@ -65,8 +65,6 @@ class BrainPulse extends StatelessWidget {
               initialRoute: Routes.splashScreen,
               onGenerateRoute: AppRouter.generateRoute,
               theme: themeProvider.currentTheme,
-              localizationsDelegates: AppLocalizations.localizationsDelegates,
-              supportedLocales: AppLocalizations.supportedLocales,
               locale: localeProvider.currentLocale,
             );
           },

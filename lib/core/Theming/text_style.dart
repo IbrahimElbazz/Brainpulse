@@ -75,4 +75,10 @@ class TextStyleApp {
     fontFamily: 'Inter',
     fontWeight: FontWeight.w600,
   );
+  static TextStyle font18weight600colorBlack = TextStyle(
+    color: ColorsApp.black,
+    fontSize: 18.sp,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+  );
 }

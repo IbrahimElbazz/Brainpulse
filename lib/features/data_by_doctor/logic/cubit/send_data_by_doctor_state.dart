@@ -13,4 +13,12 @@ class SendDataByDoctorState<T> with _$SendDataByDoctorState<T> {
       SuccessSendDataByDoctor<T>;
   const factory SendDataByDoctorState.failureSendDataByDoctor(
       {required String message}) = FailureSendDataByDoctor;
+
+// add patient
+
+  const factory SendDataByDoctorState.loadingAddPatient() = LoadingAddPatient;
+  const factory SendDataByDoctorState.successAddPatient(T data) =
+      SuccessAddPatient<T>;
+  const factory SendDataByDoctorState.failureAddPatient(
+      {required String message}) = FailureAddPatient;
 }

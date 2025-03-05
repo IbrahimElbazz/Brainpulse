@@ -2,7 +2,7 @@ import 'package:brain_pulse/core/api/auth_api_service.dart';
 import 'package:brain_pulse/core/network/api_service.dart';
 import 'package:brain_pulse/core/network/dio_factory.dart';
 import 'package:brain_pulse/features/auth/login/data/repo/login_repo_imple.dart';
-import 'package:brain_pulse/features/data_by_doctor/data/repo/send_point_repo.dart';
+import 'package:brain_pulse/features/data_by_doctor/data/repo/doctor_repo.dart';
 import 'package:brain_pulse/features/data_by_doctor/logic/cubit/send_data_by_doctor_cubit.dart';
 import 'package:brain_pulse/features/history/data/repo/get_all_patients_repo.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
@@ -24,7 +24,7 @@ Future<void> setupGetIt() async {
 
   // send data by doctor
   getIt.registerLazySingleton<SendDataByDoctorCubit>(
-      () => SendDataByDoctorCubit(getIt()));
+      () => SendDataByDoctorCubit(getIt(), AddPatientRepo(ApiService(dio))));
 
   getIt.registerFactory<SendPointRepo>(() => SendPointRepo(getIt()));
 
@@ -33,4 +33,7 @@ Future<void> setupGetIt() async {
       () => GetAllPatientsCubit(getIt()));
 
   getIt.registerFactory<GetAllPatientsRepo>(() => GetAllPatientsRepo(getIt()));
+
+  // Add Patient
+  getIt.registerFactory<AddPatientRepo>(() => AddPatientRepo(getIt()));
 }
