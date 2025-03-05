@@ -89,8 +89,6 @@ class SaveAndCreatePatient extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const GapH(height: 20),
-                Text(prediction['grda']
-                    .substring(0, prediction['grda'].length - 1)),
                 Text(
                   'Fires name :',
                   style: TextStyleApp.font18weight600colorBlack,
