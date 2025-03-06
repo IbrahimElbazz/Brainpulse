@@ -30,6 +30,7 @@ class LoginCubit extends Cubit<LoginState> {
       try {
         await SharedPrefHelper.setData(
             key: SharedPrefKeys.token, value: response.token);
+        log("Token Saved : ${response.token}");
         await saveUserToken(response.token);
         await SharedPrefHelper.setData(
             key: SharedPrefKeys.email, value: email.text);
@@ -53,7 +54,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> checkLoginStatus() async {
     final token = await SharedPrefHelper.getString(key: SharedPrefKeys.token);
-
+    log("Retrieved Token: $token");
     if (token.isNotEmpty) {
       if (!JwtDecoder.isExpired(token)) {
         decodedToken = JwtDecoder.decode(token);

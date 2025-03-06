@@ -108,7 +108,7 @@ class More extends StatelessWidget {
                 context, "Choose Mode", ["Dark Mode", "Light Mode"]);
           } else if (title == "About Us") {
             showBottomSheetOptions(context, "About Us Description", []);
-          }else if (title == "Logout") {
+          } else if (title == "Logout") {
             showModalBottomSheet(
               context: context,
               builder: (context) {
@@ -159,15 +159,15 @@ class More extends StatelessWidget {
                           ),
                         ),
                         gapH(10),
-                        Text( "Logout Now!",
+                        Text("Logout Now!",
                             style: Theme.of(context).textTheme.titleLarge),
                         gapH(20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CustomButton(
-                              onTap: () {
-                                SharedPrefHelper.clearAllData();
+                              onTap: () async {
+                                await SharedPrefHelper.clearAllData();
                                 context.pushReplacementNamed('/loginScreen');
                               },
                               text: "Logout",
@@ -181,7 +181,7 @@ class More extends StatelessWidget {
                               onTap: () {
                                 context.pop();
                               },
-                              text:"Cancel",
+                              text: "Cancel",
                               width: 100,
                               height: 50,
                               color: Colors.white,
