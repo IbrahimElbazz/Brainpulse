@@ -30,7 +30,7 @@ class HomeBody extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'Hallo doctor',
+                    'Hello doctor',
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 24.sp,

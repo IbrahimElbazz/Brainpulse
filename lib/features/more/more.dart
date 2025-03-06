@@ -1,11 +1,14 @@
+import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/more/ui/screen/my_profile.dart';
 import 'package:brain_pulse/features/more/ui/screen/show_my_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import '../../core/Theming/colors.dart';
+import '../../core/helpers/shared_pref_helper/shared_pref_helper.dart';
 import '../../core/helpers/spacing.dart';
 import '../../core/provider/theme-provider.dart';
+import '../home/presentation/screens/widgets/custom_button.dart';
 
 class More extends StatelessWidget {
   const More({super.key});
@@ -105,6 +108,94 @@ class More extends StatelessWidget {
                 context, "Choose Mode", ["Dark Mode", "Light Mode"]);
           } else if (title == "About Us") {
             showBottomSheetOptions(context, "About Us Description", []);
+          }else if (title == "Logout") {
+            showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return Container(
+                  height: 300.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16.r),
+                      topRight: Radius.circular(16.r),
+                    ),
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.black
+                        : Colors.white,
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    child: Column(
+                      children: [
+                        gapH(10),
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                context.pop();
+                              },
+                              icon: const Icon(
+                                Icons.close,
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
+                        gapH(20),
+                        Container(
+                          width: 100.w,
+                          height: 100.h,
+                          decoration: BoxDecoration(
+                            color: ColorsApp.darkRed,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.logout,
+                              color: Colors.white,
+                              weight: 45.w,
+                              size: 40,
+                            ),
+                          ),
+                        ),
+                        gapH(10),
+                        Text( "Logout Now!",
+                            style: Theme.of(context).textTheme.titleLarge),
+                        gapH(20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomButton(
+                              onTap: () {
+                                SharedPrefHelper.clearAllData();
+                                context.pushReplacementNamed('/loginScreen');
+                              },
+                              text: "Logout",
+                              width: 230,
+                              height: 50,
+                              color: Colors.white,
+                              textColor: ColorsApp.darkRed,
+                              borderColor: ColorsApp.darkRed,
+                            ),
+                            CustomButton(
+                              onTap: () {
+                                context.pop();
+                              },
+                              text:"Cancel",
+                              width: 100,
+                              height: 50,
+                              color: Colors.white,
+                              textColor: ColorsApp.grey,
+                              borderColor: ColorsApp.grey,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
           }
         },
       ),

@@ -116,7 +116,7 @@ class DisplayData extends StatelessWidget {
                   child: CustomButton(
                     width: double.infinity,
                     height: 80.h,
-                    text: "Save and create patient",
+                    text: "Save and Add patient",
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {

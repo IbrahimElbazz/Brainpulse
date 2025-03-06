@@ -23,9 +23,9 @@ class SaveAndCreatePatient extends StatelessWidget {
     TextEditingController phoneController = TextEditingController();
     TextEditingController ageController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
-    return Scaffold(
+    return Scaffold(backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: const Text('Create patient'),
+        title:  Text('Add patient',style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 22) ,),
         centerTitle: true,
       ),
       body: BlocListener<SendDataByDoctorCubit, SendDataByDoctorState>(
@@ -90,8 +90,8 @@ class SaveAndCreatePatient extends StatelessWidget {
               children: [
                 const GapH(height: 20),
                 Text(
-                  'Fires name :',
-                  style: TextStyleApp.font18weight600colorBlack,
+                  'First name :',
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 gapH(8),
                 SizedBox(
@@ -106,7 +106,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                 gapH(20),
                 Text(
                   'Last name :',
-                  style: TextStyleApp.font18weight600colorBlack,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 gapH(8),
                 SizedBox(
@@ -121,7 +121,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                 gapH(20),
                 Text(
                   'Phone :',
-                  style: TextStyleApp.font18weight600colorBlack,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 gapH(8),
                 SizedBox(
@@ -136,7 +136,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                 gapH(20),
                 Text(
                   'Age :',
-                  style: TextStyleApp.font18weight600colorBlack,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 gapH(8),
                 SizedBox(
@@ -151,7 +151,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                 gapH(20),
                 Text(
                   'Description :',
-                  style: TextStyleApp.font18weight600colorBlack,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 gapH(8),
                 TextField(
