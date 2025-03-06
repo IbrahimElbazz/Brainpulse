@@ -1,5 +1,8 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
+import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_cubit.dart';
+import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_state.dart';
+import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
 import 'package:brain_pulse/features/onBoarding/ui/screen/onBoadrding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,9 +25,11 @@ class _SplashBodyState extends State<SplashBody> {
 
   splash() {
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const OnBoarding();
-      }));
+      if (context.read<LoginCubit>().state is LoadedLoginSate) {
+        Navigator.pushReplacementNamed(context, Routes.appNavigation);
+      } else {
+        Navigator.pushReplacementNamed(context, Routes.loginScreen);
+      }
     });
   }
 
