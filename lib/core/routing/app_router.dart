@@ -28,13 +28,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const DataByDoctorScreen());
 
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Text("NO route defined for ${settings.name}"),
-            ),
-          ),
-        );
+        return null;
     }
   }
 }
