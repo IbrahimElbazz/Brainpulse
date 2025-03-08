@@ -94,7 +94,7 @@ class LogInScreen extends StatelessWidget {
                   SizedBox(
                     height: screenSize.height * .05,
                   ),
-                  const lowerDesignLogin(),
+                  const Lowerdesignlogin(),
                   //   const loginBlocListener(),
                 ],
               ),

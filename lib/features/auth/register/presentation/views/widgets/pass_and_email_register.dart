@@ -1,6 +1,8 @@
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/mytextfield.dart';
+import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class PassAndEmail extends StatefulWidget {
@@ -11,41 +13,39 @@ class PassAndEmail extends StatefulWidget {
 
 class _PassAndEmailState extends State<PassAndEmail> {
   bool isObscureText = true;
-  // static TextEditingController name = TextEditingController();
-  // static TextEditingController email = TextEditingController();
-  // static TextEditingController password = TextEditingController();
-  // static TextEditingController phone = TextEditingController();
-
-  // @override
-  // void dispose() {
-  //   name.dispose();
-  //   email.dispose();
-  //   password.dispose();
-  //   phone.dispose();
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
+    var read = context.read<RegisterCubit>();
     return Form(
+      key: read.keyform,
       child: Column(
         children: [
           MyTextField(
-            //controller: name,
-            //context.read<RegisterCubit>().nameController,
+            controller: read.firstname,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid name';
+                return 'Please enter a valid  firstname';
               }
             },
-            hint: "Name",
+            hint: "First Name",
           ),
           const SizedBox(
             height: 20,
           ),
           MyTextField(
-            //controller: email,
-            //context.read<RegisterCubit>().emailController,
+            controller: read.lastname,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid lastname';
+              }
+            },
+            hint: "Last Name",
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          MyTextField(
+            controller: read.email,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid email';
@@ -60,8 +60,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
           ),
           IntlPhoneField(
             initialCountryCode: 'EG',
-            //controller: phone,
-            //context.read<RegisterCubit>().phoneController,
+            controller: read.phone,
             validator: (value) {
               if (value == null) {
                 return 'Please enter a valid phone number';
@@ -91,8 +90,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
             height: 20,
           ),
           MyTextField(
-           // controller: password,
-            //context.read<RegisterCubit>().passwordController,
+            controller: read.password,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid pass';
@@ -118,7 +116,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
             height: 20,
           ),
           MyTextField(
-            //  controller: context.read<RegisterCubit>().confirmPasswordController,
+            controller: read.confirmpassword,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid pass';

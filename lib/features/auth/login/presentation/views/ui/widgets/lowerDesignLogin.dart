@@ -1,15 +1,15 @@
 import 'package:brain_pulse/features/auth/login/presentation/views/ui/widgets/Sinup.dart';
-import 'package:brain_pulse/features/auth/register/ui/screen/register.dart';
+import 'package:brain_pulse/features/auth/register/presentation/views/widgets/terms_and_conditioins.dart';
 import 'package:flutter/material.dart';
 
-class lowerDesignLogin extends StatefulWidget {
-  const lowerDesignLogin({super.key});
+class Lowerdesignlogin extends StatefulWidget {
+  const Lowerdesignlogin({super.key});
 
   @override
-  State<lowerDesignLogin> createState() => _lowerDesignLoginState();
+  State<Lowerdesignlogin> createState() => _lowerDesignLoginState();
 }
 
-class _lowerDesignLoginState extends State<lowerDesignLogin> {
+class _lowerDesignLoginState extends State<Lowerdesignlogin> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;

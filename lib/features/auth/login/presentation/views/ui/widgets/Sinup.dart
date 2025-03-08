@@ -1,7 +1,6 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
-import 'package:brain_pulse/core/helpers/extentions.dart';
-import 'package:brain_pulse/features/auth/register/register.dart';
+import 'package:brain_pulse/features/auth/register/presentation/views/register.dart';
 import 'package:flutter/material.dart';
 
 class SignUp extends StatelessWidget {
