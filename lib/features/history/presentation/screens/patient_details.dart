@@ -91,141 +91,172 @@ class PatientDetails extends StatelessWidget {
                   return Padding(
                     padding: EdgeInsets.only(bottom: 15.h),
                     child: Container(
-                      height: 200.h,
                       decoration: BoxDecoration(
                         color: Colors.blue.withOpacity(0.05),
                         borderRadius: BorderRadius.circular(16.r),
                       ),
-                      child: Column(children: [
-                        gapH(10),
-                        Row(
-                          children: [
-                            const Spacer(),
-                            Text(
-                              patientDetails.history![index].createdat!
-                                  .substring(0, 10),
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold,
+                      child: Column(
+                        children: [
+                          gapH(10),
+                          Row(
+                            children: [
+                              const Spacer(),
+                              Text(
+                                patientDetails.history![index].createdat!
+                                    .substring(0, 10),
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            gapW(15),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            gapW(20),
-                            Text(
-                              'gpd : ',
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
+                              gapW(15),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              gapW(20),
+                              Text(
+                                'gpd : ',
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            gapW(10),
-                            Text(
-                              "${patientDetails.history![index].points![0].toString()} %",
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w400,
+                              gapW(10),
+                              Text(
+                                "${patientDetails.history![index].points![0].toString()} %",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            gapW(20),
-                            Text(
-                              'grda : ',
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                            gapW(10),
-                            Text(
-                              "${patientDetails.history![index].points![1].toString()} %",
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w400,
+                            ],
+                          ),
+                          gapH(10),
+                          Row(
+                            children: [
+                              gapW(20),
+                              Text(
+                                'grda : ',
+                                style: Theme.of(context).textTheme.titleLarge,
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            gapW(20),
-                            Text(
-                              'lpd : ',
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                            gapW(10),
-                            Text(
-                              "${patientDetails.history![index].points![2].toString()} %",
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w400,
+                              gapW(10),
+                              Text(
+                                "${patientDetails.history![index].points![1].toString()} %",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            gapW(20),
-                            Text(
-                              'lrda : ',
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                            gapW(10),
-                            Text(
-                              "${patientDetails.history![index].points![3].toString()} %",
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w400,
+                            ],
+                          ),
+                          gapH(10),
+                          Row(
+                            children: [
+                              gapW(20),
+                              Text(
+                                'lpd : ',
+                                style: Theme.of(context).textTheme.titleLarge,
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            gapW(20),
-                            Text(
-                              'seizure : ',
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                            gapW(10),
-                            Text(
-                              "${patientDetails.history![index].points![4].toString()} %",
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w400,
+                              gapW(10),
+                              Text(
+                                "${patientDetails.history![index].points![2].toString()} %",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            gapW(20),
-                            Text(
-                              'other : ',
-                              style: Theme.of(context).textTheme.titleLarge,
-                            ),
-                            gapW(10),
-                            Text(
-                              "${patientDetails.history![index].points![5].toString()} %",
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w400,
+                            ],
+                          ),
+                          gapH(10),
+                          Row(
+                            children: [
+                              gapW(20),
+                              Text(
+                                'lrda : ',
+                                style: Theme.of(context).textTheme.titleLarge,
                               ),
-                            ),
-                          ],
-                        ),
-                      ]),
+                              gapW(10),
+                              Text(
+                                "${patientDetails.history![index].points![3].toString()} %",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                          gapH(10),
+                          Row(
+                            children: [
+                              gapW(20),
+                              Text(
+                                'seizure : ',
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
+                              gapW(10),
+                              Text(
+                                "${patientDetails.history![index].points![4].toString()} %",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                          gapH(10),
+                          Row(
+                            children: [
+                              gapW(20),
+                              Text(
+                                'other : ',
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
+                              gapW(10),
+                              Text(
+                                "${patientDetails.history![index].points![5].toString()} %",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                          gapH(10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              gapW(20),
+                              Text(
+                                'description : ',
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
+                              gapW(10),
+                              Expanded(
+                                child: Text(
+                                  patientDetails.history![index].description ??
+                                      'not found',
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          gapH(20)
+                        ],
+                      ),
                     ),
                   );
                 },
