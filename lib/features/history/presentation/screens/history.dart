@@ -4,10 +4,12 @@ import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/di/dependency_injection.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_state.dart';
+import 'package:brain_pulse/features/history/presentation/screens/Patient_details.dart';
 import 'package:brain_pulse/features/history/presentation/widgets/user_card_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class History extends StatefulWidget {
   const History({super.key});
@@ -29,16 +31,13 @@ class _HistoryState extends State<History> {
       appBar: AppBar(
         leading: const SizedBox.shrink(),
         surfaceTintColor: Colors.white,
-        title:  Text(
-          'History',
-          style: Theme.of(context).textTheme.titleLarge
-        ),
+        title: Text('History', style: Theme.of(context).textTheme.titleLarge),
         centerTitle: true,
-        backgroundColor:Theme.of(context).appBarTheme.backgroundColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -81,10 +80,22 @@ class _HistoryState extends State<History> {
                         itemCount: getAllPatientsResponse.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          return UserCardInfo(
-                            name:
-                                "${getAllPatientsResponse[index].firstName} ${getAllPatientsResponse[index].lastName}",
-                            phone: getAllPatientsResponse[index].phone ?? "",
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(
+                                builder: (context) {
+                                  return PatientDetails(
+                                    patientDetails:
+                                        getAllPatientsResponse[index],
+                                  );
+                                },
+                              ));
+                            },
+                            child: UserCardInfo(
+                              name:
+                                  "${getAllPatientsResponse[index].firstName} ${getAllPatientsResponse[index].lastName}",
+                              phone: getAllPatientsResponse[index].phone ?? "",
+                            ),
                           );
                         },
                       );
