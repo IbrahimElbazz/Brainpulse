@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
@@ -9,7 +11,6 @@ import 'package:brain_pulse/features/history/presentation/widgets/user_card_info
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class History extends StatefulWidget {
   const History({super.key});
@@ -19,10 +20,29 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
+  late ScrollController _scrollController;
+
   @override
   void initState() {
     context.read<GetAllPatientsCubit>().getAllPatients();
+    _scrollController = ScrollController();
+
+    _scrollController.addListener(
+      () {
+        if (_scrollController.position.pixels ==
+            _scrollController.position.maxScrollExtent) {
+          context.read<GetAllPatientsCubit>().nextPage();
+        }
+      },
+    );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -75,9 +95,13 @@ class _HistoryState extends State<History> {
                       return const SizedBox.shrink();
                     },
                     successGetAllPatients: (getAllPatientsResponse) {
+                      final patientData =
+                          context.read<GetAllPatientsCubit>().displayData;
+
                       return ListView.builder(
+                        controller: _scrollController,
                         physics: const BouncingScrollPhysics(),
-                        itemCount: getAllPatientsResponse.length,
+                        itemCount: patientData.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return GestureDetector(
@@ -85,16 +109,15 @@ class _HistoryState extends State<History> {
                               Navigator.push(context, MaterialPageRoute(
                                 builder: (context) {
                                   return PatientDetails(
-                                    patientDetails:
-                                        getAllPatientsResponse[index],
+                                    patientDetails: patientData[index],
                                   );
                                 },
                               ));
                             },
                             child: UserCardInfo(
                               name:
-                                  "${getAllPatientsResponse[index].firstName} ${getAllPatientsResponse[index].lastName}",
-                              phone: getAllPatientsResponse[index].phone ?? "",
+                                  "${patientData[index].firstName} ${patientData[index].lastName}",
+                              phone: patientData[index].phone ?? "",
                             ),
                           );
                         },

@@ -19,7 +19,10 @@ abstract class ApiService {
 
   // get all patients
   @GET(ApiConstant.getAllPatients)
-  Future<List<GetAllPatientsResponse>> getAllPatients();
+  Future<List<GetAllPatientsResponse>> getAllPatients(
+    @Query('page') int page,
+    @Query('limit') int limit,
+  );
 
   // add patient
   @POST(ApiConstant.addPatient)
