@@ -1,14 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
-import 'package:brain_pulse/core/di/dependency_injection.dart';
-import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/routing/routers.dart';
-import 'package:brain_pulse/features/data_by_doctor/logic/cubit/send_data_by_doctor_cubit.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/data_by_doctor_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeBody extends StatelessWidget {
