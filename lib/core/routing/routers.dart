@@ -7,4 +7,5 @@ class Routes {
   static const String eegdata = '/eegdata';
   static const String getImage = '/getimage';
   static const String dataByDoctorScreen = '/DataByDoctorScreen';
+  static const String dropfilescreen = '/dropfilescreen';
 }
