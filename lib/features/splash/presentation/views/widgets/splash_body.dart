@@ -34,17 +34,33 @@ class _SplashBodyState extends State<SplashBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsApp.white,
-      body: Center(
-        child: Container(
-          height: 300.h,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/splash.jpeg"),
-                  fit: BoxFit.cover)),
-        ),
-      ),
-    );
+        backgroundColor: ColorsApp.white,
+        body: Stack(
+          children: [
+            Image.asset('assets/images/Splash_Screen.png'),
+            Positioned(
+              top: 330.h,
+              left: 110.w,
+              child: Column(
+                spacing: 10.h,
+                children: [
+                  Image.asset(
+                    'assets/images/logo-removebg-preview.png',
+                    color: Colors.white,
+                    height: 120.h,
+                  ),
+                  Text(
+                    'Brain Pulse',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 32.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 }
