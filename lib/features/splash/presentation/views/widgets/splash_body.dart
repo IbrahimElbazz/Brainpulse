@@ -26,7 +26,7 @@ class _SplashBodyState extends State<SplashBody> {
       if (context.read<LoginCubit>().state is LoadedLoginSate) {
         Navigator.pushReplacementNamed(context, Routes.appNavigation);
       } else {
-        Navigator.pushReplacementNamed(context, Routes.loginScreen);
+        Navigator.pushReplacementNamed(context, Routes.onBoarding);
       }
     });
   }

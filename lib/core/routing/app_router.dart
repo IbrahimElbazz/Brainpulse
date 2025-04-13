@@ -1,13 +1,12 @@
 import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/app_navigation/app_navigation.dart';
 import 'package:brain_pulse/features/auth/login/presentation/views/login.dart';
-import 'package:brain_pulse/features/data_by_doctor/presentation/screens/save_and_create_patient.dart';
-import 'package:brain_pulse/features/history/presentation/screens/Patient_details.dart';
 import 'package:brain_pulse/features/home/presentation/screens/drop_file_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/eeg_data_screen.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/data_by_doctor_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/get_image_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
+import 'package:brain_pulse/features/onBoarding/ui/screen/onBoadrding.dart';
 import 'package:brain_pulse/features/splash/presentation/views/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +15,8 @@ class AppRouter {
     switch (settings.name) {
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case Routes.onBoarding:
+        return MaterialPageRoute(builder: (_) => const OnBoarding());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LogInScreen());
       case Routes.appNavigation:
