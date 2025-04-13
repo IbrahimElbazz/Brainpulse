@@ -10,11 +10,11 @@ class AnimatedContainerOnBoarding extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 250),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(100.r),
         color: active ? const Color(0xFF0CAFB4) : Colors.grey[200],
       ),
-      width: active ? 37.w : 10.w,
-      height: 10.h,
+      width: active ? 30.w : 10.w,
+      height: 8.h,
     );
   }
 }

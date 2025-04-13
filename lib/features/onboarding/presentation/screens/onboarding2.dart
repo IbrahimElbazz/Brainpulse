@@ -27,7 +27,7 @@ class Onboarding2 extends StatelessWidget {
                   const SizedBox(height: 80),
                   Image.asset(
                     'assets/images/onboard22.png',
-                    height: 210.h,
+                    height: 230.h,
                   ),
                   const SizedBox(height: 45),
                   SizedBox(

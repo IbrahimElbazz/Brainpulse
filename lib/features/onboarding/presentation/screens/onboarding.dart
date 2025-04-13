@@ -88,7 +88,7 @@ class _OnboardingState extends State<Onboarding> {
                     duration: const Duration(milliseconds: 250),
                     curve: Curves.linear,
                   );
-                  print(_currentPage);
+
                   _currentPage == 1
                       ? context.pushNamed(Routes.loginScreen)
                       : null;
