@@ -6,7 +6,7 @@ import 'package:brain_pulse/features/home/presentation/screens/eeg_data_screen.d
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/data_by_doctor_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/get_image_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
-import 'package:brain_pulse/features/onBoarding/ui/screen/onBoadrding.dart';
+import 'package:brain_pulse/features/onboarding/presentation/screens/onboarding.dart';
 import 'package:brain_pulse/features/splash/presentation/views/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class AppRouter {
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.onBoarding:
-        return MaterialPageRoute(builder: (_) => const OnBoarding());
+        return MaterialPageRoute(builder: (_) => const Onboarding());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LogInScreen());
       case Routes.appNavigation:
