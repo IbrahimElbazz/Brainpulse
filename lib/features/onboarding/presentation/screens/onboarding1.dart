@@ -21,8 +21,11 @@ class Onboarding1 extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset('assets/images/board1.png'),
                 const SizedBox(height: 50),
+                Image.asset(
+                  'assets/images/welcom.png',
+                  height: 300.h,
+                ),
                 Text(
                   'Welcome to Brain pulse',
                   style: TextStyle(

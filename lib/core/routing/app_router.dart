@@ -1,3 +1,4 @@
+import 'package:brain_pulse/core/routing/animation_route.dart';
 import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/app_navigation/app_navigation.dart';
 import 'package:brain_pulse/features/auth/login/presentation/views/login.dart';
@@ -14,11 +15,17 @@ class AppRouter {
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.splashScreen:
-        return MaterialPageRoute(builder: (_) => const SplashScreen());
+        return AppHelperFunctions().fadeTransition(
+          page: const SplashScreen(),
+        );
       case Routes.onBoarding:
-        return MaterialPageRoute(builder: (_) => const Onboarding());
+        return AppHelperFunctions().fadeTransition(
+          page: const Onboarding(),
+        );
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => const LogInScreen());
+        return AppHelperFunctions().fadeTransition(
+          page: const LogInScreen(),
+        );
       case Routes.appNavigation:
         return MaterialPageRoute(builder: (_) => const AppNavigation());
       case Routes.homeScreen:

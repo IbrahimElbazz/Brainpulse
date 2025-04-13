@@ -1,3 +1,4 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,9 +24,10 @@ class Onboarding2 extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  const SizedBox(height: 80),
                   Image.asset(
-                    'assets/images/board2.png',
-                    height: 320.h,
+                    'assets/images/onboard22.png',
+                    height: 210.h,
                   ),
                   const SizedBox(height: 45),
                   SizedBox(
