@@ -4,9 +4,9 @@ import 'package:brain_pulse/core/Widgets/mybutton.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_cubit.dart';
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_state.dart';
-import 'package:brain_pulse/features/auth/register/presentation/views/widgets/terms_and_conditioins.dart';
 import 'package:brain_pulse/features/auth/register/presentation/views/widgets/pass_and_email_register.dart';
 import 'package:brain_pulse/features/auth/register/presentation/views/widgets/top_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,9 +51,29 @@ class RegisterPage extends StatelessWidget {
                       },
                       text: 'Create Account',
                     )
-                  : const Center(
-                      child: CircularProgressIndicator(
-                        color: Colors.black,
+                  : TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor:
+                            WidgetStateProperty.all(ColorsApp.primary),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        minimumSize: WidgetStateProperty.all(
+                          const Size(double.infinity, 55),
+                        ),
+                        shape: WidgetStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              16,
+                            ),
+                          ),
+                        ),
+                      ),
+                      child: Center(
+                        child: CupertinoActivityIndicator(
+                          radius: 12.r,
+                          animating: true,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
               const GapH(

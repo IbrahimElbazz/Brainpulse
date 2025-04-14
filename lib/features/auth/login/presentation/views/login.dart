@@ -7,6 +7,7 @@ import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/lo
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_state.dart';
 import 'package:brain_pulse/features/auth/login/presentation/views/ui/widgets/lowerDesignLogin.dart';
 import 'package:brain_pulse/features/auth/login/presentation/views/ui/widgets/pass_and_email_login.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -93,8 +94,30 @@ class LogInScreen extends StatelessWidget {
                           },
                           text: 'Login',
                         )
-                      : const CircularProgressIndicator(
-                          color: Colors.white,
+                      : TextButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStateProperty.all(ColorsApp.primary),
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            minimumSize: WidgetStateProperty.all(
+                              const Size(double.infinity, 55),
+                            ),
+                            shape: WidgetStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                  16,
+                                ),
+                              ),
+                            ),
+                          ),
+                          child: Center(
+                            child: CupertinoActivityIndicator(
+                              radius: 12.r,
+                              animating: true,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                   SizedBox(
                     height: screenSize.height * .05,
