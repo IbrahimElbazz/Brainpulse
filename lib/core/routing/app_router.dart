@@ -27,17 +27,29 @@ class AppRouter {
           page: const LogInScreen(),
         );
       case Routes.appNavigation:
-        return MaterialPageRoute(builder: (_) => const AppNavigation());
+        return AppHelperFunctions().fadeTransition(
+          page: const AppNavigation(),
+        );
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return AppHelperFunctions().fadeTransition(
+          page: const HomeScreen(),
+        );
       case Routes.getImage:
-        return MaterialPageRoute(builder: (_) => const GetImageScreen());
+        return AppHelperFunctions().fadeTransition(
+          page: const GetImageScreen(),
+        );
       case Routes.eegdata:
-        return MaterialPageRoute(builder: (_) => const EegDataScreen());
+        return AppHelperFunctions().fadeTransition(
+          page: const EegDataScreen(),
+        );
       case Routes.dataByDoctorScreen:
-        return MaterialPageRoute(builder: (_) => const DataByDoctorScreen());
+        return AppHelperFunctions().fadeTransition(
+          page: const DataByDoctorScreen(),
+        );
       case Routes.dropfilescreen:
-        return MaterialPageRoute(builder: (_) => const DropFileScreen());
+        return AppHelperFunctions().fadeTransition(
+          page: const DropFileScreen(),
+        );
 
       default:
         return MaterialPageRoute(
