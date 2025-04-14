@@ -18,7 +18,7 @@ class MyButton extends StatelessWidget {
     // refactor code
     return TextButton(
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(color),
+        backgroundColor: WidgetStateProperty.all(color ?? ColorsApp.primary),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: WidgetStateProperty.all(
           const Size(double.infinity, 55),

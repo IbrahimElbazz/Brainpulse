@@ -2,6 +2,7 @@ import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/features/auth/register/presentation/views/register.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUp extends StatelessWidget {
   String text3;
@@ -25,7 +26,7 @@ class SignUp extends StatelessWidget {
           },
           child: Text(text4,
               style: TextStyleApp.font12weight400colorGrey
-                  .copyWith(color: ColorsApp.primary, fontSize: 11)),
+                  .copyWith(color: ColorsApp.primary, fontSize: 11.sp)),
         ),
       ],
     );

@@ -1,9 +1,12 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
+import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/mytextfield.dart';
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:ionicons/ionicons.dart';
 
 class PassAndEmail extends StatefulWidget {
   const PassAndEmail({super.key});
@@ -51,7 +54,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
                 return 'Please enter a valid email';
               }
             },
-            icon: const Icon(Icons.email_outlined),
+            icon: const Icon(Ionicons.mail_outline, color: Colors.grey),
             showText: false,
             hint: 'Email',
           ),
@@ -105,10 +108,8 @@ class _PassAndEmailState extends State<PassAndEmail> {
                 });
               },
               child: Icon(
-                isObscureText ? Icons.visibility_off : Icons.visibility,
-                color: isObscureText
-                    ? const Color.fromARGB(255, 92, 92, 92)
-                    : Colors.blue,
+                isObscureText ? Ionicons.eye_off_outline : Ionicons.eye_outline,
+                color: isObscureText ? Colors.grey : ColorsApp.primary,
               ),
             ),
           ),
@@ -131,15 +132,13 @@ class _PassAndEmailState extends State<PassAndEmail> {
                 });
               },
               child: Icon(
-                isObscureText ? Icons.visibility_off : Icons.visibility,
-                color: isObscureText
-                    ? const Color.fromARGB(255, 92, 92, 92)
-                    : Colors.blue,
+                isObscureText ? Ionicons.eye_off_outline : Ionicons.eye_outline,
+                color: isObscureText ? Colors.grey : ColorsApp.primary,
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
+          const GapH(
+            height: 30,
           ),
         ],
       ),

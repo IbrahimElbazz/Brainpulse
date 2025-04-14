@@ -1,7 +1,7 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
-import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_cubit.dart';
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_state.dart';
 import 'package:brain_pulse/features/auth/register/presentation/views/widgets/terms_and_conditioins.dart';
@@ -57,7 +57,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                     ),
               const GapH(
-                height: 15,
+                height: 30,
               ),
               Row(
                 children: [
@@ -83,32 +83,10 @@ class RegisterPage extends StatelessWidget {
                 ],
               ),
               const GapH(
-                height: 15,
+                height: 10,
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //   children: [
-              //     CircleAvatar(
-              //       backgroundColor:  Color(0xfff5f5f5),
-              //       radius: 30,
-              //       child: SvgPicture.asset("assets/svgs/googlelogo.svg"),
-              //     ),
-              //     CircleAvatar(
-              //       backgroundColor:  Color(0xfff5f5f5),
-              //       radius: 30,
-              //       child: SvgPicture.asset("assets/svgs/facebook.svg"),
-              //     ),
-              //     CircleAvatar(
-              //       backgroundColor:  Color(0xfff5f5f5),
-              //       radius: 30,
-              //       child: SvgPicture.asset("assets/svgs/apple.svg"),
-              //     ),
-              //   ],
-              // ),
-              //  SizedBox(
-              //   height: 30,
-              // ),
-             const TermsAndConditions(),
+
+              // const TermsAndConditions(),
               const GapH(
                 height: 10,
               ),
@@ -124,8 +102,8 @@ class RegisterPage extends StatelessWidget {
                     child: Text(
                       "SignIn",
                       style: TextStyle(
-                        color: const Color(0xff247cFF),
-                        fontSize: 15.sp,
+                        color: ColorsApp.primary,
+                        fontSize: 12.sp,
                       ),
                     ),
                   ),
