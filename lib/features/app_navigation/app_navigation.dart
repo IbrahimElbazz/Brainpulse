@@ -2,12 +2,10 @@ import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/features/brain/presentation/screens/brain_screen.dart';
 import 'package:brain_pulse/features/history/presentation/screens/history.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
-import 'package:brain_pulse/features/more/more.dart';
 import 'package:brain_pulse/features/my_account/presentation/screens/my_account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ionicons/ionicons.dart';
 
 class AppNavigation extends StatefulWidget {
   const AppNavigation({super.key});

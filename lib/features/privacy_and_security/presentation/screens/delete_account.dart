@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:brain_pulse/core/Theming/colors.dart';
-import 'package:brain_pulse/core/Widgets/pop_circle_button.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/helpers/spacing.dart';
 import 'package:brain_pulse/core/widgets/gap.dart';

@@ -86,19 +86,19 @@ class HomeBody extends StatelessWidget {
                   height: 80.h,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 30.h,
-                ),
-                child: CustomButton(
-                  text: "Drop File",
-                  onTap: () {
-                    Navigator.pushNamed(context, Routes.dropfilescreen);
-                  },
-                  width: double.infinity,
-                  height: 80.h,
-                ),
-              )
+              // Padding(
+              //   padding: EdgeInsets.only(
+              //     top: 30.h,
+              //   ),
+              //   child: CustomButton(
+              //     text: "Drop File",
+              //     onTap: () {
+              //       Navigator.pushNamed(context, Routes.dropfilescreen);
+              //     },
+              //     width: double.infinity,
+              //     height: 80.h,
+              //   ),
+              // )
             ],
           ),
         ),
