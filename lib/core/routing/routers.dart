@@ -10,4 +10,7 @@ class Routes {
   static const String dataByDoctorScreen = '/DataByDoctorScreen';
   static const String dropfilescreen = '/dropfilescreen';
   static const String editProfileScreen = '/EditProfileScreen';
+  static const String privacyAndSecurity = '/PrivacyAndSecurity';
+  static const String changePasswordScreen = '/ChangePasswordScreen';
+  static const String deleteAccount = '/DeleteAccount';
 }

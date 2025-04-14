@@ -58,12 +58,15 @@ class CardItemInMyAccount extends StatelessWidget {
                   ),
                 ),
                 const GapH(height: 4),
-                Text(
-                  subTitle,
-                  style: TextStyle(
-                    color: const Color(0xFF9DA1A6),
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
+                SizedBox(
+                  width: 230.w,
+                  child: Text(
+                    subTitle,
+                    style: TextStyle(
+                      color: const Color(0xFF9DA1A6),
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ],

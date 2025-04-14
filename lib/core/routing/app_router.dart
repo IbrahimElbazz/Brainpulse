@@ -9,6 +9,9 @@ import 'package:brain_pulse/features/home/presentation/screens/get_image_screen.
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
 import 'package:brain_pulse/features/my_account/presentation/screens/edit_profile_screen.dart';
 import 'package:brain_pulse/features/onboarding/presentation/screens/onboarding.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/screens/change_password_screen.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/screens/delete_account.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/screens/privacy_and_security.dart';
 import 'package:brain_pulse/features/splash/presentation/views/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -54,6 +57,18 @@ class AppRouter {
       case Routes.editProfileScreen:
         return AppHelperFunctions().fadeTransition(
           page: const EditProfileScreen(),
+        );
+      case Routes.privacyAndSecurity:
+        return AppHelperFunctions().fadeTransition(
+          page: const PrivacyAndSecurity(),
+        );
+      case Routes.changePasswordScreen:
+        return AppHelperFunctions().fadeTransition(
+          page: const ChangePasswordScreen(),
+        );
+      case Routes.deleteAccount:
+        return AppHelperFunctions().fadeTransition(
+          page: const DeleteAccount(),
         );
       default:
         return MaterialPageRoute(

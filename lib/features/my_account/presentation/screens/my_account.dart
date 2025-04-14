@@ -47,19 +47,18 @@ class MyAccount extends StatelessWidget {
                     const GapH(height: 24),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/user-pen.svg',
-                      title: 'تعديل الملف الشخصي',
-                      subTitle: 'تعديل . الاسم . البريد الإلكتروني',
+                      title: 'Edit Profile',
+                      subTitle: 'Edit . Name . Email',
                       onTap: () {
                         context.pushNamed('/EditProfileScreen');
                       },
                     ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/shield-check.svg',
-                      title: 'الخصوصية والامان',
-                      subTitle:
-                          'تغيير كلمة المرور الخاصة بك . البيانات الشخصية ',
+                      title: 'Privacy and Security',
+                      subTitle: 'Change your password . Personal data ',
                       onTap: () {
-                        // context.pushNamed('/PrivacyAndSecurity');
+                        context.pushNamed('/PrivacyAndSecurity');
                       },
                     ),
                   ],
