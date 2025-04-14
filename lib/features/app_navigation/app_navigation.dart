@@ -6,6 +6,7 @@ import 'package:brain_pulse/features/more/more.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ionicons/ionicons.dart';
 
 class AppNavigation extends StatefulWidget {
   const AppNavigation({super.key});
@@ -29,101 +30,89 @@ class _AppNavigationState extends State<AppNavigation> {
     final List<BottomNavigationBarItem> items = [
       BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
-        icon: SvgPicture.asset('assets/svgs/home-2.svg',
-            color: Theme.of(context).iconTheme.color          ),
+        icon: SvgPicture.asset(
+          'assets/svgs/home-2.svg',
+          width: 24.w,
+          color: Colors.grey,
+        ),
         label: 'Home',
         activeIcon: SvgPicture.asset(
           'assets/svgs/home-2.svg',
-          color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+          width: 24.w,
+          color: ColorsApp.primary,
         ),
       ),
       BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
-        icon: SvgPicture.asset(
-          color: Theme.of(context).iconTheme.color,          'assets/svgs/brain.svg',
-          fit: BoxFit.scaleDown,
-          width: 50.w,
+        icon: Image.asset(
+          'assets/images/brain_icon.png',
+          width: 25.w,
+          color: Colors.grey,
         ),
         label: 'Brain',
-        activeIcon: SvgPicture.asset(
-          'assets/svgs/brain.svg',
-          color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-          fit: BoxFit.scaleDown,
-          width: 50.w,
+        activeIcon: Image.asset(
+          'assets/images/brain_icon.png',
+          width: 25.w,
+          color: ColorsApp.primary,
         ),
       ),
       BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
-        icon:  Icon(
-          color: Theme.of(context).iconTheme.color,
-          Icons.history_sharp,
-          size: 28,
+        icon: Image.asset(
+          'assets/images/history_icon.png',
+          width: 25.w,
+          color: Colors.grey,
         ),
         label: 'History',
-        activeIcon: const Icon(
-          Icons.history_sharp,
-          size: 28,
+        activeIcon: Image.asset(
+          'assets/images/history_icon.png',
+          width: 25.w,
+          color: ColorsApp.primary,
         ),
       ),
-       BottomNavigationBarItem(
+      BottomNavigationBarItem(
         backgroundColor: ColorsApp.white,
-        icon:  Icon(
-          color: Theme.of(context).iconTheme.color,
-          Icons.more_horiz,
+        icon: const Icon(
+          Icons.more_vert_outlined,
+          color: Colors.grey,
           size: 28,
         ),
         label: 'More',
-        activeIcon:  Icon(
-          color: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,          Icons.more_horiz,
+        activeIcon: Icon(
+          color: ColorsApp.primary,
+          Icons.more_vert_outlined,
           size: 28,
         ),
       ),
     ];
     return Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        body: _children[_currentIndex],
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).bottomNavigationBarTheme.backgroundColor, // تعديل هنا
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.r),
-                topRight: Radius.circular(20.r),
-                bottomLeft: Radius.circular(20.r),
-                bottomRight: Radius.circular(20.r),
-              ),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 10,
-                  spreadRadius: 1,
-                ),
-              ],
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.r),
-                topRight: Radius.circular(20.r),
-                bottomLeft: Radius.circular(20.r),
-                bottomRight: Radius.circular(20.r),
-              ),
-              child: BottomNavigationBar(
-                type: BottomNavigationBarType.fixed,
-                backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-                selectedIconTheme: Theme.of(context).bottomNavigationBarTheme.selectedIconTheme,
-                unselectedItemColor: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
-                items: items,
-                currentIndex: _currentIndex,
-                selectedItemColor: Colors.blue,
-                onTap: (index) {
-                  setState(() {
-                    _currentIndex = index;
-                  });
-                },
-              ),
-            ),
-          ),
-        ));
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: _children[_currentIndex],
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20.r),
+          topRight: Radius.circular(20.r),
+          bottomLeft: Radius.circular(20.r),
+          bottomRight: Radius.circular(20.r),
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor:
+              Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          selectedIconTheme:
+              Theme.of(context).bottomNavigationBarTheme.selectedIconTheme,
+          unselectedItemColor:
+              Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+          items: items,
+          currentIndex: _currentIndex,
+          selectedItemColor: ColorsApp.primary,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+        ),
+      ),
+    );
   }
 }
