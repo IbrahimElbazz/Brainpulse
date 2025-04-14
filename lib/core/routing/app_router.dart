@@ -7,6 +7,7 @@ import 'package:brain_pulse/features/home/presentation/screens/eeg_data_screen.d
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/data_by_doctor_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/get_image_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
+import 'package:brain_pulse/features/my_account/presentation/screens/edit_profile_screen.dart';
 import 'package:brain_pulse/features/onboarding/presentation/screens/onboarding.dart';
 import 'package:brain_pulse/features/splash/presentation/views/spalsh_screen.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,10 @@ class AppRouter {
         return AppHelperFunctions().fadeTransition(
           page: const DropFileScreen(),
         );
-
+      case Routes.editProfileScreen:
+        return AppHelperFunctions().fadeTransition(
+          page: const EditProfileScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

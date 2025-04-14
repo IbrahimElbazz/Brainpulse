@@ -1,0 +1,74 @@
+import 'package:brain_pulse/core/helpers/extentions.dart';
+import 'package:brain_pulse/core/widgets/gap.dart';
+import 'package:brain_pulse/features/my_account/presentation/widgets/card_item_in_my_account.dart';
+import 'package:brain_pulse/features/my_account/presentation/widgets/image_and_background_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class MyAccount extends StatelessWidget {
+  const MyAccount({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  context.pushNamed('/EditProfileScreen');
+                },
+                child: const ImageAndBackgroundBar(
+                  background: 'assets/images/background.png',
+                  image: 'assets/images/rajab.png',
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Doctor name',
+                      style: TextStyle(
+                        color: const Color(0xFF1D2035),
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const GapH(height: 18),
+                    Divider(
+                      color: Colors.grey.withOpacity(0.2),
+                    ),
+                    const GapH(height: 24),
+                    CardItemInMyAccount(
+                      icon: 'assets/svgs/user-pen.svg',
+                      title: 'تعديل الملف الشخصي',
+                      subTitle: 'تعديل . الاسم . البريد الإلكتروني',
+                      onTap: () {
+                        context.pushNamed('/EditProfileScreen');
+                      },
+                    ),
+                    CardItemInMyAccount(
+                      icon: 'assets/svgs/shield-check.svg',
+                      title: 'الخصوصية والامان',
+                      subTitle:
+                          'تغيير كلمة المرور الخاصة بك . البيانات الشخصية ',
+                      onTap: () {
+                        // context.pushNamed('/PrivacyAndSecurity');
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
