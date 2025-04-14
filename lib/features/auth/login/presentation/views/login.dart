@@ -9,6 +9,7 @@ import 'package:brain_pulse/features/auth/login/presentation/views/ui/widgets/lo
 import 'package:brain_pulse/features/auth/login/presentation/views/ui/widgets/pass_and_email_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LogInScreen extends StatelessWidget {
   const LogInScreen({super.key});
@@ -36,17 +37,24 @@ class LogInScreen extends StatelessWidget {
                 horizontal: screenSize.height * .03,
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Image.asset(
+                    'assets/images/logo-removebg-preview.png',
+                    height: 140.h,
+                    color: ColorsApp.primary,
+                  ),
+                  gapH(24),
                   Text(
                     'Welcome Back',
-                    style: TextStyleApp.font32wieght700ColorBlue,
+                    style: TextStyleApp.font32wieght700ColorBlue.copyWith(
+                      color: ColorsApp.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30.sp,
+                    ),
                   ),
                   gapH(20),
-                  Text(
-                    '''We"re excited to have you back, can't wait to\nsee what you've been up to since you last\nlogged in.''',
-                    style: TextStyleApp.font14weight400colorGrey,
-                  ),
+
                   SizedBox(
                     height: screenSize.height * .04,
                   ),
@@ -69,7 +77,7 @@ class LogInScreen extends StatelessWidget {
                       ),
                       Text('Forget Password?',
                           style: TextStyleApp.font12weight400colorGrey
-                              .copyWith(color: ColorsApp.blue)),
+                              .copyWith(color: ColorsApp.primary)),
                     ],
                   ),
                   SizedBox(
@@ -77,19 +85,16 @@ class LogInScreen extends StatelessWidget {
                   ),
                   read.isloading == false
                       ? MyButton(
+                          color: ColorsApp.primary,
                           onPressed: () {
                             if (read.keyform.currentState!.validate()) {
                               read.loginvalidate();
                             }
-                            // Navigator.push(context,
-                            //     MaterialPageRoute(builder: (context) {
-                            //   return const AppNavigation();
-                            // }));
                           },
                           text: 'Login',
                         )
                       : const CircularProgressIndicator(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                   SizedBox(
                     height: screenSize.height * .05,

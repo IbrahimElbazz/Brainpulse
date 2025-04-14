@@ -7,16 +7,18 @@ class MyButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
+    this.color,
   });
   final String text;
   final void Function()? onPressed;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     // refactor code
     return TextButton(
       style: ButtonStyle(
-        backgroundColor: WidgetStateProperty.all(ColorsApp.grey600),
+        backgroundColor: WidgetStateProperty.all(color),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         minimumSize: WidgetStateProperty.all(
           const Size(double.infinity, 55),

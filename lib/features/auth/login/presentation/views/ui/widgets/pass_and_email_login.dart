@@ -1,8 +1,10 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/mytextfield.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ionicons/ionicons.dart';
 
 class EmailAndPass extends StatefulWidget {
   const EmailAndPass({super.key});
@@ -29,7 +31,10 @@ class _EmailAndPassState extends State<EmailAndPass> {
             },
             controller: read.email,
             hint: 'Email',
-            icon: const Icon(Icons.email_outlined),
+            icon: const Icon(
+              Ionicons.mail_outline,
+              color: Colors.grey,
+            ),
           ),
           SizedBox(
             height: 16.h,
@@ -50,10 +55,8 @@ class _EmailAndPassState extends State<EmailAndPass> {
                 });
               },
               child: Icon(
-                isObscureText ? Icons.visibility_off : Icons.visibility,
-                color: isObscureText
-                    ? const Color.fromARGB(255, 92, 92, 92)
-                    : Colors.blue,
+                isObscureText ? Ionicons.eye_off_outline : Ionicons.eye_outline,
+                color: isObscureText ? Colors.grey : ColorsApp.primary,
               ),
             ),
           ),

@@ -25,7 +25,7 @@ class SignUp extends StatelessWidget {
           },
           child: Text(text4,
               style: TextStyleApp.font12weight400colorGrey
-                  .copyWith(color: ColorsApp.blue, fontSize: 11)),
+                  .copyWith(color: ColorsApp.primary, fontSize: 11)),
         ),
       ],
     );

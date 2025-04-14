@@ -36,7 +36,7 @@ class MyTextField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16.r),
           borderSide: BorderSide(
-            color: ColorsApp.blue,
+            color: ColorsApp.primary,
           ),
         ),
         errorBorder: OutlineInputBorder(
