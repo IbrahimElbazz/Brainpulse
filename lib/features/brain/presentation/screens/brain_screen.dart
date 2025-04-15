@@ -100,13 +100,14 @@ class BrainScreen extends StatelessWidget {
                     children: [
                       const GapW(width: 50),
                       PointInBrainInfo(
-                        colorIcon: Colors.blue.withOpacity(0.9),
+                        colorIcon: ColorsApp.primary.withOpacity(0.9),
                       ),
                       const GapW(width: 50),
-                      Text(
-                        'active',
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 24)
-                      )
+                      Text('active',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(fontSize: 24))
                     ],
                   ),
                   const GapH(height: 10),
@@ -117,11 +118,11 @@ class BrainScreen extends StatelessWidget {
                         colorIcon: Colors.red.withOpacity(0.9),
                       ),
                       const GapW(width: 50),
-                      Text(
-                        'disactive',
-                          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 24)
-
-                      )
+                      Text('disactive',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(fontSize: 24))
                     ],
                   )
                 ],

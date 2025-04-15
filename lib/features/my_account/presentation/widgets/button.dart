@@ -1,4 +1,3 @@
-import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,6 +11,8 @@ class CustomButtonAcc extends StatelessWidget {
     this.textColor,
     this.textSized,
     this.withBorder,
+    this.icon,
+    this.iconWidget,
   });
   final Color color;
   final Color? textColor;
@@ -19,6 +20,8 @@ class CustomButtonAcc extends StatelessWidget {
   final String text;
   final void Function() onTap;
   final bool? withBorder;
+  final bool? icon;
+  final Widget? iconWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -37,16 +40,32 @@ class CustomButtonAcc extends StatelessWidget {
                 : BorderSide.none,
           ),
         ),
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              color: textColor ?? Colors.white,
-              fontSize: textSized ?? 18.sp,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
+        child: icon ?? false
+            ? Row(
+                spacing: 10.w,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  iconWidget ?? const SizedBox.shrink(),
+                  Text(
+                    text,
+                    style: TextStyle(
+                      color: textColor ?? Colors.white,
+                      fontSize: textSized ?? 18.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              )
+            : Center(
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    color: textColor ?? Colors.white,
+                    fontSize: textSized ?? 18.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
       ),
     );
   }

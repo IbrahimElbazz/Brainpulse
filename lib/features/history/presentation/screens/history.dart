@@ -1,16 +1,15 @@
-import 'dart:developer';
-
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
-import 'package:brain_pulse/core/di/dependency_injection.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_state.dart';
 import 'package:brain_pulse/features/history/presentation/screens/Patient_details.dart';
+import 'package:brain_pulse/features/history/presentation/widgets/history_shimmer.dart';
 import 'package:brain_pulse/features/history/presentation/widgets/user_card_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ionicons/ionicons.dart';
 
 class History extends StatefulWidget {
   const History({super.key});
@@ -51,7 +50,8 @@ class _HistoryState extends State<History> {
       appBar: AppBar(
         leading: const SizedBox.shrink(),
         surfaceTintColor: Colors.white,
-        title: Text('History', style: Theme.of(context).textTheme.titleLarge),
+        title: Text('Patient record',
+            style: Theme.of(context).textTheme.titleLarge),
         centerTitle: true,
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
@@ -63,8 +63,12 @@ class _HistoryState extends State<History> {
             children: [
               const GapH(height: 10),
               TextField(
+                enabled: false,
                 decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
+                  prefixIcon: const Icon(
+                    Ionicons.search,
+                  ),
+                  disabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
                     borderSide: BorderSide(
                       color: Colors.grey[300]!,
@@ -124,7 +128,7 @@ class _HistoryState extends State<History> {
                       );
                     },
                     loadingGetAllPatients: () {
-                      return const Center(child: CircularProgressIndicator());
+                      return const HistoryShimmer();
                     },
                     errorGetAllPatients: (errorMessage) {
                       return Center(child: Text(errorMessage));

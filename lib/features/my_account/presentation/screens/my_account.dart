@@ -61,6 +61,12 @@ class MyAccount extends StatelessWidget {
                         context.pushNamed('/PrivacyAndSecurity');
                       },
                     ),
+                    CardItemInMyAccount(
+                      icon: 'assets/svgs/message-circle-question.svg',
+                      title: 'Help Center',
+                      subTitle: 'technical support',
+                      onTap: () {},
+                    ),
                   ],
                 ),
               ),

@@ -1,3 +1,4 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +15,7 @@ class PointInBrain extends StatelessWidget {
       width: 40.w,
       height: 40.w,
       decoration: BoxDecoration(
-        color: Colors.blue.withOpacity(0.9),
+        color: ColorsApp.primary.withOpacity(0.8),
         borderRadius: BorderRadius.circular(555.r),
       ),
       child: Center(
