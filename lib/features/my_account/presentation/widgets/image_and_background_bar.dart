@@ -67,11 +67,18 @@ class ImageAndBackgroundBar extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 150.h,
-          left: 60.w,
-          child: SvgPicture.asset(
-            'assets/svgs/camera.svg',
-            width: 25.w,
+          top: 115.h,
+          left: 29.w,
+          child: CircleAvatar(
+            radius: 45.r,
+            backgroundColor: Colors.transparent.withAlpha(850),
+            child: Center(
+              child: SvgPicture.asset(
+                'assets/svgs/camera.svg',
+                color: Colors.white,
+                width: 25.w,
+              ),
+            ),
           ),
         ),
       ],

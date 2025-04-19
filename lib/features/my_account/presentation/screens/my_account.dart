@@ -24,7 +24,7 @@ class MyAccount extends StatelessWidget {
                 },
                 child: const ImageAndBackgroundBar(
                   background: 'assets/images/background.png',
-                  image: 'assets/images/rajab.png',
+                  image: 'assets/images/OO6PT80.jpg',
                 ),
               ),
               Padding(
