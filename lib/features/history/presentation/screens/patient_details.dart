@@ -1,8 +1,11 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
 import 'package:brain_pulse/core/helpers/spacing.dart';
 import 'package:brain_pulse/features/history/data/model/get_all_patients_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:ionicons/ionicons.dart';
 
 class PatientDetails extends StatelessWidget {
   const PatientDetails({super.key, required this.patientDetails});
@@ -17,7 +20,6 @@ class PatientDetails extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              gapH(10),
               Row(
                 children: [
                   const CustomCircleButtonPop(),
@@ -26,58 +28,86 @@ class PatientDetails extends StatelessWidget {
                     "${patientDetails.firstName} ${patientDetails.lastName}",
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
+                  const Spacer(),
+                  IconButton(
+                      onPressed: () {},
+                      icon: Image.asset(
+                        'assets/images/history_icon.png',
+                        width: 25.w,
+                        color: ColorsApp.primary,
+                      )),
+                ],
+              ),
+              gapH(50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/images/Patient.png',
+                    height: 80.h,
+                    color: ColorsApp.primary,
+                  ),
+                  gapW(20),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Phone :    ',
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              color: ColorsApp.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            patientDetails.phone ?? "",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                      gapH(10),
+                      Row(
+                        children: [
+                          Text(
+                            'age :    ',
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              color: ColorsApp.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            patientDetails.age.toString(),
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
               gapH(30),
-              Row(
-                children: [
-                  Text(
-                    'Phone :    ',
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    patientDetails.phone ?? "",
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-              gapH(10),
-              Row(
-                children: [
-                  Text(
-                    'age :    ',
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    patientDetails.age.toString(),
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-              gapH(10),
+              const Divider(),
+              gapH(30),
               Row(
                 children: [
                   Text(
                     'history :    ',
                     style: TextStyle(
                       fontSize: 20.sp,
-                      color: Colors.blue,
+                      color: ColorsApp.primary,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -92,7 +122,7 @@ class PatientDetails extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 15.h),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue.withOpacity(0.05),
+                        color: ColorsApp.primary.withOpacity(0.05),
                         borderRadius: BorderRadius.circular(16.r),
                       ),
                       child: Column(
@@ -106,7 +136,7 @@ class PatientDetails extends StatelessWidget {
                                     .substring(0, 10),
                                 style: TextStyle(
                                   fontSize: 14.sp,
-                                  color: Colors.blue,
+                                  color: ColorsApp.primary,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
