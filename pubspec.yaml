@@ -61,9 +61,11 @@ dependencies:
   shared_preferences: ^2.2.2
 
 dev_dependencies:
+  flutter_expandable_fab: ^2.4.1
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
+  hawk_fab_menu: ^1.2.0
   ionicons: ^0.2.2
   shimmer: ^3.0.0
 

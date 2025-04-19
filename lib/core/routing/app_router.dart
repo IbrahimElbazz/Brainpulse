@@ -39,7 +39,7 @@ class AppRouter {
           page: const HomeScreen(),
         );
       case Routes.getImage:
-        return AppHelperFunctions().fadeTransition(
+        return AppHelperFunctions().slideFromRightTransition(
           page: const GetImageScreen(),
         );
       case Routes.eegdata:
@@ -47,7 +47,7 @@ class AppRouter {
           page: const EegDataScreen(),
         );
       case Routes.dataByDoctorScreen:
-        return AppHelperFunctions().fadeTransition(
+        return AppHelperFunctions().slideFromRightTransition(
           page: const DataByDoctorScreen(),
         );
       case Routes.dropfilescreen:

@@ -307,6 +307,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "9.1.0"
+  flutter_expandable_fab:
+    dependency: "direct dev"
+    description:
+      name: flutter_expandable_fab
+      sha256: "4d03f54e5384897e32606e9959cef5e7857e5a203e24684f95dfbb5f7fb9b88e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -466,6 +474,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  hawk_fab_menu:
+    dependency: "direct dev"
+    description:
+      name: hawk_fab_menu
+      sha256: "279a9374b0750a67e6a8556525e6669c06a57827af14866c2ab1fac5351a2fb2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   http:
     dependency: transitive
     description:
