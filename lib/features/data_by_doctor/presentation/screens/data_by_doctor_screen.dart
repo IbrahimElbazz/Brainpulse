@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:brain_pulse/core/Theming/text_style.dart';
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/helpers/spacing.dart';
@@ -34,9 +34,9 @@ class DataByDoctorScreen extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return const Center(
+                  return Center(
                     child: CircularProgressIndicator(
-                      color: Colors.blue,
+                      color: ColorsApp.primary,
                     ),
                   );
                 },
@@ -46,12 +46,14 @@ class DataByDoctorScreen extends StatelessWidget {
               context.pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: ColorsApp.primary,
                   content: Center(
                     child: Text(
                       'please try again',
-                      style: Theme.of(context).textTheme.bodyMedium,
-
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.white),
                     ),
                   ),
                 ),
@@ -213,10 +215,10 @@ class DataByDoctorScreen extends StatelessWidget {
                     },
                     text: 'Send',
                     width: double.infinity,
-                    height: 50,
-                    textColor: Colors.blue,
-                    borderColor: Colors.blue,
-                    color: Colors.white,
+                    height: 50.h,
+                    textColor: ColorsApp.primary,
+                    borderColor: ColorsApp.primary,
+                    color: ColorsApp.primary.withOpacity(0.1),
                   ),
                   gapH(20),
                 ],

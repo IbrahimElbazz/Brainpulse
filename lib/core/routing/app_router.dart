@@ -2,6 +2,7 @@ import 'package:brain_pulse/core/routing/animation_route.dart';
 import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/app_navigation/app_navigation.dart';
 import 'package:brain_pulse/features/auth/login/presentation/views/login.dart';
+import 'package:brain_pulse/features/data_by_doctor/presentation/screens/display_data.dart';
 import 'package:brain_pulse/features/home/presentation/screens/drop_file_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/eeg_data_screen.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/data_by_doctor_screen.dart';
@@ -17,6 +18,7 @@ import 'package:flutter/material.dart';
 
 class AppRouter {
   static Route generateRoute(RouteSettings settings) {
+    var arg = settings.arguments;
     switch (settings.name) {
       case Routes.splashScreen:
         return AppHelperFunctions().fadeTransition(
@@ -45,6 +47,12 @@ class AppRouter {
       case Routes.eegdata:
         return AppHelperFunctions().fadeTransition(
           page: const EegDataScreen(),
+        );
+      case Routes.displayData:
+        return AppHelperFunctions().fadeTransition(
+          page: DisplayData(
+            prediction: arg as Map<String, dynamic>,
+          ),
         );
       case Routes.dataByDoctorScreen:
         return AppHelperFunctions().slideFromRightTransition(
