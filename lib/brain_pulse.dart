@@ -44,7 +44,7 @@ class BrainPulse extends StatelessWidget {
             return MaterialApp(
               title: 'Brain Pulse',
               debugShowCheckedModeBanner: false,
-              initialRoute: Routes.splashScreen,
+              initialRoute: Routes.appNavigation,
               onGenerateRoute: AppRouter.generateRoute,
               theme: themeProvider.currentTheme,
               locale: localeProvider.currentLocale,
