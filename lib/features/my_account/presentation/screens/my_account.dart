@@ -61,6 +61,14 @@ class MyAccount extends StatelessWidget {
                         context.pushNamed('/PrivacyAndSecurity');
                       },
                     ),
+                    CardItemInMyAccountImage(
+                      icon: 'assets/images/language.png',
+                      title: 'Language',
+                      subTitle: 'Change app language ',
+                      onTap: () {
+                        // context.pushNamed('/LanguageScreen');
+                      },
+                    ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/message-circle-question.svg',
                       title: 'Help Center',
