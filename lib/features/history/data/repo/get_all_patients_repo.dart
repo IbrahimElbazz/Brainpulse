@@ -16,4 +16,14 @@ class GetAllPatientsRepo {
       return ApiResult.failure(e.toString());
     }
   }
+
+  // delete patient
+  Future<ApiResult<void>> deletePatient(String phoneNumber) async {
+    try {
+      await _apiService.deletePatient(phoneNumber);
+      return const ApiResult.success(null);
+    } catch (e) {
+      return ApiResult.failure(e.toString());
+    }
+  }
 }

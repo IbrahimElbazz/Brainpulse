@@ -26,7 +26,7 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
         allPatients.addAll(data);
         _filterPatients();
         await HiveService.cacheData(data);
-        emit(GetAllPatientsState.successGetAllPatients(displayData, false));
+        emit(GetAllPatientsState.successGetAllPatients(data, false));
       },
       failure: (message) {
         final cachedData = HiveService.getCacheData();
@@ -39,10 +39,10 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
     );
   }
 
-  void nextPage() {
-    page++;
-    getAllPatients();
-  }
+  // void nextPage() {
+  //   page++;
+  //   getAllPatients();
+  // }
 
   void searchPatients(String query) {
     searchQuery = query.toLowerCase();
@@ -61,5 +61,20 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
         return fullName.contains(searchQuery) || phone.contains(searchQuery);
       }).toList();
     }
+  }
+
+  // delete patient
+  void deletePatient(String phoneNumber) async {
+    emit(const GetAllPatientsState.loadingDeletePatient());
+    final response = await _getAllPatientsRepo.deletePatient(phoneNumber);
+    response.when(
+      success: (data) async {
+        await getAllPatients();
+        emit(const GetAllPatientsState.successDeletePatient());
+      },
+      failure: (message) {
+        emit(GetAllPatientsState.errorDeletePatient(errorMessage: message));
+      },
+    );
   }
 }

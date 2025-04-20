@@ -1,6 +1,7 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
+import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_state.dart';
 import 'package:brain_pulse/features/history/presentation/screens/Patient_details.dart';
@@ -9,6 +10,8 @@ import 'package:brain_pulse/features/history/presentation/widgets/user_card_info
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+
 import 'package:ionicons/ionicons.dart';
 
 class History extends StatefulWidget {
@@ -19,25 +22,17 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
-  late ScrollController _scrollController;
   final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     context.read<GetAllPatientsCubit>().getAllPatients();
-    _scrollController = ScrollController();
-    _scrollController.addListener(() {
-      if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
-        context.read<GetAllPatientsCubit>().nextPage();
-      }
-    });
+
     super.initState();
   }
 
   @override
   void dispose() {
-    _scrollController.dispose();
     _searchController.dispose();
     super.dispose();
   }
@@ -86,7 +81,46 @@ class _HistoryState extends State<History> {
             ),
             const GapH(height: 10),
             Expanded(
-              child: BlocBuilder<GetAllPatientsCubit, GetAllPatientsState>(
+              child: BlocConsumer<GetAllPatientsCubit, GetAllPatientsState>(
+                listenWhen: (previous, current) {
+                  return current is ErrorDeletePatient ||
+                      current is SuccessDeletePatient ||
+                      current is LoadingDeletePatient;
+                },
+                listener: (context, state) {
+                  if (state is ErrorDeletePatient) {
+                    context.pop();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Center(
+                            child: Text(state.errorMessage,
+                                style: const TextStyle(color: Colors.white))),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                  if (state is SuccessDeletePatient) {
+                    context.pop();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Center(
+                            child: Text('Patient deleted successfully',
+                                style: TextStyle(color: Colors.white))),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
+                  }
+                  if (state is LoadingDeletePatient) {
+                    showDialog(
+                      context: context,
+                      builder: (context) => Center(
+                        child: CircularProgressIndicator(
+                          color: ColorsApp.primary,
+                        ),
+                      ),
+                    );
+                  }
+                },
                 buildWhen: (previous, current) {
                   return current is LoadingGetAllPatients ||
                       current is ErrorGetAllPatients ||
@@ -106,24 +140,48 @@ class _HistoryState extends State<History> {
                         );
                       }
                       return ListView.builder(
-                        controller: _scrollController,
                         physics: const BouncingScrollPhysics(),
                         itemCount: patients.length,
                         itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return PatientDetails(
-                                    patientDetails: patients[index],
-                                  );
+                          return Padding(
+                            padding: EdgeInsets.only(bottom: 8.h),
+                            child: Slidable(
+                              key: const ValueKey(0),
+                              endActionPane: ActionPane(
+                                motion: const ScrollMotion(),
+                                dismissible:
+                                    DismissiblePane(onDismissed: () {}),
+                                children: [
+                                  SlidableAction(
+                                    onPressed: (context) {
+                                      context
+                                          .read<GetAllPatientsCubit>()
+                                          .deletePatient(
+                                              patients[index].phone!);
+                                    },
+                                    backgroundColor: const Color(0xFFFE4A49),
+                                    foregroundColor: Colors.white,
+                                    icon: Icons.delete,
+                                    label: 'Delete',
+                                  ),
+                                ],
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return PatientDetails(
+                                        patientDetails: patients[index],
+                                      );
+                                    },
+                                  ));
                                 },
-                              ));
-                            },
-                            child: UserCardInfo(
-                              name:
-                                  "${patients[index].firstName} ${patients[index].lastName}",
-                              phone: patients[index].phone ?? "",
+                                child: UserCardInfo(
+                                  name:
+                                      "${patients[index].firstName} ${patients[index].lastName}",
+                                  phone: patients[index].phone ?? "",
+                                ),
+                              ),
                             ),
                           );
                         },

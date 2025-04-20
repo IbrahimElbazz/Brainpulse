@@ -27,4 +27,8 @@ abstract class ApiService {
   // add patient
   @POST(ApiConstant.addPatient)
   Future addPatient(@Body() AddPatientRequestModel request);
+
+  // delete patient
+  @DELETE(ApiConstant.deletePatient)
+  Future deletePatient(@Path('phoneNumber') String phoneNumber);
 }

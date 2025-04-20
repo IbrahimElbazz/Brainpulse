@@ -13,4 +13,12 @@ class GetAllPatientsState<T> with _$GetAllPatientsState<T> {
   ) = SuccessGetAllPatients;
   const factory GetAllPatientsState.errorGetAllPatients(
       {required String errorMessage}) = ErrorGetAllPatients;
+
+  // delete patient
+  const factory GetAllPatientsState.loadingDeletePatient() =
+      LoadingDeletePatient;
+  const factory GetAllPatientsState.successDeletePatient() =
+      SuccessDeletePatient;
+  const factory GetAllPatientsState.errorDeletePatient(
+      {required String errorMessage}) = ErrorDeletePatient;
 }
