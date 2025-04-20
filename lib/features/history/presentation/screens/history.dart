@@ -20,27 +20,25 @@ class History extends StatefulWidget {
 
 class _HistoryState extends State<History> {
   late ScrollController _scrollController;
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     context.read<GetAllPatientsCubit>().getAllPatients();
     _scrollController = ScrollController();
-
-    _scrollController.addListener(
-      () {
-        if (_scrollController.position.pixels ==
-            _scrollController.position.maxScrollExtent) {
-          context.read<GetAllPatientsCubit>().nextPage();
-        }
-      },
-    );
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        context.read<GetAllPatientsCubit>().nextPage();
+      }
+    });
     super.initState();
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
-
+    _searchController.dispose();
     super.dispose();
   }
 
@@ -58,36 +56,37 @@ class _HistoryState extends State<History> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const GapH(height: 10),
-              TextField(
-                enabled: false,
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(
-                    Ionicons.search,
-                  ),
-                  disabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(
-                      color: Colors.grey[300]!,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(
-                      color: ColorsApp.blue,
-                    ),
-                  ),
-                  hintText: 'search in history',
-                  hintStyle: TextStyleApp.styleText(
-                      15, ColorsApp.grey500, FontWeight.normal),
-                  fillColor: const Color(0xffFDFDFF),
+        child: Column(
+          children: [
+            const GapH(height: 10),
+            TextField(
+              controller: _searchController,
+              onChanged: (value) {
+                context.read<GetAllPatientsCubit>().searchPatients(value);
+              },
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Ionicons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: Colors.grey[300]!),
                 ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: Colors.grey[300]!),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(color: ColorsApp.blue),
+                ),
+                hintText: 'Search in history',
+                hintStyle: TextStyleApp.styleText(
+                    15, ColorsApp.grey500, FontWeight.normal),
+                fillColor: const Color(0xffFDFDFF),
               ),
-              const GapH(height: 10),
-              BlocBuilder<GetAllPatientsCubit, GetAllPatientsState>(
+            ),
+            const GapH(height: 10),
+            Expanded(
+              child: BlocBuilder<GetAllPatientsCubit, GetAllPatientsState>(
                 buildWhen: (previous, current) {
                   return current is LoadingGetAllPatients ||
                       current is ErrorGetAllPatients ||
@@ -95,49 +94,49 @@ class _HistoryState extends State<History> {
                 },
                 builder: (context, state) {
                   return state.maybeWhen(
-                    orElse: () {
-                      return const SizedBox.shrink();
-                    },
-                    successGetAllPatients: (getAllPatientsResponse) {
-                      final patientData =
-                          context.read<GetAllPatientsCubit>().displayData;
-
+                    orElse: () => const SizedBox.shrink(),
+                    successGetAllPatients: (patients) {
+                      if (patients.isEmpty) {
+                        return Center(
+                          child: Text(
+                            'No patients found',
+                            style: TextStyleApp.styleText(
+                                16, ColorsApp.grey500, FontWeight.normal),
+                          ),
+                        );
+                      }
                       return ListView.builder(
                         controller: _scrollController,
                         physics: const BouncingScrollPhysics(),
-                        itemCount: patientData.length,
-                        shrinkWrap: true,
+                        itemCount: patients.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(
                                 builder: (context) {
                                   return PatientDetails(
-                                    patientDetails: patientData[index],
+                                    patientDetails: patients[index],
                                   );
                                 },
                               ));
                             },
                             child: UserCardInfo(
                               name:
-                                  "${patientData[index].firstName} ${patientData[index].lastName}",
-                              phone: patientData[index].phone ?? "",
+                                  "${patients[index].firstName} ${patients[index].lastName}",
+                              phone: patients[index].phone ?? "",
                             ),
                           );
                         },
                       );
                     },
-                    loadingGetAllPatients: () {
-                      return const HistoryShimmer();
-                    },
-                    errorGetAllPatients: (errorMessage) {
-                      return Center(child: Text(errorMessage));
-                    },
+                    loadingGetAllPatients: () => const HistoryShimmer(),
+                    errorGetAllPatients: (errorMessage) =>
+                        Center(child: Text(errorMessage)),
                   );
                 },
-              )
-            ],
-          ),
+              ),
+            ),
+          ],
         ),
       ),
     );

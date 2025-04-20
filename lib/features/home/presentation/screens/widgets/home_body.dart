@@ -32,11 +32,10 @@ class _HomeBodyState extends State<HomeBody> {
             ontap: () {
               Navigator.pushNamed(context, Routes.getImage);
             },
-            icon: Image.asset(
-              'assets/images/medical_icons.png',
+            icon: Icon(
+              Icons.local_hospital,
               color: ColorsApp.primary,
-              height: 25.h,
-              fit: BoxFit.scaleDown,
+              size: 25.h,
             ),
             color: Colors.white,
             labelColor: ColorsApp.primary,
@@ -47,10 +46,10 @@ class _HomeBodyState extends State<HomeBody> {
             ontap: () {
               Navigator.pushNamed(context, Routes.dataByDoctorScreen);
             },
-            icon: Image.asset(
-              'assets/images/doctor_icon.png',
+            icon: Icon(
+              Icons.local_hospital,
               color: ColorsApp.primary,
-              height: 25.h,
+              size: 25.h,
             ),
             color: Colors.white,
             labelColor: ColorsApp.primary,

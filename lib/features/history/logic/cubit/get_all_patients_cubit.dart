@@ -12,17 +12,19 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
   final int itemPerPage = 10;
   int page = 1;
   List<GetAllPatientsResponse> displayData = [];
+  List<GetAllPatientsResponse> allPatients =
+      []; // Store all patients for search
+  String searchQuery = '';
 
   getAllPatients() async {
-    emit(
-      const GetAllPatientsState.loadingGetAllPatients(),
-    );
+    emit(const GetAllPatientsState.loadingGetAllPatients());
     final response =
         await _getAllPatientsRepo.getAllPatients(page, itemPerPage);
     response.when(
       success: (data) {
-        displayData.addAll(data);
-        emit(GetAllPatientsState.successGetAllPatients(data));
+        allPatients.addAll(data);
+        _filterPatients();
+        emit(GetAllPatientsState.successGetAllPatients(displayData));
       },
       failure: (message) {
         emit(GetAllPatientsState.errorGetAllPatients(errorMessage: message));
@@ -33,5 +35,24 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
   void nextPage() {
     page++;
     getAllPatients();
+  }
+
+  void searchPatients(String query) {
+    searchQuery = query.toLowerCase();
+    _filterPatients();
+    emit(GetAllPatientsState.successGetAllPatients(displayData));
+  }
+
+  void _filterPatients() {
+    if (searchQuery.isEmpty) {
+      displayData = List.from(allPatients);
+    } else {
+      displayData = allPatients.where((patient) {
+        final fullName = '${patient.firstName ?? ''} ${patient.lastName ?? ''}'
+            .toLowerCase();
+        final phone = patient.phone?.toLowerCase() ?? '';
+        return fullName.contains(searchQuery) || phone.contains(searchQuery);
+      }).toList();
+    }
   }
 }
