@@ -1,12 +1,19 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:hive/hive.dart';
 part 'get_all_patients_response.g.dart';
 
+@HiveType(typeId: 0)
 @JsonSerializable()
-class GetAllPatientsResponse {
+class GetAllPatientsResponse extends HiveObject {
+  @HiveField(0)
   String? firstName;
+  @HiveField(1)
   String? lastName;
+  @HiveField(2)
   String? phone;
+  @HiveField(3)
   int? age;
+  @HiveField(4)
   List<History>? history;
 
   GetAllPatientsResponse(
@@ -17,9 +24,13 @@ class GetAllPatientsResponse {
 }
 
 @JsonSerializable()
-class History {
+@HiveType(typeId: 1)
+class History extends HiveObject {
+  @HiveField(0)
   List<int>? points;
+  @HiveField(1)
   String? createdat;
+  @HiveField(2)
   String? description;
 
   History({this.points, this.createdat, this.description});

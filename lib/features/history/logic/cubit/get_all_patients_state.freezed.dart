@@ -21,7 +21,8 @@ mixin _$GetAllPatientsState<T> {
     required TResult Function() initial,
     required TResult Function() loadingGetAllPatients,
     required TResult Function(
-            List<GetAllPatientsResponse> getAllPatientsResponse)
+            List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)
         successGetAllPatients,
     required TResult Function(String errorMessage) errorGetAllPatients,
   }) =>
@@ -30,7 +31,8 @@ mixin _$GetAllPatientsState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingGetAllPatients,
-    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult? Function(String errorMessage)? errorGetAllPatients,
   }) =>
@@ -39,7 +41,8 @@ mixin _$GetAllPatientsState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingGetAllPatients,
-    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult Function(String errorMessage)? errorGetAllPatients,
     required TResult orElse(),
@@ -140,7 +143,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() loadingGetAllPatients,
     required TResult Function(
-            List<GetAllPatientsResponse> getAllPatientsResponse)
+            List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)
         successGetAllPatients,
     required TResult Function(String errorMessage) errorGetAllPatients,
   }) {
@@ -152,7 +156,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingGetAllPatients,
-    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult? Function(String errorMessage)? errorGetAllPatients,
   }) {
@@ -164,7 +169,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingGetAllPatients,
-    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult Function(String errorMessage)? errorGetAllPatients,
     required TResult orElse(),
@@ -267,7 +273,8 @@ class _$LoadingGetAllPatientsImpl<T> implements LoadingGetAllPatients<T> {
     required TResult Function() initial,
     required TResult Function() loadingGetAllPatients,
     required TResult Function(
-            List<GetAllPatientsResponse> getAllPatientsResponse)
+            List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)
         successGetAllPatients,
     required TResult Function(String errorMessage) errorGetAllPatients,
   }) {
@@ -279,7 +286,8 @@ class _$LoadingGetAllPatientsImpl<T> implements LoadingGetAllPatients<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingGetAllPatients,
-    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult? Function(String errorMessage)? errorGetAllPatients,
   }) {
@@ -291,7 +299,8 @@ class _$LoadingGetAllPatientsImpl<T> implements LoadingGetAllPatients<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingGetAllPatients,
-    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult Function(String errorMessage)? errorGetAllPatients,
     required TResult orElse(),
@@ -353,7 +362,9 @@ abstract class _$$SuccessGetAllPatientsImplCopyWith<T, $Res> {
           $Res Function(_$SuccessGetAllPatientsImpl<T>) then) =
       __$$SuccessGetAllPatientsImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({List<GetAllPatientsResponse> getAllPatientsResponse});
+  $Res call(
+      {List<GetAllPatientsResponse> getAllPatientsResponse,
+      bool dataFromCache});
 }
 
 /// @nodoc
@@ -372,12 +383,17 @@ class __$$SuccessGetAllPatientsImplCopyWithImpl<T, $Res>
   @override
   $Res call({
     Object? getAllPatientsResponse = null,
+    Object? dataFromCache = null,
   }) {
     return _then(_$SuccessGetAllPatientsImpl<T>(
       null == getAllPatientsResponse
           ? _value._getAllPatientsResponse
           : getAllPatientsResponse // ignore: cast_nullable_to_non_nullable
               as List<GetAllPatientsResponse>,
+      null == dataFromCache
+          ? _value.dataFromCache
+          : dataFromCache // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -386,7 +402,8 @@ class __$$SuccessGetAllPatientsImplCopyWithImpl<T, $Res>
 
 class _$SuccessGetAllPatientsImpl<T> implements SuccessGetAllPatients<T> {
   const _$SuccessGetAllPatientsImpl(
-      final List<GetAllPatientsResponse> getAllPatientsResponse)
+      final List<GetAllPatientsResponse> getAllPatientsResponse,
+      this.dataFromCache)
       : _getAllPatientsResponse = getAllPatientsResponse;
 
   final List<GetAllPatientsResponse> _getAllPatientsResponse;
@@ -399,8 +416,11 @@ class _$SuccessGetAllPatientsImpl<T> implements SuccessGetAllPatients<T> {
   }
 
   @override
+  final bool dataFromCache;
+
+  @override
   String toString() {
-    return 'GetAllPatientsState<$T>.successGetAllPatients(getAllPatientsResponse: $getAllPatientsResponse)';
+    return 'GetAllPatientsState<$T>.successGetAllPatients(getAllPatientsResponse: $getAllPatientsResponse, dataFromCache: $dataFromCache)';
   }
 
   @override
@@ -409,12 +429,16 @@ class _$SuccessGetAllPatientsImpl<T> implements SuccessGetAllPatients<T> {
         (other.runtimeType == runtimeType &&
             other is _$SuccessGetAllPatientsImpl<T> &&
             const DeepCollectionEquality().equals(
-                other._getAllPatientsResponse, _getAllPatientsResponse));
+                other._getAllPatientsResponse, _getAllPatientsResponse) &&
+            (identical(other.dataFromCache, dataFromCache) ||
+                other.dataFromCache == dataFromCache));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_getAllPatientsResponse));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_getAllPatientsResponse),
+      dataFromCache);
 
   /// Create a copy of GetAllPatientsState
   /// with the given fields replaced by the non-null parameter values.
@@ -431,11 +455,12 @@ class _$SuccessGetAllPatientsImpl<T> implements SuccessGetAllPatients<T> {
     required TResult Function() initial,
     required TResult Function() loadingGetAllPatients,
     required TResult Function(
-            List<GetAllPatientsResponse> getAllPatientsResponse)
+            List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)
         successGetAllPatients,
     required TResult Function(String errorMessage) errorGetAllPatients,
   }) {
-    return successGetAllPatients(getAllPatientsResponse);
+    return successGetAllPatients(getAllPatientsResponse, dataFromCache);
   }
 
   @override
@@ -443,11 +468,12 @@ class _$SuccessGetAllPatientsImpl<T> implements SuccessGetAllPatients<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingGetAllPatients,
-    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult? Function(String errorMessage)? errorGetAllPatients,
   }) {
-    return successGetAllPatients?.call(getAllPatientsResponse);
+    return successGetAllPatients?.call(getAllPatientsResponse, dataFromCache);
   }
 
   @override
@@ -455,13 +481,14 @@ class _$SuccessGetAllPatientsImpl<T> implements SuccessGetAllPatients<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingGetAllPatients,
-    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult Function(String errorMessage)? errorGetAllPatients,
     required TResult orElse(),
   }) {
     if (successGetAllPatients != null) {
-      return successGetAllPatients(getAllPatientsResponse);
+      return successGetAllPatients(getAllPatientsResponse, dataFromCache);
     }
     return orElse();
   }
@@ -508,10 +535,11 @@ class _$SuccessGetAllPatientsImpl<T> implements SuccessGetAllPatients<T> {
 
 abstract class SuccessGetAllPatients<T> implements GetAllPatientsState<T> {
   const factory SuccessGetAllPatients(
-          final List<GetAllPatientsResponse> getAllPatientsResponse) =
-      _$SuccessGetAllPatientsImpl<T>;
+      final List<GetAllPatientsResponse> getAllPatientsResponse,
+      final bool dataFromCache) = _$SuccessGetAllPatientsImpl<T>;
 
   List<GetAllPatientsResponse> get getAllPatientsResponse;
+  bool get dataFromCache;
 
   /// Create a copy of GetAllPatientsState
   /// with the given fields replaced by the non-null parameter values.
@@ -594,7 +622,8 @@ class _$ErrorGetAllPatientsImpl<T> implements ErrorGetAllPatients<T> {
     required TResult Function() initial,
     required TResult Function() loadingGetAllPatients,
     required TResult Function(
-            List<GetAllPatientsResponse> getAllPatientsResponse)
+            List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)
         successGetAllPatients,
     required TResult Function(String errorMessage) errorGetAllPatients,
   }) {
@@ -606,7 +635,8 @@ class _$ErrorGetAllPatientsImpl<T> implements ErrorGetAllPatients<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadingGetAllPatients,
-    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult? Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult? Function(String errorMessage)? errorGetAllPatients,
   }) {
@@ -618,7 +648,8 @@ class _$ErrorGetAllPatientsImpl<T> implements ErrorGetAllPatients<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadingGetAllPatients,
-    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse)?
+    TResult Function(List<GetAllPatientsResponse> getAllPatientsResponse,
+            bool dataFromCache)?
         successGetAllPatients,
     TResult Function(String errorMessage)? errorGetAllPatients,
     required TResult orElse(),

@@ -76,7 +76,7 @@ class _HistoryState extends State<History> {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: ColorsApp.blue),
+                  borderSide: BorderSide(color: ColorsApp.primary),
                 ),
                 hintText: 'Search in history',
                 hintStyle: TextStyleApp.styleText(
@@ -95,7 +95,7 @@ class _HistoryState extends State<History> {
                 builder: (context, state) {
                   return state.maybeWhen(
                     orElse: () => const SizedBox.shrink(),
-                    successGetAllPatients: (patients) {
+                    successGetAllPatients: (patients, isFromCache) {
                       if (patients.isEmpty) {
                         return Center(
                           child: Text(

@@ -1,5 +1,6 @@
 import 'package:brain_pulse/features/history/data/model/get_all_patients_response.dart';
 import 'package:brain_pulse/features/history/data/repo/get_all_patients_repo.dart';
+import 'package:brain_pulse/features/history/local/hive_service.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,13 +22,19 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
     final response =
         await _getAllPatientsRepo.getAllPatients(page, itemPerPage);
     response.when(
-      success: (data) {
+      success: (data) async {
         allPatients.addAll(data);
         _filterPatients();
-        emit(GetAllPatientsState.successGetAllPatients(displayData));
+        await HiveService.cacheData(data);
+        emit(GetAllPatientsState.successGetAllPatients(displayData, false));
       },
       failure: (message) {
-        emit(GetAllPatientsState.errorGetAllPatients(errorMessage: message));
+        final cachedData = HiveService.getCacheData();
+        if (cachedData != null) {
+          emit(GetAllPatientsState.successGetAllPatients(cachedData, true));
+        } else {
+          emit(GetAllPatientsState.errorGetAllPatients(errorMessage: message));
+        }
       },
     );
   }
@@ -40,7 +47,7 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
   void searchPatients(String query) {
     searchQuery = query.toLowerCase();
     _filterPatients();
-    emit(GetAllPatientsState.successGetAllPatients(displayData));
+    emit(GetAllPatientsState.successGetAllPatients(displayData, false));
   }
 
   void _filterPatients() {

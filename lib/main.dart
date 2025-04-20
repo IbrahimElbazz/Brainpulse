@@ -1,6 +1,7 @@
 import 'package:brain_pulse/brain_pulse.dart';
 import 'package:brain_pulse/core/di/dependency_injection.dart';
 import 'package:brain_pulse/core/helpers/bloc_observer.dart';
+import 'package:brain_pulse/features/history/local/hive_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,7 @@ late bool isLoggedIn;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await HiveService.init();
   setupGetIt();
   Bloc.observer = MyBlocObserver();
 
