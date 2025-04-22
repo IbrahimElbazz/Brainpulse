@@ -23,7 +23,7 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
         await _getAllPatientsRepo.getAllPatients(page, itemPerPage);
     response.when(
       success: (data) async {
-        allPatients.addAll(data);
+        allPatients = data;
         _filterPatients();
         await HiveService.cacheData(data);
         emit(GetAllPatientsState.successGetAllPatients(data, false));
@@ -31,6 +31,8 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
       failure: (message) {
         final cachedData = HiveService.getCacheData();
         if (cachedData != null) {
+          allPatients = cachedData;
+          _filterPatients();
           emit(GetAllPatientsState.successGetAllPatients(cachedData, true));
         } else {
           emit(GetAllPatientsState.errorGetAllPatients(errorMessage: message));

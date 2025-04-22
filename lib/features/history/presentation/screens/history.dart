@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-
 import 'package:ionicons/ionicons.dart';
 
 class History extends StatefulWidget {
@@ -26,9 +25,8 @@ class _HistoryState extends State<History> {
 
   @override
   void initState() {
-    context.read<GetAllPatientsCubit>().getAllPatients();
-
     super.initState();
+    context.read<GetAllPatientsCubit>().getAllPatients();
   }
 
   @override
@@ -129,8 +127,11 @@ class _HistoryState extends State<History> {
                 builder: (context, state) {
                   return state.maybeWhen(
                     orElse: () => const SizedBox.shrink(),
-                    successGetAllPatients: (patients, isFromCache) {
-                      if (patients.isEmpty) {
+                    successGetAllPatients: (_, __) {
+                      final displayData =
+                          context.read<GetAllPatientsCubit>().displayData;
+
+                      if (displayData.isEmpty) {
                         return Center(
                           child: Text(
                             'No patients found',
@@ -139,14 +140,16 @@ class _HistoryState extends State<History> {
                           ),
                         );
                       }
+
                       return ListView.builder(
                         physics: const BouncingScrollPhysics(),
-                        itemCount: patients.length,
+                        itemCount: displayData.length,
                         itemBuilder: (context, index) {
+                          final patient = displayData[index];
                           return Padding(
                             padding: EdgeInsets.only(bottom: 8.h),
                             child: Slidable(
-                              key: const ValueKey(0),
+                              key: ValueKey(patient.phone ?? index),
                               endActionPane: ActionPane(
                                 motion: const ScrollMotion(),
                                 dismissible:
@@ -156,8 +159,7 @@ class _HistoryState extends State<History> {
                                     onPressed: (context) {
                                       context
                                           .read<GetAllPatientsCubit>()
-                                          .deletePatient(
-                                              patients[index].phone!);
+                                          .deletePatient(patient.phone!);
                                     },
                                     backgroundColor: const Color(0xFFFE4A49),
                                     foregroundColor: Colors.white,
@@ -171,15 +173,15 @@ class _HistoryState extends State<History> {
                                   Navigator.push(context, MaterialPageRoute(
                                     builder: (context) {
                                       return PatientDetails(
-                                        patientDetails: patients[index],
+                                        patientDetails: patient,
                                       );
                                     },
                                   ));
                                 },
                                 child: UserCardInfo(
                                   name:
-                                      "${patients[index].firstName} ${patients[index].lastName}",
-                                  phone: patients[index].phone ?? "",
+                                      "${patient.firstName} ${patient.lastName}",
+                                  phone: patient.phone ?? "",
                                 ),
                               ),
                             ),
