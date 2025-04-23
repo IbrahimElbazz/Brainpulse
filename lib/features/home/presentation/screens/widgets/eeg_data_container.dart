@@ -11,7 +11,7 @@ class EegDataContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 100.h, horizontal: 10.w),
+      margin: EdgeInsets.symmetric(vertical: 30.h, horizontal: 10.w),
       width: double.infinity.w,
       height: 400.h,
       decoration: BoxDecoration(
@@ -31,8 +31,8 @@ class EegDataContainer extends StatelessWidget {
           ),
           Text(
             "EEG Result",
-            style: TextStyleApp.font22weight400colorRed
-                .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+            style: TextStyleApp.font22weight400colorRed.copyWith(
+                color: ColorsApp.primary, fontWeight: FontWeight.bold),
           ),
           Padding(
             padding: EdgeInsets.only(right: 198.0.w, top: 30.h),
