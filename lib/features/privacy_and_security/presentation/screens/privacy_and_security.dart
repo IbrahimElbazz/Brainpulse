@@ -12,7 +12,7 @@ class PrivacyAndSecurity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -32,6 +32,7 @@ class PrivacyAndSecurity extends StatelessWidget {
                     icon: 'assets/svgs/lock-alt-in-priv.svg',
                     subTitle: 'Requires old password',
                     title: 'Change password',
+                    colorBackgroundIcon: Colors.blueGrey,
                     onTap: () {
                       context.pushNamed('/ChangePasswordScreen');
                     },

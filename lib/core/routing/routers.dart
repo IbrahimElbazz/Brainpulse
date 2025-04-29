@@ -14,4 +14,5 @@ class Routes {
   static const String changePasswordScreen = '/ChangePasswordScreen';
   static const String deleteAccount = '/DeleteAccount';
   static const String displayData = '/DisplayData';
+  static const String thememode = '/themedata';
 }

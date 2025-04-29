@@ -40,7 +40,10 @@ class CustomButton extends StatelessWidget {
             child: Text(
           text,
           style: TextStyleApp.font16weight600colorGrey.copyWith(
-            color: textColor ?? ColorsApp.white,
+            color: textColor ??
+                (Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : const Color(0xFF1D2035)),
           ),
         )),
       ),

@@ -11,7 +11,7 @@ class MyAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -24,7 +24,7 @@ class MyAccount extends StatelessWidget {
                 },
                 child: const ImageAndBackgroundBar(
                   background: 'assets/images/background.png',
-                  image: 'assets/images/OO6PT80.jpg',
+                  image: 'assets/images/OO6PT80.jpeg',
                 ),
               ),
               Padding(
@@ -35,7 +35,9 @@ class MyAccount extends StatelessWidget {
                     Text(
                       'Doctor name',
                       style: TextStyle(
-                        color: const Color(0xFF1D2035),
+                        color: (Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : const Color(0xFF1D2035)),
                         fontSize: 24.sp,
                         fontWeight: FontWeight.w700,
                       ),
@@ -59,6 +61,14 @@ class MyAccount extends StatelessWidget {
                       subTitle: 'Change your password . Personal data ',
                       onTap: () {
                         context.pushNamed('/PrivacyAndSecurity');
+                      },
+                    ),
+                    CardItemInMyAccount(
+                      icon: 'assets/svgs/dark-theme-svgrepo-com.svg',
+                      title: 'Theme Mode',
+                      subTitle: 'Dark , Light Mode ',
+                      onTap: () {
+                        context.pushNamed('/themedata');
                       },
                     ),
                     CardItemInMyAccountImage(

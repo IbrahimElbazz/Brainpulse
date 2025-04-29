@@ -24,7 +24,7 @@ class _GetImageBodyState extends State<GetImageBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsApp.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -44,7 +44,7 @@ class _GetImageBodyState extends State<GetImageBody> {
                       width: double.infinity,
                       height: 500.h,
                       decoration: BoxDecoration(
-                        color: ColorsApp.white,
+                        color: ColorsApp.grey500,
                         borderRadius: BorderRadius.circular(15.r),
                         // image: DecorationImage(
                         //   image: _image != null

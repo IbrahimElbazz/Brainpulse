@@ -41,7 +41,7 @@ class ImageAndBackgroundBar extends StatelessWidget {
             width: 376.w,
             height: 40.h,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).scaffoldBackgroundColor,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(26.r),
                 topRight: Radius.circular(26.r),
