@@ -5,16 +5,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CardItemInMyAccount extends StatelessWidget {
-  const CardItemInMyAccount({
-    required this.icon,
-    required this.title,
-    required this.subTitle,
-    this.colorBackgroundIcon,
-    this.onTap,
-    this.titleColor,
-    super.key,
-    this.isLogout,
-  });
+  CardItemInMyAccount(
+      {required this.icon,
+      required this.title,
+      required this.subTitle,
+      this.colorBackgroundIcon,
+      this.onTap,
+      this.titleColor,
+      super.key,
+      this.isLogout,
+      this.height,
+      this.width});
 
   final String icon;
   final Color? colorBackgroundIcon;
@@ -23,6 +24,8 @@ class CardItemInMyAccount extends StatelessWidget {
   final String subTitle;
   final void Function()? onTap;
   final bool? isLogout;
+  double? width;
+  double? height;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,8 @@ class CardItemInMyAccount extends StatelessWidget {
               width: 48.w,
               height: 48.h,
               decoration: ShapeDecoration(
-                color: colorBackgroundIcon ?? const Color(0xFFEFFEFC),
+                color: colorBackgroundIcon ??
+                    Theme.of(context).scaffoldBackgroundColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(48.r),
                 ),
@@ -44,6 +48,8 @@ class CardItemInMyAccount extends StatelessWidget {
               child: SvgPicture.asset(
                 icon,
                 fit: BoxFit.scaleDown,
+                width: width,
+                height: height,
               ),
             ),
             const GapW(width: 14),
@@ -53,7 +59,10 @@ class CardItemInMyAccount extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    color: titleColor ?? const Color(0xFF1D2035),
+                    color: titleColor ??
+                        (Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : const Color(0xFF1D2035)),
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
                   ),
@@ -119,7 +128,8 @@ class CardItemInMyAccountImage extends StatelessWidget {
               width: 48.w,
               height: 48.h,
               decoration: ShapeDecoration(
-                color: colorBackgroundIcon ?? const Color(0xFFEFFEFC),
+                color: colorBackgroundIcon ??
+                    Theme.of(context).scaffoldBackgroundColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(48.r),
                 ),
@@ -143,7 +153,10 @@ class CardItemInMyAccountImage extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    color: titleColor ?? const Color(0xFF1D2035),
+                    color: titleColor ??
+                        (Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : const Color(0xFF1D2035)),
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
                   ),

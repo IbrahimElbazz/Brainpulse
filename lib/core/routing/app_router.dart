@@ -9,6 +9,7 @@ import 'package:brain_pulse/features/data_by_doctor/presentation/screens/data_by
 import 'package:brain_pulse/features/home/presentation/screens/get_image_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
 import 'package:brain_pulse/features/my_account/presentation/screens/edit_profile_screen.dart';
+import 'package:brain_pulse/features/my_account/presentation/screens/theme_mode_screen.dart';
 import 'package:brain_pulse/features/onboarding/presentation/screens/onboarding.dart';
 import 'package:brain_pulse/features/privacy_and_security/presentation/screens/change_password_screen.dart';
 import 'package:brain_pulse/features/privacy_and_security/presentation/screens/delete_account.dart';
@@ -77,6 +78,10 @@ class AppRouter {
       case Routes.deleteAccount:
         return AppHelperFunctions().fadeTransition(
           page: const DeleteAccount(),
+        );
+      case Routes.thememode:
+        return AppHelperFunctions().fadeTransition(
+          page: const ThemeModeScreen(),
         );
       default:
         return MaterialPageRoute(
