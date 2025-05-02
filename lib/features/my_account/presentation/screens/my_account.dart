@@ -1,3 +1,4 @@
+import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/widgets/gap.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/card_item_in_my_account.dart';
@@ -65,6 +66,8 @@ class MyAccount extends StatelessWidget {
                     ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/dark-theme-svgrepo-com.svg',
+                      //colorBackgroundIcon: ColorsApp.primary,
+                      colorsvg: ColorsApp.primary,
                       title: 'Theme Mode',
                       subTitle: 'Dark , Light Mode ',
                       onTap: () {

@@ -15,6 +15,7 @@ class CardItemInMyAccount extends StatelessWidget {
       super.key,
       this.isLogout,
       this.height,
+      this.colorsvg,
       this.width});
 
   final String icon;
@@ -22,6 +23,7 @@ class CardItemInMyAccount extends StatelessWidget {
   final String title;
   final Color? titleColor;
   final String subTitle;
+  final Color? colorsvg;
   final void Function()? onTap;
   final bool? isLogout;
   double? width;
@@ -50,6 +52,7 @@ class CardItemInMyAccount extends StatelessWidget {
                 fit: BoxFit.scaleDown,
                 width: width,
                 height: height,
+                color: colorsvg,
               ),
             ),
             const GapW(width: 14),
