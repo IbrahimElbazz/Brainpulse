@@ -11,15 +11,13 @@ class RegisterRepoImple implements RegisterRepo {
       {required String email,
       required String password,
       required String phone,
-      required String firstname,
-      required String lastname}) async {
+      required String name}) async {
     try {
       var data = await authApiService.post(endpoint: "Auth/Register", data: {
-        "email": email,
-        "password": password,
-        "phone": phone,
-        "firstName": firstname,
-        "lastName": lastname
+        "Email": email,
+        "Password": password,
+        "PhoneNumber": phone,
+        "Name": name
       });
       return right(RegisterModel.fromJson(data));
     } catch (e) {

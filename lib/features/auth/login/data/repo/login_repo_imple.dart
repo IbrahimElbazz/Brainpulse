@@ -11,7 +11,7 @@ class LoginRepoImple implements LoginRepo {
       {required String email, required String password}) async {
     try {
       var data = await authApiService.post(
-          endpoint: "Auth/login", data: {"email": email, "password": password});
+          endpoint: "Auth/login", data: {"Email": email, "Password": password});
       return right(LoginModel.fromJson(data));
     } catch (e) {
       return left(e.toString());
