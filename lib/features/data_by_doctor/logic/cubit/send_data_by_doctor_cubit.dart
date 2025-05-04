@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:brain_pulse/features/data_by_doctor/data/models/add_patient_request_model.dart';
 import 'package:brain_pulse/features/data_by_doctor/data/models/send_point_request_model.dart';
 import 'package:brain_pulse/features/data_by_doctor/data/repo/doctor_repo.dart';
@@ -37,27 +39,47 @@ class SendDataByDoctorCubit extends Cubit<SendDataByDoctorState> {
     final response = await _sendPointRepo.sendDataByDoctor(
       SendPointRequestModel(
         arr: [
-          p1.text,
-          p2.text,
-          p3.text,
-          p4.text,
-          p5.text,
-          p6.text,
-          p7.text,
-          p8.text,
-          p9.text,
-          p10.text,
-          p11.text,
-          p12.text,
-          p13.text,
-          p14.text,
-          p15.text,
-          p16.text,
-          p17.text,
-          p18.text,
-          p19.text,
-          p20.text
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
+          '2',
         ],
+        // p1: p1.text,
+        // p2: p2.text,
+        // p3: p3.text,
+        // p4: p4.text,
+        // p5: p5.text,
+        // p6: p6.text,
+        // p7: p7.text,
+        // p8: p8.text,
+        // p9: p9.text,
+        // p10: p10.text,
+        // p11: p11.text,
+        // p12: p12.text,
+        // p13: p13.text,
+        // p14: p14.text,
+        // p15: p15.text,
+        // p16: p16.text,
+        // p17: p17.text,
+        // p18: p18.text,
+        // p19: p19.text,
+        // p20: p20.text,
       ),
     );
 
@@ -68,6 +90,7 @@ class SendDataByDoctorCubit extends Cubit<SendDataByDoctorState> {
         );
       },
       failure: (error) {
+        log(error.toString());
         emit(
           SendDataByDoctorState.failureSendDataByDoctor(
               message: error.toString()),

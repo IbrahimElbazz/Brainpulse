@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/home/presentation/screens/widgets/binary_signal_data.dart';
 import 'package:brain_pulse/features/home/presentation/screens/widgets/static_text.dart';
+import 'package:brain_pulse/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hawk_fab_menu/hawk_fab_menu.dart';
@@ -16,6 +19,19 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
   HawkFabMenuController hawkFabMenuController = HawkFabMenuController();
+  late String token;
+
+  getToken() {
+    token = sharedPreferences.getString('token')!;
+    log("my token : $token");
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getToken();
+  }
 
   @override
   Widget build(BuildContext context) {
