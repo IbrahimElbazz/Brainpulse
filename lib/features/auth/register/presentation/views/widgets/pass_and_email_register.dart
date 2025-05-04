@@ -35,15 +35,15 @@ class _PassAndEmailState extends State<PassAndEmail> {
           const SizedBox(
             height: 20,
           ),
-          MyTextField(
-            controller: read.lastname,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter a valid lastname';
-              }
-            },
-            hint: "Last Name",
-          ),
+          // MyTextField(
+          //   controller: read.lastname,
+          //   validator: (value) {
+          //     if (value == null || value.isEmpty) {
+          //       return 'Please enter a valid lastname';
+          //     }
+          //   },
+          //   hint: "Last Name",
+          // ),
           const SizedBox(
             height: 20,
           ),

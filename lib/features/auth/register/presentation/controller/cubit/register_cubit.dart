@@ -8,7 +8,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       : super(InitialRegisterState());
   RegisterRepoImple registerRepoImple;
   TextEditingController firstname = TextEditingController();
-  TextEditingController lastname = TextEditingController();
+  //TextEditingController lastname = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController confirmpassword = TextEditingController();
@@ -23,9 +23,9 @@ class RegisterCubit extends Cubit<RegisterState> {
         email: email.text,
         password: password.text,
         phone: phone.text,
-        firstname: firstname.text,
-        lastname: lastname.text);
+        name: firstname.text);
     return value.fold((error) {
+      print(error);
       isLoading = false;
       emit(FailuerRegisterState(errormsg: error));
     }, (register) {
