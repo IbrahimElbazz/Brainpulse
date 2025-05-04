@@ -5,6 +5,7 @@ import 'package:brain_pulse/core/Widgets/mytextfield.dart';
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -24,16 +25,16 @@ class _PassAndEmailState extends State<PassAndEmail> {
       child: Column(
         children: [
           MyTextField(
-            controller: read.firstname,
+            controller: read.name,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid  firstname';
               }
             },
-            hint: "First Name",
+            hint: "Name",
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: 5.h,
           ),
           // MyTextField(
           //   controller: read.lastname,
