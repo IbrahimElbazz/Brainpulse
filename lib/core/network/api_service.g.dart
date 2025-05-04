@@ -14,7 +14,7 @@ class _ApiService implements ApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://brain-pulse.runasp.net/api/';
+    baseUrl ??= 'http://manoehab-001-site1.ltempurl.com/api/';
   }
 
   final Dio _dio;
@@ -37,7 +37,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'model/prediction',
+          'AIModel/predict',
           queryParameters: queryParameters,
           data: _data,
         )

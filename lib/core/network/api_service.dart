@@ -13,7 +13,7 @@ abstract class ApiService {
 
   //send data by doctor
   @POST(ApiConstant.sendDataByDoctor)
-  Future<dynamic> sendDataByDoctor(
+  Future sendDataByDoctor(
     @Body() SendPointRequestModel request,
   );
 
