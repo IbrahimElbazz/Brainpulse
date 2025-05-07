@@ -12,7 +12,9 @@ class DioFactory {
       dio = Dio();
       dio!
         ..options.connectTimeout = timeout
-        ..options.receiveTimeout = timeout;
+        ..options.receiveTimeout = timeout
+        ..options.validateStatus =
+            (status) => status! >= 200 && status < 400 || status == 307;
       addDioHeaders();
       addDioInterceptor();
       return dio!;

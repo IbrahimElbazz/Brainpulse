@@ -84,11 +84,13 @@ class DataByDoctorScreen extends StatelessWidget {
               context.read<SendDataByDoctorCubit>().p18.clear();
               context.read<SendDataByDoctorCubit>().p19.clear();
               context.read<SendDataByDoctorCubit>().p20.clear();
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return DisplayData(prediction: prediction);
-                },
-              ));
+
+              // Navigator.push(context, MaterialPageRoute(
+              //   builder: (context) {
+              //     return DisplayData(prediction: prediction);
+              //   },
+              // ));
+              log(data);
             },
           );
         },
