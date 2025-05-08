@@ -13,4 +13,27 @@ class AuthApiService {
         }));
     return response.data;
   }
+
+  Future<Map<String, dynamic>> postimage(
+      {required String endpoint, required FormData data}) async {
+    try {
+      var response = await dio.post("$_baseUrl$endpoint",
+          data: data,
+          options: Options(headers: {
+            'Content-Type': 'multipart/form-data',
+          }));
+
+      if (response.data is String) {
+        try {
+          return {"response": response.data};
+        } catch (e) {
+          throw Exception("Invalid JSON response: ${e.toString()}");
+        }
+      }
+
+      return response.data;
+    } catch (e) {
+      throw Exception("Error during image POST request: ${e.toString()}");
+    }
+  }
 }

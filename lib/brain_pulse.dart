@@ -7,6 +7,7 @@ import 'package:brain_pulse/features/auth/register/data/repo/register_repo_imple
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_cubit.dart';
 import 'package:brain_pulse/features/data_by_doctor/logic/cubit/send_data_by_doctor_cubit.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
+import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_image_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,6 +38,9 @@ class BrainPulse extends StatelessWidget {
           BlocProvider(
             create: (context) => RegisterCubit(
                 registerRepoImple: getIt.get<RegisterRepoImple>()),
+          ),
+          BlocProvider(
+            create: (context) => getIt<PredictionImageCubit>(),
           ),
         ],
         child: Consumer2<ThemeProvider, LocaleProvider>(
