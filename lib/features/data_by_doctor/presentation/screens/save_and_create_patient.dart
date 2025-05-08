@@ -1,5 +1,4 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
-import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/mytextfield.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
@@ -14,18 +13,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SaveAndCreatePatient extends StatelessWidget {
   const SaveAndCreatePatient({super.key, required this.prediction});
-  final Map<String, dynamic> prediction;
+  final List<dynamic> prediction;
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController firstNameController = TextEditingController();
-    TextEditingController lastNameController = TextEditingController();
+    TextEditingController nameController = TextEditingController();
     TextEditingController phoneController = TextEditingController();
     TextEditingController ageController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
-    return Scaffold(backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title:  Text('Add patient',style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 22) ,),
+        title: Text(
+          'Add patient',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 22),
+        ),
         centerTitle: true,
       ),
       body: BlocListener<SendDataByDoctorCubit, SendDataByDoctorState>(
@@ -97,22 +99,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                 SizedBox(
                   height: 50.h,
                   child: MyTextField(
-                    controller: firstNameController,
-                    keyboardType: TextInputType.text,
-                    hint: '',
-                    validator: (p0) {},
-                  ),
-                ),
-                gapH(20),
-                Text(
-                  'Last name :',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                gapH(8),
-                SizedBox(
-                  height: 50.h,
-                  child: MyTextField(
-                    controller: lastNameController,
+                    controller: nameController,
                     keyboardType: TextInputType.text,
                     hint: '',
                     validator: (p0) {},
@@ -190,22 +177,15 @@ class SaveAndCreatePatient extends StatelessWidget {
                             AddPatientRequestModel(
                               age: int.parse(ageController.text),
                               description: descriptionController.text,
-                              firstName: firstNameController.text,
-                              lastName: lastNameController.text,
+                              name: nameController.text,
                               phone: phoneController.text,
                               points: [
-                                double.parse(prediction['gpd'].substring(
-                                    0, prediction['gpd'].length - 1)),
-                                double.parse(prediction['grda'].substring(
-                                    0, prediction['grda'].length - 1)),
-                                double.parse(prediction['lpd'].substring(
-                                    0, prediction['lpd'].length - 1)),
-                                double.parse(prediction['lrda'].substring(
-                                    0, prediction['lrda'].length - 1)),
-                                double.parse(prediction['seizure'].substring(
-                                    0, prediction['seizure'].length - 1)),
-                                double.parse(prediction['other'].substring(
-                                    0, prediction['other'].length - 1)),
+                                double.parse(prediction[0]),
+                                double.parse(prediction[1]),
+                                double.parse(prediction[2]),
+                                double.parse(prediction[3]),
+                                double.parse(prediction[4]),
+                                double.parse(prediction[5]),
                               ],
                             ),
                           );

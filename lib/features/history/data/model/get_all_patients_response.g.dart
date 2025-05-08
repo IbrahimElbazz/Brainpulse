@@ -3,132 +3,78 @@
 part of 'get_all_patients_response.dart';
 
 // **************************************************************************
-// TypeAdapterGenerator
-// **************************************************************************
-
-class GetAllPatientsResponseAdapter
-    extends TypeAdapter<GetAllPatientsResponse> {
-  @override
-  final int typeId = 0;
-
-  @override
-  GetAllPatientsResponse read(BinaryReader reader) {
-    final numOfFields = reader.readByte();
-    final fields = <int, dynamic>{
-      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
-    };
-    return GetAllPatientsResponse(
-      firstName: fields[0] as String?,
-      lastName: fields[1] as String?,
-      phone: fields[2] as String?,
-      age: fields[3] as int?,
-      history: (fields[4] as List?)?.cast<History>(),
-    );
-  }
-
-  @override
-  void write(BinaryWriter writer, GetAllPatientsResponse obj) {
-    writer
-      ..writeByte(5)
-      ..writeByte(0)
-      ..write(obj.firstName)
-      ..writeByte(1)
-      ..write(obj.lastName)
-      ..writeByte(2)
-      ..write(obj.phone)
-      ..writeByte(3)
-      ..write(obj.age)
-      ..writeByte(4)
-      ..write(obj.history);
-  }
-
-  @override
-  int get hashCode => typeId.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GetAllPatientsResponseAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
-}
-
-class HistoryAdapter extends TypeAdapter<History> {
-  @override
-  final int typeId = 1;
-
-  @override
-  History read(BinaryReader reader) {
-    final numOfFields = reader.readByte();
-    final fields = <int, dynamic>{
-      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
-    };
-    return History(
-      points: (fields[0] as List?)?.cast<int>(),
-      createdat: fields[1] as String?,
-      description: fields[2] as String?,
-    );
-  }
-
-  @override
-  void write(BinaryWriter writer, History obj) {
-    writer
-      ..writeByte(3)
-      ..writeByte(0)
-      ..write(obj.points)
-      ..writeByte(1)
-      ..write(obj.createdat)
-      ..writeByte(2)
-      ..write(obj.description);
-  }
-
-  @override
-  int get hashCode => typeId.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is HistoryAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
-}
-
-// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetAllPatientsResponse _$GetAllPatientsResponseFromJson(
-        Map<String, dynamic> json) =>
-    GetAllPatientsResponse(
-      firstName: json['firstName'] as String?,
-      lastName: json['lastName'] as String?,
-      phone: json['phone'] as String?,
-      age: (json['age'] as num?)?.toInt(),
-      history: (json['history'] as List<dynamic>?)
-          ?.map((e) => History.fromJson(e as Map<String, dynamic>))
+PatientResponse _$PatientResponseFromJson(Map<String, dynamic> json) =>
+    PatientResponse(
+      patients: (json[r'$values'] as List<dynamic>)
+          .map((e) => Patient.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$GetAllPatientsResponseToJson(
-        GetAllPatientsResponse instance) =>
+Map<String, dynamic> _$PatientResponseToJson(PatientResponse instance) =>
     <String, dynamic>{
-      'firstName': instance.firstName,
-      'lastName': instance.lastName,
-      'phone': instance.phone,
+      r'$values': instance.patients,
+    };
+
+Patient _$PatientFromJson(Map<String, dynamic> json) => Patient(
+      id: (json['id'] as num).toInt(),
+      name: json['name'] as String,
+      age: (json['age'] as num).toInt(),
+      phoneNumber: json['phoneNumber'] as String,
+      dateOfCreation: DateTime.parse(json['dateOfCreation'] as String),
+      doctorId: (json['doctorId'] as num).toInt(),
+      history: PatientHistoryCollection.fromJson(
+          json['history'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$PatientToJson(Patient instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
       'age': instance.age,
+      'phoneNumber': instance.phoneNumber,
+      'dateOfCreation': instance.dateOfCreation.toIso8601String(),
+      'doctorId': instance.doctorId,
       'history': instance.history,
     };
 
-History _$HistoryFromJson(Map<String, dynamic> json) => History(
-      points: (json['points'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
+PatientHistoryCollection _$PatientHistoryCollectionFromJson(
+        Map<String, dynamic> json) =>
+    PatientHistoryCollection(
+      records: (json[r'$values'] as List<dynamic>)
+          .map((e) => MedicalRecord.fromJson(e as Map<String, dynamic>))
           .toList(),
-      createdat: json['createdat'] as String?,
-      description: json['description'] as String?,
     );
 
-Map<String, dynamic> _$HistoryToJson(History instance) => <String, dynamic>{
-      'points': instance.points,
-      'createdat': instance.createdat,
-      'description': instance.description,
+Map<String, dynamic> _$PatientHistoryCollectionToJson(
+        PatientHistoryCollection instance) =>
+    <String, dynamic>{
+      r'$values': instance.records,
+    };
+
+MedicalRecord _$MedicalRecordFromJson(Map<String, dynamic> json) =>
+    MedicalRecord(
+      recordId: json[r'$id'] as String,
+      gpd: (json['gpd'] as num).toDouble(),
+      grda: (json['grda'] as num).toDouble(),
+      ipd: (json['ipd'] as num).toDouble(),
+      irda: (json['irda'] as num).toDouble(),
+      seizure: (json['seizure'] as num).toDouble(),
+      other: (json['other'] as num).toDouble(),
+      dateRecorded: DateTime.parse(json['dateRecorded'] as String),
+      patientId: (json['patientId'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$MedicalRecordToJson(MedicalRecord instance) =>
+    <String, dynamic>{
+      r'$id': instance.recordId,
+      'gpd': instance.gpd,
+      'grda': instance.grda,
+      'ipd': instance.ipd,
+      'irda': instance.irda,
+      'seizure': instance.seizure,
+      'other': instance.other,
+      'dateRecorded': instance.dateRecorded.toIso8601String(),
+      'patientId': instance.patientId,
     };

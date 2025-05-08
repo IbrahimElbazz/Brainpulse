@@ -4,7 +4,6 @@ import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_state.dart';
-import 'package:brain_pulse/features/history/presentation/screens/Patient_details.dart';
 import 'package:brain_pulse/features/history/presentation/widgets/history_shimmer.dart';
 import 'package:brain_pulse/features/history/presentation/widgets/user_card_info.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +54,7 @@ class _HistoryState extends State<History> {
             TextField(
               controller: _searchController,
               onChanged: (value) {
-                context.read<GetAllPatientsCubit>().searchPatients(value);
+                // context.read<GetAllPatientsCubit>().searchPatients(value);
               },
               decoration: InputDecoration(
                 prefixIcon: const Icon(Ionicons.search),
@@ -127,9 +126,8 @@ class _HistoryState extends State<History> {
                 builder: (context, state) {
                   return state.maybeWhen(
                     orElse: () => const SizedBox.shrink(),
-                    successGetAllPatients: (_, __) {
-                      final displayData =
-                          context.read<GetAllPatientsCubit>().displayData;
+                    successGetAllPatients: (patients) {
+                      final displayData = patients.patients;
 
                       if (displayData.isEmpty) {
                         return Center(
@@ -149,18 +147,14 @@ class _HistoryState extends State<History> {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 8.h),
                             child: Slidable(
-                              key: ValueKey(patient.phone ?? index),
+                              key: ValueKey(patient.id ?? index),
                               endActionPane: ActionPane(
                                 motion: const ScrollMotion(),
                                 dismissible:
                                     DismissiblePane(onDismissed: () {}),
                                 children: [
                                   SlidableAction(
-                                    onPressed: (context) {
-                                      context
-                                          .read<GetAllPatientsCubit>()
-                                          .deletePatient(patient.phone!);
-                                    },
+                                    onPressed: (context) {},
                                     backgroundColor: const Color(0xFFFE4A49),
                                     foregroundColor: Colors.white,
                                     icon: Icons.delete,
@@ -170,18 +164,17 @@ class _HistoryState extends State<History> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return PatientDetails(
-                                        patientDetails: patient,
-                                      );
-                                    },
-                                  ));
+                                  // Navigator.push(context, MaterialPageRoute(
+                                  //   builder: (context) {
+                                  //     return PatientDetails(
+                                  //       patientDetails: patient,
+                                  //     );
+                                  //   },
+                                  // ));
                                 },
                                 child: UserCardInfo(
-                                  name:
-                                      "${patient.firstName} ${patient.lastName}",
-                                  phone: patient.phone ?? "",
+                                  name: patient.name,
+                                  phone: patient.phoneNumber,
                                 ),
                               ),
                             ),

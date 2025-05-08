@@ -7,10 +7,9 @@ class GetAllPatientsRepo {
 
   GetAllPatientsRepo(this._apiService);
 
-  Future<ApiResult<List<GetAllPatientsResponse>>> getAllPatients(
-      int page, int limit) async {
+  Future<ApiResult<PatientResponse>> getAllPatients() async {
     try {
-      final response = await _apiService.getAllPatients(page, limit);
+      final response = await _apiService.getAllPatients();
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(e.toString());

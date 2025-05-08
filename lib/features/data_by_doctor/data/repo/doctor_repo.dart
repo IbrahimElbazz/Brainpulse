@@ -4,8 +4,6 @@ import 'package:brain_pulse/core/network/api_result.dart';
 import 'package:brain_pulse/core/network/api_service.dart';
 import 'package:brain_pulse/features/data_by_doctor/data/models/add_patient_request_model.dart';
 import 'package:brain_pulse/features/data_by_doctor/data/models/send_point_request_model.dart';
-import 'package:brain_pulse/features/data_by_doctor/data/models/send_point_response_model.dart';
-import 'package:dio/dio.dart';
 
 class SendPointRepo {
   SendPointRepo(this._apiService);

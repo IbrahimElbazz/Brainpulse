@@ -1,13 +1,13 @@
 import 'package:brain_pulse/core/helpers/extentions.dart';
-import 'package:brain_pulse/core/helpers/spacing.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/save_and_create_patient.dart';
+
 import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DisplayData extends StatelessWidget {
   const DisplayData({super.key, required this.prediction});
-  final Map<String, dynamic> prediction;
+  final List prediction;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,24 +27,11 @@ class DisplayData extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'predicted Class :     ',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                    Text(
-                      prediction['predictedClass'],
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ],
-                ),
-                gapH(20),
-                Row(
-                  children: [
-                    Text(
                       'gpd : ',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      prediction['gpd'],
+                      prediction[0].toString(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -56,7 +43,7 @@ class DisplayData extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      prediction['grda'],
+                      prediction[1].toString(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -68,7 +55,7 @@ class DisplayData extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      prediction['lpd'],
+                      prediction[2].toString(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -80,7 +67,7 @@ class DisplayData extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      prediction['lrda'],
+                      prediction[3].toString(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -92,7 +79,7 @@ class DisplayData extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      prediction['seizure'],
+                      prediction[4].toString(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -104,7 +91,7 @@ class DisplayData extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      prediction['other'],
+                      prediction[5].toString(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],

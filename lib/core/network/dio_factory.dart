@@ -13,8 +13,7 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeout
         ..options.receiveTimeout = timeout
-        ..options.validateStatus =
-            (status) => status! >= 200 && status < 400 || status == 307;
+        ..options.followRedirects = true;
       addDioHeaders();
       addDioInterceptor();
       return dio!;

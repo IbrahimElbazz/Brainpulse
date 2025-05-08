@@ -8,8 +8,7 @@ class GetAllPatientsState<T> with _$GetAllPatientsState<T> {
   const factory GetAllPatientsState.loadingGetAllPatients() =
       LoadingGetAllPatients;
   const factory GetAllPatientsState.successGetAllPatients(
-    List<GetAllPatientsResponse> getAllPatientsResponse,
-    bool dataFromCache,
+    PatientResponse getAllPatientsResponse,
   ) = SuccessGetAllPatients;
   const factory GetAllPatientsState.errorGetAllPatients(
       {required String errorMessage}) = ErrorGetAllPatients;

@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
@@ -61,9 +60,7 @@ class DataByDoctorScreen extends StatelessWidget {
             },
             successSendDataByDoctor: (data) {
               context.pop();
-              List<dynamic> dataM = jsonDecode(data);
-              Map<String, dynamic> prediction = dataM[0]['prediction'];
-              log(prediction.toString());
+
               context.read<SendDataByDoctorCubit>().p1.clear();
               context.read<SendDataByDoctorCubit>().p2.clear();
               context.read<SendDataByDoctorCubit>().p3.clear();
@@ -85,12 +82,11 @@ class DataByDoctorScreen extends StatelessWidget {
               context.read<SendDataByDoctorCubit>().p19.clear();
               context.read<SendDataByDoctorCubit>().p20.clear();
 
-              // Navigator.push(context, MaterialPageRoute(
-              //   builder: (context) {
-              //     return DisplayData(prediction: prediction);
-              //   },
-              // ));
-              log(data);
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return DisplayData(prediction: data);
+                },
+              ));
             },
           );
         },

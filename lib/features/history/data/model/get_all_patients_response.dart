@@ -1,40 +1,90 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:hive/hive.dart';
+
 part 'get_all_patients_response.g.dart';
 
-@HiveType(typeId: 0)
 @JsonSerializable()
-class GetAllPatientsResponse extends HiveObject {
-  @HiveField(0)
-  String? firstName;
-  @HiveField(1)
-  String? lastName;
-  @HiveField(2)
-  String? phone;
-  @HiveField(3)
-  int? age;
-  @HiveField(4)
-  List<History>? history;
+class PatientResponse {
+  @JsonKey(name: r'$values')
+  final List<Patient> patients;
 
-  GetAllPatientsResponse(
-      {this.firstName, this.lastName, this.phone, this.age, this.history});
+  PatientResponse({required this.patients});
 
-  factory GetAllPatientsResponse.fromJson(Map<String, dynamic> json) =>
-      _$GetAllPatientsResponseFromJson(json);
+  factory PatientResponse.fromJson(Map<String, dynamic> json) =>
+      _$PatientResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PatientResponseToJson(this);
 }
 
 @JsonSerializable()
-@HiveType(typeId: 1)
-class History extends HiveObject {
-  @HiveField(0)
-  List<int>? points;
-  @HiveField(1)
-  String? createdat;
-  @HiveField(2)
-  String? description;
+class Patient {
+  final int id;
+  final String name;
+  final int age;
+  final String phoneNumber;
+  final DateTime dateOfCreation;
+  final int doctorId;
 
-  History({this.points, this.createdat, this.description});
+  final PatientHistoryCollection history;
 
-  factory History.fromJson(Map<String, dynamic> json) =>
-      _$HistoryFromJson(json);
+  Patient({
+    required this.id,
+    required this.name,
+    required this.age,
+    required this.phoneNumber,
+    required this.dateOfCreation,
+    required this.doctorId,
+    required this.history,
+  });
+
+  factory Patient.fromJson(Map<String, dynamic> json) =>
+      _$PatientFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PatientToJson(this);
+}
+
+@JsonSerializable()
+class PatientHistoryCollection {
+  @JsonKey(name: r'$values')
+  final List<MedicalRecord> records;
+
+  PatientHistoryCollection({
+    required this.records,
+  });
+
+  factory PatientHistoryCollection.fromJson(Map<String, dynamic> json) =>
+      _$PatientHistoryCollectionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PatientHistoryCollectionToJson(this);
+}
+
+@JsonSerializable()
+class MedicalRecord {
+  @JsonKey(name: r'$id')
+  final String recordId;
+
+  final double gpd;
+  final double grda;
+  final double ipd;
+  final double irda;
+  final double seizure;
+  final double other;
+  final DateTime dateRecorded;
+  final int patientId;
+
+  MedicalRecord({
+    required this.recordId,
+    required this.gpd,
+    required this.grda,
+    required this.ipd,
+    required this.irda,
+    required this.seizure,
+    required this.other,
+    required this.dateRecorded,
+    required this.patientId,
+  });
+
+  factory MedicalRecord.fromJson(Map<String, dynamic> json) =>
+      _$MedicalRecordFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MedicalRecordToJson(this);
 }
