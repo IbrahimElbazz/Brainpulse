@@ -4,6 +4,7 @@ import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_state.dart';
+import 'package:brain_pulse/features/history/presentation/screens/patient_details.dart';
 import 'package:brain_pulse/features/history/presentation/widgets/history_shimmer.dart';
 import 'package:brain_pulse/features/history/presentation/widgets/user_card_info.dart';
 import 'package:flutter/material.dart';
@@ -168,13 +169,13 @@ class _HistoryState extends State<History> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  // Navigator.push(context, MaterialPageRoute(
-                                  //   builder: (context) {
-                                  //     return PatientDetails(
-                                  //       patientDetails: patient,
-                                  //     );
-                                  //   },
-                                  // ));
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return PatientDetails(
+                                        patientDetails: patient,
+                                      );
+                                    },
+                                  ));
                                 },
                                 child: UserCardInfo(
                                   name: patient.name,

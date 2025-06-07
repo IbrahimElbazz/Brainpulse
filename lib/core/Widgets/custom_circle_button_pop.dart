@@ -11,12 +11,13 @@ class CustomCircleButtonPop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50.w,
-      height: 50.h,
+      width: 40.w,
+      height: 40.h,
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          shape: BoxShape.circle,
-          color: ColorsApp.primary),
+        border: Border.all(color: Colors.grey),
+        shape: BoxShape.circle,
+        color: Colors.white,
+      ),
       child: Center(
         child: IconButton(
           onPressed: () {
