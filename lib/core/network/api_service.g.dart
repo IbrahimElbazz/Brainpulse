@@ -98,7 +98,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          'new-patient',
+          'Patients',
           queryParameters: queryParameters,
           data: _data,
         )

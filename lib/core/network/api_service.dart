@@ -22,7 +22,7 @@ abstract class ApiService {
   Future<PatientResponse> getAllPatients();
 
   // add patient
-  @POST(ApiConstant.addPatient)
+  @POST('Patients')
   Future addPatient(@Body() AddPatientRequestModel request);
 
   // delete patient

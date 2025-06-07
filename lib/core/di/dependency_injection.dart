@@ -27,7 +27,7 @@ Future<void> setupGetIt() async {
   //register
   getIt.registerLazySingleton<RegisterRepoImple>(
       () => RegisterRepoImple(authApiService: getIt<AuthApiService>()));
-//predictimage
+//predict image
   getIt.registerSingleton<PredictImageRepoImple>(
     PredictImageRepoImple(authApiService: getIt<AuthApiService>()),
   );

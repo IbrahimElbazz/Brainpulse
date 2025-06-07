@@ -92,7 +92,7 @@ class SaveAndCreatePatient extends StatelessWidget {
               children: [
                 const GapH(height: 20),
                 Text(
-                  'First name :',
+                  'Name :',
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 gapH(8),
@@ -172,21 +172,17 @@ class SaveAndCreatePatient extends StatelessWidget {
                     height: 80.h,
                     text: "Save ",
                     onTap: () {
-                      // final age = ageController.text.
                       context.read<SendDataByDoctorCubit>().addPatient(
                             AddPatientRequestModel(
                               age: int.parse(ageController.text),
-                              description: descriptionController.text,
                               name: nameController.text,
-                              phone: phoneController.text,
-                              points: [
-                                double.parse(prediction[0]),
-                                double.parse(prediction[1]),
-                                double.parse(prediction[2]),
-                                double.parse(prediction[3]),
-                                double.parse(prediction[4]),
-                                double.parse(prediction[5]),
-                              ],
+                              phoneNumber: phoneController.text,
+                              gpd: prediction[0].toDouble(),
+                              grda: prediction[1].toDouble(),
+                              ipd: prediction[2].toDouble(),
+                              irda: prediction[3].toDouble(),
+                              seizure: prediction[4].toDouble(),
+                              other: prediction[5].toDouble(),
                             ),
                           );
                     },

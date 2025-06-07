@@ -4,12 +4,26 @@ part 'add_patient_request_model.g.dart';
 @JsonSerializable()
 class AddPatientRequestModel {
   String? name;
-  String? phone;
+  String? phoneNumber;
   int? age;
-  String? description;
-  List<double>? points;
+  double? gpd;
+  double? grda;
+  double? ipd;
+  double? irda;
+  double? seizure;
+  double? other;
 
-  AddPatientRequestModel(
-      {this.name, this.phone, this.age, this.points, this.description});
+  AddPatientRequestModel({
+    this.name,
+    this.phoneNumber,
+    this.age,
+    this.gpd,
+    this.grda,
+    this.ipd,
+    this.irda,
+    this.seizure,
+    this.other,
+  });
+
   Map<String, dynamic> toJson() => _$AddPatientRequestModelToJson(this);
 }
