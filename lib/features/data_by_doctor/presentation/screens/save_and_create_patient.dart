@@ -17,16 +17,22 @@ class SaveAndCreatePatient extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     TextEditingController nameController = TextEditingController();
     TextEditingController phoneController = TextEditingController();
     TextEditingController ageController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
+
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: ColorsApp.white,
       appBar: AppBar(
+        backgroundColor: ColorsApp.primary,
         title: Text(
           'Add patient',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 22),
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                fontSize: 22,
+                color: ColorsApp.white,
+              ),
         ),
         centerTitle: true,
       ),
@@ -43,9 +49,9 @@ class SaveAndCreatePatient extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return const Center(
+                  return Center(
                     child: CircularProgressIndicator(
-                      color: Colors.blue,
+                      color: ColorsApp.primary,
                     ),
                   );
                 },
@@ -55,11 +61,13 @@ class SaveAndCreatePatient extends StatelessWidget {
               context.pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: Colors.red,
+                  backgroundColor: ColorsApp.darkRed,
                   content: Center(
                     child: Text(
                       'please try again',
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: ColorsApp.white,
+                          ),
                     ),
                   ),
                 ),
@@ -72,11 +80,13 @@ class SaveAndCreatePatient extends StatelessWidget {
               context.pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: ColorsApp.green,
                   content: Center(
                     child: Text(
                       'add success',
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: ColorsApp.white,
+                          ),
                     ),
                   ),
                 ),
@@ -87,108 +97,172 @@ class SaveAndCreatePatient extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 16.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const GapH(height: 20),
-                Text(
-                  'Name :',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                gapH(8),
-                SizedBox(
-                  height: 50.h,
-                  child: MyTextField(
-                    controller: nameController,
-                    keyboardType: TextInputType.text,
-                    hint: '',
-                    validator: (p0) {},
+            child: Form(
+              key: formKey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const GapH(height: 20),
+                  Text(
+                    'Name :',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: ColorsApp.black,
+                        ),
                   ),
-                ),
-                gapH(20),
-                Text(
-                  'Phone :',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                gapH(8),
-                SizedBox(
-                  height: 50.h,
-                  child: MyTextField(
-                    controller: phoneController,
-                    keyboardType: TextInputType.number,
-                    hint: '',
-                    validator: (p0) {},
+                  gapH(8),
+                  SizedBox(
+                    child: MyTextField(
+                      controller: nameController,
+                      keyboardType: TextInputType.text,
+                      hint: 'Enter patient name',
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter patient name';
+                        }
+                        return null;
+                      },
+                    ),
                   ),
-                ),
-                gapH(20),
-                Text(
-                  'Age :',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                gapH(8),
-                SizedBox(
-                  height: 50.h,
-                  child: MyTextField(
-                    controller: ageController,
-                    keyboardType: TextInputType.number,
-                    hint: '',
-                    validator: (p0) {},
+                  gapH(20),
+                  Text(
+                    'Phone :',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: ColorsApp.black,
+                        ),
                   ),
-                ),
-                gapH(20),
-                Text(
-                  'Description :',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                gapH(8),
-                TextField(
+                  gapH(8),
+                  SizedBox(
+                    child: MyTextField(
+                      controller: phoneController,
+                      keyboardType: TextInputType.number,
+                      hint: 'Enter phone number',
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter phone number';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  gapH(20),
+                  Text(
+                    'Age :',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: ColorsApp.black,
+                        ),
+                  ),
+                  gapH(8),
+                  SizedBox(
+                    child: MyTextField(
+                      controller: ageController,
+                      keyboardType: TextInputType.number,
+                      hint: 'Enter age',
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter age';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  gapH(20),
+                  Text(
+                    'Description :',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: ColorsApp.black,
+                        ),
+                  ),
+                  gapH(8),
+                  TextField(
                     controller: descriptionController,
                     maxLines: 5,
                     minLines: 5,
                     decoration: InputDecoration(
+                      hintText: 'Enter patient description',
+                      hintStyle: TextStyle(color: ColorsApp.grey),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.r),
                         borderSide: BorderSide(
-                          color: Colors.grey[300]!,
+                          color: ColorsApp.grey300,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.r),
                         borderSide: BorderSide(
-                          color: ColorsApp.blue,
+                          color: ColorsApp.primary,
                         ),
                       ),
-                    )),
-                gapH(20),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 40.h,
+                    ),
                   ),
-                  child: CustomButton(
-                    borderColor: Colors.blue,
-                    width: double.infinity,
-                    color: Colors.white,
-                    textColor: Colors.blue,
-                    height: 80.h,
-                    text: "Save ",
-                    onTap: () {
-                      context.read<SendDataByDoctorCubit>().addPatient(
-                            AddPatientRequestModel(
-                              age: int.parse(ageController.text),
-                              name: nameController.text,
-                              phoneNumber: phoneController.text,
-                              gpd: prediction[0].toDouble(),
-                              grda: prediction[1].toDouble(),
-                              ipd: prediction[2].toDouble(),
-                              irda: prediction[3].toDouble(),
-                              seizure: prediction[4].toDouble(),
-                              other: prediction[5].toDouble(),
+                  gapH(20),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 40.h,
+                    ),
+                    child: Container(
+                      width: double.infinity,
+                      height: 60.h,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            ColorsApp.primary,
+                            ColorsApp.primary.withOpacity(0.8),
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        borderRadius: BorderRadius.circular(16.r),
+                        boxShadow: [
+                          BoxShadow(
+                            color: ColorsApp.primary.withOpacity(0.3),
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            if (formKey.currentState!.validate()) {
+                              context.read<SendDataByDoctorCubit>().addPatient(
+                                    AddPatientRequestModel(
+                                      age: int.parse(ageController.text),
+                                      name: nameController.text,
+                                      phoneNumber: phoneController.text,
+                                      gpd: prediction[0].toDouble(),
+                                      grda: prediction[1].toDouble(),
+                                      ipd: prediction[2].toDouble(),
+                                      irda: prediction[3].toDouble(),
+                                      seizure: prediction[4].toDouble(),
+                                      other: prediction[5].toDouble(),
+                                    ),
+                                  );
+                            }
+                          },
+                          borderRadius: BorderRadius.circular(16.r),
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Save",
+                                  style: TextStyle(
+                                    color: ColorsApp.white,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
                             ),
-                          );
-                    },
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
