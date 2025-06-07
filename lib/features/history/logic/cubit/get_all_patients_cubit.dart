@@ -21,34 +21,10 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
     );
   }
 
-  // void nextPage() {
-  //   page++;
-  //   getAllPatients();
-  // }
-
-  // void searchPatients(String query) {
-  //   searchQuery = query.toLowerCase();
-  //   _filterPatients();
-  //   emit(GetAllPatientsState.successGetAllPatients(displayData, false));
-  // }
-
-  // void _filterPatients() {
-  //   if (searchQuery.isEmpty) {
-  //     displayData = List.from(allPatients);
-  //   } else {
-  //     displayData = allPatients.where((patient) {
-  //       final fullName = '${patient.patients ?? ''} ${patient.lastName ?? ''}'
-  //           .toLowerCase();
-  //       final phone = patient.phone?.toLowerCase() ?? '';
-  //       return fullName.contains(searchQuery) || phone.contains(searchQuery);
-  //     }).toList();
-  //   }
-  // }
-
   // delete patient
-  void deletePatient(String phoneNumber) async {
+  void deletePatient(String id) async {
     emit(const GetAllPatientsState.loadingDeletePatient());
-    final response = await _getAllPatientsRepo.deletePatient(phoneNumber);
+    final response = await _getAllPatientsRepo.deletePatient(id);
     response.when(
       success: (data) async {
         await getAllPatients();

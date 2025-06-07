@@ -17,9 +17,9 @@ class GetAllPatientsRepo {
   }
 
   // delete patient
-  Future<ApiResult<void>> deletePatient(String phoneNumber) async {
+  Future<ApiResult<void>> deletePatient(String id) async {
     try {
-      await _apiService.deletePatient(phoneNumber);
+      await _apiService.deletePatient(id);
       return const ApiResult.success(null);
     } catch (e) {
       return ApiResult.failure(e.toString());

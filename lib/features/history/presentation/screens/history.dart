@@ -147,14 +147,18 @@ class _HistoryState extends State<History> {
                           return Padding(
                             padding: EdgeInsets.only(bottom: 8.h),
                             child: Slidable(
-                              key: ValueKey(patient.id ?? index),
+                              key: ValueKey(patient.id),
                               endActionPane: ActionPane(
                                 motion: const ScrollMotion(),
                                 dismissible:
                                     DismissiblePane(onDismissed: () {}),
                                 children: [
                                   SlidableAction(
-                                    onPressed: (context) {},
+                                    onPressed: (context) {
+                                      context
+                                          .read<GetAllPatientsCubit>()
+                                          .deletePatient(patient.id.toString());
+                                    },
                                     backgroundColor: const Color(0xFFFE4A49),
                                     foregroundColor: Colors.white,
                                     icon: Icons.delete,

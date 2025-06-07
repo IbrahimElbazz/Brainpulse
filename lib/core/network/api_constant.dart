@@ -3,5 +3,5 @@ class ApiConstant {
   static const sendDataByDoctor = 'AIModel/predict';
   static const getAllPatients = 'Patients';
   static const addPatient = 'Patients';
-  static const deletePatient = 'delete/{phoneNumber}';
+  static const deletePatient = 'Patients/{id}';
 }

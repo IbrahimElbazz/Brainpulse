@@ -27,5 +27,5 @@ abstract class ApiService {
 
   // delete patient
   @DELETE(ApiConstant.deletePatient)
-  Future deletePatient(@Path('phoneNumber') String phoneNumber);
+  Future deletePatient(@Path('id') String id);
 }
