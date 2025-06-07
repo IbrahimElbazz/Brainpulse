@@ -17,7 +17,7 @@ class DataByDoctorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: ColorsApp.white,
       body: BlocListener<SendDataByDoctorCubit, SendDataByDoctorState>(
         listenWhen: (previous, current) {
           return current is FailureSendDataByDoctor ||
@@ -88,139 +88,237 @@ class DataByDoctorScreen extends StatelessWidget {
             },
           );
         },
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16..w),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Row(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  height: 100.h,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        ColorsApp.primary,
+                        ColorsApp.primary.withOpacity(0.8),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: -50.w,
+                  top: -50.h,
+                  child: Container(
+                    width: 200.w,
+                    height: 200.h,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: ColorsApp.white.withOpacity(0.1),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: -30.w,
+                  bottom: -30.h,
+                  child: Container(
+                    width: 150.w,
+                    height: 150.h,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: ColorsApp.white.withOpacity(0.1),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
                     children: [
-                      const CustomCircleButtonPop(),
-                      gapW(80),
-                      Text(
-                        'Enter points',
-                        style: Theme.of(context).textTheme.bodyLarge,
+                      SizedBox(height: 40.h),
+                      Row(
+                        children: [
+                          Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () => context.pop(),
+                              borderRadius: BorderRadius.circular(12.r),
+                              child: Container(
+                                padding: EdgeInsets.all(8.w),
+                                decoration: BoxDecoration(
+                                  color: ColorsApp.white.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12.r),
+                                ),
+                                child: Icon(
+                                  Icons.arrow_back_ios_new_rounded,
+                                  color: ColorsApp.white,
+                                  size: 20.sp,
+                                ),
+                              ),
+                            ),
+                          ),
+                          gapW(40),
+                          Text(
+                            'Enter points',
+                            style: TextStyle(
+                              fontSize: 24.sp,
+                              fontWeight: FontWeight.bold,
+                              color: ColorsApp.white,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  gapH(30),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p1,
-                    number: '  1',
+                ),
+              ],
+            ),
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+                decoration: BoxDecoration(
+                  color: ColorsApp.white,
+                  borderRadius: BorderRadius.circular(16.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: ColorsApp.grey300.withOpacity(0.2),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.all(16.w),
+                  child: Column(
+                    children: [
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p1,
+                        number: ' 1 ',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p2,
+                        number: ' 2 ',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p3,
+                        number: ' 3 ',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p4,
+                        number: ' 4 ',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p5,
+                        number: ' 5 ',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p6,
+                        number: ' 6 ',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p7,
+                        number: ' 7 ',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p8,
+                        number: ' 8',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p9,
+                        number: ' 9 ',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p10,
+                        number: '10',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p11,
+                        number: '11',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p12,
+                        number: '12',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p13,
+                        number: '13',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p14,
+                        number: '14',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p15,
+                        number: '15',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p16,
+                        number: '16',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p17,
+                        number: '17',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p18,
+                        number: '18',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p19,
+                        number: '19',
+                      ),
+                      gapH(10),
+                      RowTextWithTextFieldGetDataByDoctor(
+                        controller: context.read<SendDataByDoctorCubit>().p20,
+                        number: '20',
+                      ),
+                    ],
                   ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p2,
-                    number: '  2',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p3,
-                    number: '  3',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p4,
-                    number: '  4',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p5,
-                    number: '  5',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p6,
-                    number: '  6',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p7,
-                    number: '  7',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p8,
-                    number: '  8',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p9,
-                    number: '  9',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p10,
-                    number: '10',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p11,
-                    number: '11',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p12,
-                    number: '12',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p13,
-                    number: '13',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p14,
-                    number: '14',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p15,
-                    number: '15',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p16,
-                    number: '16',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p17,
-                    number: '17',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p18,
-                    number: '18',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p19,
-                    number: '19',
-                  ),
-                  gapH(10),
-                  RowTextWithTextFieldGetDataByDoctor(
-                    controller: context.read<SendDataByDoctorCubit>().p20,
-                    number: '20',
-                  ),
-                  gapH(20),
-                  CustomButton(
-                    onTap: () {
-                      context.read<SendDataByDoctorCubit>().sendDataByDoctor();
-                    },
-                    text: 'Send',
-                    width: double.infinity,
-                    height: 50.h,
-                    textColor: ColorsApp.primary,
-                    borderColor: ColorsApp.primary,
-                    color: ColorsApp.primary.withOpacity(0.1),
-                  ),
-                  gapH(20),
-                ],
+                ),
               ),
             ),
-          ),
+            Container(
+              padding: EdgeInsets.all(16.w),
+              decoration: BoxDecoration(
+                color: ColorsApp.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: ColorsApp.grey300.withOpacity(0.3),
+                    blurRadius: 8,
+                    offset: const Offset(0, -2),
+                  ),
+                ],
+              ),
+              child: CustomButton(
+                onTap: () {
+                  context.read<SendDataByDoctorCubit>().sendDataByDoctor();
+                },
+                text: 'Send',
+                width: double.infinity,
+                height: 50.h,
+                textColor: ColorsApp.white,
+                borderColor: ColorsApp.primary,
+                color: ColorsApp.primary,
+              ),
+            ),
+          ],
         ),
       ),
     );
