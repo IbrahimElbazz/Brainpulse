@@ -44,7 +44,7 @@ class RegisterPage extends StatelessWidget {
               read.isLoading == false
                   ? MyButton(
                       onPressed: () {
-                        if (read.keyform.currentState!.validate()) {
+                        if (read.registerkeyform.currentState!.validate()) {
                           return read.registervalidate();
                         }
                         read.confirmpasswordValidate();

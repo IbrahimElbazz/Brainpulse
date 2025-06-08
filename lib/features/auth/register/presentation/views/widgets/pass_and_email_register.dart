@@ -21,7 +21,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
   Widget build(BuildContext context) {
     var read = context.read<RegisterCubit>();
     return Form(
-      key: read.keyform,
+      key: read.registerkeyform,
       child: Column(
         children: [
           MyTextField(

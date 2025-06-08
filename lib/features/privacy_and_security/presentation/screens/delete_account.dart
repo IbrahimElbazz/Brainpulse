@@ -1,10 +1,16 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
+import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_helper.dart';
+import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_keys.dart';
 import 'package:brain_pulse/core/helpers/spacing.dart';
 import 'package:brain_pulse/core/widgets/gap.dart';
+import 'package:brain_pulse/features/auth/login/presentation/views/login.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/button.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/text_field_custom.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/controller/deletedoctor/delete_doctor_cubit.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/controller/deletedoctor/delete_doctor_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -286,16 +292,90 @@ class _DeleteAccountState extends State<DeleteAccount> {
                                             SizedBox(
                                               width: 160.w,
                                               height: 60.h,
-                                              child: CustomButtonAcc(
-                                                color: Colors.white,
-                                                textColor: const Color.fromARGB(
-                                                  255,
-                                                  180,
-                                                  12,
-                                                  0,
-                                                ),
-                                                text: 'Confirm deletion',
-                                                onTap: () {},
+                                              child: BlocConsumer<
+                                                  DeleteDoctorCubit,
+                                                  DeleteDoctorState>(
+                                                listener:
+                                                    (context, state) async {
+                                                  if (state
+                                                      is LoadedDeleteDoctorState) {
+                                                    await SharedPrefHelper
+                                                        .removeData(
+                                                            key: SharedPrefKeys
+                                                                .token);
+                                                    await SharedPrefHelper
+                                                        .removeData(
+                                                            key: SharedPrefKeys
+                                                                .email);
+                                                    await SharedPrefHelper
+                                                        .removeData(
+                                                            key: SharedPrefKeys
+                                                                .userId);
+
+                                                    Navigator
+                                                        .pushAndRemoveUntil(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              LogInScreen()),
+                                                      (route) => false,
+                                                    );
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      const SnackBar(
+                                                          content: Text(
+                                                              'Account deleted successfully')),
+                                                    );
+                                                  } else if (state
+                                                      is FailureDeleteDoctorState) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                          content: Text(
+                                                              'Error: ${state.errorMessage}')),
+                                                    );
+                                                  }
+                                                },
+                                                builder: (context, state) {
+                                                  if (state
+                                                      is LoadingDeleteDoctorState) {
+                                                    return const Center(
+                                                        child:
+                                                            CircularProgressIndicator());
+                                                  }
+
+                                                  return CustomButtonAcc(
+                                                    color: Colors.white,
+                                                    textColor:
+                                                        const Color.fromARGB(
+                                                            255, 180, 12, 0),
+                                                    text: 'Confirm deletion',
+                                                    onTap: () async {
+                                                      final userId =
+                                                          await SharedPrefHelper
+                                                              .getInt(
+                                                                  key: SharedPrefKeys
+                                                                      .userId);
+                                                      if (userId != null) {
+                                                        context
+                                                            .read<
+                                                                DeleteDoctorCubit>()
+                                                            .deleteDoctor(
+                                                                userId);
+                                                      } else {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          const SnackBar(
+                                                              content: Text(
+                                                                  'Error: User ID not found')),
+                                                        );
+                                                      }
+                                                    },
+                                                  );
+                                                },
                                               ),
                                             ),
                                             SizedBox(

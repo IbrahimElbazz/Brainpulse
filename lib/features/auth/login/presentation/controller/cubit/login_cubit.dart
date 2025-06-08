@@ -14,7 +14,7 @@ class LoginCubit extends Cubit<LoginState> {
   LoginRepoImple loginRepoImple;
   TextEditingController password = TextEditingController();
   TextEditingController email = TextEditingController();
-  GlobalKey<FormState> keyform = GlobalKey();
+  GlobalKey<FormState> loginkeyform = GlobalKey();
   Map<String, dynamic> decodedToken = {};
   bool isloading = false;
 
@@ -36,6 +36,11 @@ class LoginCubit extends Cubit<LoginState> {
             key: SharedPrefKeys.email, value: email.text);
 
         decodedToken = JwtDecoder.decode(response.token);
+        String userIdString = decodedToken['\$id'] ?? '0';
+        int userId = int.tryParse(userIdString) ?? 0;
+
+        await SharedPrefHelper.setData(
+            key: SharedPrefKeys.userId, value: userId); // ✅ الصح
 
         isloading = false;
         emit(LoadedLoginSate());
@@ -47,7 +52,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void loginvalidate() {
-    if (keyform.currentState!.validate()) {
+    if (loginkeyform.currentState!.validate()) {
       loginUserCubit();
     }
   }

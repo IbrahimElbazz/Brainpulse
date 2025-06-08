@@ -20,7 +20,7 @@ class _EmailAndPassState extends State<EmailAndPass> {
   Widget build(BuildContext context) {
     var read = context.read<LoginCubit>();
     return Form(
-      key: read.keyform,
+      key: read.loginkeyform,
       child: Column(
         children: [
           MyTextField(

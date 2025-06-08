@@ -13,7 +13,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController password = TextEditingController();
   TextEditingController confirmpassword = TextEditingController();
   TextEditingController phone = TextEditingController();
-  GlobalKey<FormState> keyform = GlobalKey();
+  GlobalKey<FormState> registerkeyform = GlobalKey();
   bool isLoading = false;
   String? confirmPasswordError;
   Future<void> registerUserCubit() async {
@@ -40,7 +40,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       return;
     }
 
-    if (keyform.currentState!.validate()) {
+    if (registerkeyform.currentState!.validate()) {
       registerUserCubit();
     }
   }

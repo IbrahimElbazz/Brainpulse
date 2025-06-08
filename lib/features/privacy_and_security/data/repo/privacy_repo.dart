@@ -6,4 +6,5 @@ abstract class PrivacyRepo {
       {required String oldPassword,
       required String newPassword,
       required String confirmNewPassword});
+  Future<Either<String, bool>> deleteDoctor({required int id});
 }

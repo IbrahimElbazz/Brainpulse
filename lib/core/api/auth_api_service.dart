@@ -34,6 +34,32 @@ class AuthApiService {
     }
   }
 
+  Future<bool> delete({required String endpoint}) async {
+    try {
+      final dio = await DioFactory.getDio();
+
+      // إعدادات خاصة للحذف مع السماح بالـ redirect
+      final response = await dio.delete(
+        "http://manoehab-001-site1.ltempurl.com/api/$endpoint",
+        options: Options(
+          followRedirects: false,
+          validateStatus: (status) {
+            // تقبل 2xx و 3xx حتى لا يرمي Dio استثناء على 307
+            return status != null && status < 400;
+          },
+        ),
+      );
+
+      if (response.statusCode == 204) {
+        return true;
+      } else {
+        throw Exception('Unexpected status code: ${response.statusCode}');
+      }
+    } on DioException catch (dioError) {
+      throw dioError;
+    }
+  }
+
   Future<Map<String, dynamic>> postimage(
       {required String endpoint, required FormData data}) async {
     final dio = await DioFactory.getDio();

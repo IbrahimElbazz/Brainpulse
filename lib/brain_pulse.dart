@@ -10,6 +10,7 @@ import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.
 import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_image_cubit.dart';
 import 'package:brain_pulse/features/privacy_and_security/data/repo/privacy_repo_imple.dart';
 import 'package:brain_pulse/features/privacy_and_security/presentation/controller/cubit/changepass/change_pass_cubit.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/controller/deletedoctor/delete_doctor_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,6 +33,10 @@ class BrainPulse extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => ChangePassCubit(
+                privacyRepoImple: getIt.get<PrivacyRepoImple>()),
+          ),
+          BlocProvider(
+            create: (context) => DeleteDoctorCubit(
                 privacyRepoImple: getIt.get<PrivacyRepoImple>()),
           ),
           BlocProvider(
