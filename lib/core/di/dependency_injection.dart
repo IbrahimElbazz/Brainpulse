@@ -9,6 +9,7 @@ import 'package:brain_pulse/features/history/data/repo/get_all_patients_repo.dar
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
 import 'package:brain_pulse/features/home/data/repo/predict_image_repo_imple.dart';
 import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_image_cubit.dart';
+import 'package:brain_pulse/features/privacy_and_security/data/repo/privacy_repo_imple.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -19,7 +20,7 @@ Future<void> setupGetIt() async {
 
   // API Services
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
-  getIt.registerLazySingleton<AuthApiService>(() => AuthApiService(dio: dio));
+  getIt.registerLazySingleton<AuthApiService>(() => AuthApiService());
 
   // login
   getIt.registerLazySingleton<LoginRepoImple>(
@@ -27,6 +28,9 @@ Future<void> setupGetIt() async {
   //register
   getIt.registerLazySingleton<RegisterRepoImple>(
       () => RegisterRepoImple(authApiService: getIt<AuthApiService>()));
+  //changepass
+  getIt.registerLazySingleton<PrivacyRepoImple>(
+      () => PrivacyRepoImple(authApiService: getIt<AuthApiService>()));
 //predict image
   getIt.registerSingleton<PredictImageRepoImple>(
     PredictImageRepoImple(authApiService: getIt<AuthApiService>()),

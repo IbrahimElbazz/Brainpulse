@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_helper.dart';
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_keys.dart';
-import 'package:brain_pulse/core/network/dio_factory.dart';
+import 'package:brain_pulse/core/api/dio_factory.dart';
 import 'package:brain_pulse/features/auth/login/data/repo/login_repo_imple.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_state.dart';
 import 'package:flutter/widgets.dart';
@@ -59,6 +59,7 @@ class LoginCubit extends Cubit<LoginState> {
       if (!JwtDecoder.isExpired(token)) {
         decodedToken = JwtDecoder.decode(token);
         emit(LoadedLoginSate());
+        await DioFactory.setToken(token);
       } else {
         await SharedPrefHelper.removeData(key: SharedPrefKeys.token);
         emit(InitialLoginSate());
@@ -71,6 +72,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> logout() async {
     await SharedPrefHelper.removeData(key: SharedPrefKeys.token);
     await SharedPrefHelper.removeData(key: SharedPrefKeys.email);
+    DioFactory.clearToken();
     email.clear();
     password.clear();
     emit(InitialLoginSate());
@@ -79,6 +81,6 @@ class LoginCubit extends Cubit<LoginState> {
   // set token in header service
   Future<void> saveUserToken(String token) async {
     await SharedPrefHelper.setData(key: SharedPrefKeys.token, value: token);
-    DioFactory.setTokenIntoHeaderAfterLogin(token);
+    await DioFactory.setToken(token);
   }
 }
