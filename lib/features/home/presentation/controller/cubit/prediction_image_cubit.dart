@@ -18,8 +18,12 @@ class PredictionImageCubit extends Cubit<PredictionImageState> {
       (predictionModel) => emit(
         LoadedPredictionImageState(
           image: image,
-          label: predictionModel.label,
-          confidence: predictionModel.confidence,
+          gpd: predictionModel.gpd,
+          grda: predictionModel.grda,
+          lpd: predictionModel.lpd,
+          lrda: predictionModel.lrda,
+          seizure: predictionModel.seizure,
+          other: predictionModel.other,
         ),
       ),
     );

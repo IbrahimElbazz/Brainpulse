@@ -3,6 +3,7 @@ import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
 import 'package:brain_pulse/core/routing/routers.dart';
+import 'package:brain_pulse/features/data_by_doctor/presentation/screens/display_data.dart';
 import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
 import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_image_cubit.dart';
 import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_image_state.dart';
@@ -27,7 +28,19 @@ class _GetImageBodyState extends State<GetImageBody> {
     return BlocConsumer<PredictionImageCubit, PredictionImageState>(
       listener: (context, state) {
         if (state is LoadedPredictionImageState) {
-          Navigator.pushNamed(context, Routes.eegdata);
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return DisplayData(prediction: [
+                state.gpd,
+                state.grda,
+                state.lpd,
+                state.lrda,
+                state.seizure,
+                state.other,
+              ]);
+            },
+          ));
+          // Navigator.pushNamed(context, Routes.eegdata);
         } else if (state is ErrorPredictionImageState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.errormsg)),
@@ -117,7 +130,9 @@ class _GetImageBodyState extends State<GetImageBody> {
                   padding:
                       EdgeInsets.symmetric(vertical: 15.h, horizontal: 40.w),
                   child: isLoading
-                      ? const CircularProgressIndicator()
+                      ? CircularProgressIndicator(
+                          color: ColorsApp.primary,
+                        )
                       : CustomButton(
                           text: "Show Result",
                           width: double.infinity,

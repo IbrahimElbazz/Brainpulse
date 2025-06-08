@@ -59,10 +59,6 @@ class AppRouter {
         return AppHelperFunctions().slideFromRightTransition(
           page: const DataByDoctorScreen(),
         );
-      case Routes.dropfilescreen:
-        return AppHelperFunctions().fadeTransition(
-          page: const DropFileScreen(),
-        );
       case Routes.editProfileScreen:
         return AppHelperFunctions().fadeTransition(
           page: const EditProfileScreen(),
