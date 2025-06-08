@@ -36,6 +36,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   centerTitle: true,
                 ),
                 const GapH(height: 40),
+                Hero(
+                  tag: 'edit_image',
+                  child: CircleAvatar(
+                    radius: 60.r,
+                    backgroundColor: Colors.white,
+                    backgroundImage:
+                        const AssetImage('assets/images/OO6PT80.jpeg'),
+                  ),
+                ),
+                const GapH(height: 30),
                 textFieldCustom(
                   hintText: 'Doctor name',
                   iconP: IconButton(
@@ -123,7 +133,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     );
                   },
                 ),
-                const GapH(height: 300),
+                const GapH(height: 150),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[

@@ -60,10 +60,13 @@ class ImageAndBackgroundBar extends StatelessWidget {
         Positioned(
           top: 115.h,
           left: 29.w,
-          child: CircleAvatar(
-            radius: 45.r,
-            backgroundColor: Colors.white,
-            backgroundImage: AssetImage(image),
+          child: Hero(
+            tag: 'edit_image',
+            child: CircleAvatar(
+              radius: 45.r,
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage(image),
+            ),
           ),
         ),
         Positioned(
