@@ -38,13 +38,11 @@ class AuthApiService {
     try {
       final dio = await DioFactory.getDio();
 
-      // إعدادات خاصة للحذف مع السماح بالـ redirect
       final response = await dio.delete(
         "http://manoehab-001-site1.ltempurl.com/api/$endpoint",
         options: Options(
           followRedirects: false,
           validateStatus: (status) {
-            // تقبل 2xx و 3xx حتى لا يرمي Dio استثناء على 307
             return status != null && status < 400;
           },
         ),

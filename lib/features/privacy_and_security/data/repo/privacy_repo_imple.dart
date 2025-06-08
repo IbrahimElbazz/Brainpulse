@@ -28,21 +28,19 @@ class PrivacyRepoImple implements PrivacyRepo {
   @override
   Future<Either<String, bool>> deleteDoctor({required int id}) async {
     try {
-      final success = await authApiService.delete(endpoint: 'Auth/$id');
+    final success = await authApiService.delete(endpoint: 'Auth/$id');
 
-      if (success) {
-        return right(true);
-      } else {
-        return left('Delete failed: unexpected server response.');
-      }
-    } on DioException catch (dioError) {
-      print(
-          '❌ DioException: ${dioError.response?.statusCode} - ${dioError.response?.data}');
-      return left(
-          'Dio error: ${dioError.response?.statusCode} - ${dioError.message}');
-    } catch (e) {
-      print('❌ Unknown Exception: $e');
-      return left('Unknown error: $e');
+    if (success) {
+      return right(true);
+    } else {
+      return left('Delete failed: unexpected server response.');
     }
+  } on DioException catch (dioError) {
+    print('❌ DioException: ${dioError.response?.statusCode} - ${dioError.response?.data}');
+    return left('Dio error: ${dioError.response?.statusCode} - ${dioError.message}');
+  } catch (e) {
+    print('❌ Unknown Exception: $e');
+    return left('Unknown error: $e');
+  }
   }
 }
