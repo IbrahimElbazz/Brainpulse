@@ -20,6 +20,8 @@ class ChangePasswordScreen extends StatefulWidget {
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   bool isShow = false;
+  bool _isBottomSheetShown = false;
+
   @override
   Widget build(BuildContext context) {
     var read = context.read<ChangePassCubit>();
@@ -94,7 +96,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               ),
             );
           },
-        );
+        ).whenComplete(() {
+          _isBottomSheetShown = false;
+        });
       } else if (state is FailureChangePassState) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(state.errormsg)),

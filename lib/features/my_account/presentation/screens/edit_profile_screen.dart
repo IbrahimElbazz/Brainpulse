@@ -4,7 +4,10 @@ import 'package:brain_pulse/core/Widgets/pop_circle_button.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/button.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/text_field_custom.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/controller/cubit/editdoctor/edit_doctor_cubit.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/controller/cubit/editdoctor/edit_doctor_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -20,150 +23,133 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
+    var read = context.read<EditDoctorCubit>();
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
-            child: Column(
-              children: <Widget>[
-                AppBar(
-                  title: const Text(
-                    'Update Profile',
-                  ),
-                  leading: const PopCircleButton(),
-                  centerTitle: true,
-                ),
-                const GapH(height: 40),
-                Hero(
-                  tag: 'edit_image',
-                  child: CircleAvatar(
-                    radius: 60.r,
-                    backgroundColor: Colors.white,
-                    backgroundImage:
-                        const AssetImage('assets/images/OO6PT80.jpeg'),
-                  ),
-                ),
-                const GapH(height: 30),
-                textFieldCustom(
-                  hintText: 'Doctor name',
-                  iconP: IconButton(
-                    icon: IconButton(
-                      icon: SvgPicture.asset('assets/svgs/user.svg'),
-                      onPressed: () {},
-                    ),
-                    onPressed: () {},
-                  ),
-                ),
-                const GapH(height: 20),
-                textFieldCustom(
-                  hintText: 'Email',
-                  iconP: IconButton(
-                    icon: IconButton(
-                      icon: SvgPicture.asset('assets/svgs/mail.svg'),
-                      onPressed: () {},
-                    ),
-                    onPressed: () {},
-                  ),
-                ),
-                const GapH(height: 20),
-                IntlPhoneField(
-                  dropdownIconPosition: IconPosition.trailing,
-                  dropdownTextStyle: TextStyle(
-                    color: const Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 16.sp,
-                  ),
-                  decoration: InputDecoration(
-                    focusedErrorBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.red,
+        child: BlocConsumer<EditDoctorCubit, EditDoctorState>(
+          listener: (context, state) {
+            if (state is LoadedEditDoctorState) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Profile updated successfully')),
+              );
+              context.pop(); // رجوع بعد التعديل
+            } else if (state is FailureEditDoctorState) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(state.errormsg)),
+              );
+            }
+          },
+          builder: (context, state) {
+            return SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                child: Form(
+                  key: read.editkeyform,
+                  child: Column(
+                    children: <Widget>[
+                      AppBar(
+                        title: const Text('Update Profile'),
+                        leading: const PopCircleButton(),
+                        centerTitle: true,
                       ),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(16),
+                      const GapH(height: 40),
+                      Hero(
+                        tag: 'edit_image',
+                        child: CircleAvatar(
+                          radius: 60.r,
+                          backgroundColor: Colors.white,
+                          backgroundImage:
+                              const AssetImage('assets/images/OO6PT80.jpeg'),
+                        ),
                       ),
-                    ),
-                    labelStyle: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w400),
-                    labelText: 'Phone Number',
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.grey.withOpacity(0.2),
+                      const GapH(height: 30),
+                      textFieldCustom(
+                        hintText: 'Doctor name',
+                        controller: read.name,
+                        iconP: IconButton(
+                          icon: SvgPicture.asset('assets/svgs/user.svg'),
+                          onPressed: () {},
+                        ),
                       ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.grey.withOpacity(0.2),
+                      const GapH(height: 20),
+                      textFieldCustom(
+                        hintText: 'Email',
+                        controller: read.email,
+                        iconP: IconButton(
+                          icon: SvgPicture.asset('assets/svgs/mail.svg'),
+                          onPressed: () {},
+                        ),
                       ),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(16),
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.grey.withOpacity(0.2),
-                      ),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(16),
-                      ),
-                    ),
-                    errorBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.red,
-                      ),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(16),
-                      ),
-                    ),
-                  ),
-                  initialCountryCode: 'EG',
-                  showCountryFlag: false,
-                  keyboardType: TextInputType.number,
-                  dropdownIcon: const Icon(
-                    Icons.keyboard_arrow_down_outlined,
-                    color: Colors.grey,
-                  ),
-                  onChanged: (PhoneNumber phone) {
-                    //  phoneController.text = phone.completeNumber.toString();
-                    print(phone.completeNumber);
-                    print(
-                      '++++++++++++++++++++++++++++++++++++++++++++++++++++++',
-                    );
-                  },
-                ),
-                const GapH(height: 150),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    SizedBox(
-                      width: 160.w,
-                      height: 60.h,
-                      child: CustomButtonAcc(
-                        color: ColorsApp.primary,
-                        text: 'Save',
-                        onTap: () {},
-                      ),
-                    ),
-                    SizedBox(
-                      width: 160.w,
-                      height: 60.h,
-                      child: CustomButtonAcc(
-                        color: Colors.white,
-                        textColor: const Color(0xFFAAB9C5),
-                        text: 'Cancel',
-                        onTap: () {
-                          context.pop();
+                      const GapH(height: 20),
+                      IntlPhoneField(
+                        // controller: read.phoneNumber,
+                        dropdownIconPosition: IconPosition.trailing,
+                        dropdownTextStyle: TextStyle(
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                          fontSize: 16.sp,
+                        ),
+                        decoration: InputDecoration(
+                          labelStyle: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          labelText: 'Phone Number',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        initialCountryCode: 'EG',
+                        showCountryFlag: false,
+                        keyboardType: TextInputType.number,
+                        dropdownIcon: const Icon(
+                          Icons.keyboard_arrow_down_outlined,
+                          color: Colors.grey,
+                        ),
+                        onChanged: (PhoneNumber phone) {
+                          read.phoneNumber.text = phone.completeNumber;
                         },
                       ),
-                    ),
-                  ],
+                      const GapH(height: 150),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          SizedBox(
+                            width: 160.w,
+                            height: 60.h,
+                            child: CustomButtonAcc(
+                                color: ColorsApp.primary,
+                                text: state is LoadingEditDoctorState
+                                    ? 'Saving...'
+                                    : 'Save',
+                                onTap: () {
+                                  if (state is! LoadingEditDoctorState) {
+                                    read.editDoctorvalidate();
+                                  }
+                                }),
+                          ),
+                          SizedBox(
+                            width: 160.w,
+                            height: 60.h,
+                            child: CustomButtonAcc(
+                              color: Colors.white,
+                              textColor: const Color(0xFFAAB9C5),
+                              text: 'Cancel',
+                              onTap: () {
+                                context.pop();
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      const GapH(height: 20),
+                    ],
+                  ),
                 ),
-                const GapH(height: 20),
-              ],
-            ),
-          ),
+              ),
+            );
+          },
         ),
       ),
     );

@@ -34,12 +34,40 @@ class AuthApiService {
     }
   }
 
+  Future<Map<String, dynamic>> editdoctor(
+      {required String endpoint, required Map<String, dynamic> data}) async {
+    final dio = await DioFactory.getDio();
+    try {
+      var response =
+          await dio.put("https://manoehab-001-site1.ltempurl.com/api/$endpoint",
+              data: data,
+              options: Options(headers: {
+                ...dio.options.headers,
+                'Content-Type': 'application/json',
+              }));
+      if (response.statusCode == 204) {
+        return {'message': 'Updated successfully'};
+      }
+
+      if (response.data is Map<String, dynamic>) {
+        return response.data as Map<String, dynamic>;
+      } else {
+        return {'message': response.data.toString()};
+      }
+    } on DioException catch (e) {
+      print('Error status: ${e.response?.statusCode}');
+      print('Redirect Location: ${e.response?.headers.value("location")}');
+      print('Error data: ${e.response?.data}');
+      throw e;
+    }
+  }
+
   Future<bool> delete({required String endpoint}) async {
     try {
       final dio = await DioFactory.getDio();
 
       final response = await dio.delete(
-        "http://manoehab-001-site1.ltempurl.com/api/$endpoint",
+        "https://manoehab-001-site1.ltempurl.com/api/$endpoint",
         options: Options(
           followRedirects: false,
           validateStatus: (status) {

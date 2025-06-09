@@ -36,12 +36,17 @@ class LoginCubit extends Cubit<LoginState> {
             key: SharedPrefKeys.email, value: email.text);
 
         decodedToken = JwtDecoder.decode(response.token);
-        String userIdString = decodedToken['\$id'] ?? '0';
-        int userId = int.tryParse(userIdString) ?? 0;
-
+        var userIdDynamic = decodedToken['nameid'];
+        int userId = 0;
+        if (userIdDynamic is String) {
+          userId = int.tryParse(userIdDynamic) ?? 0;
+        } else if (userIdDynamic is int) {
+          userId = userIdDynamic;
+        }
+        print("✅ Extracted userId from token: $userId");
         await SharedPrefHelper.setData(
-            key: SharedPrefKeys.userId, value: userId); // ✅ الصح
-
+            key: SharedPrefKeys.userId, value: userId);
+        print("✅ Saved userId in SharedPrefs: $userId");
         isloading = false;
         emit(LoadedLoginSate());
       } catch (e) {

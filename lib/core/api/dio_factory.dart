@@ -24,14 +24,12 @@ class DioFactory {
     }
   }
 
-  // تحدث التوكين في الهيدر بعد login
   static Future<void> setToken(String token) async {
     if (_dio != null) {
       _dio!.options.headers['Authorization'] = 'Bearer $token';
     }
   }
 
-  // شيل التوكين من الهيدر بعد logout
   static void clearToken() {
     if (_dio != null) {
       _dio!.options.headers.remove('Authorization');

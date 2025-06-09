@@ -1,5 +1,5 @@
 import 'package:brain_pulse/features/privacy_and_security/data/repo/privacy_repo_imple.dart';
-import 'package:brain_pulse/features/privacy_and_security/presentation/controller/deletedoctor/delete_doctor_state.dart';
+import 'package:brain_pulse/features/privacy_and_security/presentation/controller/cubit/deletedoctor/delete_doctor_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DeleteDoctorCubit extends Cubit<DeleteDoctorState> {
