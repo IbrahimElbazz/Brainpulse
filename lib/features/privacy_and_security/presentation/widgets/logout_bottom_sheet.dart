@@ -92,7 +92,8 @@ class LogoutBottomSheet extends StatelessWidget {
                     text: 'Logout',
                     onTap: () async {
                       await SharedPrefHelper.clearAllData();
-                      context.pushReplacementNamed('/loginScreen');
+                      context.pushNamedAndRemoveUntil('/loginScreen',
+                          predicate: (Route<dynamic> route) => false);
                     },
                   ),
                 ),

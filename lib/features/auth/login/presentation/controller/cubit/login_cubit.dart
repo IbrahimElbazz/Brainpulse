@@ -17,6 +17,9 @@ class LoginCubit extends Cubit<LoginState> {
   GlobalKey<FormState> loginkeyform = GlobalKey();
   Map<String, dynamic> decodedToken = {};
   bool isloading = false;
+  String? username;
+  String? emailaddress;
+  String? phone;
 
   Future<void> loginUserCubit() async {
     emit(LoadingLoginSate());
@@ -33,7 +36,12 @@ class LoginCubit extends Cubit<LoginState> {
         log("Token Saved : ${response.token}");
         await saveUserToken(response.token);
         await SharedPrefHelper.setData(
-            key: SharedPrefKeys.email, value: email.text);
+            key: SharedPrefKeys.name, value: response.doctor.name);
+        await SharedPrefHelper.setData(
+            key: SharedPrefKeys.email, value: response.doctor.email);
+        await SharedPrefHelper.setData(
+            key: SharedPrefKeys.phoneNumber,
+            value: response.doctor.phoneNumber);
 
         decodedToken = JwtDecoder.decode(response.token);
         var userIdDynamic = decodedToken['nameid'];
@@ -79,9 +87,34 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
+  Future<void> loadUserDataFromPrefs() async {
+    username = await SharedPrefHelper.getString(key: SharedPrefKeys.name);
+    emailaddress = await SharedPrefHelper.getString(key: SharedPrefKeys.email);
+    phone = await SharedPrefHelper.getString(key: SharedPrefKeys.phoneNumber);
+  }
+
+  // Future<void> updateUserData({
+  //   required String name,
+  //   required String email,
+  //   required String phone,
+  // }) async {
+  //   await SharedPrefHelper.setData(key: SharedPrefKeys.name, value: name);
+  //   await SharedPrefHelper.setData(key: SharedPrefKeys.email, value: email);
+  //   await SharedPrefHelper.setData(
+  //       key: SharedPrefKeys.phoneNumber, value: phone);
+
+  //   username = name;
+  //   emailaddress = email;
+  //   phone = phone;
+
+  //   emit(LoadedLoginSate());
+  // }
+
   Future<void> logout() async {
     await SharedPrefHelper.removeData(key: SharedPrefKeys.token);
     await SharedPrefHelper.removeData(key: SharedPrefKeys.email);
+    await SharedPrefHelper.removeData(key: SharedPrefKeys.name);
+    await SharedPrefHelper.removeData(key: SharedPrefKeys.phoneNumber);
     DioFactory.clearToken();
     email.clear();
     password.clear();

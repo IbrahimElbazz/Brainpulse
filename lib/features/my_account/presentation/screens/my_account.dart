@@ -1,13 +1,36 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/widgets/gap.dart';
+import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_cubit.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/card_item_in_my_account.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/image_and_background_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class MyAccount extends StatelessWidget {
+class MyAccount extends StatefulWidget {
   const MyAccount({super.key});
+
+  @override
+  State<MyAccount> createState() => _MyAccountState();
+}
+
+class _MyAccountState extends State<MyAccount> {
+  String? doctorName;
+
+  @override
+  void initState() {
+    super.initState();
+    loadDoctorName();
+  }
+
+  Future<void> loadDoctorName() async {
+    final cubit = context.read<LoginCubit>();
+    await cubit.loadUserDataFromPrefs();
+    setState(() {
+      doctorName = cubit.username;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +57,7 @@ class MyAccount extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Doctor name',
+                      'DR: ${doctorName ?? "loading..."}',
                       style: TextStyle(
                         color: (Theme.of(context).brightness == Brightness.dark
                             ? Colors.white

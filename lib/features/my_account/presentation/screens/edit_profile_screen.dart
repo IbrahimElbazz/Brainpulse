@@ -2,6 +2,7 @@ import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/pop_circle_button.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
+import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_cubit.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/button.dart';
 import 'package:brain_pulse/features/my_account/presentation/widgets/text_field_custom.dart';
 import 'package:brain_pulse/features/privacy_and_security/presentation/controller/cubit/editdoctor/edit_doctor_cubit.dart';
@@ -21,6 +22,26 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  String? doctorName;
+  String? email;
+  String? phonenum;
+
+  @override
+  void initState() {
+    super.initState();
+    loadDoctorName();
+  }
+
+  Future<void> loadDoctorName() async {
+    final cubit = context.read<LoginCubit>();
+    await cubit.loadUserDataFromPrefs();
+    setState(() {
+      doctorName = cubit.username;
+      email = cubit.emailaddress;
+      phonenum = cubit.phone;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var read = context.read<EditDoctorCubit>();
@@ -30,10 +51,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: BlocConsumer<EditDoctorCubit, EditDoctorState>(
           listener: (context, state) {
             if (state is LoadedEditDoctorState) {
+              // context.read<LoginCubit>().updateUserData(
+              //       name: read.name.text,
+              //       email: read.email.text,
+              //       phone: read.phoneNumber.text,
+              //     );
+              // read.name.clear();
+              // read.email.clear();
+              // read.phoneNumber.clear();
+
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('Profile updated successfully')),
               );
-              context.pop(); // رجوع بعد التعديل
+              context.pop();
             } else if (state is FailureEditDoctorState) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.errormsg)),
@@ -65,7 +95,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                       const GapH(height: 30),
                       textFieldCustom(
-                        hintText: 'Doctor name',
+                        hintText: doctorName,
                         controller: read.name,
                         iconP: IconButton(
                           icon: SvgPicture.asset('assets/svgs/user.svg'),
@@ -74,7 +104,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                       const GapH(height: 20),
                       textFieldCustom(
-                        hintText: 'Email',
+                        hintText: email,
                         controller: read.email,
                         iconP: IconButton(
                           icon: SvgPicture.asset('assets/svgs/mail.svg'),
@@ -95,7 +125,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w400,
                           ),
-                          labelText: 'Phone Number',
+                          labelText: phonenum,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),

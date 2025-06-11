@@ -3,6 +3,7 @@ import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
 import 'package:brain_pulse/core/helpers/spacing.dart';
 import 'package:brain_pulse/core/routing/routers.dart';
+import 'package:brain_pulse/features/app_navigation/app_navigation.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_cubit.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_state.dart';
 import 'package:brain_pulse/features/auth/login/presentation/views/ui/widgets/lowerDesignLogin.dart';
@@ -22,7 +23,11 @@ class LogInScreen extends StatelessWidget {
     var read = context.read<LoginCubit>();
     return BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
       if (state is LoadedLoginSate) {
-        Navigator.pushNamed(context, Routes.appNavigation);
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (_) => const AppNavigation()),
+          (Route<dynamic> route) => false,
+        );
       } else if (state is ErrorLoginState) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(state.errormsg)),
