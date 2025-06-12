@@ -28,7 +28,7 @@ class _AppNavigationState extends State<AppNavigation> {
     const History(),
     const MyAccount(),
   ];
-  bool offline = false;
+  bool offline = true;
   StreamSubscription? _subscription;
   @override
   void initState() {
