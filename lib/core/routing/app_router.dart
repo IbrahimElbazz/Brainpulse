@@ -3,7 +3,6 @@ import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/app_navigation/app_navigation.dart';
 import 'package:brain_pulse/features/auth/login/presentation/views/login.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/display_data.dart';
-import 'package:brain_pulse/features/home/presentation/screens/drop_file_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/eeg_data_screen.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/data_by_doctor_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/get_image_screen.dart';
@@ -15,12 +14,19 @@ import 'package:brain_pulse/features/privacy_and_security/presentation/screens/c
 import 'package:brain_pulse/features/privacy_and_security/presentation/screens/delete_account.dart';
 import 'package:brain_pulse/features/privacy_and_security/presentation/screens/privacy_and_security.dart';
 import 'package:brain_pulse/features/splash/presentation/views/spalsh_screen.dart';
+import 'package:brain_pulse/offline_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
   static Route generateRoute(RouteSettings settings) {
     var arg = settings.arguments;
     switch (settings.name) {
+      case Routes.offline:
+        return AppHelperFunctions().fadeTransition(
+          page: OfflineScreen(
+            onRetry: () {},
+          ),
+        );
       case Routes.splashScreen:
         return AppHelperFunctions().fadeTransition(
           page: const SplashScreen(),

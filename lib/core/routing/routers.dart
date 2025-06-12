@@ -1,4 +1,6 @@
 class Routes {
+  static const String offline = '/offline';
+
   static const String splashScreen = '/splashScreen';
   static const String onBoarding = '/onBoarding';
   static const String loginScreen = '/loginScreen';
