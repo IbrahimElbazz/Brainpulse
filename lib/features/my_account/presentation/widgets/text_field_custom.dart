@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class textFieldCustom extends StatelessWidget {
-  const textFieldCustom({
-    super.key,
-    this.hintText,
-    this.iconS,
-    this.iconP,
-    this.obscureText,
-    this.enable,
-    this.hintColor,
-    this.keyboardType,
-    this.controller,
-  });
+  textFieldCustom(
+      {super.key,
+      this.hintText,
+      this.iconS,
+      this.iconP,
+      this.obscureText,
+      this.enable,
+      this.hintColor,
+      this.keyboardType,
+      this.controller,
+      this.validator});
 
   final String? hintText;
 
@@ -23,9 +23,11 @@ class textFieldCustom extends StatelessWidget {
   final Color? hintColor;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
+  String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: validator,
       controller: controller,
       keyboardType: keyboardType,
       enabled: enable ?? true,

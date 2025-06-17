@@ -43,8 +43,9 @@ class _MyAccountState extends State<MyAccount> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               GestureDetector(
-                onTap: () {
-                  context.pushNamed('/EditProfileScreen');
+                onTap: () async {
+                  await context.pushNamed('/EditProfileScreen');
+                  await loadDoctorName();
                 },
                 child: const ImageAndBackgroundBar(
                   background: 'assets/images/background.png',
@@ -75,8 +76,9 @@ class _MyAccountState extends State<MyAccount> {
                       icon: 'assets/svgs/user-pen.svg',
                       title: 'Edit Profile',
                       subTitle: 'Edit . Name . Email',
-                      onTap: () {
-                        context.pushNamed('/EditProfileScreen');
+                      onTap: () async {
+                        await context.pushNamed('/EditProfileScreen');
+                        await loadDoctorName();
                       },
                     ),
                     CardItemInMyAccount(

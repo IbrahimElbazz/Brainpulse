@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/features/brain/presentation/screens/brain_screen.dart';

@@ -27,8 +27,21 @@ class EditDoctorCubit extends Cubit<EditDoctorState> {
     });
   }
 
-  void editDoctorvalidate() {
+  void editDoctorvalidate({
+    required String oldName,
+    required String oldEmail,
+    required String oldPhone,
+  }) {
     if (editkeyform.currentState!.validate()) {
+      final isSame = name.text.trim() == oldName.trim() &&
+          email.text.trim() == oldEmail.trim() &&
+          phoneNumber.text.trim() == oldPhone.trim();
+
+      if (isSame) {
+        emit(FailureEditDoctorState(errormsg: "No changes detected."));
+        return;
+      }
+
       editDoctorCubit();
     }
   }

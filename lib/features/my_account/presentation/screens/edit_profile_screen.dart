@@ -51,14 +51,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: BlocConsumer<EditDoctorCubit, EditDoctorState>(
           listener: (context, state) {
             if (state is LoadedEditDoctorState) {
-              // context.read<LoginCubit>().updateUserData(
-              //       name: read.name.text,
-              //       email: read.email.text,
-              //       phone: read.phoneNumber.text,
-              //     );
-              // read.name.clear();
-              // read.email.clear();
-              // read.phoneNumber.clear();
+              context.read<LoginCubit>().updateUserData(
+                    name: read.name.text,
+                    email: read.email.text,
+                    phone: read.phoneNumber.text,
+                  );
+              read.name.clear();
+              read.email.clear();
+              read.phoneNumber.clear();
 
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('Profile updated successfully')),
@@ -101,6 +101,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           icon: SvgPicture.asset('assets/svgs/user.svg'),
                           onPressed: () {},
                         ),
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please Enter Name';
+                          }
+                          return null;
+                        },
                       ),
                       const GapH(height: 20),
                       textFieldCustom(
@@ -110,9 +116,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           icon: SvgPicture.asset('assets/svgs/mail.svg'),
                           onPressed: () {},
                         ),
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please Enter Email';
+                          }
+                          return null;
+                        },
                       ),
                       const GapH(height: 20),
                       IntlPhoneField(
+                        //controller: read.phoneNumber,
                         // controller: read.phoneNumber,
                         dropdownIconPosition: IconPosition.trailing,
                         dropdownTextStyle: TextStyle(
@@ -130,6 +143,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.number.trim().isEmpty) {
+                            return 'Please Enter Name';
+                          }
+                          return null;
+                        },
                         initialCountryCode: 'EG',
                         showCountryFlag: false,
                         keyboardType: TextInputType.number,
@@ -155,7 +174,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     : 'Save',
                                 onTap: () {
                                   if (state is! LoadingEditDoctorState) {
-                                    read.editDoctorvalidate();
+                                    read.editDoctorvalidate(
+                                      oldName: doctorName ?? '',
+                                      oldEmail: email ?? '',
+                                      oldPhone: phonenum ?? '',
+                                    );
                                   }
                                 }),
                           ),

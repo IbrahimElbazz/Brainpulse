@@ -93,22 +93,22 @@ class LoginCubit extends Cubit<LoginState> {
     phone = await SharedPrefHelper.getString(key: SharedPrefKeys.phoneNumber);
   }
 
-  // Future<void> updateUserData({
-  //   required String name,
-  //   required String email,
-  //   required String phone,
-  // }) async {
-  //   await SharedPrefHelper.setData(key: SharedPrefKeys.name, value: name);
-  //   await SharedPrefHelper.setData(key: SharedPrefKeys.email, value: email);
-  //   await SharedPrefHelper.setData(
-  //       key: SharedPrefKeys.phoneNumber, value: phone);
+  Future<void> updateUserData({
+    required String name,
+    required String email,
+    required String phone,
+  }) async {
+    await SharedPrefHelper.setData(key: SharedPrefKeys.name, value: name);
+    await SharedPrefHelper.setData(key: SharedPrefKeys.email, value: email);
+    await SharedPrefHelper.setData(
+        key: SharedPrefKeys.phoneNumber, value: phone);
 
-  //   username = name;
-  //   emailaddress = email;
-  //   phone = phone;
+    username = name;
+    emailaddress = email;
+    phone = phone;
 
-  //   emit(LoadedLoginSate());
-  // }
+    emit(LoadedLoginSate());
+  }
 
   Future<void> logout() async {
     await SharedPrefHelper.removeData(key: SharedPrefKeys.token);
