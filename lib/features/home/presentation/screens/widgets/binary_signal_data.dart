@@ -201,8 +201,10 @@ class _InfoCard extends StatelessWidget {
   final IconData icon;
   final String content;
   final Color color;
+  final Key? key;
 
   const _InfoCard({
+    this.key,
     required this.title,
     required this.icon,
     required this.content,
