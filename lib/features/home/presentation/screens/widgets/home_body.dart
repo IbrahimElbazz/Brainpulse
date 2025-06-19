@@ -28,7 +28,6 @@ class _HomeBodyState extends State<HomeBody> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getToken();
   }
@@ -83,11 +82,11 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
                 const StaticText(),
                 SizedBox(
-                  height: 30.h,
+                  height: 20.h,
                 ),
-                const Divider(),
+                // const Divider(),
                 SizedBox(
-                  height: 30.h,
+                  height: 20.h,
                 ),
                 const BinarySignalData()
               ],

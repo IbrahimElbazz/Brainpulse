@@ -32,5 +32,5 @@ Future<void> main() async {
 }
 
 
-// email : bazooka@gmail.com 
+// email : 0
 // pass : 00000000
