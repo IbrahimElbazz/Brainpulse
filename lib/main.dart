@@ -3,6 +3,7 @@ import 'package:brain_pulse/core/di/dependency_injection.dart';
 import 'package:brain_pulse/core/helpers/bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:provider/provider.dart';
 import 'core/provider/language.provider.dart';
 import 'core/provider/theme-provider.dart';

@@ -32,6 +32,7 @@ dependencies:
   build_runner: ^2.4.13
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
+  defer_pointer: ^0.0.2
   dio: ^5.8.0+1
   dotted_border: ^2.1.0
   flutter:

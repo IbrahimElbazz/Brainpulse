@@ -20,11 +20,12 @@ class CustomCircleButtonPop extends StatelessWidget {
       ),
       child: Center(
         child: IconButton(
+          padding: EdgeInsets.zero,
           onPressed: () {
             context.pop();
           },
           icon: Icon(
-            size: 25,
+            size: 25.sp,
             Icons.arrow_back_ios_new,
             color: Theme.of(context).appBarTheme.iconTheme?.color,
           ),

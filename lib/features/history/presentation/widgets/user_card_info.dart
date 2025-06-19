@@ -16,7 +16,7 @@ class UserCardInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70.h,
+      height: 80.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
         color: ColorsApp.grey500.withOpacity(0.05),
@@ -25,8 +25,8 @@ class UserCardInfo extends StatelessWidget {
         title: Text(name),
         subtitle: Text(phone),
         leading: Container(
-          width: 35.w,
-          height: 35.w,
+          width: 50.w,
+          height: 50.h,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(555.r),
             color: ColorsApp.primary.withOpacity(0.2),
