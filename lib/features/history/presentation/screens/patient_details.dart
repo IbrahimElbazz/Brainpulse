@@ -4,6 +4,7 @@ import 'package:brain_pulse/core/helpers/spacing.dart';
 import 'package:brain_pulse/features/history/data/model/get_all_patients_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PatientDetails extends StatefulWidget {
   const PatientDetails({super.key, required this.patientDetails});
@@ -93,13 +94,17 @@ class _PatientDetailsState extends State<PatientDetails>
           ),
         ),
         _buildActionButton(
-          icon: Icons.history,
-          onTap: () {},
+          icon: Icons.message_outlined,
+          onTap: () {
+            launchUrl(Uri.parse('sms:${widget.patientDetails.phoneNumber}'));
+          },
         ),
         gapW(8),
         _buildActionButton(
-          icon: Icons.edit,
-          onTap: () {},
+          icon: Icons.phone_in_talk_outlined,
+          onTap: () {
+            launchUrl(Uri.parse('tel:${widget.patientDetails.phoneNumber}'));
+          },
         ),
       ],
     );

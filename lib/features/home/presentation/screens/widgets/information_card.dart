@@ -82,7 +82,7 @@ class InformationCard extends StatelessWidget {
           ),
           Positioned(
             top: 18.h,
-            right: 8.w,
+            right: 2.w,
             child: Image.asset(
               'assets/images/information_card.png',
               width: 300.w,
