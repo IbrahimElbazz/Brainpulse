@@ -22,7 +22,7 @@ class ChangePassCubit extends Cubit<ChangePassState> {
     return value.fold((error) {
       print(error);
       isLoading = false;
-      emit(FailureChangePassState(errormsg: error));
+      emit(FailureChangePassState(errormsg: error.errorMessage));
     }, (register) {
       isLoading = false;
       emit(LoadedChangePassState());

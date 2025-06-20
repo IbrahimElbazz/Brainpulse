@@ -28,7 +28,7 @@ class LoginCubit extends Cubit<LoginState> {
         email: email.text, password: password.text);
     return value.fold((error) {
       isloading = false;
-      emit(ErrorLoginState(errormsg: error));
+      emit(ErrorLoginState(errormsg: error.errorMessage));
     }, (response) async {
       try {
         await SharedPrefHelper.setData(

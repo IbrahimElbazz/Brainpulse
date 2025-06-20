@@ -27,7 +27,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     return value.fold((error) {
       print(error);
       isLoading = false;
-      emit(FailuerRegisterState(errormsg: error));
+      emit(FailuerRegisterState(errormsg: error.errorMessage));
     }, (register) {
       isLoading = false;
       emit(LoadedRegisterState());

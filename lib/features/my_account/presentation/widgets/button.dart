@@ -18,7 +18,7 @@ class CustomButtonAcc extends StatelessWidget {
   final Color? textColor;
   final double? textSized;
   final String text;
-  final void Function() onTap;
+  final void Function()? onTap;
   final bool? withBorder;
   final bool? icon;
   final Widget? iconWidget;

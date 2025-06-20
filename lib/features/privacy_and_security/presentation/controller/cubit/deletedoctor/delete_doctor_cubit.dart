@@ -14,7 +14,7 @@ class DeleteDoctorCubit extends Cubit<DeleteDoctorState> {
     final result = await privacyRepoImple.deleteDoctor(id: id);
 
     result.fold(
-      (failure) => emit(FailureDeleteDoctorState(failure)),
+      (failure) => emit(FailureDeleteDoctorState(failure.errorMessage)),
       (success) {
         if (success) {
           emit(LoadedDeleteDoctorState());

@@ -20,7 +20,7 @@ class EditDoctorCubit extends Cubit<EditDoctorState> {
     return value.fold((error) {
       print(error);
       isLoading = false;
-      emit(FailureEditDoctorState(errormsg: error));
+      emit(FailureEditDoctorState(errormsg: error.errorMessage));
     }, (register) {
       isLoading = false;
       emit(LoadedEditDoctorState());

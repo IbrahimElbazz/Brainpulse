@@ -219,185 +219,196 @@ class _DeleteAccountState extends State<DeleteAccount> {
                         width: 160.w,
                         height: 60.h,
                         child: CustomButtonAcc(
-                          color: Colors.transparent,
-                          textColor: const Color.fromARGB(
-                            255,
-                            180,
-                            12,
-                            0,
-                          ),
+                          color: activeBox ? Colors.transparent : Colors.grey,
+                          textColor: activeBox
+                              ? const Color.fromARGB(
+                                  255,
+                                  180,
+                                  12,
+                                  0,
+                                )
+                              : Colors.white,
                           text: 'Delete',
-                          onTap: () {
-                            showModalBottomSheet(
-                              sheetAnimationStyle: AnimationStyle(
-                                duration: const Duration(microseconds: 500000),
-                                curve: Curves.linear,
-                              ),
-                              backgroundColor: Colors.white,
-                              context: context,
-                              builder: (BuildContext context) {
-                                return SizedBox(
-                                  width: double.infinity,
-                                  height: 500.h,
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 24.w,
+                          onTap: activeBox
+                              ? () {
+                                  showModalBottomSheet(
+                                    sheetAnimationStyle: const AnimationStyle(
+                                      duration:
+                                          Duration(microseconds: 500000),
+                                      curve: Curves.linear,
                                     ),
-                                    child: Column(
-                                      children: <Widget>[
-                                        const GapH(height: 10),
-                                        Row(
-                                          children: <Widget>[
-                                            IconButton(
-                                              onPressed: () {
-                                                context.pop();
-                                              },
-                                              icon: const Icon(
-                                                Icons.close,
-                                                color: Colors.grey,
+                                    backgroundColor: Colors.white,
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return SizedBox(
+                                        width: double.infinity,
+                                        height: 500.h,
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 24.w,
+                                          ),
+                                          child: Column(
+                                            children: <Widget>[
+                                              const GapH(height: 10),
+                                              Row(
+                                                children: <Widget>[
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      context.pop();
+                                                    },
+                                                    icon: const Icon(
+                                                      Icons.close,
+                                                      color: Colors.grey,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        const GapH(height: 7),
-                                        SvgPicture.asset(
-                                          'assets/svgs/delete-acc.svg',
-                                          width: 150.w,
-                                          height: 150.h,
-                                        ),
-                                        const GapH(height: 15),
-                                        Text(
-                                          'Confirm account deletion',
-                                          style: TextStyle(
-                                            color: const Color(0xFF2B2F4E),
-                                            fontSize: 22.sp,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ),
-                                        const GapH(height: 10),
-                                        Text(
-                                          textAlign: TextAlign.center,
-                                          'When you delete your account, you will permanently lose all your data, including your bookings, courses, and content. This process is irreversible. Make sure you want to delete your account before proceeding.',
-                                          style: TextStyle(
-                                            color: const Color(0xFF637D92),
-                                            fontSize: 14.sp,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                        gapH(20),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            SizedBox(
-                                              width: 160.w,
-                                              height: 60.h,
-                                              child: BlocConsumer<
-                                                  DeleteDoctorCubit,
-                                                  DeleteDoctorState>(
-                                                listener:
-                                                    (context, state) async {
-                                                  if (state
-                                                      is LoadedDeleteDoctorState) {
-                                                    await SharedPrefHelper
-                                                        .removeData(
-                                                            key: SharedPrefKeys
-                                                                .token);
-                                                    await SharedPrefHelper
-                                                        .removeData(
-                                                            key: SharedPrefKeys
-                                                                .email);
-                                                    await SharedPrefHelper
-                                                        .removeData(
-                                                            key: SharedPrefKeys
-                                                                .userId);
-
-                                                    Navigator
-                                                        .pushAndRemoveUntil(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              LogInScreen()),
-                                                      (route) => false,
-                                                    );
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      const SnackBar(
-                                                          content: Text(
-                                                              'Account deleted successfully')),
-                                                    );
-                                                  } else if (state
-                                                      is FailureDeleteDoctorState) {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                          content: Text(
-                                                              'Error: ${state.errorMessage}')),
-                                                    );
-                                                  }
-                                                },
-                                                builder: (context, state) {
-                                                  if (state
-                                                      is LoadingDeleteDoctorState) {
-                                                    return const Center(
-                                                        child:
-                                                            CircularProgressIndicator());
-                                                  }
-
-                                                  return CustomButtonAcc(
-                                                    color: Colors.white,
-                                                    textColor:
-                                                        const Color.fromARGB(
-                                                            255, 180, 12, 0),
-                                                    text: 'Confirm deletion',
-                                                    onTap: () async {
-                                                      final userId =
+                                              const GapH(height: 7),
+                                              SvgPicture.asset(
+                                                'assets/svgs/delete-acc.svg',
+                                                width: 150.w,
+                                                height: 150.h,
+                                              ),
+                                              const GapH(height: 15),
+                                              Text(
+                                                'Confirm account deletion',
+                                                style: TextStyle(
+                                                  color:
+                                                      const Color(0xFF2B2F4E),
+                                                  fontSize: 22.sp,
+                                                  fontWeight: FontWeight.w700,
+                                                ),
+                                              ),
+                                              const GapH(height: 10),
+                                              Text(
+                                                textAlign: TextAlign.center,
+                                                'When you delete your account, you will permanently lose all your data, including your bookings, courses, and content. This process is irreversible. Make sure you want to delete your account before proceeding.',
+                                                style: TextStyle(
+                                                  color:
+                                                      const Color(0xFF637D92),
+                                                  fontSize: 14.sp,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              gapH(20),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: <Widget>[
+                                                  SizedBox(
+                                                    width: 160.w,
+                                                    height: 60.h,
+                                                    child: BlocConsumer<
+                                                        DeleteDoctorCubit,
+                                                        DeleteDoctorState>(
+                                                      listener: (context,
+                                                          state) async {
+                                                        if (state
+                                                            is LoadedDeleteDoctorState) {
                                                           await SharedPrefHelper
-                                                              .getInt(
+                                                              .removeData(
+                                                                  key: SharedPrefKeys
+                                                                      .token);
+                                                          await SharedPrefHelper
+                                                              .removeData(
+                                                                  key: SharedPrefKeys
+                                                                      .email);
+                                                          await SharedPrefHelper
+                                                              .removeData(
                                                                   key: SharedPrefKeys
                                                                       .userId);
-                                                      if (userId != null) {
-                                                        context
-                                                            .read<
-                                                                DeleteDoctorCubit>()
-                                                            .deleteDoctor(
-                                                                userId);
-                                                      } else {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          const SnackBar(
-                                                              content: Text(
-                                                                  'Error: User ID not found')),
+
+                                                          Navigator
+                                                              .pushAndRemoveUntil(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        LogInScreen()),
+                                                            (route) => false,
+                                                          );
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            const SnackBar(
+                                                                content: Text(
+                                                                    'Account deleted successfully')),
+                                                          );
+                                                        } else if (state
+                                                            is FailureDeleteDoctorState) {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                                content: Text(
+                                                                    'Error: ${state.errorMessage}')),
+                                                          );
+                                                        }
+                                                      },
+                                                      builder:
+                                                          (context, state) {
+                                                        if (state
+                                                            is LoadingDeleteDoctorState) {
+                                                          return const Center(
+                                                              child:
+                                                                  CircularProgressIndicator());
+                                                        }
+
+                                                        return CustomButtonAcc(
+                                                          color: Colors.white,
+                                                          textColor: const Color
+                                                              .fromARGB(
+                                                              255, 180, 12, 0),
+                                                          text:
+                                                              'Confirm deletion',
+                                                          onTap: () async {
+                                                            final userId =
+                                                                await SharedPrefHelper.getInt(
+                                                                    key: SharedPrefKeys
+                                                                        .userId);
+                                                            if (userId !=
+                                                                null) {
+                                                              context
+                                                                  .read<
+                                                                      DeleteDoctorCubit>()
+                                                                  .deleteDoctor(
+                                                                      userId);
+                                                            } else {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                const SnackBar(
+                                                                    content: Text(
+                                                                        'Error: User ID not found')),
+                                                              );
+                                                            }
+                                                          },
                                                         );
-                                                      }
-                                                    },
-                                                  );
-                                                },
+                                                      },
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 160.w,
+                                                    height: 60.h,
+                                                    child: CustomButtonAcc(
+                                                      color: ColorsApp.primary,
+                                                      text: 'Stay',
+                                                      onTap: () {
+                                                        context.pop();
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ),
-                                            SizedBox(
-                                              width: 160.w,
-                                              height: 60.h,
-                                              child: CustomButtonAcc(
-                                                color: ColorsApp.primary,
-                                                text: 'Stay',
-                                                onTap: () {
-                                                  context.pop();
-                                                },
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                            );
-                          },
+                                      );
+                                    },
+                                  );
+                                }
+                              : null,
                         ),
                       ),
                       SizedBox(
