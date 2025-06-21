@@ -16,7 +16,7 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  Dio dio = DioFactory.getDio();
+  Dio dio = DioFactory2.getDio();
 
   // API Services
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));

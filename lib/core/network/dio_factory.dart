@@ -3,8 +3,8 @@ import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_keys.dar
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-class DioFactory {
-  DioFactory._();
+class DioFactory2 {
+  DioFactory2._();
   static Dio? dio;
   static Dio getDio() {
     Duration timeout = const Duration(seconds: 30);

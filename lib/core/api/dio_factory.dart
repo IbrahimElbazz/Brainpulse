@@ -30,6 +30,12 @@ class DioFactory {
     }
   }
 
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    _dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
+  }
+
   static void clearToken() {
     if (_dio != null) {
       _dio!.options.headers.remove('Authorization');

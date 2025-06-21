@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_helper.dart';
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_keys.dart';
 import 'package:brain_pulse/core/api/dio_factory.dart';
+import 'package:brain_pulse/core/network/dio_factory.dart';
 import 'package:brain_pulse/features/auth/login/data/repo/login_repo_imple.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_state.dart';
 import 'package:flutter/widgets.dart';
@@ -34,6 +35,7 @@ class LoginCubit extends Cubit<LoginState> {
         await SharedPrefHelper.setData(
             key: SharedPrefKeys.token, value: response.token);
         log("Token Saved : ${response.token}");
+        DioFactory2.setTokenIntoHeaderAfterLogin(response.token);
         await saveUserToken(response.token);
         await SharedPrefHelper.setData(
             key: SharedPrefKeys.name, value: response.doctor.name);
@@ -125,5 +127,6 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> saveUserToken(String token) async {
     await SharedPrefHelper.setData(key: SharedPrefKeys.token, value: token);
     await DioFactory.setToken(token);
+    DioFactory2.setTokenIntoHeaderAfterLogin(token);
   }
 }
