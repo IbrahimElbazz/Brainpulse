@@ -1,5 +1,4 @@
 import 'package:brain_pulse/core/Theming/colors.dart';
-import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
 import 'package:brain_pulse/core/provider/theme-provider.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ class ThemeModeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 50),
             child: Row(
               children: [
-                SizedBox(width: 10.w),
+                SizedBox(width: 15.w),
                 const CustomCircleButtonPop(),
                 SizedBox(width: 70.w),
                 Text(

@@ -1,6 +1,5 @@
 import 'package:brain_pulse/core/api/auth_api_service.dart';
-import 'package:brain_pulse/core/api/failure.dart'
-    show Failure, fromDioException, ServerFailure;
+
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_helper.dart';
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_keys.dart';
 import 'package:brain_pulse/features/privacy_and_security/data/model/change_password_model.dart';
@@ -8,6 +7,8 @@ import 'package:brain_pulse/features/privacy_and_security/data/model/edit_doctor
 import 'package:brain_pulse/features/privacy_and_security/data/repo/privacy_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+
+import '../../../../core/api/failure.dart';
 
 class PrivacyRepoImple implements PrivacyRepo {
   AuthApiService authApiService;

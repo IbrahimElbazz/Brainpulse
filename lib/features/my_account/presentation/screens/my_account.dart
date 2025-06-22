@@ -7,6 +7,7 @@ import 'package:brain_pulse/features/my_account/presentation/widgets/image_and_b
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyAccount extends StatefulWidget {
   const MyAccount({super.key});
@@ -111,7 +112,24 @@ class _MyAccountState extends State<MyAccount> {
                       icon: 'assets/svgs/message-circle-question.svg',
                       title: 'Help Center',
                       subTitle: 'technical support',
-                      onTap: () {},
+                      onTap: () async {
+                        final phone = '201024112206';
+                        final message =
+                            Uri.encodeComponent("Hello, I need help!!!!!");
+                        final url =
+                            Uri.parse("https://wa.me/$phone?text=$message");
+
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url,
+                              mode: LaunchMode.externalApplication);
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Error, Please try again later"),
+                            ),
+                          );
+                        }
+                      },
                     ),
                   ],
                 ),

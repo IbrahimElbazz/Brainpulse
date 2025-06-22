@@ -16,7 +16,6 @@ class CustomCircleButtonPop extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
         shape: BoxShape.circle,
-        color: Colors.white,
       ),
       child: Center(
         child: IconButton(

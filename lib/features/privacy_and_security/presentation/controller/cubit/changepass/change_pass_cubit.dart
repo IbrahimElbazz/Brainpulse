@@ -14,7 +14,7 @@ class ChangePassCubit extends Cubit<ChangePassState> {
   bool isLoading = false;
   Future<void> changePassCubit() async {
     isLoading = true;
-    emit(LoadedChangePassState());
+    emit(LoadingChangePassState());
     var value = await privacyRepoImple.changepassword(
         oldPassword: oldPassword.text,
         newPassword: newPassword.text,

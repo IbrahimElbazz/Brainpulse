@@ -18,7 +18,7 @@ class LogInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    bool isChecked = false;
+    //bool isChecked = false;
     var read = context.read<LoginCubit>();
     return BlocConsumer<LoginCubit, LoginState>(listener: (context, state) {
       if (state is LoadedLoginSate) {
@@ -67,24 +67,24 @@ class LogInScreen extends StatelessWidget {
                   SizedBox(
                     height: screenSize.height * .02,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Checkbox(
-                            value: isChecked,
-                            onChanged: (_) {},
-                          ),
-                          Text('Remember me',
-                              style: TextStyleApp.font12weight400colorGrey),
-                        ],
-                      ),
-                      Text('Forget Password?',
-                          style: TextStyleApp.font12weight400colorGrey
-                              .copyWith(color: ColorsApp.primary)),
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Row(
+                  //       children: [
+                  //         Checkbox(
+                  //           value: isChecked,
+                  //           onChanged: (_) {},
+                  //         ),
+                  //         Text('Remember me',
+                  //             style: TextStyleApp.font12weight400colorGrey),
+                  //       ],
+                  //     ),
+                  //     Text('Forget Password?',
+                  //         style: TextStyleApp.font12weight400colorGrey
+                  //             .copyWith(color: ColorsApp.primary)),
+                  //   ],
+                  // ),
                   SizedBox(
                     height: screenSize.height * .02,
                   ),
