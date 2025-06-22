@@ -12,10 +12,11 @@ class textFieldCustom extends StatelessWidget {
       this.hintColor,
       this.keyboardType,
       this.controller,
-      this.validator});
+      this.validator,
+      this.textDirection});
 
   final String? hintText;
-
+  final TextDirection? textDirection;
   final Widget? iconS;
   final Widget? iconP;
   final bool? obscureText;
@@ -27,6 +28,7 @@ class textFieldCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textDirection: textDirection,
       validator: validator,
       controller: controller,
       keyboardType: keyboardType,

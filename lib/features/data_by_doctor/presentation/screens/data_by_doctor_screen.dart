@@ -205,6 +205,7 @@ class DataByDoctorScreen extends StatelessWidget {
                         number: ' 3 ',
                       ),
                       gapH(10),
+
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p4,
                         number: ' 4 ',

@@ -14,7 +14,7 @@ class LocaleProvider extends ChangeNotifier {
     String? savedLocale = prefs.getString('selected_locale');
     if (savedLocale != null) {
       _currentLocale = Locale(savedLocale);
-      notifyListeners(); // تحديث الواجهة عند تحميل اللغة المحفوظة
+      notifyListeners();
     }
   }
 
@@ -22,6 +22,6 @@ class LocaleProvider extends ChangeNotifier {
     _currentLocale = Locale(languageCode);
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('selected_locale', languageCode);
-    notifyListeners(); // تحديث الواجهة بعد تغيير اللغة
+    notifyListeners();
   }
 }

@@ -16,3 +16,5 @@ class EegModel {
     this.id_eeg,
   );
 }
+
+

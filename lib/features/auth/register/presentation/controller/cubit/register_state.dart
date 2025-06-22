@@ -10,3 +10,4 @@ class FailuerRegisterState extends RegisterState {
   final String errormsg;
   FailuerRegisterState({required this.errormsg});
 }
+

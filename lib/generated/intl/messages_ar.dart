@@ -25,10 +25,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_us": MessageLookupByLibrary.simpleMessage("معلومات عنا"),
         "account_language_settings":
             MessageLookupByLibrary.simpleMessage("إعدادات لغة الحساب"),
+        "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+        "change_app_language":
+            MessageLookupByLibrary.simpleMessage("تغيير لغة التطبيق"),
+        "change_password_data": MessageLookupByLibrary.simpleMessage(
+            "تغيير كلمة المرور . البيانات الشخصية"),
         "choose_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
         "choose_mode": MessageLookupByLibrary.simpleMessage("اختر الوضع"),
+        "dark_light_mode":
+            MessageLookupByLibrary.simpleMessage("الوضع الداكن أو الفاتح"),
         "dark_mode": MessageLookupByLibrary.simpleMessage("ليلي"),
+        "edit_name_email": MessageLookupByLibrary.simpleMessage(
+            "تعديل . الاسم . البريد الإلكتروني"),
+        "edit_profile":
+            MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+        "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
+        "enter_email": MessageLookupByLibrary.simpleMessage(
+            "يرجى إدخال البريد الإلكتروني"),
+        "enter_name": MessageLookupByLibrary.simpleMessage("يرجى إدخال الاسم"),
+        "enter_phone":
+            MessageLookupByLibrary.simpleMessage("يرجى إدخال رقم الهاتف"),
+        "error_try_again": MessageLookupByLibrary.simpleMessage(
+            "حدث خطأ، حاول مرة أخرى لاحقًا"),
+        "help_center": MessageLookupByLibrary.simpleMessage("مركز المساعدة"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "light_mode": MessageLookupByLibrary.simpleMessage("نهاري"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
@@ -38,6 +58,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_profile": MessageLookupByLibrary.simpleMessage("ملفي الشخصي"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("المعلومات الشخصية"),
-        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات")
+        "privacy_and_security":
+            MessageLookupByLibrary.simpleMessage("الخصوصية والأمان"),
+        "profile_updated_successfully":
+            MessageLookupByLibrary.simpleMessage("تم تحديث الملف الشخصي بنجاح"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "saving": MessageLookupByLibrary.simpleMessage("جارٍ الحفظ..."),
+        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "technical_support":
+            MessageLookupByLibrary.simpleMessage("الدعم الفني"),
+        "theme_mode": MessageLookupByLibrary.simpleMessage("وضع المظهر"),
+        "update_profile":
+            MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي")
       };
 }

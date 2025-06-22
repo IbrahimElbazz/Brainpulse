@@ -18,12 +18,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'core/provider/language.provider.dart';
 import 'core/provider/theme-provider.dart';
+import 'generated/app_localizations.dart';
 
 class BrainPulse extends StatelessWidget {
   const BrainPulse({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final localeProvider = Provider.of<LocaleProvider>(context); // <-- هنا
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -68,6 +70,9 @@ class BrainPulse extends StatelessWidget {
               onGenerateRoute: AppRouter.generateRoute,
               theme: themeProvider.currentTheme,
               locale: localeProvider.currentLocale,
+              supportedLocales: AppLocalizations.supportedLocales,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+
             );
           },
         ),

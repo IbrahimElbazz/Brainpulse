@@ -29,3 +29,4 @@ class ErrorPredictionImageState extends PredictionImageState {
   final String errormsg;
   ErrorPredictionImageState({required this.errormsg});
 }
+

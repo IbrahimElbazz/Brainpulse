@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:brain_pulse/features/data_by_doctor/data/models/add_patient_request_model.dart';
 import 'package:brain_pulse/features/data_by_doctor/data/models/send_point_request_model.dart';
 import 'package:brain_pulse/features/data_by_doctor/data/repo/doctor_repo.dart';
@@ -10,10 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SendDataByDoctorCubit extends Cubit<SendDataByDoctorState> {
   SendDataByDoctorCubit(this._sendPointRepo, this._addPatientRepo)
       : super(const SendDataByDoctorState.initial());
-
   final SendPointRepo _sendPointRepo;
   final AddPatientRepo _addPatientRepo;
-
   TextEditingController p1 = TextEditingController();
   TextEditingController p2 = TextEditingController();
   TextEditingController p3 = TextEditingController();
@@ -38,8 +35,7 @@ class SendDataByDoctorCubit extends Cubit<SendDataByDoctorState> {
     emit(const SendDataByDoctorState.loadingSendDataByDoctor());
     final response = await _sendPointRepo.sendDataByDoctor(
       SendPointRequestModel(
-        arr: [
-          p1.text,
+        arr: [ p1.text,
           p2.text,
           p3.text,
           p4.text,

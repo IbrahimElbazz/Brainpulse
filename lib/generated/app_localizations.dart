@@ -173,6 +173,27 @@ abstract class AppLocalizations {
   /// **'Logout Now!'**
   String get logout_now;
   String get cancel;
+  String get edit_profile;
+  String get edit_name_email;
+  String get privacy_and_security;
+  String get change_password_data;
+  String get theme_mode;
+  String get dark_light_mode;
+  String get change_app_language;
+  String get help_center;
+  String get technical_support;
+  String get error_try_again;
+  String get update_profile;
+  String get profile_updated_successfully;
+  String get enter_name;
+  String get enter_email;
+  String get enter_phone;
+  String get save;
+  String get saving;
+  String get updateProfile;
+
+
+
 
 }
 

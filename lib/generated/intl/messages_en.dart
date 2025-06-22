@@ -25,11 +25,31 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_us": MessageLookupByLibrary.simpleMessage("About Us"),
         "account_language_settings":
             MessageLookupByLibrary.simpleMessage("Account Language Settings"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "change_app_language":
+            MessageLookupByLibrary.simpleMessage("Change app language"),
+        "change_password_data": MessageLookupByLibrary.simpleMessage(
+            "Change your password . Personal data"),
         "choose_language":
             MessageLookupByLibrary.simpleMessage("Choose Language"),
         "choose_mode": MessageLookupByLibrary.simpleMessage("Choose Mode"),
+        "dark_light_mode":
+            MessageLookupByLibrary.simpleMessage("Dark , Light Mode"),
         "dark_mode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
+        "edit_name_email":
+            MessageLookupByLibrary.simpleMessage("Edit . Name . Email"),
+        "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enter_email":
+            MessageLookupByLibrary.simpleMessage("Please enter your email"),
+        "enter_name":
+            MessageLookupByLibrary.simpleMessage("Please enter your name"),
+        "enter_phone": MessageLookupByLibrary.simpleMessage(
+            "Please enter your phone number"),
+        "error_try_again": MessageLookupByLibrary.simpleMessage(
+            "Error, Please try again later"),
+        "help_center": MessageLookupByLibrary.simpleMessage("Help Center"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "light_mode": MessageLookupByLibrary.simpleMessage("Light Mode"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
@@ -38,6 +58,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_profile": MessageLookupByLibrary.simpleMessage("My Profile"),
         "personal_info":
             MessageLookupByLibrary.simpleMessage("Personal Information"),
-        "settings": MessageLookupByLibrary.simpleMessage("Settings")
+        "privacy_and_security":
+            MessageLookupByLibrary.simpleMessage("Privacy and Security"),
+        "profile_updated_successfully": MessageLookupByLibrary.simpleMessage(
+            "Profile updated successfully"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "saving": MessageLookupByLibrary.simpleMessage("Saving..."),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "technical_support":
+            MessageLookupByLibrary.simpleMessage("technical support"),
+        "theme_mode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
+        "update_profile": MessageLookupByLibrary.simpleMessage("Update Profile")
       };
 }

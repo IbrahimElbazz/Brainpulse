@@ -17,6 +17,8 @@ import 'package:brain_pulse/features/splash/presentation/views/spalsh_screen.dar
 import 'package:brain_pulse/offline_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/my_account/presentation/screens/change_language_screen.dart';
+
 class AppRouter {
   static Route generateRoute(RouteSettings settings) {
     var arg = settings.arguments;
@@ -85,6 +87,11 @@ class AppRouter {
         return AppHelperFunctions().fadeTransition(
           page: const ThemeModeScreen(),
         );
+      case Routes.languageScreen:
+        return MaterialPageRoute(builder: (_) => const LanguageScreen()
+        );
+
+
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

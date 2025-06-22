@@ -65,6 +65,7 @@ class _HomeBodyState extends State<HomeBody> {
               Icons.local_hospital,
               color: ColorsApp.primary,
               size: 25.h,
+
             ),
             color: Colors.white,
             labelColor: ColorsApp.primary,

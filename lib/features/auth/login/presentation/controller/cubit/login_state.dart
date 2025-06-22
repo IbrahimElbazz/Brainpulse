@@ -8,5 +8,6 @@ class LoadedLoginSate extends LoginState {}
 
 class ErrorLoginState extends LoginState {
   final String errormsg;
+
   ErrorLoginState({required this.errormsg});
 }

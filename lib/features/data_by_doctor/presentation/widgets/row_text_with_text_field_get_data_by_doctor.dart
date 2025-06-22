@@ -12,7 +12,6 @@ class RowTextWithTextFieldGetDataByDoctor extends StatelessWidget {
   });
   final String number;
   final TextEditingController controller;
-
   @override
   Widget build(BuildContext context) {
     return Row(

@@ -15,6 +15,7 @@ class PatientResponse {
   Map<String, dynamic> toJson() => _$PatientResponseToJson(this);
 }
 
+
 @JsonSerializable()
 class Patient {
   final int id;

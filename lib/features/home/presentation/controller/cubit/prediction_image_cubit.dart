@@ -29,3 +29,4 @@ class PredictionImageCubit extends Cubit<PredictionImageState> {
     );
   }
 }
+

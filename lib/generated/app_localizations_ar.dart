@@ -46,6 +46,60 @@ class AppLocalizationsAr extends AppLocalizations {
   String get logout_now => 'تسجيل الخروج الآن!';
 
   @override
-  String get cancel => 'تسجيل الخروج';
+  String get cancel => 'الغاء';
+
+  @override
+  String get edit_profile => 'تعديل الملف الشخصي';
+
+  @override
+  String get edit_name_email => 'تعديل الاسم والبريد الإلكتروني';
+
+  @override
+  String get privacy_and_security => 'الخصوصية والأمان';
+
+  @override
+  String get change_password_data => 'تغيير كلمة المرور والبيانات الشخصية';
+
+  @override
+  String get theme_mode => 'وضع المظهر';
+
+  @override
+  String get dark_light_mode => 'الوضع الليلي والنهاري';
+
+  @override
+  String get change_app_language => 'تغيير لغة التطبيق';
+
+  @override
+  String get help_center => 'مركز المساعدة';
+
+  @override
+  String get technical_support => 'الدعم الفني';
+
+  @override
+  String get error_try_again => 'حدث خطأ، يرجى المحاولة لاحقًا';
+
+  @override
+  String get update_profile => 'تحديث الملف الشخصي';
+
+  @override
+  String get enter_name => 'يرجى إدخال الاسم';
+
+  @override
+  String get enter_email => 'يرجى إدخال البريد الإلكتروني';
+
+  @override
+  String get profile_updated_successfully => 'تم تحديث الملف الشخصي بنجاح';
+
+  @override
+  String get saving => 'جاري الحفظ...';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get enter_phone => 'يرجى إدخال رقم الهاتف';
+
+  @override
+  String get updateProfile => 'تحديث الملف الشخصي';
 
 }

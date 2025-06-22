@@ -9,15 +9,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
-
   @override
   State<Onboarding> createState() => _OnboardingState();
 }
-
 class _OnboardingState extends State<Onboarding> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,8 +67,7 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 SizedBox(width: 5.w),
               ],
-            ),
-          ),
+            ),),
           Positioned(
             top: 710.h,
             left: 15.w,
@@ -88,14 +84,10 @@ class _OnboardingState extends State<Onboarding> {
                     duration: const Duration(milliseconds: 250),
                     curve: Curves.linear,
                   );
-
                   _currentPage == 1
                       ? context.pushNamed(Routes.loginScreen)
                       : null;
-                },
-              ),
-            ),
-          ),
+                },),),),
           Positioned(
             top: 800.h,
             left: 15.w,
@@ -103,10 +95,6 @@ class _OnboardingState extends State<Onboarding> {
               color: Colors.white,
               width: 375.w,
               height: 20,
-            ),
-          ),
-        ],
-      ),
-    );
+            ),),],),);
   }
 }

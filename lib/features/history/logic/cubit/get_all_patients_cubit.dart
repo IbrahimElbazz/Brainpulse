@@ -21,6 +21,7 @@ class GetAllPatientsCubit extends Cubit<GetAllPatientsState> {
     );
   }
 
+
   // delete patient
   void deletePatient(String id) async {
     emit(const GetAllPatientsState.loadingDeletePatient());

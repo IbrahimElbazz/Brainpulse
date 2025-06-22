@@ -14,6 +14,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
+import '../../../../generated/app_localizations.dart';
+
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
 
@@ -61,7 +63,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               read.phoneNumber.clear();
 
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Profile updated successfully')),
+                SnackBar(content: Text(AppLocalizations.of(context)!.profile_updated_successfully)),
               );
               context.pop();
             } else if (state is FailureEditDoctorState) {
@@ -79,7 +81,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   child: Column(
                     children: <Widget>[
                       AppBar(
-                        title: const Text('Update Profile'),
+                        title: Text(AppLocalizations.of(context)!.updateProfile),
                         leading: const PopCircleButton(),
                         centerTitle: true,
                       ),
@@ -94,72 +96,81 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                       ),
                       const GapH(height: 30),
-                      textFieldCustom(
-                        hintText: doctorName,
-                        controller: read.name,
-                        iconP: IconButton(
-                          icon: SvgPicture.asset('assets/svgs/user.svg'),
-                          onPressed: () {},
+                      Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: textFieldCustom(
+                          hintText: doctorName,
+                          controller: read.name,
+                          iconP: IconButton(
+                            icon: SvgPicture.asset('assets/svgs/user.svg'),
+                            onPressed: () {},
+                          ),
+                          validator: (value) {
+                            if (value == null || value.trim().isEmpty) {
+                              return AppLocalizations.of(context)!.enter_name;
+                            }
+                            return null;
+                          },
                         ),
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Please Enter Name';
-                          }
-                          return null;
-                        },
                       ),
                       const GapH(height: 20),
-                      textFieldCustom(
-                        hintText: email,
-                        controller: read.email,
-                        iconP: IconButton(
-                          icon: SvgPicture.asset('assets/svgs/mail.svg'),
-                          onPressed: () {},
+                      Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: textFieldCustom(
+                          hintText: email,
+                          controller: read.email,
+                          iconP: IconButton(
+                            icon: SvgPicture.asset('assets/svgs/mail.svg'),
+                            onPressed: () {},
+                          ),
+                          validator: (value) {
+                            if (value == null || value.trim().isEmpty) {
+                              return AppLocalizations.of(context)!.enter_email;
+                            }
+                            return null;
+                          },
                         ),
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Please Enter Email';
-                          }
-                          return null;
-                        },
                       ),
                       const GapH(height: 20),
-                      IntlPhoneField(
-                        //controller: read.phoneNumber,
-                        // controller: read.phoneNumber,
-                        dropdownIconPosition: IconPosition.trailing,
-                        dropdownTextStyle: TextStyle(
-                          color: const Color.fromARGB(255, 0, 0, 0),
-                          fontSize: 16.sp,
-                        ),
-                        decoration: InputDecoration(
-                          labelStyle: TextStyle(
-                            color: Colors.grey,
+                      Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: IntlPhoneField(
+                          controller: read.phoneNumber,
+                          dropdownIconPosition: IconPosition.trailing,
+                          dropdownTextStyle: TextStyle(
+                            color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
                           ),
-                          labelText: phonenum,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16),
+                          decoration: InputDecoration(
+                            labelStyle: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            labelText: phonenum,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.number.trim().isEmpty) {
+                              return AppLocalizations.of(context)!.enter_phone;
+                            }
+                            return null;
+                          },
+                          initialCountryCode: 'EG',
+                          showCountryFlag: false,
+                          keyboardType: TextInputType.number,
+                          dropdownIcon: const Icon(
+                            Icons.keyboard_arrow_down_outlined,
+                            color: Colors.grey,
+                          ),
+                          onChanged: (PhoneNumber phone) {
+                            read.phoneNumber.text = phone.completeNumber;
+                          },
                         ),
-                        validator: (value) {
-                          if (value == null || value.number.trim().isEmpty) {
-                            return 'Please Enter Name';
-                          }
-                          return null;
-                        },
-                        initialCountryCode: 'EG',
-                        showCountryFlag: false,
-                        keyboardType: TextInputType.number,
-                        dropdownIcon: const Icon(
-                          Icons.keyboard_arrow_down_outlined,
-                          color: Colors.grey,
-                        ),
-                        onChanged: (PhoneNumber phone) {
-                          read.phoneNumber.text = phone.completeNumber;
-                        },
                       ),
+
                       const GapH(height: 150),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -170,8 +181,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             child: CustomButtonAcc(
                                 color: ColorsApp.primary,
                                 text: state is LoadingEditDoctorState
-                                    ? 'Saving...'
-                                    : 'Save',
+                                    ? AppLocalizations.of(context)!.saving
+                                    : AppLocalizations.of(context)!.save,
                                 onTap: () {
                                   if (state is! LoadingEditDoctorState) {
                                     read.editDoctorvalidate(
@@ -188,7 +199,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             child: CustomButtonAcc(
                               color: Colors.white,
                               textColor: const Color(0xFFAAB9C5),
-                              text: 'Cancel',
+                              text: AppLocalizations.of(context)!.cancel,
                               onTap: () {
                                 context.pop();
                               },

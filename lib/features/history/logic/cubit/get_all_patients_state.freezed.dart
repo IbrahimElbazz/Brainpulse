@@ -921,6 +921,7 @@ abstract class _$$SuccessDeletePatientImplCopyWith<T, $Res> {
       __$$SuccessDeletePatientImplCopyWithImpl<T, $Res>;
 }
 
+
 /// @nodoc
 class __$$SuccessDeletePatientImplCopyWithImpl<T, $Res>
     extends _$GetAllPatientsStateCopyWithImpl<T, $Res,

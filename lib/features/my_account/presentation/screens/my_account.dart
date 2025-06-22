@@ -9,6 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../generated/app_localizations.dart';
+
 class MyAccount extends StatefulWidget {
   const MyAccount({super.key});
 
@@ -58,14 +60,21 @@ class _MyAccountState extends State<MyAccount> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'DR: ${doctorName ?? "loading..."}',
-                      style: TextStyle(
-                        color: (Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white
-                            : const Color(0xFF1D2035)),
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.w700,
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: Text(
+                          'DR: ${doctorName ?? "loading..."}',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            color: (Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white
+                                : const Color(0xFF1D2035)),
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ),
                     ),
                     const GapH(height: 18),
@@ -75,8 +84,8 @@ class _MyAccountState extends State<MyAccount> {
                     const GapH(height: 24),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/user-pen.svg',
-                      title: 'Edit Profile',
-                      subTitle: 'Edit . Name . Email',
+                      title: AppLocalizations.of(context)!.edit_profile,
+                      subTitle: AppLocalizations.of(context)!.edit_name_email,
                       onTap: () async {
                         await context.pushNamed('/EditProfileScreen');
                         await loadDoctorName();
@@ -84,8 +93,8 @@ class _MyAccountState extends State<MyAccount> {
                     ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/shield-check.svg',
-                      title: 'Privacy and Security',
-                      subTitle: 'Change your password . Personal data ',
+                      title: AppLocalizations.of(context)!.privacy_and_security,
+                      subTitle: AppLocalizations.of(context)!.change_password_data,
                       onTap: () {
                         context.pushNamed('/PrivacyAndSecurity');
                       },
@@ -94,24 +103,24 @@ class _MyAccountState extends State<MyAccount> {
                       icon: 'assets/svgs/dark-theme-svgrepo-com.svg',
                       //colorBackgroundIcon: ColorsApp.primary,
                       colorsvg: ColorsApp.primary,
-                      title: 'Theme Mode',
-                      subTitle: 'Dark , Light Mode ',
+                      title: AppLocalizations.of(context)!.theme_mode,
+                      subTitle: AppLocalizations.of(context)!.dark_light_mode,
                       onTap: () {
                         context.pushNamed('/themedata');
                       },
                     ),
                     CardItemInMyAccountImage(
                       icon: 'assets/images/language.png',
-                      title: 'Language',
-                      subTitle: 'Change app language ',
-                      onTap: () {
-                        // context.pushNamed('/LanguageScreen');
-                      },
+                        title: AppLocalizations.of(context)!.language,
+                        subTitle: AppLocalizations.of(context)!.change_app_language,
+                        onTap: () {
+                          context.pushNamed('/languageScreen');
+                        }
                     ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/message-circle-question.svg',
-                      title: 'Help Center',
-                      subTitle: 'technical support',
+                      title: AppLocalizations.of(context)!.help_center,
+                      subTitle: AppLocalizations.of(context)!.technical_support,
                       onTap: () async {
                         final phone = '201024112206';
                         final message =
@@ -124,8 +133,8 @@ class _MyAccountState extends State<MyAccount> {
                               mode: LaunchMode.externalApplication);
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text("Error, Please try again later"),
+                             SnackBar(
+                              content: Text(AppLocalizations.of(context)!.error_try_again),
                             ),
                           );
                         }

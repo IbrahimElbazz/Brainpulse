@@ -12,3 +12,4 @@ class SendPointRequestModel {
       _$SendPointRequestModelFromJson(json);
   Map<String, dynamic> toJson() => _$SendPointRequestModelToJson(this);
 }
+

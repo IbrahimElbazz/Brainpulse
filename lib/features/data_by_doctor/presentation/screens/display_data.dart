@@ -49,6 +49,7 @@ class DisplayData extends StatelessWidget {
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
+
                     ],
                   ),
                   child: Column(

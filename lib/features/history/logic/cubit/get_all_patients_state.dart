@@ -21,3 +21,4 @@ class GetAllPatientsState<T> with _$GetAllPatientsState<T> {
   const factory GetAllPatientsState.errorDeletePatient(
       {required String errorMessage}) = ErrorDeletePatient;
 }
+

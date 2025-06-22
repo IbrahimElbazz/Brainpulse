@@ -51,7 +51,9 @@ class _GetImageBodyState extends State<GetImageBody> {
         bool isLoading = state is LoadingPredictionImageState;
 
         return Scaffold(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          backgroundColor: Theme
+              .of(context)
+              .scaffoldBackgroundColor,
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -61,7 +63,7 @@ class _GetImageBodyState extends State<GetImageBody> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsets.symmetric(vertical: 50.h, horizontal: 20.w),
+                  EdgeInsets.symmetric(vertical: 50.h, horizontal: 20.w),
                   child: DottedBorder(
                     borderType: BorderType.RRect,
                     radius: Radius.circular(15.r),
@@ -73,85 +75,68 @@ class _GetImageBodyState extends State<GetImageBody> {
                       height: 500.h,
                       decoration: BoxDecoration(
                         color: ColorsApp.grey500,
-                        borderRadius: BorderRadius.circular(15.r),
-                      ),
+                        borderRadius: BorderRadius.circular(15.r),),
                       child: _image != null
-                          ? ClipRRect(
-                              borderRadius: BorderRadius.circular(15.r),
-                              child: Image.file(
-                                _image!,
-                                fit: BoxFit.cover,
-                                width: double.infinity,
-                                height: double.infinity,
-                              ),
-                            )
-                          : Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/images/image.png",
-                                  width: 100.w,
-                                  height: 100.h,
-                                ),
-                                SizedBox(height: 30.h),
-                                Text(
-                                  "No image selected, Drop image here",
-                                  style: TextStyleApp.styleText(
-                                      15, ColorsApp.black, FontWeight.bold),
-                                ),
-                                SizedBox(height: 30.h),
-                                CustomButton(
-                                  onTap: uploadgallery,
-                                  text: "Gallery",
-                                  width: 140.w,
-                                  height: 50.h,
-                                  color: ColorsApp.primary,
-                                ),
-                                SizedBox(height: 15.h),
-                                Text(
-                                  "-------      or     -------",
-                                  style: TextStyleApp.styleText(
-                                      15, ColorsApp.black, FontWeight.bold),
-                                ),
-                                SizedBox(height: 15.h),
-                                CustomButton(
-                                  onTap: uploadcamera,
-                                  text: "Camera",
-                                  width: 140.w,
-                                  height: 50.h,
-                                  color: ColorsApp.primary,
-                                ),
-                              ],
-                            ),
-                    ),
-                  ),
+                          ? ClipRRect(borderRadius: BorderRadius.circular(15.r),
+                        child: Image.file(_image!,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,),)
+                          : Column(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Image.asset("assets/images/image.png",
+                          width: 100.w, height: 100.h,
+                        ),
+                          SizedBox(height: 30.h),
+                          Text("No image selected, Drop image here",
+                            style: TextStyleApp.styleText(
+                                15, ColorsApp.black, FontWeight.bold),),
+                          SizedBox(height: 30.h),
+                          CustomButton(
+                            onTap: uploadgallery,
+                            text: "Gallery",
+                            width: 140.w,
+                            height: 50.h,
+                            color: ColorsApp.primary,),
+                          SizedBox(height: 15.h),
+                          Text("-------      or     -------",
+                            style: TextStyleApp.styleText(
+                                15, ColorsApp.black, FontWeight.bold),),
+                          SizedBox(height: 15.h),
+                          CustomButton(
+                            onTap: uploadcamera,
+                            text: "Camera",
+                            width: 140.w,
+                            height: 50.h,
+                            color: ColorsApp.primary,),
+                        ],
+                      ),),),
                 ),
                 Padding(
                   padding:
-                      EdgeInsets.symmetric(vertical: 15.h, horizontal: 40.w),
+                  EdgeInsets.symmetric(vertical: 15.h, horizontal: 40.w),
                   child: isLoading
                       ? CircularProgressIndicator(
-                          color: ColorsApp.primary,
-                        )
+                    color: ColorsApp.primary,
+                  )
                       : CustomButton(
-                          text: "Show Result",
-                          width: double.infinity,
-                          color: ColorsApp.primary,
-                          height: 60.h,
-                          onTap: () {
-                            if (_image != null) {
-                              context
-                                  .read<PredictionImageCubit>()
-                                  .uploadImage(_image!);
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content:
-                                        Text("Please select an image first")),
-                              );
-                            }
-                          },
-                        ),
+                    text: "Show Result",
+                    width: double.infinity,
+                    color: ColorsApp.primary,
+                    height: 60.h,
+                    onTap: () {
+                      if (_image != null) {
+                        context
+                            .read<PredictionImageCubit>()
+                            .uploadImage(_image!);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content:
+                              Text("Please select an image first")),
+                        );
+                      }
+                    },
+                  ),
                 ),
               ],
             ),

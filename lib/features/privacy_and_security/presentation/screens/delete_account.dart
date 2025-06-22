@@ -232,7 +232,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                           onTap: activeBox
                               ? () {
                                   showModalBottomSheet(
-                                    sheetAnimationStyle: const AnimationStyle(
+                                    sheetAnimationStyle: AnimationStyle(
                                       duration:
                                           Duration(microseconds: 500000),
                                       curve: Curves.linear,

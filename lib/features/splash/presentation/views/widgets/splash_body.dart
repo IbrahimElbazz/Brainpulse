@@ -57,10 +57,7 @@ class _SplashBodyState extends State<SplashBody> {
                       fontSize: 32.sp,
                     ),
                   ),
-                ],
-              ),
-            ),
-          ],
-        ));
-  }
+                ],),
+            ),],
+        ));}
 }

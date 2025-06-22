@@ -80,16 +80,6 @@ class AppLocalizations {
     );
   }
 
-  /// `Language`
-  String get language {
-    return Intl.message(
-      'Language',
-      name: 'language',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Account Language Settings`
   String get account_language_settings {
     return Intl.message(
@@ -185,6 +175,206 @@ class AppLocalizations {
     return Intl.message(
       'Cancel',
       name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get edit_profile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'edit_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit . Name . Email`
+  String get edit_name_email {
+    return Intl.message(
+      'Edit . Name . Email',
+      name: 'edit_name_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy and Security`
+  String get privacy_and_security {
+    return Intl.message(
+      'Privacy and Security',
+      name: 'privacy_and_security',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change your password . Personal data`
+  String get change_password_data {
+    return Intl.message(
+      'Change your password . Personal data',
+      name: 'change_password_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme Mode`
+  String get theme_mode {
+    return Intl.message(
+      'Theme Mode',
+      name: 'theme_mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark , Light Mode`
+  String get dark_light_mode {
+    return Intl.message(
+      'Dark , Light Mode',
+      name: 'dark_light_mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change app language`
+  String get change_app_language {
+    return Intl.message(
+      'Change app language',
+      name: 'change_app_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help Center`
+  String get help_center {
+    return Intl.message(
+      'Help Center',
+      name: 'help_center',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `technical support`
+  String get technical_support {
+    return Intl.message(
+      'technical support',
+      name: 'technical_support',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error, Please try again later`
+  String get error_try_again {
+    return Intl.message(
+      'Error, Please try again later',
+      name: 'error_try_again',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Profile`
+  String get update_profile {
+    return Intl.message(
+      'Update Profile',
+      name: 'update_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile updated successfully`
+  String get profile_updated_successfully {
+    return Intl.message(
+      'Profile updated successfully',
+      name: 'profile_updated_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your name`
+  String get enter_name {
+    return Intl.message(
+      'Please enter your name',
+      name: 'enter_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email`
+  String get enter_email {
+    return Intl.message(
+      'Please enter your email',
+      name: 'enter_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your phone number`
+  String get enter_phone {
+    return Intl.message(
+      'Please enter your phone number',
+      name: 'enter_phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saving...`
+  String get saving {
+    return Intl.message(
+      'Saving...',
+      name: 'saving',
       desc: '',
       args: [],
     );

@@ -5,3 +5,4 @@ import 'package:dartz/dartz.dart';
 abstract class PredictImageRepo {
   Future<Either<String, ImagePredictionModel>> postimage({required File image});
 }
+

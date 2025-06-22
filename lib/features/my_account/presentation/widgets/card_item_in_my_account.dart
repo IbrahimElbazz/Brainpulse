@@ -88,8 +88,10 @@ class CardItemInMyAccount extends StatelessWidget {
             if (isLogout == true)
               const SizedBox.shrink()
             else
-              const Icon(
-                Icons.keyboard_arrow_right_rounded,
+              Icon(
+                Directionality.of(context) == TextDirection.rtl
+                    ? Icons.keyboard_arrow_left_rounded
+                    : Icons.keyboard_arrow_right_rounded,
                 color: Colors.grey,
               ),
           ],
@@ -182,8 +184,10 @@ class CardItemInMyAccountImage extends StatelessWidget {
             if (isLogout == true)
               const SizedBox.shrink()
             else
-              const Icon(
-                Icons.keyboard_arrow_right_rounded,
+              Icon(
+                Directionality.of(context) == TextDirection.rtl
+                    ? Icons.keyboard_arrow_left_rounded
+                    : Icons.keyboard_arrow_right_rounded,
                 color: Colors.grey,
               ),
           ],

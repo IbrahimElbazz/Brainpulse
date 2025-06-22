@@ -222,18 +222,18 @@ void showBottomSheetOptions(
                 style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
             SizedBox(height: 20.h),
             ...options.map((option) => ListTile(
-                  title: Text(option),
-                  onTap: () {
-                    if (title == "Choose Mode") {
-                      if (option == "Dark Mode") {
-                        themeProvider.setDarkTheme();
-                      } else if (option == "Light Mode") {
-                        themeProvider.setLightTheme();
-                      }
-                    }
-                    Navigator.pop(context);
-                  },
-                )),
+              title: Text(option),
+              onTap: () {
+                if (title == "Choose Mode") {
+                  if (option == "Dark Mode") {
+                    themeProvider.setDarkTheme();
+                  } else if (option == "Light Mode") {
+                    themeProvider.setLightTheme();
+                  }
+                }
+                Navigator.pop(context);
+              },
+            )),
           ],
         ),
       );

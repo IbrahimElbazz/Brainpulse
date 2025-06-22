@@ -13,7 +13,6 @@ class SendPointRepo {
       SendPointRequestModel request) async {
     try {
       final response = await _apiService.sendDataByDoctor(request);
-
       return ApiResult.success(response);
     } catch (e) {
       log(e.toString());
@@ -29,7 +28,6 @@ class AddPatientRepo {
   Future<ApiResult> addPatient(AddPatientRequestModel request) async {
     try {
       final response = await _apiService.addPatient(request);
-
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(e.toString());

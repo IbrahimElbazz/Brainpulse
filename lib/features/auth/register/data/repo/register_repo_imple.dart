@@ -28,3 +28,9 @@ class RegisterRepoImple implements RegisterRepo {
     }
   }
 }
+
+//"email": "engahmedelsherbiny1@gmail.com",
+//"password": "P@ssword123",
+//"phone": "01012345756",
+//"firstName": "Ahmed",
+//"lastName": "Sherbiny"

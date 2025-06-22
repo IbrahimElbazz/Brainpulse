@@ -231,6 +231,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                                       name: nameController.text,
                                       phoneNumber: phoneController.text,
                                       gpd: prediction[0].toDouble(),
+
                                       grda: prediction[1].toDouble(),
                                       ipd: prediction[2].toDouble(),
                                       irda: prediction[3].toDouble(),
