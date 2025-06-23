@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 // import 'package:docdoc/Core/Routing/routes.dart';
 // import 'package:docdoc/Core/Theming/text_style.dart';
 // import 'package:docdoc/Core/helpers/extentions.dart';
@@ -13,7 +15,7 @@
 //   @override
 //   State<loginBlocListener> createState() => _loginBlocListenerState();
 // }
-// // 
+// //
 // class _loginBlocListenerState extends State<loginBlocListener> {
 //   @override
 //   Widget build(BuildContext context) {
@@ -66,7 +68,7 @@
 //               context.pop();
 //             },
 //             child: Text(
-//               'Got it',
+//               'Got it'.tr(),
 //               style: TextStyleApp.font14weight400colorGrey,
 //             ),
 //           ),

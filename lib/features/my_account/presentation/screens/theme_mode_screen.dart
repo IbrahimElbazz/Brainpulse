@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
 import 'package:brain_pulse/core/provider/theme-provider.dart';
@@ -22,7 +24,7 @@ class ThemeModeScreen extends StatelessWidget {
                 const CustomCircleButtonPop(),
                 SizedBox(width: 70.w),
                 Text(
-                  "Theme Mode",
+                  'Theme Mode'.tr(),
                   style: Theme.of(context).textTheme.titleLarge,
                 )
               ],
@@ -36,7 +38,7 @@ class ThemeModeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Theme Mode",
+                      'Theme Mode'.tr(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     Switch(

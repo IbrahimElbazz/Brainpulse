@@ -1,3 +1,6 @@
+import 'package:brain_pulse/features/my_account/presentation/screens/change_lang_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/widgets/gap.dart';
@@ -59,7 +62,7 @@ class _MyAccountState extends State<MyAccount> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'DR: ${doctorName ?? "loading..."}',
+                      'DR: ${doctorName ?? "loading..."}'.tr(),
                       style: TextStyle(
                         color: (Theme.of(context).brightness == Brightness.dark
                             ? Colors.white
@@ -75,8 +78,8 @@ class _MyAccountState extends State<MyAccount> {
                     const GapH(height: 24),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/user-pen.svg',
-                      title: 'Edit Profile',
-                      subTitle: 'Edit . Name . Email',
+                      title: 'Edit Profile'.tr(),
+                      subTitle: 'Edit . Name . Email'.tr(),
                       onTap: () async {
                         await context.pushNamed('/EditProfileScreen');
                         await loadDoctorName();
@@ -84,8 +87,8 @@ class _MyAccountState extends State<MyAccount> {
                     ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/shield-check.svg',
-                      title: 'Privacy and Security',
-                      subTitle: 'Change your password . Personal data ',
+                      title: 'Privacy and Security'.tr(),
+                      subTitle: 'Change your password . Personal data '.tr(),
                       onTap: () {
                         context.pushNamed('/PrivacyAndSecurity');
                       },
@@ -94,28 +97,32 @@ class _MyAccountState extends State<MyAccount> {
                       icon: 'assets/svgs/dark-theme-svgrepo-com.svg',
                       //colorBackgroundIcon: ColorsApp.primary,
                       colorsvg: ColorsApp.primary,
-                      title: 'Theme Mode',
-                      subTitle: 'Dark , Light Mode ',
+                      title: 'Theme Mode'.tr(),
+                      subTitle: 'Dark , Light Mode '.tr(),
                       onTap: () {
                         context.pushNamed('/themedata');
                       },
                     ),
                     CardItemInMyAccountImage(
                       icon: 'assets/images/language.png',
-                      title: 'Language',
-                      subTitle: 'Change app language ',
+                      title: 'Language'.tr(),
+                      subTitle: 'Change app language '.tr(),
                       onTap: () {
-                        // context.pushNamed('/LanguageScreen');
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const ChangeLangScreen();
+                          },
+                        ));
                       },
                     ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/message-circle-question.svg',
-                      title: 'Help Center',
-                      subTitle: 'technical support',
+                      title: 'Help Center'.tr(),
+                      subTitle: 'technical support'.tr(),
                       onTap: () async {
-                        final phone = '201024112206';
+                        final phone = '201024112206'.tr();
                         final message =
-                            Uri.encodeComponent("Hello, I need help!!!!!");
+                            Uri.encodeComponent('Hello, I need help!!!!!'.tr());
                         final url =
                             Uri.parse("https://wa.me/$phone?text=$message");
 
@@ -124,8 +131,9 @@ class _MyAccountState extends State<MyAccount> {
                               mode: LaunchMode.externalApplication);
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text("Error, Please try again later"),
+                            SnackBar(
+                              content:
+                                  Text('Error, Please try again later'.tr()),
                             ),
                           );
                         }

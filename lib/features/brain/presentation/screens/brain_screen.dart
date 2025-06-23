@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/features/brain/presentation/widgets/point_brain.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,7 @@ class BrainScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       // appBar: AppBar(
-      //   title: const Text('Brain'),
+      //   title:  Text('Brain'.tr()),
       //   backgroundColor: Colors.white,
       //   surfaceTintColor: Colors.white,
       //   centerTitle: true,
@@ -30,57 +32,57 @@ class BrainScreen extends StatelessWidget {
           Positioned(
             top: 150.h,
             left: 170.w,
-            child: const PointInBrain(
-              num: '1',
+            child: PointInBrain(
+              num: '1'.tr(),
             ),
           ),
           Positioned(
             top: 220.h,
             left: 100.w,
-            child: const PointInBrain(
-              num: '2',
+            child: PointInBrain(
+              num: '2'.tr(),
             ),
           ),
           Positioned(
             top: 220.h,
             left: 240.w,
-            child: const PointInBrain(
-              num: '3',
+            child: PointInBrain(
+              num: '3'.tr(),
             ),
           ),
           Positioned(
             top: 300.h,
             left: 170.w,
-            child: const PointInBrain(
-              num: '4',
+            child: PointInBrain(
+              num: '4'.tr(),
             ),
           ),
           Positioned(
             top: 370.h,
             left: 270.w,
-            child: const PointInBrain(
-              num: '5',
+            child: PointInBrain(
+              num: '5'.tr(),
             ),
           ),
           Positioned(
             top: 370.h,
             left: 80.w,
-            child: const PointInBrain(
-              num: '6',
+            child: PointInBrain(
+              num: '6'.tr(),
             ),
           ),
           Positioned(
             top: 420.h,
             left: 170.w,
-            child: const PointInBrain(
-              num: '7',
+            child: PointInBrain(
+              num: '7'.tr(),
             ),
           ),
           Positioned(
             top: 510.h,
             left: 170.w,
-            child: const PointInBrain(
-              num: '8',
+            child: PointInBrain(
+              num: '8'.tr(),
             ),
           ),
           Positioned(
@@ -103,7 +105,7 @@ class BrainScreen extends StatelessWidget {
                         colorIcon: ColorsApp.primary.withOpacity(0.9),
                       ),
                       const GapW(width: 50),
-                      Text('active',
+                      Text('active'.tr(),
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge
@@ -118,7 +120,7 @@ class BrainScreen extends StatelessWidget {
                         colorIcon: Colors.red.withOpacity(0.9),
                       ),
                       const GapW(width: 50),
-                      Text('disactive',
+                      Text('disactive'.tr(),
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge

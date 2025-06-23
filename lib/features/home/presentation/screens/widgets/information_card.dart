@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'dart:developer';
 
 import 'package:brain_pulse/core/Theming/colors.dart';
@@ -40,7 +42,7 @@ class InformationCard extends StatelessWidget {
               children: [
                 gapH(30),
                 Text(
-                  'Discover a new way\nto read the brain',
+                  'Discover a new way\nto read the brain'.tr(),
                   style: TextStyle(
                     color: ColorsApp.black,
                     fontSize: 18.sp,
@@ -60,7 +62,7 @@ class InformationCard extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'ACNS GUIDELINE',
+                      'ACNS GUIDELINE'.tr(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 12.sp,
@@ -74,7 +76,7 @@ class InformationCard extends StatelessWidget {
           ),
           Positioned(
             top: 58.h,
-            right: 3.w,
+            right: context.locale.languageCode == 'en' ? 3.w : 182.w,
             child: CircleAvatar(
               radius: 72.r,
               backgroundColor: Colors.white,
@@ -82,7 +84,7 @@ class InformationCard extends StatelessWidget {
           ),
           Positioned(
             top: 18.h,
-            right: 2.w,
+            right: context.locale.languageCode == 'en' ? 2.w : 180.w,
             child: Image.asset(
               'assets/images/information_card.png',
               width: 300.w,

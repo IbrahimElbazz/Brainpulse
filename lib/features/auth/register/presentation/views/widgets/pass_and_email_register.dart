@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
@@ -28,10 +30,10 @@ class _PassAndEmailState extends State<PassAndEmail> {
             controller: read.name,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid  firstname';
+                return 'Please enter a valid  firstname'.tr();
               }
             },
-            hint: "Name",
+            hint: 'Name'.tr(),
           ),
           SizedBox(
             height: 5.h,
@@ -40,10 +42,10 @@ class _PassAndEmailState extends State<PassAndEmail> {
           //   controller: read.lastname,
           //   validator: (value) {
           //     if (value == null || value.isEmpty) {
-          //       return 'Please enter a valid lastname';
+          //       return 'Please enter a valid lastname'.tr();
           //     }
           //   },
-          //   hint: "Last Name",
+          //   hint: 'Last Name'.tr(),
           // ),
           const SizedBox(
             height: 20,
@@ -52,22 +54,22 @@ class _PassAndEmailState extends State<PassAndEmail> {
             controller: read.email,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid email';
+                return 'Please enter a valid email'.tr();
               }
             },
             icon: const Icon(Ionicons.mail_outline, color: Colors.grey),
             showText: false,
-            hint: 'Email',
+            hint: 'Email'.tr(),
           ),
           const SizedBox(
             height: 20,
           ),
           IntlPhoneField(
-            initialCountryCode: 'EG',
+            initialCountryCode: 'EG'.tr(),
             controller: read.phone,
             validator: (value) {
               if (value == null) {
-                return 'Please enter a valid phone number';
+                return 'Please enter a valid phone number'.tr();
               }
               return null;
             },
@@ -84,7 +86,7 @@ class _PassAndEmailState extends State<PassAndEmail> {
                   color: Colors.grey,
                 ),
               ),
-              hintText: "Your number",
+              hintText: 'Your number'.tr(),
               hintStyle:
                   TextStyleApp.styleText(15, Colors.grey, FontWeight.normal),
               fillColor: const Color(0xffFDFDFF),
@@ -97,11 +99,11 @@ class _PassAndEmailState extends State<PassAndEmail> {
             controller: read.password,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid pass';
+                return 'Please enter a valid pass'.tr();
               }
             },
             showText: isObscureText ? true : false,
-            hint: "Password",
+            hint: 'Password'.tr(),
             icon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -121,11 +123,11 @@ class _PassAndEmailState extends State<PassAndEmail> {
             controller: read.confirmpassword,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid pass';
+                return 'Please enter a valid pass'.tr();
               }
             },
             showText: isObscureText ? true : false,
-            hint: "Password Confirm",
+            hint: 'Password Confirm'.tr(),
             icon: GestureDetector(
               onTap: () {
                 setState(() {

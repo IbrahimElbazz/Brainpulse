@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_helper.dart';
@@ -70,8 +72,8 @@ class _DeleteAccountState extends State<DeleteAccount> {
                         },
                       ),
                       gapW(30.w),
-                      const Text('Delete account',
-                          style: TextStyle(
+                      Text('Delete account'.tr(),
+                          style: const TextStyle(
                             color: Color(0xFF1D2035),
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
@@ -88,7 +90,8 @@ class _DeleteAccountState extends State<DeleteAccount> {
                   Row(
                     children: <Widget>[
                       Text(
-                        'Warning: Your account will be permanently deleted',
+                        'Warning: Your account will be permanently deleted'
+                            .tr(),
                         style: TextStyle(
                           color: const Color(0xFFE32B3D),
                           fontSize: 12.sp,
@@ -104,7 +107,8 @@ class _DeleteAccountState extends State<DeleteAccount> {
                     ),
                   ),
                   Text(
-                    'When you delete your account, you will permanently lose all your data, including your bookings, courses, and content. This process is irreversible. Make sure you want to delete your account before proceeding.',
+                    'When you delete your account, you will permanently lose all your data, including your bookings, courses, and content. This process is irreversible. Make sure you want to delete your account before proceeding.'
+                        .tr(),
                     style: TextStyle(
                       color: const Color(0xFF465064),
                       fontSize: 12.sp,
@@ -115,7 +119,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                   TextField(
                     maxLines: 5,
                     decoration: InputDecoration(
-                      hintText: 'Reason for deleting the account',
+                      hintText: 'Reason for deleting the account'.tr(),
                       hintStyle: TextStyle(
                         color: const Color(0xFFCED7DE),
                         fontSize: 16.sp,
@@ -136,7 +140,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                     padding: EdgeInsets.symmetric(vertical: 10.h),
                     child: textFieldCustom(
                       obscureText: !isShow,
-                      hintText: 'Enter password',
+                      hintText: 'Enter password'.tr(),
                       iconP: IconButton(
                         icon: IconButton(
                           icon: SvgPicture.asset('assets/svgs/lock-alt.svg'),
@@ -183,7 +187,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                         TextSpan(
                           children: <InlineSpan>[
                             TextSpan(
-                              text: 'I agree to ',
+                              text: 'I agree to '.tr(),
                               style: TextStyle(
                                 color: const Color(0xFFAAB9C5),
                                 fontSize: 12.sp,
@@ -191,7 +195,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                               ),
                             ),
                             TextSpan(
-                              text: 'Terms and conditions',
+                              text: 'Terms and conditions'.tr(),
                               style: TextStyle(
                                 color: ColorsApp.primary,
                                 fontSize: 12.sp,
@@ -199,7 +203,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                               ),
                             ),
                             TextSpan(
-                              text: ' of the app',
+                              text: ' of the app'.tr(),
                               style: TextStyle(
                                 color: const Color(0xFFAAB9C5),
                                 fontSize: 12.sp,
@@ -228,13 +232,12 @@ class _DeleteAccountState extends State<DeleteAccount> {
                                   0,
                                 )
                               : Colors.white,
-                          text: 'Delete',
+                          text: 'Delete'.tr(),
                           onTap: activeBox
                               ? () {
                                   showModalBottomSheet(
                                     sheetAnimationStyle: const AnimationStyle(
-                                      duration:
-                                          Duration(microseconds: 500000),
+                                      duration: Duration(microseconds: 500000),
                                       curve: Curves.linear,
                                     ),
                                     backgroundColor: Colors.white,
@@ -271,7 +274,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                                               ),
                                               const GapH(height: 15),
                                               Text(
-                                                'Confirm account deletion',
+                                                'Confirm account deletion'.tr(),
                                                 style: TextStyle(
                                                   color:
                                                       const Color(0xFF2B2F4E),
@@ -282,7 +285,8 @@ class _DeleteAccountState extends State<DeleteAccount> {
                                               const GapH(height: 10),
                                               Text(
                                                 textAlign: TextAlign.center,
-                                                'When you delete your account, you will permanently lose all your data, including your bookings, courses, and content. This process is irreversible. Make sure you want to delete your account before proceeding.',
+                                                'When you delete your account, you will permanently lose all your data, including your bookings, courses, and content. This process is irreversible. Make sure you want to delete your account before proceeding.'
+                                                    .tr(),
                                                 style: TextStyle(
                                                   color:
                                                       const Color(0xFF637D92),
@@ -325,15 +329,16 @@ class _DeleteAccountState extends State<DeleteAccount> {
                                                             MaterialPageRoute(
                                                                 builder:
                                                                     (context) =>
-                                                                        LogInScreen()),
+                                                                        const LogInScreen()),
                                                             (route) => false,
                                                           );
                                                           ScaffoldMessenger.of(
                                                                   context)
                                                               .showSnackBar(
-                                                            const SnackBar(
+                                                            SnackBar(
                                                                 content: Text(
-                                                                    'Account deleted successfully')),
+                                                                    'Account deleted successfully'
+                                                                        .tr())),
                                                           );
                                                         } else if (state
                                                             is FailureDeleteDoctorState) {
@@ -342,7 +347,8 @@ class _DeleteAccountState extends State<DeleteAccount> {
                                                               .showSnackBar(
                                                             SnackBar(
                                                                 content: Text(
-                                                                    'Error: ${state.errorMessage}')),
+                                                                    'Error: ${state.errorMessage}'
+                                                                        .tr())),
                                                           );
                                                         }
                                                       },
@@ -361,28 +367,18 @@ class _DeleteAccountState extends State<DeleteAccount> {
                                                               .fromARGB(
                                                               255, 180, 12, 0),
                                                           text:
-                                                              'Confirm deletion',
+                                                              'Confirm deletion'
+                                                                  .tr(),
                                                           onTap: () async {
                                                             final userId =
                                                                 await SharedPrefHelper.getInt(
                                                                     key: SharedPrefKeys
                                                                         .userId);
-                                                            if (userId !=
-                                                                null) {
-                                                              context
-                                                                  .read<
-                                                                      DeleteDoctorCubit>()
-                                                                  .deleteDoctor(
-                                                                      userId);
-                                                            } else {
-                                                              ScaffoldMessenger
-                                                                      .of(context)
-                                                                  .showSnackBar(
-                                                                const SnackBar(
-                                                                    content: Text(
-                                                                        'Error: User ID not found')),
-                                                              );
-                                                            }
+                                                            context
+                                                                .read<
+                                                                    DeleteDoctorCubit>()
+                                                                .deleteDoctor(
+                                                                    userId);
                                                           },
                                                         );
                                                       },
@@ -393,7 +389,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                                                     height: 60.h,
                                                     child: CustomButtonAcc(
                                                       color: ColorsApp.primary,
-                                                      text: 'Stay',
+                                                      text: 'Stay'.tr(),
                                                       onTap: () {
                                                         context.pop();
                                                       },
@@ -416,7 +412,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
                         height: 60.h,
                         child: CustomButtonAcc(
                           color: ColorsApp.primary,
-                          text: 'Stay',
+                          text: 'Stay'.tr(),
                           onTap: () {
                             context.pop();
                           },

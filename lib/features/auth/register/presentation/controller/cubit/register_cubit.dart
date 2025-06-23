@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/features/auth/register/data/repo/register_repo_imple.dart';
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_state.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +38,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   void registervalidate() {
     if (!confirmpasswordValidate()) {
-      emit(FailuerRegisterState(errormsg: "Passwords do not match!"));
+      emit(FailuerRegisterState(errormsg: 'Passwords do not match!'.tr()));
       return;
     }
 
@@ -47,7 +49,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   bool confirmpasswordValidate() {
     if (password.text != confirmpassword.text) {
-      confirmPasswordError = "Passwords do not match!";
+      confirmPasswordError = 'Passwords do not match!'.tr();
       emit(InitialRegisterState());
       return false;
     }

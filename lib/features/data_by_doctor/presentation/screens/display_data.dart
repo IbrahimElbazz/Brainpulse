@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/save_and_create_patient.dart';
 import 'package:brain_pulse/core/Theming/colors.dart';
@@ -14,7 +16,7 @@ class DisplayData extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorsApp.primary,
         title: Text(
-          'Analysis Results',
+          'Analysis Results'.tr(),
           style: TextStyle(color: ColorsApp.white),
         ),
         centerTitle: true,
@@ -55,23 +57,25 @@ class DisplayData extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Patient Analysis Results',
+                        'Patient Analysis Results'.tr(),
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               color: ColorsApp.primary,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
                       SizedBox(height: 20.h),
-                      _buildResultRow(context, 'GPD', prediction[0].toString()),
                       _buildResultRow(
-                          context, 'GRDA', prediction[1].toString()),
-                      _buildResultRow(context, 'LPD', prediction[2].toString()),
+                          context, 'GPD'.tr(), prediction[0].toString()),
                       _buildResultRow(
-                          context, 'LRDA', prediction[3].toString()),
+                          context, 'GRDA'.tr(), prediction[1].toString()),
                       _buildResultRow(
-                          context, 'Seizure', prediction[4].toString()),
+                          context, 'LPD'.tr(), prediction[2].toString()),
                       _buildResultRow(
-                          context, 'Other', prediction[5].toString()),
+                          context, 'LRDA'.tr(), prediction[3].toString()),
+                      _buildResultRow(
+                          context, 'Seizure'.tr(), prediction[4].toString()),
+                      _buildResultRow(
+                          context, 'Other'.tr(), prediction[5].toString()),
                     ],
                   ),
                 ),
@@ -110,7 +114,7 @@ class DisplayData extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12.r),
                       child: Center(
                         child: Text(
-                          "Save and Add Patient",
+                          'Save and Add Patient'.tr(),
                           style: TextStyle(
                             color: ColorsApp.white,
                             fontSize: 16.sp,
@@ -150,7 +154,7 @@ class DisplayData extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12.r),
                       child: Center(
                         child: Text(
-                          "Cancel",
+                          'Cancel'.tr(),
                           style: TextStyle(
                             color: ColorsApp.primary,
                             fontSize: 16.sp,
@@ -172,7 +176,7 @@ class DisplayData extends StatelessWidget {
   Widget _buildResultRow(BuildContext context, String label, String value) {
     // Convert the value to a percentage
     double percentageValue = double.parse(value) * 100;
-    String formattedValue = '${percentageValue.toStringAsFixed(2)}%';
+    String formattedValue = '${percentageValue.toStringAsFixed(2)}%'.tr();
 
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.h),

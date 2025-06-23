@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +33,7 @@ class Onboarding2 extends StatelessWidget {
                   const SizedBox(height: 45),
                   SizedBox(
                     child: Text(
-                      'We are here to help you',
+                      'We are here to help you'.tr(),
                       style: TextStyle(
                         color: const Color(0xFF1D2035),
                         fontSize: 28.sp,
@@ -46,7 +48,8 @@ class Onboarding2 extends StatelessWidget {
                     width: 350.w,
                     child: Text(
                       textAlign: TextAlign.center,
-                      'Analyze symptoms and medical reports with advanced artificial intelligence.',
+                      'Analyze symptoms and medical reports with advanced artificial intelligence.'
+                          .tr(),
                       style: TextStyle(
                         color: const Color(0xFF637D92),
                         fontSize: 16.sp,

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +20,12 @@ class EditMyProfile extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-          title: Text('Edit Profile',style:Theme.of(context).appBarTheme.titleTextStyle ,),
+          title: Text(
+            'Edit Profile'.tr(),
+            style: Theme.of(context).appBarTheme.titleTextStyle,
+          ),
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-          leading: CustomCircleButtonPop()),
+          leading: const CustomCircleButtonPop()),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: const EdgeInsets.only(top: 100, right: 15, left: 15),
@@ -32,17 +37,18 @@ class EditMyProfile extends StatelessWidget {
               ),
               EditMyProfileWidget(),
               gapH(20.h),
-               TextField(
-                 // controller:PassAndEmail.password,
-                 decoration: InputDecoration(
-                  hintText: 'password',
-                   border: UnderlineInputBorder(
-                     borderSide: BorderSide(color: ColorsApp.grey500, width: 2.0),
-                   ),
-                 ),
-               ),
+              TextField(
+                // controller:PassAndEmail.password,
+                decoration: InputDecoration(
+                  hintText: 'password'.tr(),
+                  border: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: ColorsApp.grey500, width: 2.0),
+                  ),
+                ),
+              ),
               gapH(190.h),
-              MyButton(text: 'Save Changes', onPressed: () {})
+              MyButton(text: 'Save Changes'.tr(), onPressed: () {})
             ],
           ),
         ),

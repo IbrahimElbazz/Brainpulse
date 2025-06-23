@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'dart:io';
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
@@ -66,7 +68,7 @@ class _GetImageBodyState extends State<GetImageBody> {
                     borderType: BorderType.RRect,
                     radius: Radius.circular(15.r),
                     strokeWidth: 3,
-                    dashPattern: [5, 8],
+                    dashPattern: const [5, 8],
                     color: ColorsApp.primary,
                     child: Container(
                       width: double.infinity,
@@ -95,28 +97,28 @@ class _GetImageBodyState extends State<GetImageBody> {
                                 ),
                                 SizedBox(height: 30.h),
                                 Text(
-                                  "No image selected, Drop image here",
+                                  'No image selected, Drop image here'.tr(),
                                   style: TextStyleApp.styleText(
                                       15, ColorsApp.black, FontWeight.bold),
                                 ),
                                 SizedBox(height: 30.h),
                                 CustomButton(
                                   onTap: uploadgallery,
-                                  text: "Gallery",
+                                  text: 'Gallery'.tr(),
                                   width: 140.w,
                                   height: 50.h,
                                   color: ColorsApp.primary,
                                 ),
                                 SizedBox(height: 15.h),
                                 Text(
-                                  "-------      or     -------",
+                                  '-------      or     -------'.tr(),
                                   style: TextStyleApp.styleText(
                                       15, ColorsApp.black, FontWeight.bold),
                                 ),
                                 SizedBox(height: 15.h),
                                 CustomButton(
                                   onTap: uploadcamera,
-                                  text: "Camera",
+                                  text: 'Camera'.tr(),
                                   width: 140.w,
                                   height: 50.h,
                                   color: ColorsApp.primary,
@@ -134,7 +136,7 @@ class _GetImageBodyState extends State<GetImageBody> {
                           color: ColorsApp.primary,
                         )
                       : CustomButton(
-                          text: "Show Result",
+                          text: 'Show Result'.tr(),
                           width: double.infinity,
                           color: ColorsApp.primary,
                           height: 60.h,
@@ -145,9 +147,9 @@ class _GetImageBodyState extends State<GetImageBody> {
                                   .uploadImage(_image!);
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content:
-                                        Text("Please select an image first")),
+                                SnackBar(
+                                    content: Text(
+                                        'Please select an image first'.tr())),
                               );
                             }
                           },

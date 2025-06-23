@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/mytextfield.dart';
@@ -27,7 +29,7 @@ class SaveAndCreatePatient extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorsApp.primary,
         title: Text(
-          'Add patient',
+          'Add patient'.tr(),
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontSize: 22,
                 color: ColorsApp.white,
@@ -63,7 +65,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                   backgroundColor: ColorsApp.darkRed,
                   content: Center(
                     child: Text(
-                      'please try again',
+                      'please try again'.tr(),
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: ColorsApp.white,
                           ),
@@ -82,7 +84,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                   backgroundColor: ColorsApp.green,
                   content: Center(
                     child: Text(
-                      'add success',
+                      'add success'.tr(),
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: ColorsApp.white,
                           ),
@@ -104,7 +106,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                 children: [
                   const GapH(height: 20),
                   Text(
-                    'Name :',
+                    'Name :'.tr(),
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: ColorsApp.black,
                         ),
@@ -114,10 +116,10 @@ class SaveAndCreatePatient extends StatelessWidget {
                     child: MyTextField(
                       controller: nameController,
                       keyboardType: TextInputType.text,
-                      hint: 'Enter patient name',
+                      hint: 'Enter patient name'.tr(),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter patient name';
+                          return 'Please enter patient name'.tr();
                         }
                         return null;
                       },
@@ -125,7 +127,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                   ),
                   gapH(20),
                   Text(
-                    'Phone :',
+                    'Phone :'.tr(),
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: ColorsApp.black,
                         ),
@@ -135,10 +137,10 @@ class SaveAndCreatePatient extends StatelessWidget {
                     child: MyTextField(
                       controller: phoneController,
                       keyboardType: TextInputType.number,
-                      hint: 'Enter phone number',
+                      hint: 'Enter phone number'.tr(),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter phone number';
+                          return 'Please enter phone number'.tr();
                         }
                         return null;
                       },
@@ -146,7 +148,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                   ),
                   gapH(20),
                   Text(
-                    'Age :',
+                    'Age :'.tr(),
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: ColorsApp.black,
                         ),
@@ -156,10 +158,10 @@ class SaveAndCreatePatient extends StatelessWidget {
                     child: MyTextField(
                       controller: ageController,
                       keyboardType: TextInputType.number,
-                      hint: 'Enter age',
+                      hint: 'Enter age'.tr(),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter age';
+                          return 'Please enter age'.tr();
                         }
                         return null;
                       },
@@ -167,7 +169,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                   ),
                   gapH(20),
                   Text(
-                    'Description :',
+                    'Description :'.tr(),
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: ColorsApp.black,
                         ),
@@ -178,7 +180,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                     maxLines: 5,
                     minLines: 5,
                     decoration: InputDecoration(
-                      hintText: 'Enter patient description',
+                      hintText: 'Enter patient description'.tr(),
                       hintStyle: TextStyle(color: ColorsApp.grey),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16.r),
@@ -246,7 +248,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Save",
+                                  'Save'.tr(),
                                   style: TextStyle(
                                     color: ColorsApp.white,
                                     fontSize: 18.sp,

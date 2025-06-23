@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,7 +29,7 @@ class Onboarding1 extends StatelessWidget {
                   height: 300.h,
                 ),
                 Text(
-                  'Welcome to Brain pulse',
+                  'Welcome to Brain pulse'.tr(),
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.75),
                     fontSize: 26.sp,
@@ -38,7 +40,8 @@ class Onboarding1 extends StatelessWidget {
                 SizedBox(
                   width: 382.w,
                   child: Text(
-                    'A smart tool that makes medical diagnosis easy and fast',
+                    'A smart tool that makes medical diagnosis easy and fast'
+                        .tr(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: const Color(0xFF637D92),

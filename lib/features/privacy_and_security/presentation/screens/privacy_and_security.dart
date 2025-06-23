@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Widgets/pop_circle_button.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/widgets/gap.dart';
@@ -17,8 +19,8 @@ class PrivacyAndSecurity extends StatelessWidget {
         child: Column(
           children: <Widget>[
             AppBar(
-              title: const Text(
-                'Privacy and Security',
+              title: Text(
+                'Privacy and Security'.tr(),
               ),
               leading: const PopCircleButton(),
               centerTitle: true,
@@ -30,8 +32,8 @@ class PrivacyAndSecurity extends StatelessWidget {
                 children: <Widget>[
                   CardItemInMyAccount(
                     icon: 'assets/svgs/lock-alt-in-priv.svg',
-                    subTitle: 'Requires old password',
-                    title: 'Change password',
+                    subTitle: 'Requires old password'.tr(),
+                    title: 'Change password'.tr(),
                     colorBackgroundIcon: Colors.blueGrey,
                     onTap: () {
                       context.pushNamed('/ChangePasswordScreen');
@@ -40,8 +42,8 @@ class PrivacyAndSecurity extends StatelessWidget {
                   const GapH(height: 24),
                   CardItemInMyAccount(
                     icon: 'assets/svgs/delete.svg',
-                    subTitle: 'Account data will be permanently deleted.',
-                    title: 'Delete account',
+                    subTitle: 'Account data will be permanently deleted.'.tr(),
+                    title: 'Delete account'.tr(),
                     titleColor: const Color(0xFFFEAA43),
                     colorBackgroundIcon: const Color(0xFFFFEED9),
                     onTap: () {
@@ -53,14 +55,15 @@ class PrivacyAndSecurity extends StatelessWidget {
                     isLogout: true,
                     icon: 'assets/svgs/arrow-square-right.svg',
                     subTitle:
-                        'You will need your login details when you log in again.',
-                    title: 'Logout',
+                        'You will need your login details when you log in again.'
+                            .tr(),
+                    title: 'Logout'.tr(),
                     titleColor: Colors.red,
                     colorBackgroundIcon: const Color(0xFFFADCDF),
                     onTap: () {
                       showModalBottomSheet(
-                        sheetAnimationStyle: AnimationStyle(
-                          duration: const Duration(microseconds: 500000),
+                        sheetAnimationStyle: const AnimationStyle(
+                          duration: Duration(microseconds: 500000),
                           curve: Curves.linear,
                         ),
                         backgroundColor: Colors.white,

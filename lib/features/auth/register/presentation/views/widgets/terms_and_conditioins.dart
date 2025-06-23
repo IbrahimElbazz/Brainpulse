@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -11,18 +13,18 @@ class TermsAndConditions extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("By logging. you agree to our ",
+            Text('By logging. you agree to our '.tr(),
                 style: Theme.of(context).textTheme.bodySmall),
             GestureDetector(
               onTap: () {},
-              child: Text("Terms & Conditions",
+              child: Text('Terms & Conditions'.tr(),
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall
                       ?.copyWith(color: ColorsApp.grey500)),
             ),
             Text(
-              " and",
+              ' and'.tr(),
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
@@ -30,7 +32,7 @@ class TermsAndConditions extends StatelessWidget {
         Center(
             child: GestureDetector(
           onTap: () {},
-          child: Text("PrivacyPolicy.",
+          child: Text('PrivacyPolicy.'.tr(),
               style: Theme.of(context)
                   .textTheme
                   .bodySmall

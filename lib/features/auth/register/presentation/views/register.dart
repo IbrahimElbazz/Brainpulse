@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
@@ -49,7 +51,7 @@ class RegisterPage extends StatelessWidget {
                         }
                         read.confirmpasswordValidate();
                       },
-                      text: 'Create Account',
+                      text: 'Create Account'.tr(),
                     )
                   : TextButton(
                       onPressed: () {},
@@ -89,9 +91,9 @@ class RegisterPage extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
-                    child: const Text(
-                      'Or sign in with',
-                      style: TextStyle(color: Colors.black54),
+                    child: Text(
+                      'Or sign in with'.tr(),
+                      style: const TextStyle(color: Colors.black54),
                     ),
                   ),
                   const Expanded(
@@ -113,14 +115,14 @@ class RegisterPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an Account. ",
+                  Text('Already have an Account. '.tr(),
                       style: Theme.of(context).textTheme.bodySmall),
                   GestureDetector(
                     onTap: () {
                       context.pop();
                     },
                     child: Text(
-                      "SignIn",
+                      'SignIn'.tr(),
                       style: TextStyle(
                         color: ColorsApp.primary,
                         fontSize: 12.sp,

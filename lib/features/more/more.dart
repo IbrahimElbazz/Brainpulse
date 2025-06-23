@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/features/more/ui/screen/my_profile.dart';
 import 'package:brain_pulse/features/more/ui/screen/show_my_profile.dart';
@@ -28,35 +30,39 @@ class More extends StatelessWidget {
               const MyProfile(),
               gapH(10.h),
               buildSection(
-                title: "Personal Information",
+                title: 'Personal Information'.tr(),
                 items: [
-                  buildListItem(context, Icons.person, "My profile", "....."),
+                  buildListItem(
+                      context, Icons.person, 'My profile'.tr(), '.....'.tr()),
                 ],
               ),
               buildSection(
-                title: "Settings",
+                title: 'Settings'.tr(),
                 items: [
-                  buildListItem(context, Icons.language, "Language",
-                      "Account language settings"),
+                  buildListItem(context, Icons.language, 'Language'.tr(),
+                      'Account language settings'.tr()),
                   buildListItem(
                     context,
                     Icons.mode_night_outlined,
-                    "Mode",
-                    themeProvider.isDarkMode ? "Dark Mode" : "Light Mode",
+                    'Mode'.tr(),
+                    themeProvider.isDarkMode
+                        ? 'Dark Mode'.tr()
+                        : 'Light Mode'.tr(),
                   ),
                 ],
               ),
               buildSection(
-                title: "About Us",
+                title: 'About Us'.tr(),
                 items: [
-                  buildListItem(
-                      context, Icons.mood_rounded, "About Us", "....."),
+                  buildListItem(context, Icons.mood_rounded, 'About Us'.tr(),
+                      '.....'.tr()),
                 ],
               ),
               buildSection(
-                title: "Logout",
+                title: 'Logout'.tr(),
                 items: [
-                  buildListItem(context, Icons.logout, "Logout", "....."),
+                  buildListItem(
+                      context, Icons.logout, 'Logout'.tr(), '.....'.tr()),
                 ],
               ),
             ],
@@ -95,20 +101,20 @@ class More extends StatelessWidget {
         trailing: Icon(Icons.arrow_forward_ios,
             color: Theme.of(context).appBarTheme.iconTheme?.color),
         onTap: () {
-          if (title == "My profile") {
+          if (title == 'My profile'.tr()) {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const ShowMyProfile()),
             );
-          } else if (title == "Language") {
+          } else if (title == 'Language'.tr()) {
             showBottomSheetOptions(
-                context, "Choose Language", ["عربي", "English"]);
-          } else if (title == "Mode") {
-            showBottomSheetOptions(
-                context, "Choose Mode", ["Dark Mode", "Light Mode"]);
-          } else if (title == "About Us") {
-            showBottomSheetOptions(context, "About Us Description", []);
-          } else if (title == "Logout") {
+                context, 'Choose Language'.tr(), ['عربي'.tr(), 'English'.tr()]);
+          } else if (title == 'Mode'.tr()) {
+            showBottomSheetOptions(context, 'Choose Mode'.tr(),
+                ['Dark Mode'.tr(), 'Light Mode'.tr()]);
+          } else if (title == 'About Us'.tr()) {
+            showBottomSheetOptions(context, 'About Us Description'.tr(), []);
+          } else if (title == 'Logout'.tr()) {
             showModalBottomSheet(
               context: context,
               builder: (context) {
@@ -159,7 +165,7 @@ class More extends StatelessWidget {
                           ),
                         ),
                         gapH(10),
-                        Text("Logout Now!",
+                        Text('Logout Now!'.tr(),
                             style: Theme.of(context).textTheme.titleLarge),
                         gapH(20),
                         Row(
@@ -170,7 +176,7 @@ class More extends StatelessWidget {
                                 await SharedPrefHelper.clearAllData();
                                 context.pushReplacementNamed('/loginScreen');
                               },
-                              text: "Logout",
+                              text: 'Logout'.tr(),
                               width: 230,
                               height: 50,
                               color: Colors.white,
@@ -181,7 +187,7 @@ class More extends StatelessWidget {
                               onTap: () {
                                 context.pop();
                               },
-                              text: "Cancel",
+                              text: 'Cancel'.tr(),
                               width: 100,
                               height: 50,
                               color: Colors.white,
@@ -224,10 +230,10 @@ void showBottomSheetOptions(
             ...options.map((option) => ListTile(
                   title: Text(option),
                   onTap: () {
-                    if (title == "Choose Mode") {
-                      if (option == "Dark Mode") {
+                    if (title == 'Choose Mode'.tr()) {
+                      if (option == 'Dark Mode'.tr()) {
                         themeProvider.setDarkTheme();
-                      } else if (option == "Light Mode") {
+                      } else if (option == 'Light Mode'.tr()) {
                         themeProvider.setLightTheme();
                       }
                     }

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/helpers/spacing.dart';
@@ -13,7 +15,7 @@ class TopPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Create Account",
+          'Create Account'.tr(),
           style: TextStyleApp.styleText(
             24.sp,
             ColorsApp.primary,
@@ -25,12 +27,12 @@ class TopPage extends StatelessWidget {
         //   height: 10,
         // ),
         // Text(
-        //   "Sign up now and start exploring all that our",
+        //   'Sign up now and start exploring all that our'.tr(),
         //   style:
         //       TextStyleApp.styleText(14, Colors.grey[700]!, FontWeight.normal),
         // ),
         // Text(
-        //   "app has to offer. We're excited to welcome\nyou to our community!",
+        //   'app has to offer. We're excited to welcome\nyou to our community!'.tr(),
         //   style:
         //       TextStyleApp.styleText(14, Colors.grey[700]!, FontWeight.normal),
         // ),

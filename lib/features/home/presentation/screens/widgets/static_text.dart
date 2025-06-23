@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
@@ -17,7 +19,7 @@ class StaticText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Hello doctor',
+          'Hello doctor'.tr(),
           style: TextStyle(
             color: ColorsApp.primary,
             fontSize: 24.sp,
@@ -30,14 +32,14 @@ class StaticText extends StatelessWidget {
         const InformationCard(),
         // const GapH(height: 20),
         // Text(
-        //   'Brain Pulse is a medical platform that helps you to diagnose and monitor neurological disorders by using electroencephalography (EEG) technique.',
+        //   'Brain Pulse is a medical platform that helps you to diagnose and monitor neurological disorders by using electroencephalography (EEG) technique.'.tr();,
         //   style: TextStyleApp.font14weight400colorGrey,
         // ),
         // SizedBox(
         //   height: 15.h,
         // ),
         // Text(
-        //   'You can diagnose and monitor by hospital or by doctor.',
+        //   'You can diagnose and monitor by hospital or by doctor.'.tr();,
         //   style: TextStyleApp.font14weight400colorGrey,
         // ),
       ],

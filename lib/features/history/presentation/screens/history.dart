@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
@@ -101,7 +103,7 @@ class _HistoryState extends State<History> {
                           ),
                           const GapW(width: 12),
                           Text(
-                            'Patient Records',
+                            'Patient Records'.tr(),
                             style: TextStyleApp.styleText(
                               24,
                               Colors.white,
@@ -135,7 +137,7 @@ class _HistoryState extends State<History> {
                               color: ColorsApp.primary,
                             ),
                             border: InputBorder.none,
-                            hintText: 'Search by name or phone...',
+                            hintText: 'Search by name or phone...'.tr(),
                             hintStyle: TextStyleApp.styleText(
                               15,
                               Colors.grey,
@@ -254,7 +256,7 @@ class _HistoryState extends State<History> {
                                   ),
                                   const GapH(height: 16),
                                   Text(
-                                    'No patients found',
+                                    'No patients found'.tr(),
                                     style: TextStyleApp.styleText(
                                       18,
                                       ColorsApp.grey800,
@@ -263,7 +265,7 @@ class _HistoryState extends State<History> {
                                   ),
                                   const GapH(height: 8),
                                   Text(
-                                    'Add new patients to see them here',
+                                    'Add new patients to see them here'.tr(),
                                     style: TextStyleApp.styleText(
                                       14,
                                       ColorsApp.grey500,
@@ -303,7 +305,7 @@ class _HistoryState extends State<History> {
                                               const Color(0xFFFE4A49),
                                           foregroundColor: Colors.white,
                                           icon: Icons.delete,
-                                          label: 'Delete',
+                                          label: 'Delete'.tr(),
                                           borderRadius: BorderRadius.horizontal(
                                             left: Radius.circular(16.r),
                                           ),
@@ -364,7 +366,7 @@ class _HistoryState extends State<History> {
                               ),
                               const GapH(height: 16),
                               Text(
-                                'Oops!',
+                                'Oops!'.tr(),
                                 style: TextStyleApp.styleText(
                                   24,
                                   Colors.red,

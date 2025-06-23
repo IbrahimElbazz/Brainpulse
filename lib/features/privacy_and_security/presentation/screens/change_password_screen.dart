@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/pop_circle_button.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
@@ -65,7 +67,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       height: 20,
                     ),
                     Text(
-                      'Password changed successfully',
+                      'Password changed successfully'.tr(),
                       style: TextStyle(
                         color: const Color(0xFF2B2F4E),
                         fontSize: 18.sp,
@@ -75,7 +77,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     const GapH(height: 16),
                     Text(
                       textAlign: TextAlign.center,
-                      'Try to keep your password away to avoid having your account data stolen.',
+                      'Try to keep your password away to avoid having your account data stolen.'
+                          .tr(),
                       style: TextStyle(
                         color: const Color(0xFF637D92),
                         fontSize: 14.sp,
@@ -85,7 +88,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     const GapH(height: 28),
                     CustomButtonAcc(
                       color: const Color(0xFF0CAFB4),
-                      text: 'Done',
+                      text: 'Done'.tr(),
                       onTap: () {
                         context.pop();
                         context.pop();
@@ -112,8 +115,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             child: Column(
               children: <Widget>[
                 AppBar(
-                  title: const Text(
-                    'Change password',
+                  title: Text(
+                    'Change password'.tr(),
                   ),
                   leading: const PopCircleButton(),
                   centerTitle: true,
@@ -126,7 +129,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       children: <Widget>[
                         const GapH(height: 65),
                         Text(
-                          'Create a new password',
+                          'Create a new password'.tr(),
                           style: TextStyle(
                             color: const Color(0xFF1D2035),
                             fontSize: 28.sp,
@@ -137,7 +140,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         textFieldCustom(
                           controller: read.oldPassword,
                           obscureText: !isShow,
-                          hintText: 'Current password',
+                          hintText: 'Current password'.tr(),
                           iconP: IconButton(
                             icon: IconButton(
                               icon:
@@ -167,7 +170,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         textFieldCustom(
                           controller: read.newPassword,
                           obscureText: !isShow,
-                          hintText: 'Please enter the new password..',
+                          hintText: 'Please enter the new password..'.tr(),
                           iconP: IconButton(
                             icon: IconButton(
                               icon:
@@ -197,7 +200,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         textFieldCustom(
                           controller: read.confirmNewPassword,
                           obscureText: !isShow,
-                          hintText: 'Re-enter new password..',
+                          hintText: 'Re-enter new password..'.tr(),
                           iconP: IconButton(
                             icon: IconButton(
                               icon:
@@ -226,7 +229,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                         const GapH(height: 50),
                         CustomButtonAcc(
                             color: ColorsApp.primary,
-                            text: 'Confirm',
+                            text: 'Confirm'.tr(),
                             onTap: () {
                               if (read.keyform.currentState!.validate()) {
                                 return read.changepassvalidate();

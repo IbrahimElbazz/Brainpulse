@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'dart:async';
 
 import 'package:brain_pulse/core/Theming/colors.dart';
@@ -61,7 +63,7 @@ class _AppNavigationState extends State<AppNavigation> {
           width: 24.w,
           color: Colors.grey,
         ),
-        label: 'Home',
+        label: 'Home'.tr(),
         activeIcon: SvgPicture.asset(
           'assets/svgs/home-2.svg',
           width: 24.w,
@@ -75,7 +77,7 @@ class _AppNavigationState extends State<AppNavigation> {
           width: 25.w,
           color: Colors.grey,
         ),
-        label: 'Brain',
+        label: 'Brain'.tr(),
         activeIcon: Image.asset(
           'assets/images/brain_icon.png',
           width: 25.w,
@@ -89,7 +91,7 @@ class _AppNavigationState extends State<AppNavigation> {
           width: 25.w,
           color: Colors.grey,
         ),
-        label: 'History',
+        label: 'History'.tr(),
         activeIcon: Image.asset(
           'assets/images/history_icon.png',
           width: 25.w,
@@ -103,7 +105,7 @@ class _AppNavigationState extends State<AppNavigation> {
           color: Colors.grey,
           size: 28,
         ),
-        label: 'More',
+        label: 'More'.tr(),
         activeIcon: Icon(
           color: ColorsApp.primary,
           Icons.more_vert_outlined,

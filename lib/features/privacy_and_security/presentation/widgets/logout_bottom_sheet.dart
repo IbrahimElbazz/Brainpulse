@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/helpers/shared_pref_helper/shared_pref_helper.dart';
@@ -54,7 +56,7 @@ class LogoutBottomSheet extends StatelessWidget {
             ),
             const GapH(height: 20),
             Text(
-              'Logout',
+              'Logout'.tr(),
               style: TextStyle(
                 color: const Color(0xFF2B2F4E),
                 fontSize: 24.sp,
@@ -66,7 +68,8 @@ class LogoutBottomSheet extends StatelessWidget {
               height: 71.h,
               child: Text(
                 textAlign: TextAlign.center,
-                'Are you sure you want to log out? Your current session will be terminated and you won\'t be able to access your account until you log in again.',
+                'Are you sure you want to log out? Your current session will be terminated and you won\'t be able to access your account until you log in again.'
+                    .tr(),
                 style: TextStyle(
                   color: const Color(0xFF637D92),
                   fontSize: 16.sp,
@@ -89,7 +92,7 @@ class LogoutBottomSheet extends StatelessWidget {
                       12,
                       0,
                     ),
-                    text: 'Logout',
+                    text: 'Logout'.tr(),
                     onTap: () async {
                       await SharedPrefHelper.clearAllData();
                       context.pushNamedAndRemoveUntil('/loginScreen',
@@ -102,7 +105,7 @@ class LogoutBottomSheet extends StatelessWidget {
                   height: 60.h,
                   child: CustomButtonAcc(
                     color: ColorsApp.primary,
-                    text: 'Stay',
+                    text: 'Stay'.tr(),
                     onTap: () {
                       context.pop();
                     },

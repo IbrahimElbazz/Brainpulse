@@ -18,6 +18,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'core/provider/language.provider.dart';
 import 'core/provider/theme-provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class BrainPulse extends StatelessWidget {
   const BrainPulse({super.key});
@@ -62,12 +63,15 @@ class BrainPulse extends StatelessWidget {
         child: Consumer2<ThemeProvider, LocaleProvider>(
           builder: (context, themeProvider, localeProvider, child) {
             return MaterialApp(
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
               title: 'Brain Pulse',
               debugShowCheckedModeBanner: false,
               initialRoute: Routes.splashScreen,
               onGenerateRoute: AppRouter.generateRoute,
               theme: themeProvider.currentTheme,
-              locale: localeProvider.currentLocale,
+              // locale: localeProvider.currentLocale,
             );
           },
         ),

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/pop_circle_button.dart';
@@ -61,7 +63,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               read.phoneNumber.clear();
 
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Profile updated successfully')),
+                SnackBar(content: Text('Profile updated successfully'.tr())),
               );
               context.pop();
             } else if (state is FailureEditDoctorState) {
@@ -79,13 +81,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   child: Column(
                     children: <Widget>[
                       AppBar(
-                        title: const Text('Update Profile'),
+                        title: Text('Update Profile'.tr()),
                         leading: const PopCircleButton(),
                         centerTitle: true,
                       ),
                       const GapH(height: 40),
                       Hero(
-                        tag: 'edit_image',
+                        tag: 'edit_image'.tr(),
                         child: CircleAvatar(
                           radius: 60.r,
                           backgroundColor: Colors.white,
@@ -103,7 +105,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please Enter Name';
+                            return 'Please Enter Name'.tr();
                           }
                           return null;
                         },
@@ -118,7 +120,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please Enter Email';
+                            return 'Please Enter Email'.tr();
                           }
                           return null;
                         },
@@ -145,11 +147,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                         validator: (value) {
                           if (value == null || value.number.trim().isEmpty) {
-                            return 'Please Enter Name';
+                            return 'Please Enter Name'.tr();
                           }
                           return null;
                         },
-                        initialCountryCode: 'EG',
+                        initialCountryCode: 'EG'.tr(),
                         showCountryFlag: false,
                         keyboardType: TextInputType.number,
                         dropdownIcon: const Icon(
@@ -170,8 +172,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             child: CustomButtonAcc(
                                 color: ColorsApp.primary,
                                 text: state is LoadingEditDoctorState
-                                    ? 'Saving...'
-                                    : 'Save',
+                                    ? 'Saving...'.tr()
+                                    : 'Save'.tr(),
                                 onTap: () {
                                   if (state is! LoadingEditDoctorState) {
                                     read.editDoctorvalidate(
@@ -188,7 +190,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             child: CustomButtonAcc(
                               color: Colors.white,
                               textColor: const Color(0xFFAAB9C5),
-                              text: 'Cancel',
+                              text: 'Cancel'.tr(),
                               onTap: () {
                                 context.pop();
                               },

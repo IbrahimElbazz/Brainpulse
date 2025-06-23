@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 // import 'package:brain_pulse/core/Theming/colors.dart';
 // import 'package:brain_pulse/core/Theming/text_style.dart';
 // import 'package:brain_pulse/core/Widgets/mybutton.dart';
@@ -27,14 +29,14 @@
 //               crossAxisAlignment: CrossAxisAlignment.start,
 //               children: [
 //                 Text(
-//                   "Create Account",
+//                   'Create Account'.tr(),
 //                   style: TextStyleApp.font32wieght700ColorBlue,
 //                 ),
 //                 SizedBox(
 //                   height: screenSize.height * .03,
 //                 ),
 //                 Text(
-//                   "Sign up now and start exploring all that our\napp has to offer. We're excited to welcome\nyou to our community!",
+//                   'Sign up now and start exploring all that our\napp has to offer. We're excited to welcome\nyou to our community!'.tr(),
 //                     style: Theme.of(context).textTheme.bodyMedium
 //                 ),
 //                 SizedBox(
@@ -43,7 +45,7 @@
 //                 MyTextField(
 //                   validator: (p0) {},
 //                   showText: false,
-//                   hint: 'Email',
+//                   hint: 'Email'.tr(),
 //                   icon: const Icon(Icons.email_outlined),
 //                 ),
 //                 SizedBox(
@@ -53,7 +55,7 @@
 //                     validator: (p0) {},
 //                     icon: const Icon(Icons.visibility),
 //                     showText: true,
-//                     hint: "Password"),
+//                     hint: 'Password'.tr()),
 //                 SizedBox(
 //                   height: screenSize.height * .02,
 //                 ),
@@ -70,7 +72,7 @@
 //                       borderSide: const BorderSide(
 //                         color: Colors.grey,
 //                       )),
-//                   hintText: "Your number",
+//                   hintText: 'Your number'.tr(),
 //                   hintStyle: TextStyleApp.styleText(
 //                       15, Colors.grey, FontWeight.normal),
 //                   fillColor: const Color(0xffFDFDFF),
@@ -80,7 +82,7 @@
 //                 ),
 //                 MyButton(
 //                   onPressed: () {},
-//                   text: 'Create Account',
+//                   text: 'Create Account'.tr(),
 //                 ),
 //                 SizedBox(
 //                   height: screenSize.height * .05,
@@ -96,7 +98,7 @@
 //                     Padding(
 //                       padding: EdgeInsets.symmetric(horizontal: 8.0),
 //                       child: Text(
-//                         'Or sign in with',
+//                         'Or sign in with'.tr(),
 //                         style: TextStyle(color: Colors.black54),
 //                       ),
 //                     ),
@@ -120,8 +122,8 @@
 //                   height: screenSize.height * .04,
 //                 ),
 //                 LogIn(
-//                   text1: 'Already have an account yet? ',
-//                   text2: "Login",
+//                   text1: 'Already have an account yet? '.tr(),
+//                   text2: 'Login'.tr(),
 //                 ),
 //               ],
 //             ),
