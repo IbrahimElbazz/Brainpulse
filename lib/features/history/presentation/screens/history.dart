@@ -155,8 +155,7 @@ class _HistoryState extends State<History> {
                 ),
                 const GapH(height: 20),
                 Expanded(
-                  child:
-                  BlocConsumer<GetAllPatientsCubit, GetAllPatientsState>(
+                  child: BlocConsumer<GetAllPatientsCubit, GetAllPatientsState>(
                     listenWhen: (previous, current) {
                       return current is ErrorDeletePatient ||
                           current is SuccessDeletePatient ||
@@ -190,6 +189,7 @@ class _HistoryState extends State<History> {
                       }
                       if (state is SuccessDeletePatient) {
                         context.pop();
+                        context.read<GetAllPatientsCubit>().getAllPatients();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: const Row(
@@ -296,7 +296,10 @@ class _HistoryState extends State<History> {
                                       children: [
                                         SlidableAction(
                                           onPressed: (context) {
-                                            context.read<GetAllPatientsCubit>().deletePatient(patient.id.toString());
+                                            context
+                                                .read<GetAllPatientsCubit>()
+                                                .deletePatient(
+                                                    patient.id.toString());
                                           },
                                           backgroundColor:
                                               const Color(0xFFFE4A49),
@@ -313,8 +316,11 @@ class _HistoryState extends State<History> {
                                       onTap: () {
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute( builder: (context) {
-                                              return PatientDetails(patientDetails: patient,);
+                                          MaterialPageRoute(
+                                            builder: (context) {
+                                              return PatientDetails(
+                                                patientDetails: patient,
+                                              );
                                             },
                                           ),
                                         );
