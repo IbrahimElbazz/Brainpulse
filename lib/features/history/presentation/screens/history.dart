@@ -155,8 +155,7 @@ class _HistoryState extends State<History> {
                 ),
                 const GapH(height: 20),
                 Expanded(
-                  child:
-                  BlocConsumer<GetAllPatientsCubit, GetAllPatientsState>(
+                  child: BlocConsumer<GetAllPatientsCubit, GetAllPatientsState>(
                     listenWhen: (previous, current) {
                       return current is ErrorDeletePatient ||
                           current is SuccessDeletePatient ||
@@ -190,6 +189,7 @@ class _HistoryState extends State<History> {
                       }
                       if (state is SuccessDeletePatient) {
                         context.pop();
+                        context.read<GetAllPatientsCubit>().getAllPatients();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: const Row(
@@ -234,8 +234,17 @@ class _HistoryState extends State<History> {
                         orElse: () => const SizedBox.shrink(),
                         successGetAllPatients: (patients) {
                           _allPatients = patients.patients;
-                          if (_filteredPatients.isEmpty) {
+                          final currentQuery = _searchController.text;
+                          if (currentQuery.isEmpty) {
                             _filteredPatients = _allPatients;
+                          } else {
+                            _filteredPatients = _allPatients.where((patient) {
+                              final name = patient.name.toLowerCase();
+                              final phone = patient.phoneNumber.toLowerCase();
+                              final searchQuery = currentQuery.toLowerCase();
+                              return name.contains(searchQuery) ||
+                                  phone.contains(searchQuery);
+                            }).toList();
                           }
                           if (_filteredPatients.isEmpty) {
                             return Center(
@@ -296,7 +305,10 @@ class _HistoryState extends State<History> {
                                       children: [
                                         SlidableAction(
                                           onPressed: (context) {
-                                            context.read<GetAllPatientsCubit>().deletePatient(patient.id.toString());
+                                            context
+                                                .read<GetAllPatientsCubit>()
+                                                .deletePatient(
+                                                    patient.id.toString());
                                           },
                                           backgroundColor:
                                               const Color(0xFFFE4A49),
@@ -313,8 +325,11 @@ class _HistoryState extends State<History> {
                                       onTap: () {
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute( builder: (context) {
-                                              return PatientDetails(patientDetails: patient,);
+                                          MaterialPageRoute(
+                                            builder: (context) {
+                                              return PatientDetails(
+                                                patientDetails: patient,
+                                              );
                                             },
                                           ),
                                         );

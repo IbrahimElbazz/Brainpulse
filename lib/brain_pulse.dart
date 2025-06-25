@@ -7,7 +7,7 @@ import 'package:brain_pulse/features/auth/register/data/repo/register_repo_imple
 import 'package:brain_pulse/features/auth/register/presentation/controller/cubit/register_cubit.dart';
 import 'package:brain_pulse/features/data_by_doctor/logic/cubit/send_data_by_doctor_cubit.dart';
 import 'package:brain_pulse/features/history/logic/cubit/get_all_patients_cubit.dart';
-import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_image_cubit.dart';
+import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_file_cubit.dart';
 import 'package:brain_pulse/features/privacy_and_security/data/repo/privacy_repo_imple.dart';
 import 'package:brain_pulse/features/privacy_and_security/presentation/controller/cubit/changepass/change_pass_cubit.dart';
 import 'package:brain_pulse/features/privacy_and_security/presentation/controller/cubit/deletedoctor/delete_doctor_cubit.dart';
@@ -57,7 +57,7 @@ class BrainPulse extends StatelessWidget {
                 registerRepoImple: getIt.get<RegisterRepoImple>()),
           ),
           BlocProvider(
-            create: (context) => getIt<PredictionImageCubit>(),
+            create: (context) => getIt<PredictionFileCubit>(),
           ),
         ],
         child: Consumer2<ThemeProvider, LocaleProvider>(

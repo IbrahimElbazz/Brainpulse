@@ -93,16 +93,16 @@ class _MyAccountState extends State<MyAccount> {
                         context.pushNamed('/PrivacyAndSecurity');
                       },
                     ),
-                    CardItemInMyAccount(
-                      icon: 'assets/svgs/dark-theme-svgrepo-com.svg',
-                      //colorBackgroundIcon: ColorsApp.primary,
-                      colorsvg: ColorsApp.primary,
-                      title: 'Theme Mode'.tr(),
-                      subTitle: 'Dark , Light Mode '.tr(),
-                      onTap: () {
-                        context.pushNamed('/themedata');
-                      },
-                    ),
+                    // CardItemInMyAccount(
+                    //   icon: 'assets/svgs/dark-theme-svgrepo-com.svg',
+                    //   //colorBackgroundIcon: ColorsApp.primary,
+                    //   colorsvg: ColorsApp.primary,
+                    //   title: 'Theme Mode'.tr(),
+                    //   subTitle: 'Dark , Light Mode '.tr(),
+                    //   onTap: () {
+                    //     context.pushNamed('/themedata');
+                    //   },
+                    // ),
                     CardItemInMyAccountImage(
                       icon: 'assets/images/language.png',
                       title: 'Language'.tr(),

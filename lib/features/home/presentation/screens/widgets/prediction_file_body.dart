@@ -29,7 +29,7 @@ class _PredictionResultScreenState extends State<FilePredictionBody> {
     final input = File(csvPath);
     final bytes = await input.readAsBytes();
 
-    final encoder = GZipEncoder();
+    const encoder = GZipEncoder();
     final compressedData = encoder.encode(bytes);
 
     final outputPath = p.setExtension(csvPath, '.gz');

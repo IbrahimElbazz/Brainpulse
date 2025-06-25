@@ -12,18 +12,19 @@ class AddPatientRequestModel {
   double? irda;
   double? seizure;
   double? other;
+  final String Notes;
 
-  AddPatientRequestModel({
-    this.name,
-    this.phoneNumber,
-    this.age,
-    this.gpd,
-    this.grda,
-    this.ipd,
-    this.irda,
-    this.seizure,
-    this.other,
-  });
+  AddPatientRequestModel(
+      {this.name,
+      this.phoneNumber,
+      this.age,
+      this.gpd,
+      this.grda,
+      this.ipd,
+      this.irda,
+      this.seizure,
+      this.other,
+      required this.Notes});
 
   Map<String, dynamic> toJson() => _$AddPatientRequestModelToJson(this);
 }

@@ -66,14 +66,16 @@ class SaveAndCreatePatient extends StatelessWidget {
               context.pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: ColorsApp.darkRed,
                   content: Center(
                     child: Text(
                       'please try again'.tr(),
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: ColorsApp.white,
-                          ),
+                      style: const TextStyle(color: Colors.white),
                     ),
+                  ),
+                  backgroundColor: Colors.red,
+                  behavior: SnackBarBehavior.floating,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               );
@@ -82,17 +84,18 @@ class SaveAndCreatePatient extends StatelessWidget {
               context.pop();
               context.pop();
               context.pop();
-              context.pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  backgroundColor: ColorsApp.green,
                   content: Center(
                     child: Text(
                       'add success'.tr(),
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: ColorsApp.white,
-                          ),
+                      style: const TextStyle(color: Colors.white),
                     ),
+                  ),
+                  backgroundColor: Colors.green,
+                  behavior: SnackBarBehavior.floating,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               );
@@ -246,6 +249,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                                         irda: parsePrediction(prediction[3]),
                                         seizure: parsePrediction(prediction[4]),
                                         other: parsePrediction(prediction[5]),
+                                        Notes: '',
                                       ),
                                     );
                               } else if (prediction.length == 1 &&
@@ -264,6 +268,7 @@ class SaveAndCreatePatient extends StatelessWidget {
                                         irda: 0.0,
                                         seizure: 0.0,
                                         other: 1.0,
+                                        Notes: '',
                                       ),
                                     );
                               } else {

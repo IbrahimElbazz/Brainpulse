@@ -14,6 +14,7 @@ class Onboarding extends StatefulWidget {
   @override
   State<Onboarding> createState() => _OnboardingState();
 }
+
 class _OnboardingState extends State<Onboarding> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -69,7 +70,8 @@ class _OnboardingState extends State<Onboarding> {
                 ),
                 SizedBox(width: 5.w),
               ],
-            ),),
+            ),
+          ),
           Positioned(
             top: 710.h,
             left: 15.w,
@@ -81,7 +83,7 @@ class _OnboardingState extends State<Onboarding> {
                 color: const Color(0xFF0CAFB4),
                 text: _currentPage == 0
                     ? 'I want to know more'.tr()
-                    : 'Let\'.tr()s go',
+                    : 'Let\'s go'.tr(),
                 onTap: () {
                   _pageController.animateToPage(
                     _currentPage + 1,
@@ -91,7 +93,10 @@ class _OnboardingState extends State<Onboarding> {
                   _currentPage == 1
                       ? context.pushNamed(Routes.loginScreen)
                       : null;
-                },),),),
+                },
+              ),
+            ),
+          ),
           Positioned(
             top: 800.h,
             left: 15.w,
@@ -99,6 +104,10 @@ class _OnboardingState extends State<Onboarding> {
               color: Colors.white,
               width: 375.w,
               height: 20,
-            ),),],),);
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

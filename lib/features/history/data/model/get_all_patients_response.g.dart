@@ -66,7 +66,6 @@ MedicalRecord _$MedicalRecordFromJson(Map<String, dynamic> json) =>
       patientId: (json['patientId'] as num).toInt(),
     );
 
-
 Map<String, dynamic> _$MedicalRecordToJson(MedicalRecord instance) =>
     <String, dynamic>{
       r'$id': instance.recordId,

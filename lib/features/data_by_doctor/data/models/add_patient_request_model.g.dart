@@ -18,6 +18,7 @@ AddPatientRequestModel _$AddPatientRequestModelFromJson(
       irda: (json['irda'] as num?)?.toDouble(),
       seizure: (json['seizure'] as num?)?.toDouble(),
       other: (json['other'] as num?)?.toDouble(),
+      Notes: json['Notes'] as String,
     );
 
 Map<String, dynamic> _$AddPatientRequestModelToJson(
@@ -32,4 +33,5 @@ Map<String, dynamic> _$AddPatientRequestModelToJson(
       'irda': instance.irda,
       'seizure': instance.seizure,
       'other': instance.other,
+      'Notes': instance.Notes,
     };
