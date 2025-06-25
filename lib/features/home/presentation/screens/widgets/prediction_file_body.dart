@@ -177,12 +177,17 @@ class _PredictionResultScreenState extends State<FilePredictionBody> {
                               SizedBox(
                                 width: 120,
                                 child: ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(context,
+                                  onPressed: () async {
+                                    final result = await Navigator.push(context,
                                         MaterialPageRoute(builder: (_) {
                                       return SaveAndCreatePatient(
                                           prediction: [state.prediction]);
                                     }));
+                                    if (result == true && context.mounted) {
+                                      context
+                                          .read<PredictionFileCubit>()
+                                          .reset();
+                                    }
                                   },
                                   style: ElevatedButton.styleFrom(
                                     padding:

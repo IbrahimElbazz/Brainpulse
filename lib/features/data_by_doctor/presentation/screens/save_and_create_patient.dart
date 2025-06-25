@@ -81,9 +81,10 @@ class SaveAndCreatePatient extends StatelessWidget {
               );
             },
             successAddPatient: (data) {
-              context.pop();
-              context.pop();
-              context.pop();
+              // context.pop();
+              // Navigator.pop(context);
+              Navigator.pop(context);
+              Navigator.pop(context, true);
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Center(

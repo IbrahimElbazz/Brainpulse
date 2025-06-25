@@ -25,6 +25,10 @@ class PredictionFileCubit extends Cubit<PredictionFileState> {
       },
     );
   }
+
+  void reset() {
+    emit(InitialPredictionFileState());
+  }
 }
 
 // class PredictionImageCubit extends Cubit<PredictionImageState> {
