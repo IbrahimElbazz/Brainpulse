@@ -86,28 +86,65 @@ class AuthApiService {
     }
   }
 
-  Future<Map<String, dynamic>> postimage(
-      {required String endpoint, required FormData data}) async {
+  // Future<Map<String, dynamic>> postimage(
+  //     {required String endpoint, required FormData data}) async {
+  //   final dio = await DioFactory.getDio();
+  //   try {
+  //     var response = await dio.post("$_baseUrl$endpoint",
+  //         data: data,
+  //         options: Options(headers: {
+  //           ...dio.options.headers,
+  //           'Content-Type': 'multipart/form-data',
+  //         }));
+
+  //     if (response.data is String) {
+  //       try {
+  //         return {"response": response.data};
+  //       } catch (e) {
+  //         throw Exception("Invalid JSON response: ${e.toString()}");
+  //       }
+  //     }
+
+  //     return response.data;
+  //   } catch (e) {
+  //     throw Exception("Error during image POST request: ${e.toString()}");
+  //   }
+  // }
+  Future<Response> postEEGFile({
+    required String filePath,
+  }) async {
     final dio = await DioFactory.getDio();
+    const String url =
+        'https://manoehab-001-site1.ltempurl.com/api/EEGPrediction/predict-gzip?isRaw=true';
+
+    FormData formData = FormData.fromMap({
+      'fileUpload': await MultipartFile.fromFile(
+        filePath,
+        filename: 'eeg.csv.gz',
+      ),
+    });
+
     try {
-      var response = await dio.post("$_baseUrl$endpoint",
-          data: data,
-          options: Options(headers: {
-            ...dio.options.headers,
-            'Content-Type': 'multipart/form-data',
-          }));
+      final response = await dio.post(
+        url,
+        data: formData,
+        options: Options(
+          contentType: 'multipart/form-data',
+          followRedirects: true,
+          maxRedirects: 5,
+          validateStatus: (status) => status != null && status < 500,
+          headers: {
+            'Accept': 'application/json',
+          },
+        ),
+      );
 
-      if (response.data is String) {
-        try {
-          return {"response": response.data};
-        } catch (e) {
-          throw Exception("Invalid JSON response: ${e.toString()}");
-        }
-      }
-
-      return response.data;
+      print('✅ statusCode: ${response.statusCode}');
+      print('✅ response.data: ${response.data}');
+      return response;
     } catch (e) {
-      throw Exception("Error during image POST request: ${e.toString()}");
+      print('❌ DioException: $e');
+      rethrow;
     }
   }
 }
