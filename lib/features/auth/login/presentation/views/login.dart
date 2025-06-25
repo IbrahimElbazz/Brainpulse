@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/mybutton.dart';
@@ -51,7 +53,7 @@ class LogInScreen extends StatelessWidget {
                   ),
                   gapH(24),
                   Text(
-                    'Welcome Back',
+                    'Welcome Back'.tr(),
                     style: TextStyleApp.font32wieght700ColorBlue.copyWith(
                       color: ColorsApp.black,
                       fontWeight: FontWeight.w500,
@@ -76,11 +78,11 @@ class LogInScreen extends StatelessWidget {
                   //           value: isChecked,
                   //           onChanged: (_) {},
                   //         ),
-                  //         Text('Remember me',
+                  //         Text('Remember me'.tr(),
                   //             style: TextStyleApp.font12weight400colorGrey),
                   //       ],
                   //     ),
-                  //     Text('Forget Password?',
+                  //     Text('Forget Password?'.tr(),
                   //         style: TextStyleApp.font12weight400colorGrey
                   //             .copyWith(color: ColorsApp.primary)),
                   //   ],
@@ -96,7 +98,7 @@ class LogInScreen extends StatelessWidget {
                               read.loginvalidate();
                             }
                           },
-                          text: 'Login',
+                          text: 'Login'.tr(),
                         )
                       : TextButton(
                           onPressed: () {},

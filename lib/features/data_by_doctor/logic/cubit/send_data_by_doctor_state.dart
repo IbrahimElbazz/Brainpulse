@@ -1,5 +1,3 @@
-import 'package:brain_pulse/features/data_by_doctor/data/models/send_point_request_model.dart';
-import 'package:brain_pulse/features/data_by_doctor/data/models/send_point_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'send_data_by_doctor_state.freezed.dart';

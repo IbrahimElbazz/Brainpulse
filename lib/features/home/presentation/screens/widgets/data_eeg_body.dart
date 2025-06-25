@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
@@ -24,7 +26,7 @@ class DataEegBody extends StatelessWidget {
           ),
           const EegDataContainer(),
           CustomButton(
-            text: "Save Result",
+            text: 'Save Result'.tr(),
             width: 150.w,
             height: 40.h,
             color: ColorsApp.primary,
@@ -36,7 +38,7 @@ class DataEegBody extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16.r)),
                         title: Text(
-                          "Do you want save result?",
+                          'Do you want save result?'.tr(),
                           style: TextStyleApp.font16weight600colorBlack,
                           textAlign: TextAlign.center,
                         ),
@@ -47,7 +49,8 @@ class DataEegBody extends StatelessWidget {
                                 height: 120.h),
                             SizedBox(height: 16.h),
                             Text(
-                              "You can save this EEG analysis to a new or existing patient file.",
+                              'You can save this EEG analysis to a new or existing patient file.'
+                                  .tr(),
                               style: TextStyleApp.font12weight400colorGrey,
                               textAlign: TextAlign.center,
                             ),
@@ -63,7 +66,7 @@ class DataEegBody extends StatelessWidget {
                                 TextButton(
                                   onPressed: () => Navigator.of(context).pop(),
                                   child: Text(
-                                    "Existing Patient",
+                                    'Existing Patient'.tr(),
                                     style: TextStyleApp.font14weight400colorGrey
                                         .copyWith(color: ColorsApp.black),
                                   ),
@@ -78,7 +81,7 @@ class DataEegBody extends StatelessWidget {
                                   ),
                                   onPressed: () {},
                                   child: Text(
-                                    "New Patient",
+                                    'New Patient'.tr(),
                                     style: TextStyleApp.font14weight400colorGrey
                                         .copyWith(color: ColorsApp.white),
                                   ),

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:flutter/material.dart';
@@ -30,14 +32,14 @@ class EegDataContainer extends StatelessWidget {
             height: 10.h,
           ),
           Text(
-            "EEG Result",
+            'EEG Result'.tr(),
             style: TextStyleApp.font22weight400colorRed.copyWith(
                 color: ColorsApp.primary, fontWeight: FontWeight.bold),
           ),
           Padding(
             padding: EdgeInsets.only(right: 198.0.w, top: 30.h),
             child: Text(
-              "EEG Id: 87644",
+              'EEG Id: 87644'.tr(),
               style: TextStyleApp.font18weight400colorRed
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
@@ -45,7 +47,7 @@ class EegDataContainer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 120.0.w, top: 15.h),
             child: Text(
-              "Seizure Vote: 0.087644",
+              'Seizure Vote: 0.087644'.tr(),
               style: TextStyleApp.font18weight400colorRed
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
@@ -53,7 +55,7 @@ class EegDataContainer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 155.0.w, top: 15.h),
             child: Text(
-              "Ipd Vote: 0.087644",
+              'Ipd Vote: 0.087644'.tr(),
               style: TextStyleApp.font18weight400colorRed
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
@@ -61,7 +63,7 @@ class EegDataContainer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 155.0.w, top: 15.h),
             child: Text(
-              "Gpd Vote: 0.087644",
+              'Gpd Vote: 0.087644'.tr(),
               style: TextStyleApp.font18weight400colorRed
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
@@ -69,7 +71,7 @@ class EegDataContainer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 155.0.w, top: 15.h),
             child: Text(
-              "Irda Vote: 0.087644",
+              'Irda Vote: 0.087644'.tr(),
               style: TextStyleApp.font18weight400colorRed
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
@@ -77,7 +79,7 @@ class EegDataContainer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 150.0.w, top: 15.h),
             child: Text(
-              "Grda Vote: 0.087644",
+              'Grda Vote: 0.087644'.tr(),
               style: TextStyleApp.font18weight400colorRed
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
@@ -85,7 +87,7 @@ class EegDataContainer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 140.0.w, top: 15.h),
             child: Text(
-              "Other Vote: 0.087644",
+              'Other Vote: 0.087644'.tr(),
               style: TextStyleApp.font18weight400colorRed
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),

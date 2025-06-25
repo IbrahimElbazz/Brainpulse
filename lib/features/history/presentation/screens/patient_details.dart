@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
 import 'package:brain_pulse/core/helpers/spacing.dart';
@@ -84,7 +86,7 @@ class _PatientDetailsState extends State<PatientDetails>
               ),
               gapH(4),
               Text(
-                'Patient ID: ${widget.patientDetails.id}',
+                'Patient ID: ${widget.patientDetails.id}'.tr(),
                 style: TextStyle(
                   fontSize: 14.sp,
                   color: Colors.grey[600],
@@ -96,14 +98,16 @@ class _PatientDetailsState extends State<PatientDetails>
         _buildActionButton(
           icon: Icons.message_outlined,
           onTap: () {
-            launchUrl(Uri.parse('sms:${widget.patientDetails.phoneNumber}'));
+            launchUrl(
+                Uri.parse('sms:${widget.patientDetails.phoneNumber}'.tr()));
           },
         ),
         gapW(8),
         _buildActionButton(
           icon: Icons.phone_in_talk_outlined,
           onTap: () {
-            launchUrl(Uri.parse('tel:${widget.patientDetails.phoneNumber}'));
+            launchUrl(
+                Uri.parse('tel:${widget.patientDetails.phoneNumber}'.tr()));
           },
         ),
       ],
@@ -165,9 +169,11 @@ class _PatientDetailsState extends State<PatientDetails>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildInfoRow('Phone', widget.patientDetails.phoneNumber),
+                    _buildInfoRow(
+                        'Phone'.tr(), widget.patientDetails.phoneNumber),
                     gapH(12),
-                    _buildInfoRow('Age', '${widget.patientDetails.age} years'),
+                    _buildInfoRow(
+                        'Age'.tr(), '${widget.patientDetails.age} years'.tr()),
                   ],
                 ),
               ),
@@ -179,10 +185,10 @@ class _PatientDetailsState extends State<PatientDetails>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildStatItem('Total Records',
-                  '${widget.patientDetails.history.records.length}'),
+              _buildStatItem('Total Records'.tr(),
+                  '${widget.patientDetails.history.records.length}'.tr()),
               _buildStatItem(
-                  'Last Update',
+                  'Last Update'.tr(),
                   widget.patientDetails.history.records.isNotEmpty
                       ? widget.patientDetails.history.records.first.dateRecorded
                           .toString()
@@ -226,7 +232,7 @@ class _PatientDetailsState extends State<PatientDetails>
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Medical History',
+              'Medical History'.tr(),
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.bold,
@@ -304,7 +310,7 @@ class _PatientDetailsState extends State<PatientDetails>
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Text(
-                    'Record #${index + 1}',
+                    'Record #${index + 1}'.tr(),
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: Colors.white,
@@ -319,23 +325,23 @@ class _PatientDetailsState extends State<PatientDetails>
             padding: EdgeInsets.all(20.r),
             child: Column(
               children: [
-                _buildMetricRow(
-                    'GPD', '${(record.gpd * 100).toStringAsFixed(1)}%'),
+                _buildMetricRow('GPD'.tr(),
+                    '${(record.gpd * 100).toStringAsFixed(1)}%'.tr()),
                 gapH(12),
-                _buildMetricRow(
-                    'GRDA', '${(record.grda * 100).toStringAsFixed(1)}%'),
+                _buildMetricRow('GRDA'.tr(),
+                    '${(record.grda * 100).toStringAsFixed(1)}%'.tr()),
                 gapH(12),
-                _buildMetricRow(
-                    'LPD', '${(record.ipd * 100).toStringAsFixed(1)}%'),
+                _buildMetricRow('LPD'.tr(),
+                    '${(record.ipd * 100).toStringAsFixed(1)}%'.tr()),
                 gapH(12),
-                _buildMetricRow(
-                    'LRDA', '${(record.irda * 100).toStringAsFixed(1)}%'),
+                _buildMetricRow('LRDA'.tr(),
+                    '${(record.irda * 100).toStringAsFixed(1)}%'.tr()),
                 gapH(12),
-                _buildMetricRow(
-                    'Seizure', '${(record.seizure * 100).toStringAsFixed(1)}%'),
+                _buildMetricRow('Seizure'.tr(),
+                    '${(record.seizure * 100).toStringAsFixed(1)}%'.tr()),
                 gapH(12),
-                _buildMetricRow(
-                    'Other', '${(record.other * 100).toStringAsFixed(1)}%'),
+                _buildMetricRow('Other'.tr(),
+                    '${(record.other * 100).toStringAsFixed(1)}%'.tr()),
               ],
             ),
           ),
@@ -348,7 +354,7 @@ class _PatientDetailsState extends State<PatientDetails>
     return Row(
       children: [
         Text(
-          '$label: ',
+          '$label: '.tr(),
           style: TextStyle(
             fontSize: 16.sp,
             color: ColorsApp.primary,

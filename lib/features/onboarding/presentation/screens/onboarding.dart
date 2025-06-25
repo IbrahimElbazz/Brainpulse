@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/routing/routers.dart';
 import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
@@ -44,7 +46,7 @@ class _OnboardingState extends State<Onboarding> {
                   height: 40.h,
                   textColor: const Color(0xFF07929A),
                   color: Colors.transparent,
-                  text: 'skip',
+                  text: 'skip'.tr(),
                   onTap: () {
                     context.pushNamed(Routes.loginScreen);
                   },
@@ -77,7 +79,9 @@ class _OnboardingState extends State<Onboarding> {
                 width: 350.w,
                 height: 50.h,
                 color: const Color(0xFF0CAFB4),
-                text: _currentPage == 0 ? 'I want to know more' : 'Let\'s go',
+                text: _currentPage == 0
+                    ? 'I want to know more'.tr()
+                    : 'Let\'.tr()s go',
                 onTap: () {
                   _pageController.animateToPage(
                     _currentPage + 1,

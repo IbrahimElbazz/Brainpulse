@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/mytextfield.dart';
 import 'package:brain_pulse/features/auth/login/presentation/controller/cubit/login_cubit.dart';
@@ -26,11 +28,11 @@ class _EmailAndPassState extends State<EmailAndPass> {
           MyTextField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid email';
+                return 'Please enter a valid email'.tr();
               }
             },
             controller: read.email,
-            hint: 'Email',
+            hint: 'Email'.tr(),
             icon: const Icon(
               Ionicons.mail_outline,
               color: Colors.grey,
@@ -42,12 +44,12 @@ class _EmailAndPassState extends State<EmailAndPass> {
           MyTextField(
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Please enter a valid pass';
+                return 'Please enter a valid pass'.tr();
               }
             },
             controller: read.password,
             showText: isObscureText ? true : false,
-            hint: "Password",
+            hint: 'Password'.tr(),
             icon: GestureDetector(
               onTap: () {
                 setState(() {

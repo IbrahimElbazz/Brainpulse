@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import '../../../../core/Theming/colors.dart';
 import '../../../../core/Widgets/custom_circle_button_pop.dart';
@@ -13,7 +15,7 @@ class ShowMyProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('my Profile',
+        title: Text('my Profile'.tr(),
             style: Theme.of(context).appBarTheme.titleTextStyle),
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         leading: const CustomCircleButtonPop(),
@@ -23,7 +25,7 @@ class ShowMyProfile extends StatelessWidget {
               Icons.edit,
               color: Theme.of(context).appBarTheme.iconTheme?.color,
             ),
-            tooltip: 'Open Edit Screen',
+            tooltip: 'Open Edit Screen'.tr(),
             onPressed: () {
               Navigator.push(
                 context,

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
@@ -46,7 +48,7 @@ class DataByDoctorScreen extends StatelessWidget {
                   backgroundColor: ColorsApp.primary,
                   content: Center(
                     child: Text(
-                      'please try again',
+                      'please try again'.tr(),
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
@@ -157,7 +159,7 @@ class DataByDoctorScreen extends StatelessWidget {
                           ),
                           gapW(40),
                           Text(
-                            'Enter points',
+                            'Enter points'.tr(),
                             style: TextStyle(
                               fontSize: 24.sp,
                               fontWeight: FontWeight.bold,
@@ -192,103 +194,103 @@ class DataByDoctorScreen extends StatelessWidget {
                     children: [
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p1,
-                        number: ' 1 ',
+                        number: ' 1 '.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p2,
-                        number: ' 2 ',
+                        number: ' 2 '.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p3,
-                        number: ' 3 ',
+                        number: ' 3 '.tr(),
                       ),
                       gapH(10),
 
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p4,
-                        number: ' 4 ',
+                        number: ' 4 '.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p5,
-                        number: ' 5 ',
+                        number: ' 5 '.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p6,
-                        number: ' 6 ',
+                        number: ' 6 '.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p7,
-                        number: ' 7 ',
+                        number: ' 7 '.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p8,
-                        number: ' 8',
+                        number: ' 8'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p9,
-                        number: ' 9 ',
+                        number: ' 9 '.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p10,
-                        number: '10',
+                        number: '10'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p11,
-                        number: '11',
+                        number: '11'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p12,
-                        number: '12',
+                        number: '12'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p13,
-                        number: '13',
+                        number: '13'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p14,
-                        number: '14',
+                        number: '14'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p15,
-                        number: '15',
+                        number: '15'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p16,
-                        number: '16',
+                        number: '16'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p17,
-                        number: '17',
+                        number: '17'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p18,
-                        number: '18',
+                        number: '18'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p19,
-                        number: '19',
+                        number: '19'.tr(),
                       ),
                       gapH(10),
                       RowTextWithTextFieldGetDataByDoctor(
                         controller: context.read<SendDataByDoctorCubit>().p20,
-                        number: '20',
+                        number: '20'.tr(),
                       ),
                     ],
                   ),
@@ -311,7 +313,7 @@ class DataByDoctorScreen extends StatelessWidget {
                 onTap: () {
                   context.read<SendDataByDoctorCubit>().sendDataByDoctor();
                 },
-                text: 'Send',
+                text: 'Send'.tr(),
                 width: double.infinity,
                 height: 50.h,
                 textColor: ColorsApp.white,

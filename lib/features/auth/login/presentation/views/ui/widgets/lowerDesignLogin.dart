@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/features/auth/login/presentation/views/ui/widgets/Sinup.dart';
 import 'package:brain_pulse/features/auth/register/presentation/views/widgets/terms_and_conditioins.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +28,7 @@ class _lowerDesignLoginState extends State<Lowerdesignlogin> {
         //     Padding(
         //       padding: EdgeInsets.symmetric(horizontal: 8.0),
         //       child: Text(
-        //         'Or sign in with',
+        //         'Or sign in with'.tr(),
         //         style: TextStyle(color: Colors.black54),
         //       ),
         //     ),
@@ -50,8 +52,8 @@ class _lowerDesignLoginState extends State<Lowerdesignlogin> {
           height: screenSize.height * .04,
         ),
         SignUp(
-          text3: "Don't Have any Account? ",
-          text4: "Create Account",
+          text3: 'Don\'t Have any Account? '.tr(),
+          text4: 'Create Account'.tr(),
         ),
       ],
     );

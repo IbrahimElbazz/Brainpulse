@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/features/history/presentation/widgets/user_card_info.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
@@ -19,8 +21,8 @@ class HistoryShimmer extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             child: const UserCardInfo(
-              name: "...",
-              phone: "...",
+              name: '...',
+              phone: '...',
             ),
           );
         },

@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/Theming/colors.dart';
@@ -29,7 +31,7 @@ class MyProfileWidget extends StatelessWidget {
             ),
             gapH(5.h),
             Text(
-              "my profile",
+              'my profile'.tr(),
               style: TextStyleApp.font14weight400colorGrey
                   .copyWith(color: ColorsApp.blue, fontSize: 25),
             ),

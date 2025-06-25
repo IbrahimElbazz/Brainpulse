@@ -1,5 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 
-// import 'dart:ffi';
+// import 'dart:ffi'.tr();
 
 // import 'package:brain_pulse/core/Theming/colors.dart';
 // import 'package:brain_pulse/features/home/presentation/screens/widgets/custom_button.dart';
@@ -29,7 +30,7 @@
 //           Padding(
 //             padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 20.w),
 //             child: CustomButton(
-//               text: "Send File",
+//               text: 'Send File'.tr(),
 //               onTap: () {},
 //               width: double.infinity,
 //               height: 80.h,
@@ -38,7 +39,7 @@
 //           Padding(
 //             padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 20.w),
 //             child: CustomButton(
-//               text: "Cancel",
+//               text: 'Cancel'.tr(),
 //               onTap: () {
 //                 Navigator.pop(context);
 //               },

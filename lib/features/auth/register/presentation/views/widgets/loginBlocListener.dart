@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 // import 'package:docdoc/Core/Routing/routes.dart';
 // import 'package:docdoc/Core/Theming/text_style.dart';
 // import 'package:docdoc/Core/helpers/extentions.dart';
@@ -51,11 +53,11 @@
 //       context: context,
 //       builder: (BuildContext context) {
 //         return AlertDialog(
-//           title: const Text('Signup Successful'),
+//           title: const Text('Signup Successful'.tr()),
 //           content: const SingleChildScrollView(
 //             child: ListBody(
 //               children: <Widget>[
-//                 Text('Congratulations, you have signed up successfully!'),
+//                 Text('Congratulations, you have signed up successfully!'.tr()),
 //               ],
 //             ),
 //           ),
@@ -69,7 +71,7 @@
 //               onPressed: () {
 //                 context.pushNamed(Routes.login);
 //               },
-//               child: const Text('Continue'),
+//               child: const Text('Continue'.tr()),
 //             ),
 //           ],
 //         );
@@ -97,7 +99,7 @@
 //               context.pop();
 //             },
 //             child: Text(
-//               'Got it',
+//               'Got it'.tr(),
 //               style: TextStyleApp.font14weight400colorGrey,
 //             ),
 //           ),

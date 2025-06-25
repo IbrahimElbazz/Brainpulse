@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:brain_pulse/core/Widgets/pop_circle_button.dart';
@@ -13,8 +15,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
-
-import '../../../../generated/app_localizations.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -63,7 +63,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               read.phoneNumber.clear();
 
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(AppLocalizations.of(context)!.profile_updated_successfully)),
+                SnackBar(content: Text('Profile updated successfully'.tr())),
               );
               context.pop();
             } else if (state is FailureEditDoctorState) {
@@ -81,13 +81,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   child: Column(
                     children: <Widget>[
                       AppBar(
-                        title: Text(AppLocalizations.of(context)!.updateProfile),
+                        title: Text('Update Profile'.tr()),
                         leading: const PopCircleButton(),
                         centerTitle: true,
                       ),
                       const GapH(height: 40),
                       Hero(
-                        tag: 'edit_image',
+                        tag: 'edit_image'.tr(),
                         child: CircleAvatar(
                           radius: 60.r,
                           backgroundColor: Colors.white,
@@ -96,81 +96,72 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                       ),
                       const GapH(height: 30),
-                      Directionality(
-                        textDirection: TextDirection.ltr,
-                        child: textFieldCustom(
-                          hintText: doctorName,
-                          controller: read.name,
-                          iconP: IconButton(
-                            icon: SvgPicture.asset('assets/svgs/user.svg'),
-                            onPressed: () {},
-                          ),
-                          validator: (value) {
-                            if (value == null || value.trim().isEmpty) {
-                              return AppLocalizations.of(context)!.enter_name;
-                            }
-                            return null;
-                          },
+                      textFieldCustom(
+                        hintText: doctorName,
+                        controller: read.name,
+                        iconP: IconButton(
+                          icon: SvgPicture.asset('assets/svgs/user.svg'),
+                          onPressed: () {},
                         ),
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please Enter Name'.tr();
+                          }
+                          return null;
+                        },
                       ),
                       const GapH(height: 20),
-                      Directionality(
-                        textDirection: TextDirection.ltr,
-                        child: textFieldCustom(
-                          hintText: email,
-                          controller: read.email,
-                          iconP: IconButton(
-                            icon: SvgPicture.asset('assets/svgs/mail.svg'),
-                            onPressed: () {},
-                          ),
-                          validator: (value) {
-                            if (value == null || value.trim().isEmpty) {
-                              return AppLocalizations.of(context)!.enter_email;
-                            }
-                            return null;
-                          },
+                      textFieldCustom(
+                        hintText: email,
+                        controller: read.email,
+                        iconP: IconButton(
+                          icon: SvgPicture.asset('assets/svgs/mail.svg'),
+                          onPressed: () {},
                         ),
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please Enter Email'.tr();
+                          }
+                          return null;
+                        },
                       ),
                       const GapH(height: 20),
-                      Directionality(
-                        textDirection: TextDirection.ltr,
-                        child: IntlPhoneField(
-                          controller: read.phoneNumber,
-                          dropdownIconPosition: IconPosition.trailing,
-                          dropdownTextStyle: TextStyle(
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                            fontSize: 16.sp,
-                          ),
-                          decoration: InputDecoration(
-                            labelStyle: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
-                            labelText: phonenum,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                          ),
-                          validator: (value) {
-                            if (value == null || value.number.trim().isEmpty) {
-                              return AppLocalizations.of(context)!.enter_phone;
-                            }
-                            return null;
-                          },
-                          initialCountryCode: 'EG',
-                          showCountryFlag: false,
-                          keyboardType: TextInputType.number,
-                          dropdownIcon: const Icon(
-                            Icons.keyboard_arrow_down_outlined,
+                      IntlPhoneField(
+                        //controller: read.phoneNumber,
+                        // controller: read.phoneNumber,
+                        dropdownIconPosition: IconPosition.trailing,
+                        dropdownTextStyle: TextStyle(
+                          color: const Color.fromARGB(255, 0, 0, 0),
+                          fontSize: 16.sp,
+                        ),
+                        decoration: InputDecoration(
+                          labelStyle: TextStyle(
                             color: Colors.grey,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w400,
                           ),
-                          onChanged: (PhoneNumber phone) {
-                            read.phoneNumber.text = phone.completeNumber;
-                          },
+                          labelText: phonenum,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.number.trim().isEmpty) {
+                            return 'Please Enter Name'.tr();
+                          }
+                          return null;
+                        },
+                        initialCountryCode: 'EG'.tr(),
+                        showCountryFlag: false,
+                        keyboardType: TextInputType.number,
+                        dropdownIcon: const Icon(
+                          Icons.keyboard_arrow_down_outlined,
+                          color: Colors.grey,
+                        ),
+                        onChanged: (PhoneNumber phone) {
+                          read.phoneNumber.text = phone.completeNumber;
+                        },
                       ),
-
                       const GapH(height: 150),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -181,8 +172,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             child: CustomButtonAcc(
                                 color: ColorsApp.primary,
                                 text: state is LoadingEditDoctorState
-                                    ? AppLocalizations.of(context)!.saving
-                                    : AppLocalizations.of(context)!.save,
+                                    ? 'Saving...'.tr()
+                                    : 'Save'.tr(),
                                 onTap: () {
                                   if (state is! LoadingEditDoctorState) {
                                     read.editDoctorvalidate(
@@ -199,7 +190,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             child: CustomButtonAcc(
                               color: Colors.white,
                               textColor: const Color(0xFFAAB9C5),
-                              text: AppLocalizations.of(context)!.cancel,
+                              text: 'Cancel'.tr(),
                               onTap: () {
                                 context.pop();
                               },

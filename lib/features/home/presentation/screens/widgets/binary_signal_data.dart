@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/gap.dart';
 import 'package:flutter/material.dart';
@@ -21,44 +23,49 @@ class _BinarySignalDataState extends State<BinarySignalData>
     {
       'title': 'Seizure',
       'icon': Icons.flash_on,
-      'description': 'Sudden bursts of rapid, repetitive electrical activity.',
-      'Possible diseases': 'Epilepsy, brain injury, infections, tumors.',
-      'Treatment': 'Anti-seizure medications, surgery, lifestyle changes.',
+      'description':
+          'Sudden bursts of rapid, repetitive electrical activity.'.tr(),
+      'Possible diseases': 'Epilepsy, brain injury, infections, tumors.'.tr(),
+      'Treatment': 'Anti-seizure medications, surgery, lifestyle changes.'.tr(),
     },
     {
       'title': 'LPD',
       'icon': Icons.waves,
       'description':
-          'Repeating spikes from one side of the brain at regular intervals.',
-      'Possible diseases': 'Stroke, brain infections, tumors, epilepsy.',
+          'Repeating spikes from one side of the brain at regular intervals.'
+              .tr(),
+      'Possible diseases': 'Stroke, brain infections, tumors, epilepsy.'.tr(),
       'Treatment':
-          'Treat underlying cause (infection/stroke), anti-seizure meds if needed.',
+          'Treat underlying cause (infection/stroke), anti-seizure meds if needed.'
+              .tr(),
     },
     {
       'title': 'GPD',
       'icon': Icons.sync_alt,
       'description':
-          'Repeating spikes from both sides of the brain simultaneously.',
+          'Repeating spikes from both sides of the brain simultaneously.'.tr(),
       'Possible diseases':
-          'Brain damage, coma, severe metabolic issues, encephalopathy.',
-      'Treatment': 'Supportive care, treat root causes (toxins, infections).',
+          'Brain damage, coma, severe metabolic issues, encephalopathy.'.tr(),
+      'Treatment':
+          'Supportive care, treat root causes (toxins, infections).'.tr(),
     },
     {
       'title': 'LRDA',
       'icon': Icons.trending_flat,
-      'description': 'Slow, rhythmic waves from one side of the brain.',
-      'Possible diseases': 'Stroke, tumors, trauma, seizures.',
+      'description': 'Slow, rhythmic waves from one side of the brain.'.tr(),
+      'Possible diseases': 'Stroke, tumors, trauma, seizures.'.tr(),
       'Treatment':
-          'Focus on underlying brain problem; seizure meds may be used.',
+          'Focus on underlying brain problem; seizure meds may be used.'.tr(),
     },
     {
       'title': 'GRDA',
       'icon': Icons.blur_on,
-      'description': 'Slow rhythmic waves from both sides of the brain.',
+      'description': 'Slow rhythmic waves from both sides of the brain.'.tr(),
       'Possible diseases':
-          'Encephalopathy, coma, deep sleep state, brain dysfunction.',
+          'Encephalopathy, coma, deep sleep state, brain dysfunction.'.tr(),
       'Treatment':
-          'Treat underlying condition (infection/metabolic issue), supportive care.',
+          'Treat underlying condition (infection/metabolic issue), supportive care.'
+              .tr(),
     },
   ];
 
@@ -168,21 +175,21 @@ class _BinarySignalDataState extends State<BinarySignalData>
           child: Column(
             children: [
               _InfoCard(
-                title: 'Description',
+                title: 'Description'.tr(),
                 icon: Icons.info_outline,
                 content: brainSignalData[selectedIndex]['description'],
                 color: ColorsApp.primary,
               ),
               SizedBox(height: 12.h),
               _InfoCard(
-                title: 'Possible diseases',
+                title: 'Possible diseases'.tr(),
                 icon: Icons.local_hospital_outlined,
                 content: brainSignalData[selectedIndex]['Possible diseases'],
                 color: Colors.redAccent,
               ),
               SizedBox(height: 12.h),
               _InfoCard(
-                title: 'Treatment',
+                title: 'Treatment'.tr(),
                 icon: Icons.healing_outlined,
                 content: brainSignalData[selectedIndex]['Treatment'],
                 color: Colors.green,
@@ -201,6 +208,7 @@ class _InfoCard extends StatelessWidget {
   final IconData icon;
   final String content;
   final Color color;
+  @override
   final Key? key;
 
   const _InfoCard({

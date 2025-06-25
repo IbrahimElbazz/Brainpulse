@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -61,7 +63,7 @@ class ImageAndBackgroundBar extends StatelessWidget {
           top: 115.h,
           left: 29.w,
           child: Hero(
-            tag: 'edit_image',
+            tag: 'edit_image'.tr(),
             child: CircleAvatar(
               radius: 45.r,
               backgroundColor: Colors.white,

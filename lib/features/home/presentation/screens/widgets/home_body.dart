@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'dart:developer';
 
 import 'package:brain_pulse/core/Theming/colors.dart';
@@ -43,7 +45,7 @@ class _HomeBodyState extends State<HomeBody> {
         hawkFabMenuController: hawkFabMenuController,
         items: [
           HawkFabMenuItem(
-            label: 'By Hospital',
+            label: 'By Hospital'.tr(),
             ontap: () {
               Navigator.pushNamed(context, Routes.getImage);
             },
@@ -56,8 +58,8 @@ class _HomeBodyState extends State<HomeBody> {
             labelColor: ColorsApp.primary,
           ),
           HawkFabMenuItem(
-            heroTag: 'doctor',
-            label: 'By Doctor',
+            heroTag: 'doctor'.tr(),
+            label: 'By Doctor'.tr(),
             ontap: () {
               Navigator.pushNamed(context, Routes.dataByDoctorScreen);
             },
@@ -117,7 +119,7 @@ class _HomeBodyState extends State<HomeBody> {
                 //           height: 35.h,
                 //         ),
                 //         color: ColorsApp.primary.withOpacity(0.1),
-                //         text: "By Hospital",
+                //         text: 'By Hospital'.tr(),
                 //         textColor: ColorsApp.primary,
                 //         onTap: () {
                 //           Navigator.pushNamed(context, Routes.getImage);
@@ -137,7 +139,7 @@ class _HomeBodyState extends State<HomeBody> {
                 //           height: 35.h,
                 //         ),
                 //         color: ColorsApp.primary.withOpacity(0.1),
-                //         text: "By doctor",
+                //         text: 'By doctor'.tr(),
                 // textColor: ColorsApp.primary,
                 // onTap: () {
                 //   Navigator.push(context, MaterialPageRoute(

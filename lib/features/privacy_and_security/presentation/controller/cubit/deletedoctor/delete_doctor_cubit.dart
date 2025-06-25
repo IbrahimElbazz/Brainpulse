@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/features/privacy_and_security/data/repo/privacy_repo_imple.dart';
 import 'package:brain_pulse/features/privacy_and_security/presentation/controller/cubit/deletedoctor/delete_doctor_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +21,7 @@ class DeleteDoctorCubit extends Cubit<DeleteDoctorState> {
         if (success) {
           emit(LoadedDeleteDoctorState());
         } else {
-          emit(FailureDeleteDoctorState('Unknown error'));
+          emit(FailureDeleteDoctorState('Unknown error'.tr()));
         }
       },
     );

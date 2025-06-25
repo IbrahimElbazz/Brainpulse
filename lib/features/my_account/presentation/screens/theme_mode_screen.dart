@@ -1,11 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
+import 'package:brain_pulse/core/provider/theme-provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
-import '../../../../core/provider/theme-provider.dart';
-import '../../../../generated/app_localizations.dart';
 
 class ThemeModeScreen extends StatelessWidget {
   const ThemeModeScreen({super.key});
@@ -24,7 +24,7 @@ class ThemeModeScreen extends StatelessWidget {
                 const CustomCircleButtonPop(),
                 SizedBox(width: 70.w),
                 Text(
-                  AppLocalizations.of(context)!.theme_mode,
+                  'Theme Mode'.tr(),
                   style: Theme.of(context).textTheme.titleLarge,
                 )
               ],
@@ -34,33 +34,19 @@ class ThemeModeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Consumer<ThemeProvider>(
               builder: (context, themeProvider, child) {
-                return Column(
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ListTile(
-                      title: Text(AppLocalizations.of(context)!.dark_mode),
-                      trailing: Radio<bool>(
-                        value: true,
-                        groupValue: themeProvider.isDarkMode,
-                        onChanged: (value) {
-                          if (value == true) {
-                            themeProvider.setDarkTheme();
-                          }
-                        },
-                        activeColor: ColorsApp.primary,
-                      ),
+                    Text(
+                      'Theme Mode'.tr(),
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    ListTile(
-                      title: Text(AppLocalizations.of(context)!.light_mode),
-                      trailing: Radio<bool>(
-                        value: false,
-                        groupValue: themeProvider.isDarkMode,
-                        onChanged: (value) {
-                          if (value == false) {
-                            themeProvider.setLightTheme();
-                          }
-                        },
-                        activeColor: ColorsApp.primary,
-                      ),
+                    Switch(
+                      value: themeProvider.isDarkMode,
+                      onChanged: (value) {
+                        themeProvider.toggleTheme();
+                      },
+                      activeColor: ColorsApp.primary,
                     ),
                   ],
                 );

@@ -1,3 +1,6 @@
+import 'package:brain_pulse/features/my_account/presentation/screens/change_lang_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/helpers/extentions.dart';
 import 'package:brain_pulse/core/widgets/gap.dart';
@@ -8,8 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../../../generated/app_localizations.dart';
 
 class MyAccount extends StatefulWidget {
   const MyAccount({super.key});
@@ -60,21 +61,14 @@ class _MyAccountState extends State<MyAccount> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Directionality(
-                        textDirection: TextDirection.ltr,
-                        child: Text(
-                          'DR: ${doctorName ?? "loading..."}',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            color: (Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : const Color(0xFF1D2035)),
-                            fontSize: 24.sp,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
+                    Text(
+                      'DR: ${doctorName ?? "loading..."}'.tr(),
+                      style: TextStyle(
+                        color: (Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : const Color(0xFF1D2035)),
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                     const GapH(height: 18),
@@ -84,8 +78,8 @@ class _MyAccountState extends State<MyAccount> {
                     const GapH(height: 24),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/user-pen.svg',
-                      title: AppLocalizations.of(context)!.edit_profile,
-                      subTitle: AppLocalizations.of(context)!.edit_name_email,
+                      title: 'Edit Profile'.tr(),
+                      subTitle: 'Edit . Name . Email'.tr(),
                       onTap: () async {
                         await context.pushNamed('/EditProfileScreen');
                         await loadDoctorName();
@@ -93,8 +87,8 @@ class _MyAccountState extends State<MyAccount> {
                     ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/shield-check.svg',
-                      title: AppLocalizations.of(context)!.privacy_and_security,
-                      subTitle: AppLocalizations.of(context)!.change_password_data,
+                      title: 'Privacy and Security'.tr(),
+                      subTitle: 'Change your password . Personal data '.tr(),
                       onTap: () {
                         context.pushNamed('/PrivacyAndSecurity');
                       },
@@ -103,28 +97,32 @@ class _MyAccountState extends State<MyAccount> {
                       icon: 'assets/svgs/dark-theme-svgrepo-com.svg',
                       //colorBackgroundIcon: ColorsApp.primary,
                       colorsvg: ColorsApp.primary,
-                      title: AppLocalizations.of(context)!.theme_mode,
-                      subTitle: AppLocalizations.of(context)!.dark_light_mode,
+                      title: 'Theme Mode'.tr(),
+                      subTitle: 'Dark , Light Mode '.tr(),
                       onTap: () {
                         context.pushNamed('/themedata');
                       },
                     ),
                     CardItemInMyAccountImage(
                       icon: 'assets/images/language.png',
-                        title: AppLocalizations.of(context)!.language,
-                        subTitle: AppLocalizations.of(context)!.change_app_language,
-                        onTap: () {
-                          context.pushNamed('/languageScreen');
-                        }
+                      title: 'Language'.tr(),
+                      subTitle: 'Change app language '.tr(),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const ChangeLangScreen();
+                          },
+                        ));
+                      },
                     ),
                     CardItemInMyAccount(
                       icon: 'assets/svgs/message-circle-question.svg',
-                      title: AppLocalizations.of(context)!.help_center,
-                      subTitle: AppLocalizations.of(context)!.technical_support,
+                      title: 'Help Center'.tr(),
+                      subTitle: 'technical support'.tr(),
                       onTap: () async {
-                        final phone = '201024112206';
+                        final phone = '201024112206'.tr();
                         final message =
-                            Uri.encodeComponent("Hello, I need help!!!!!");
+                            Uri.encodeComponent('Hello, I need help!!!!!'.tr());
                         final url =
                             Uri.parse("https://wa.me/$phone?text=$message");
 
@@ -133,8 +131,9 @@ class _MyAccountState extends State<MyAccount> {
                               mode: LaunchMode.externalApplication);
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                             SnackBar(
-                              content: Text(AppLocalizations.of(context)!.error_try_again),
+                            SnackBar(
+                              content:
+                                  Text('Error, Please try again later'.tr()),
                             ),
                           );
                         }
