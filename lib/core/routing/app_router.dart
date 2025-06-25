@@ -5,7 +5,7 @@ import 'package:brain_pulse/features/auth/login/presentation/views/login.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/display_data.dart';
 import 'package:brain_pulse/features/home/presentation/screens/eeg_data_screen.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/data_by_doctor_screen.dart';
-import 'package:brain_pulse/features/home/presentation/screens/get_image_screen.dart';
+import 'package:brain_pulse/features/home/presentation/screens/prediction_file_screen.dart';
 import 'package:brain_pulse/features/home/presentation/screens/home_screen.dart';
 import 'package:brain_pulse/features/my_account/presentation/screens/edit_profile_screen.dart';
 import 'package:brain_pulse/features/my_account/presentation/screens/theme_mode_screen.dart';
@@ -88,9 +88,7 @@ class AppRouter {
           page: const ThemeModeScreen(),
         );
       case Routes.languageScreen:
-        return MaterialPageRoute(builder: (_) => const LanguageScreen()
-        );
-
+        return MaterialPageRoute(builder: (_) => const LanguageScreen());
 
       default:
         return MaterialPageRoute(

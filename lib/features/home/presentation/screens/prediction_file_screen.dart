@@ -1,5 +1,4 @@
-
-import 'package:brain_pulse/features/home/presentation/screens/widgets/get_image_body.dart';
+import 'package:brain_pulse/features/home/presentation/screens/widgets/prediction_file_body.dart';
 import 'package:flutter/material.dart';
 
 class GetImageScreen extends StatelessWidget {
@@ -7,6 +6,6 @@ class GetImageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetImageBody();
+    return const FilePredictionBody();
   }
 }
