@@ -60,7 +60,7 @@ class AppRouter {
       case Routes.displayData:
         return AppHelperFunctions().fadeTransition(
           page: DisplayData(
-            prediction: arg as List<dynamic>,
+            prediction: arg as Map<String, dynamic>,
           ),
         );
       case Routes.dataByDoctorScreen:

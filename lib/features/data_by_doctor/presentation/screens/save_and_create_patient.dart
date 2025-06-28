@@ -1,3 +1,4 @@
+import 'package:brain_pulse/features/app_navigation/app_navigation.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import 'package:brain_pulse/core/Theming/colors.dart';
@@ -14,7 +15,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SaveAndCreatePatient extends StatelessWidget {
   const SaveAndCreatePatient({super.key, required this.prediction});
-  final List<dynamic> prediction;
+  final Map<String, dynamic> prediction;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,11 @@ class SaveAndCreatePatient extends StatelessWidget {
     TextEditingController ageController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
     double parsePrediction(dynamic value) {
-      final parsed = double.tryParse(value.toString());
-      return parsed ?? 0.0;
+      if (value == null) return 0.0;
+
+      String strValue = value.toString().replaceAll('%', '').trim();
+      final parsed = double.tryParse(strValue);
+      return (parsed ?? 0.0) / 100;
     }
 
     return Scaffold(
@@ -83,8 +87,12 @@ class SaveAndCreatePatient extends StatelessWidget {
             successAddPatient: (data) {
               // context.pop();
               // Navigator.pop(context);
-              Navigator.pop(context);
-              Navigator.pop(context, true);
+              // Navigator.pop(context);
+              // Navigator.pop(context, true);
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const AppNavigation()),
+                (route) => false,
+              );
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Center(
@@ -235,8 +243,14 @@ class SaveAndCreatePatient extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             if (formKey.currentState!.validate()) {
-                              if (prediction.length == 6) {
-                                // ✅ الحالة العادية - من Doctor أو ملف 6 قيم
+                              if (prediction.keys.toSet().containsAll([
+                                'GPD',
+                                'GRDA',
+                                'LPD',
+                                'LRDA',
+                                'Seizure',
+                                'Other',
+                              ])) {
                                 context
                                     .read<SendDataByDoctorCubit>()
                                     .addPatient(
@@ -244,18 +258,21 @@ class SaveAndCreatePatient extends StatelessWidget {
                                         age: int.parse(ageController.text),
                                         name: nameController.text,
                                         phoneNumber: phoneController.text,
-                                        gpd: parsePrediction(prediction[0]),
-                                        grda: parsePrediction(prediction[1]),
-                                        ipd: parsePrediction(prediction[2]),
-                                        irda: parsePrediction(prediction[3]),
-                                        seizure: parsePrediction(prediction[4]),
-                                        other: parsePrediction(prediction[5]),
+                                        gpd: parsePrediction(prediction['GPD']),
+                                        grda:
+                                            parsePrediction(prediction['GRDA']),
+                                        ipd: parsePrediction(prediction['LPD']),
+                                        irda:
+                                            parsePrediction(prediction['LRDA']),
+                                        seizure: parsePrediction(
+                                            prediction['Seizure']),
+                                        other: parsePrediction(
+                                            prediction['Other']),
                                         Notes: '',
                                       ),
                                     );
                               } else if (prediction.length == 1 &&
-                                  prediction[0] == "Other") {
-                                // ✅ الحالة الخاصة - لما السيرفر يرجّع "Other" فقط
+                                  prediction.containsKey("Other")) {
                                 context
                                     .read<SendDataByDoctorCubit>()
                                     .addPatient(
@@ -273,31 +290,32 @@ class SaveAndCreatePatient extends StatelessWidget {
                                       ),
                                     );
                               } else {
-                                // ❌ حالة خاطئة
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
-                                      content:
-                                          Text("❌ بيانات التحليل غير مكتملة")),
+                                    content:
+                                        Text("❌ بيانات التحليل غير مكتملة"),
+                                  ),
                                 );
                               }
                             }
-                            // if (formKey.currentState!.validate()) {
-                            //   context.read<SendDataByDoctorCubit>().addPatient(
-                            //         AddPatientRequestModel(
-                            //           age: int.parse(ageController.text),
-                            //           name: nameController.text,
-                            //           phoneNumber: phoneController.text,
-                            //           gpd: prediction[0].toDouble(),
-
-                            //           grda: prediction[1].toDouble(),
-                            //           ipd: prediction[2].toDouble(),
-                            //           irda: prediction[3].toDouble(),
-                            //           seizure: prediction[4].toDouble(),
-                            //           other: prediction[5].toDouble(),
-                            //         ),
-                            //       );
-                            // }
                           },
+
+                          // if (formKey.currentState!.validate()) {
+                          //   context.read<SendDataByDoctorCubit>().addPatient(
+                          //         AddPatientRequestModel(
+                          //           age: int.parse(ageController.text),
+                          //           name: nameController.text,
+                          //           phoneNumber: phoneController.text,
+                          //           gpd: prediction[0].toDouble(),
+
+                          //           grda: prediction[1].toDouble(),
+                          //           ipd: prediction[2].toDouble(),
+                          //           irda: prediction[3].toDouble(),
+                          //           seizure: prediction[4].toDouble(),
+                          //           other: prediction[5].toDouble(),
+                          //         ),
+                          //       );
+                          // }
                           borderRadius: BorderRadius.circular(16.r),
                           child: Center(
                             child: Row(

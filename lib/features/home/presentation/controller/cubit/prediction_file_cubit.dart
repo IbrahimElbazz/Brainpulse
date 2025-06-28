@@ -19,9 +19,10 @@ class PredictionFileCubit extends Cubit<PredictionFileState> {
         emit(ErrorPredictionFileState(errormsg: failure.errorMessage));
       },
       (predictionModel) {
-        print('✅ Prediction Loaded: ${predictionModel.prediction}');
+        print('✅ Prediction Loaded: ${predictionModel.parsedPrediction}');
 
-        emit(LoadedPredictionFileState(prediction: predictionModel.prediction));
+        emit(LoadedPredictionFileState(
+            prediction: predictionModel.parsedPrediction));
       },
     );
   }

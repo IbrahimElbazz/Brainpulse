@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -6,6 +5,7 @@ import 'package:archive/archive_io.dart';
 import 'package:brain_pulse/core/Theming/colors.dart';
 import 'package:brain_pulse/core/Theming/text_style.dart';
 import 'package:brain_pulse/core/Widgets/custom_circle_button_pop.dart';
+import 'package:brain_pulse/features/data_by_doctor/presentation/screens/display_data.dart';
 import 'package:brain_pulse/features/data_by_doctor/presentation/screens/save_and_create_patient.dart';
 import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_file_cubit.dart';
 import 'package:brain_pulse/features/home/presentation/controller/cubit/prediction_file_state.dart';
@@ -162,26 +162,26 @@ class _PredictionResultScreenState extends State<FilePredictionBody> {
                                 ),
                               ),
                               SizedBox(height: 10.h),
-                              Text(
-                                "Analysis result: ${state.prediction}",
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black87,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              SizedBox(
-                                height: 20.h,
-                              ),
+                              // Text(
+                              //   "Analysis result: ${state.prediction}",
+                              //   style: const TextStyle(
+                              //     fontSize: 20,
+                              //     fontWeight: FontWeight.w500,
+                              //     color: Colors.black87,
+                              //   ),
+                              //   textAlign: TextAlign.center,
+                              // ),
+                              // SizedBox(
+                              //   height: 20.h,
+                              // ),
                               SizedBox(
                                 width: 120,
                                 child: ElevatedButton(
                                   onPressed: () async {
                                     final result = await Navigator.push(context,
                                         MaterialPageRoute(builder: (_) {
-                                      return SaveAndCreatePatient(
-                                          prediction: [state.prediction]);
+                                      return DisplayData(
+                                          prediction: state.prediction);
                                     }));
                                     if (result == true && context.mounted) {
                                       context
@@ -199,7 +199,7 @@ class _PredictionResultScreenState extends State<FilePredictionBody> {
                                     ),
                                   ),
                                   child: Text(
-                                    "Save Result",
+                                    "Show Result",
                                     style: TextStyleApp
                                         .font18weight600colorBlack
                                         .copyWith(color: Colors.white),

@@ -5,7 +5,7 @@ class InitialPredictionFileState extends PredictionFileState {}
 class LoadingPredictionFileState extends PredictionFileState {}
 
 class LoadedPredictionFileState extends PredictionFileState {
-  final String prediction;
+  final Map<String, dynamic> prediction;
 
   LoadedPredictionFileState({required this.prediction});
 }

@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DisplayData extends StatelessWidget {
   const DisplayData({super.key, required this.prediction});
-  final List prediction;
+  final Map<String, dynamic> prediction;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +51,6 @@ class DisplayData extends StatelessWidget {
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
-
                     ],
                   ),
                   child: Column(
@@ -65,18 +64,25 @@ class DisplayData extends StatelessWidget {
                             ),
                       ),
                       SizedBox(height: 20.h),
-                      _buildResultRow(
-                          context, 'GPD'.tr(), prediction[0].toString()),
-                      _buildResultRow(
-                          context, 'GRDA'.tr(), prediction[1].toString()),
-                      _buildResultRow(
-                          context, 'LPD'.tr(), prediction[2].toString()),
-                      _buildResultRow(
-                          context, 'LRDA'.tr(), prediction[3].toString()),
-                      _buildResultRow(
-                          context, 'Seizure'.tr(), prediction[4].toString()),
-                      _buildResultRow(
-                          context, 'Other'.tr(), prediction[5].toString()),
+                      // _buildResultRow(
+                      //     context, 'GPD'.tr(), prediction[0].toString()),
+                      // _buildResultRow(
+                      //     context, 'GRDA'.tr(), prediction[1].toString()),
+                      // _buildResultRow(
+                      //     context, 'LPD'.tr(), prediction[2].toString()),
+                      // _buildResultRow(
+                      //     context, 'LRDA'.tr(), prediction[3].toString()),
+                      // _buildResultRow(
+                      //     context, 'Seizure'.tr(), prediction[4].toString()),
+                      // _buildResultRow(
+                      //     context, 'Other'.tr(), prediction[5].toString()),
+                      ...prediction.entries.map((entry) {
+                        return _buildResultRow(
+                          context,
+                          entry.key.tr(),
+                          entry.value.toString(),
+                        );
+                      }).toList(),
                     ],
                   ),
                 ),
@@ -176,8 +182,13 @@ class DisplayData extends StatelessWidget {
 
   Widget _buildResultRow(BuildContext context, String label, String value) {
     // Convert the value to a percentage
-    double percentageValue = double.parse(value) * 100;
-    String formattedValue = '${percentageValue.toStringAsFixed(2)}%'.tr();
+    // double percentageValue = double.parse(value) * 100;
+    // String formattedValue = '${percentageValue.toStringAsFixed(2)}%'.tr();
+    String cleanedValue = value.replaceAll('%', '').trim();
+
+    double? parsedValue = double.tryParse(cleanedValue);
+    String formattedValue =
+        parsedValue != null ? '${parsedValue.toStringAsFixed(2)}%' : value;
 
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.h),
